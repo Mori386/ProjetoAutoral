@@ -33,10 +33,8 @@ public class ObjectBase : MonoBehaviour
             if (List.transform.GetChild(i).GetComponent<GridPosition>().gridTilemapPosition == GetComponent<GridPosition>().gridTilemapPosition)
             {
                 objectOtherTimeline = List.transform.GetChild(i).gameObject;
-                Debug.Log(objectOtherTimeline);
                 break;
             }
-            else Debug.Log("Falhou");
         }
     }
 }
