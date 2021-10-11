@@ -49,6 +49,7 @@ public class MOStateMovableTriggered : MovableObjectBaseState
     {
         PMStateManager playerMov = Manager.player.GetComponent<PMStateManager>();
         Vector3 startPos = Manager.transform.position;
+        deltaPosition = new Vector3(deltaPosition.x * Manager.gridPosition.tilemap.cellSize.x, deltaPosition.y * Manager.gridPosition.tilemap.cellSize.y,0);
         isMoving = true;
         if(MovePlayerTogether) playerMov.SmoothSwitchState(playerMov.controlOffState);
         while (Manager.transform.position != startPos + deltaPosition)
