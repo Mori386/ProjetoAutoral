@@ -4,21 +4,30 @@ using UnityEngine;
 
 public class PMStateManager : MonoBehaviour
 {
-    private enum timePeriodList
+    public enum timePeriodList
     {
         Present, Future
     }
-    [SerializeField] private timePeriodList timePeriod;
+    public timePeriodList timePeriod;
     [System.NonSerialized] public Rigidbody2D rb; //Rigidbody2D do personagem 
     [System.NonSerialized] public Vector2 rawInputMove; //Variaveis baseadas no input de teclas do personagem(de 0 a 1,baseado no tempo pressionado, quanto mais tempo, mais proximo de 1 e vice versa)
     public float moveSpeed; // velocidade de movimento do personagem 
     PMBaseState currentState;
     public PMDefaultState defaultState = new PMDefaultState();
     public PMControlOffState controlOffState = new PMControlOffState();
-
+    [System.NonSerialized] public PlayerInventoryManager playerInventoryManager;
+    [System.NonSerialized] public GameObject tilemapFuturo, tilemapPresente;
+    public Vector2Int facingDirection;
+    private void Awake()
+    {
+        facingDirection = new Vector2Int(0, 1);
+    }
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        tilemapFuturo = GameObject.Find("TilemapFuturo");
+        tilemapPresente = GameObject.Find("TilemapPresente");
+        playerInventoryManager = GetComponent<PlayerInventoryManager>();
         currentState = defaultState;
         currentState.EnterState(this);
     }
@@ -45,12 +54,12 @@ public class PMStateManager : MonoBehaviour
         //Transição visual
         if (timePeriod == timePeriodList.Present)
         {
-            transform.position += GameObject.Find("TilemapFuturo").transform.position - GameObject.Find("TilemapPresente").transform.position;
+            transform.position += tilemapFuturo.transform.position - tilemapPresente.transform.position;
             timePeriod = timePeriodList.Future;
         }
         else
         {
-            transform.position += GameObject.Find("TilemapPresente").transform.position - GameObject.Find("TilemapFuturo").transform.position;
+            transform.position += tilemapPresente.transform.position - tilemapFuturo.transform.position;
             timePeriod = timePeriodList.Present;
         }
     }

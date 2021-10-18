@@ -9,7 +9,7 @@ public class GridPosition : MonoBehaviour
     public Vector3 tilemapCenter;
     [System.NonSerialized] public bool vector2PositionSetUpType;
     [System.NonSerialized] public Vector2Int gridTilemapPosition;
-    void Start()
+    void Awake()
     {
         if(GetComponent<ObjectBase>().timePeriod == ObjectBase.timePeriodList.Present)
         {

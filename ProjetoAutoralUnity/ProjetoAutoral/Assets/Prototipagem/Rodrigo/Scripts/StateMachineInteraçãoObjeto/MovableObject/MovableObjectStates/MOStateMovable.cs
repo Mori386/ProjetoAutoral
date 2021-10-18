@@ -10,10 +10,7 @@ public class MOStateMovable : MovableObjectBaseState
     }
     public override void EnterState(MovableObjectStateManager Manager)
     {
-        foreach(BoxCollider2D box in Manager.GetComponents<BoxCollider2D>())
-        {
-            if(box.isTrigger==true) box.enabled = true;
-        }
+
     }
     public override void UpdateState(MovableObjectStateManager Manager)
     {

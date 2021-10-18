@@ -52,7 +52,10 @@ public class MOStateMovableTriggered : MovableObjectBaseState
         deltaPosition = new Vector3(deltaPosition.x * Manager.gridPosition.tilemap.cellSize.x, deltaPosition.y * Manager.gridPosition.tilemap.cellSize.y,0);
         isMoving = true;
         if(MovePlayerTogether) playerMov.SmoothSwitchState(playerMov.controlOffState);
-        while (Manager.transform.position != startPos + deltaPosition)
+        Vector3 finalPositon = startPos + deltaPosition; 
+        while (
+            new Vector3(Mathf.Round(Manager.transform.position.x*100)/100, Mathf.Round(Manager.transform.position.y * 100) / 100) != new Vector3(Mathf.Round(finalPositon.x * 100) / 100, Mathf.Round(finalPositon.y * 100) / 100)
+            )
         {
             if (MovePlayerTogether) playerMov.transform.position += deltaPosition / 20;
             Manager.transform.position += deltaPosition / 20;
@@ -61,7 +64,10 @@ public class MOStateMovableTriggered : MovableObjectBaseState
         Manager.GetComponent<GridPosition>().gridTilemapPosition += deltaGridPosition;
         if (Manager.objectBase.timePeriod == ObjectBase.timePeriodList.Present)
         {
-            Manager.moveOnFuture();
+            if (Manager.objectBase.objectOtherTimeline != null)
+            {
+                Manager.moveOnFuture();
+            }
         }
         CheckWalls();
         isMoving = false;

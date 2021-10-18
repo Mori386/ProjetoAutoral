@@ -5,7 +5,7 @@ using UnityEngine;
 public class MovableObjectStateManager : MonoBehaviour
 {
     [System.NonSerialized] public GameObject player; 
-    [SerializeField] private bool isMovable;
+    public bool isMovable;
     [System.NonSerialized] public ObjectBase objectBase;
     [System.NonSerialized] public GridPosition gridPosition;
     MovableObjectBaseState currentState;
@@ -64,16 +64,8 @@ public class MovableObjectStateManager : MonoBehaviour
         GridPosition gridFromObjectFuture = objectFuture.GetComponent<GridPosition>();
         objectFuture.transform.position = gridFromObjectFuture.tilemapCenter + new Vector3(gridFromObjectFuture.gridTilemapPosition.x + 0.5f, gridFromObjectFuture.gridTilemapPosition.y + 0.5f, 0);
     }
-    public void UpdateCurrentState()
+    public void ManualEnterStateCurrentState()
     {
-        if (isMovable)
-        {
-            currentState = movableState;
-        }
-        else
-        {
-            currentState = notMovableState;
-        }
         currentState.EnterState(this);
     }
 }
