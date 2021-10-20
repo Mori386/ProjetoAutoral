@@ -9,7 +9,7 @@ public class ObjectBase : MonoBehaviour
         Present, Future
     }
     [SerializeField] public timePeriodList timePeriod;
-    [SerializeField] public GameObject objectOtherTimeline;
+    [System.NonSerialized] public GameObject objectOtherTimeline;
     private void Start()
     {
         StartCoroutine(WaitForStart());

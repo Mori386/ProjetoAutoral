@@ -21,13 +21,13 @@ public class PMStateManager : MonoBehaviour
     private void Awake()
     {
         facingDirection = new Vector2Int(0, 1);
+        tilemapFuturo = GameObject.Find("TilemapFuturo");
+        tilemapPresente = GameObject.Find("TilemapPresente");
+        rb = GetComponent<Rigidbody2D>();
+        playerInventoryManager = GetComponent<PlayerInventoryManager>();
     }
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        tilemapFuturo = GameObject.Find("TilemapFuturo");
-        tilemapPresente = GameObject.Find("TilemapPresente");
-        playerInventoryManager = GetComponent<PlayerInventoryManager>();
         currentState = defaultState;
         currentState.EnterState(this);
     }

@@ -11,15 +11,18 @@ public class GridPosition : MonoBehaviour
     [System.NonSerialized] public Vector2Int gridTilemapPosition;
     void Awake()
     {
-        if(GetComponent<ObjectBase>().timePeriod == ObjectBase.timePeriodList.Present)
+        if(GetComponent<ObjectBase>() != null)
         {
-            tilemap = GameObject.Find("TilemapPresente").GetComponent<Tilemap>();
+            if (GetComponent<ObjectBase>().timePeriod == ObjectBase.timePeriodList.Present)
+            {
+                tilemap = GameObject.Find("TilemapPresente").GetComponent<Tilemap>();
+            }
+            else
+            {
+                tilemap = GameObject.Find("TilemapFuturo").GetComponent<Tilemap>();
+            }
+            tilemapCenter = tilemap.origin + tilemap.transform.position;
+            gridTilemapPosition = new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y)) - new Vector2Int(Mathf.RoundToInt(tilemapCenter.x), Mathf.RoundToInt(tilemapCenter.y));
         }
-        else
-        {
-            tilemap = GameObject.Find("TilemapFuturo").GetComponent<Tilemap>();
-        }
-        tilemapCenter = tilemap.origin + tilemap.transform.position;
-        gridTilemapPosition = new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y)) - new Vector2Int(Mathf.RoundToInt(tilemapCenter.x), Mathf.RoundToInt(tilemapCenter.y));
     }
 }

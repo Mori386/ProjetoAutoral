@@ -59,27 +59,38 @@ public class Inventory
         }
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
     }
+    public void OnItemListChange()
+    {
+        OnItemListChanged?.Invoke(this, EventArgs.Empty);
+    }
     public void UseItem(int itemNumber)
     {
         Item item = playerInventoryManager.inventory.GetItemList()[itemNumber];
         switch (item.itemType)
         {
             case Item.ItemType.Flashlight:
-                if(!item.active)
+                if (item.isAged)
                 {
-                    //liga
-                    Debug.Log("Liga");
-                    item.active = true;
+
                 }
                 else
                 {
-                    //desliga
-                    Debug.Log("Desliga");
-                    item.active = false;
+                    if (!item.active)
+                    {
+                        //liga
+                        Debug.Log("Liga");
+                        item.active = true;
+                    }
+                    else
+                    {
+                        //desliga
+                        Debug.Log("Desliga");
+                        item.active = false;
+                    }
                 }
                 break;
         }
-        if(item.isDestroyedOnUse())
+        if (item.isDestroyedOnUse())
         {
             itemList.Remove(item);
         }

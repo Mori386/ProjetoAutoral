@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -34,12 +35,27 @@ public class PlayerInventoryManager : MonoBehaviour
     }
     private IEnumerator WaitForInput(ItemWorld itemW)
     {
-        Debug.Log("a");
-        while(!Input.GetKeyDown(KeyCode.E))
+        while (!Input.GetKeyDown(KeyCode.E))
         {
             yield return null;
         }
         inventory.AddItem(itemW.GetItem());
+        if (itemW.GetItem().itemInFuture != null)
+        {
+            if (itemW.GetItem().itemInFuture.itemWorld != null) itemW.GetItem().itemInFuture.itemWorld.DestroySelf();
+            else
+            {
+                foreach (Item item in inventory.GetItemList())
+                {
+                    if (item == itemW.GetItem().itemInFuture)
+                    {
+                        inventory.GetItemList().Remove(item);
+                        break;
+                    }
+                }
+                inventory.OnItemListChange();
+            }
+        }
         itemW.DestroySelf();
     }
 }

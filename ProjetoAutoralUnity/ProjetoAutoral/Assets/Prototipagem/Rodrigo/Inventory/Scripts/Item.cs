@@ -6,16 +6,25 @@ using UnityEngine;
 [Serializable]
 public class Item
 {
+    public enum ItemTimeline
+    {
+        Present, Future
+    }
     public enum ItemType
     {
-        Flashlight,Placeholder
+        Flashlight, Placeholder
     }
     public ItemType itemType;
     public int amount;
     public bool active;
+    public bool isAged;
+    [System.NonSerialized] public ItemTimeline itemTimeline;
+
+    [System.NonSerialized] public Item itemInFuture;
+    [System.NonSerialized] public ItemWorld itemWorld;
     public bool isDestroyedOnUse()
     {
-        switch(itemType)
+        switch (itemType)
         {
             default:
             case ItemType.Flashlight:
@@ -24,7 +33,7 @@ public class Item
     }
     public bool IsStackable()
     {
-        switch(itemType)
+        switch (itemType)
         {
             default:
             case ItemType.Flashlight:
@@ -38,7 +47,15 @@ public class Item
         switch (itemType)
         {
             default:
-            case ItemType.Flashlight:return ItemAssets.Instance.flashlightSprite;
+            case ItemType.Flashlight:
+                if (isAged)
+                {
+                    return ItemAssets.Instance.flashlightFutureSprite;
+                }
+                else
+                {
+                    return ItemAssets.Instance.flashlightPresentSprite;
+                }
             case ItemType.Placeholder: return ItemAssets.Instance.placeholderSprite;
         }
     }

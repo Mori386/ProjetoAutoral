@@ -12,7 +12,7 @@ public class ItemWorld : MonoBehaviour
         itemWorld.SetItem(item);
         return itemWorld;
     }
-    public static ItemWorld DropItem(Item item,PMStateManager player)
+    public static ItemWorld DropItem(Item item, PMStateManager player)
     {
         Tilemap tilemap;
         if (player.timePeriod == PMStateManager.timePeriodList.Present)
@@ -20,9 +20,24 @@ public class ItemWorld : MonoBehaviour
             tilemap = player.tilemapPresente.GetComponent<Tilemap>();
         }
         else tilemap = player.tilemapFuturo.GetComponent<Tilemap>();
-        Vector3 dropGridPosition = tilemap.WorldToCell(player.transform.position) + new Vector3Int(player.facingDirection.x, player.facingDirection.y,0);
+        Vector3 dropGridPosition = tilemap.WorldToCell(player.transform.position) + new Vector3Int(player.facingDirection.x, player.facingDirection.y, 0);
         dropGridPosition += new Vector3(0.5f, 0.5f);
-        return SpawnItemWorld(dropGridPosition, item);
+        if (player.timePeriod == PMStateManager.timePeriodList.Future) dropGridPosition += player.tilemapFuturo.transform.position - player.tilemapPresente.transform.position;
+        if (!item.isAged)
+        {
+            ItemWorld itemWorld = SpawnItemWorld(dropGridPosition, item);
+            itemWorld.GetItem().itemInFuture = ItemWorld.SpawnItemInFuture(item, dropGridPosition).GetItem();
+            return itemWorld;
+        }
+        else
+        {
+            return SpawnItemWorld(dropGridPosition, item);
+        }
+    }
+    public static ItemWorld SpawnItemInFuture(Item itemPresent, Vector3 itemPresentGridPosition)
+    {
+        PMStateManager player = GameObject.FindGameObjectWithTag("Player").GetComponent<PMStateManager>();
+        return SpawnItemWorld(itemPresentGridPosition + player.tilemapFuturo.transform.position - player.tilemapPresente.transform.position, new Item { itemType = itemPresent.itemType, amount = itemPresent.amount, itemTimeline = Item.ItemTimeline.Future,isAged=true});
     }
     private Item item;
     private SpriteRenderer spriteRenderer;
@@ -32,9 +47,10 @@ public class ItemWorld : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         text = transform.Find("AmountText").GetComponent<TextMeshPro>();
     }
-    public void SetItem(Item item )
+    public void SetItem(Item item)
     {
         this.item = item;
+        item.itemWorld = this;
         spriteRenderer.sprite = item.GetSprite();
         if (item.amount > 1) text.SetText(item.amount.ToString());
         else text.SetText("");

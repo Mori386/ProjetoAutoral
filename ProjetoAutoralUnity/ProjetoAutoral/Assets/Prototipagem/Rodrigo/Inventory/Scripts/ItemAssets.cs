@@ -10,6 +10,6 @@ public class ItemAssets : MonoBehaviour
         Instance = this;
     }
     public Transform pfItemWorld;
-    public Sprite flashlightSprite;
+    public Sprite flashlightPresentSprite, flashlightFutureSprite;
     public Sprite placeholderSprite;
 }

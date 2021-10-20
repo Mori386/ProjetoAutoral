@@ -43,7 +43,7 @@ public class PMDefaultState : PMBaseState
             {
                 if (Manager.playerInventoryManager.activeItem == Manager.playerInventoryManager.inventory.GetItemList().Count + 1)
                 {
-                    Manager.playerInventoryManager.activeItem--; Debug.Log(Manager.playerInventoryManager.inventory.GetItemList().Count);
+                    Manager.playerInventoryManager.activeItem--;
                 }
                 Manager.playerInventoryManager.uiInventory.itemsUi[Manager.playerInventoryManager.activeItem - 1].Find("Border").GetComponent<Outline>().enabled = true;
             }
