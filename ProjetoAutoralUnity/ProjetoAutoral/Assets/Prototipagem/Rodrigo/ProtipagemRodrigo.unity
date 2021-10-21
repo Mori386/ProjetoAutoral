@@ -494,7 +494,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 154749614}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.13, y: -2.07, z: -10}
+  m_LocalPosition: {x: 9.95, y: -1.08, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9663547}
@@ -948,7 +948,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.13, y: -2.07, z: -10}
+  m_LocalPosition: {x: 9.95, y: -1.08, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5284,12 +5284,8 @@ MonoBehaviour:
     amount: 1
     active: 0
     isAged: 0
-  - itemType: 0
-    amount: 1
-    active: 0
-    isAged: 1
   needToInteract: 1
-  destroyItemOnSuccessiveInteraction: 1
+  destroyItemOnSuccessiveInteraction: 0
   textBoxOnSuccessiveInteraction: "Francisco \u2014 Hoje \xE0s 16:16\r\nhttps://pucsp-my.sharepoint.com/:w:/g/personal/ra00297308_pucsp_edu_br/EVCQa8JqtedIrady_QYXLVYB6dAMpxmncBFEiafshd_HtA?e=jvgFHd\r\ngnt,
     enquanto rola a parte de prog e de arte, a gnt j\xE1 pode ir adiantando o game/level
     design dos 3 puzzles da build de semana que v\xEAm. Segue acima um doc onde escrevemos
@@ -5303,6 +5299,7 @@ MonoBehaviour:
 
 '
   textBox: {fileID: 0}
+  Ui: {fileID: 0}
   onSuccessiveInteractionConsequence: A
 --- !u!114 &1578525188
 MonoBehaviour:

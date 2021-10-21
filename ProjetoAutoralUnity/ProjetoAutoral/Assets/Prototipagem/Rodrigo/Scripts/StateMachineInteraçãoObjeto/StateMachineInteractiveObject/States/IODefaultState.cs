@@ -33,10 +33,7 @@ public class IODefaultState : IOBaseState
         coroutineIsRunning = true;
         bool successive=false;
         Manager.textBox.pageToDisplay = 0;
-        while (!Input.GetKeyDown(KeyCode.E))
-        {
-            yield return null;
-        }
+        while (!Input.GetKeyDown(KeyCode.E)) yield return null;
         PMStateManager player = collision.GetComponent<PMStateManager>();
         player.SmoothSwitchState(player.controlOffState);
         if (Manager.needItemToInteract)
@@ -115,6 +112,7 @@ public class IODefaultState : IOBaseState
             successive = true;
             Manager.textBox.text = Manager.textBoxOnSuccessiveInteraction;
         }
+        Manager.ui.SetActive(false);
         TextBoxDefineEnabled(Manager, true);
         Time.timeScale = 0;
         while (Manager.textBox.textInfo.pageCount == 0)
@@ -123,14 +121,12 @@ public class IODefaultState : IOBaseState
         }
         while (Manager.textBox.textInfo.pageCount - Manager.textBox.pageToDisplay >= 0)
         {
-            while (!Input.GetKeyDown(KeyCode.E))
-            {
-                yield return null;
-            }
+            while (!Input.GetKeyDown(KeyCode.E)) yield return null;
             Manager.textBox.pageToDisplay++;
             yield return null;
         }
         if(successive) ResultsDataBase.Interaction(Manager.onSuccessiveInteractionConsequence);
+        Manager.ui.SetActive(true);
         TextBoxDefineEnabled(Manager, false);
         player.SmoothSwitchState(player.defaultState);
         Time.timeScale = 1;
