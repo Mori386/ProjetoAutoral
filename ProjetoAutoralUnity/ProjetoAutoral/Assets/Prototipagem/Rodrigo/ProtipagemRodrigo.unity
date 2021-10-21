@@ -1381,7 +1381,7 @@ MonoBehaviour:
   m_IsTextObjectScaleStatic: 0
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
+  m_pageToDisplay: 0
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -5278,7 +5278,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 573f6dc5f24f47c4f88bcb19f97370e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  needItemToInteract: 1
+  canSuccessiveInteract: 1
+  textOnDisabledSuccessiveInteract: abcdefgh
+  singleTimeUse: 1
+  needItemToInteract: 0
   itemsNeeded:
   - itemType: 0
     amount: 1
@@ -5299,8 +5302,8 @@ MonoBehaviour:
 
 '
   textBox: {fileID: 0}
-  Ui: {fileID: 0}
-  onSuccessiveInteractionConsequence: A
+  ui: {fileID: 0}
+  onSuccessiveInteractionConsequence: Test
 --- !u!114 &1578525188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5313,7 +5316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c0f5688193ec2248a70643849cfa8e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timePeriod: 0
+  timePeriod: 1
 --- !u!1 &1722341018
 GameObject:
   m_ObjectHideFlags: 0
@@ -7747,7 +7750,7 @@ PrefabInstance:
     - target: {fileID: 3023035881715586949, guid: a241e558b4b00cc43bfb452f70f990b5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.5
+      value: 18.5
       objectReference: {fileID: 0}
     - target: {fileID: 3023035881715586949, guid: a241e558b4b00cc43bfb452f70f990b5,
         type: 3}
@@ -7793,6 +7796,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3023035881715586968, guid: a241e558b4b00cc43bfb452f70f990b5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3023035881715586969, guid: a241e558b4b00cc43bfb452f70f990b5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a241e558b4b00cc43bfb452f70f990b5, type: 3}

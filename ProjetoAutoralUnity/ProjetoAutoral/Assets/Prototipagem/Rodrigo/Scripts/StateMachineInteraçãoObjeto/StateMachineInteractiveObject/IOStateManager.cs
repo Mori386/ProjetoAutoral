@@ -9,6 +9,9 @@ public class IOStateManager : MonoBehaviour
     IOBaseState currentState;
     IODefaultState defaultState = new IODefaultState();
     public bool canSuccessiveInteract;
+    public string textOnDisabledSuccessiveInteract;
+
+    public bool singleTimeUse;
     public bool needItemToInteract;
     public Item[] itemsNeeded;
     public enum NeedToInteract

@@ -5,6 +5,7 @@ using UnityEditor;
 
 public class EditorGUIPropertyField : Editor
 {
+    private bool foldOutTextBoxOnDisabledSuccessiveInteract;
     private bool foldOutTextBoxOnSuccessiveInteraction;
     private bool foldOutTextBoxOnFailedInteraction;
     public override void OnInspectorGUI()
@@ -16,6 +17,7 @@ public class EditorGUIPropertyField : Editor
         {
             EditorGUILayout.LabelField("Successive Interaction Consequence");
             iOStateManager.onSuccessiveInteractionConsequence = EditorGUILayout.TextArea(iOStateManager.onSuccessiveInteractionConsequence);
+            iOStateManager.singleTimeUse = EditorGUILayout.Toggle("Single Time Use", iOStateManager.singleTimeUse);
             iOStateManager.needItemToInteract = EditorGUILayout.Toggle("Need Item To Interact", iOStateManager.needItemToInteract);
             if (iOStateManager.needItemToInteract)
             {
@@ -38,6 +40,15 @@ public class EditorGUIPropertyField : Editor
                 {
                     iOStateManager.textBoxOnFailedInteraction = EditorGUILayout.TextArea(iOStateManager.textBoxOnFailedInteraction, myTextAreaStyle);
                 }
+            }
+        }
+        else
+        {
+            foldOutTextBoxOnDisabledSuccessiveInteract = EditorGUILayout.Foldout(foldOutTextBoxOnDisabledSuccessiveInteract, "Text On Disabled Successive Interaction", true);
+            if (foldOutTextBoxOnDisabledSuccessiveInteract)
+            {
+                GUIStyle myTextAreaStyle = new GUIStyle(EditorStyles.textArea) { wordWrap = true, fixedHeight = 150, fixedWidth = 400 };
+                iOStateManager.textOnDisabledSuccessiveInteract = EditorGUILayout.TextArea(iOStateManager.textOnDisabledSuccessiveInteract, myTextAreaStyle);
             }
         }
         serializedObject.ApplyModifiedProperties();
