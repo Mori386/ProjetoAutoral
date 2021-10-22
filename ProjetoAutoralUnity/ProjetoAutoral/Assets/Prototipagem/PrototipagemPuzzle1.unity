@@ -286,7 +286,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24.32, y: -7.68, z: 0}
-  grid: {fileID: 0}
 --- !u!114 &36281690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -516,7 +515,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24, y: -8, z: 0}
-  grid: {fileID: 0}
 --- !u!114 &47214185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -746,7 +744,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24.32, y: -7.68, z: 0}
-  grid: {fileID: 501528769}
 --- !u!114 &81483369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -976,7 +973,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24, y: -8, z: 0}
-  grid: {fileID: 0}
 --- !u!114 &94247337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1243,7 +1239,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24.32, y: -7.68, z: 0}
-  grid: {fileID: 0}
 --- !u!114 &145436651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1608,7 +1603,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24.32, y: -7.68, z: 0}
-  grid: {fileID: 0}
 --- !u!114 &228773781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1838,7 +1832,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24.32, y: -7.68, z: 0}
-  grid: {fileID: 0}
 --- !u!114 &235661913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2068,7 +2061,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24.32, y: -7.68, z: 0}
-  grid: {fileID: 0}
 --- !u!114 &254453087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2298,7 +2290,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24.32, y: -7.68, z: 0}
-  grid: {fileID: 0}
 --- !u!114 &279137747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2528,7 +2519,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24, y: -8, z: 0}
-  grid: {fileID: 0}
 --- !u!114 &288213442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2758,7 +2748,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24.32, y: -7.68, z: 0}
-  grid: {fileID: 0}
 --- !u!114 &439490851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2988,7 +2977,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24.32, y: -7.68, z: 0}
-  grid: {fileID: 0}
 --- !u!114 &444469849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3371,7 +3359,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24, y: -8, z: 0}
-  grid: {fileID: 0}
 --- !u!114 &467710426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3601,7 +3588,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24, y: -8, z: 0}
-  grid: {fileID: 0}
 --- !u!114 &474405901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3877,7 +3863,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -23, y: -7, z: 0}
-  grid: {fileID: 0}
 --- !u!114 &509821342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4141,7 +4126,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24, y: -8, z: 0}
-  grid: {fileID: 0}
 --- !u!114 &527887160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4406,7 +4390,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24.32, y: -7.68, z: 0}
-  grid: {fileID: 0}
 --- !u!114 &685731752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4667,7 +4650,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24, y: -8, z: 0}
-  grid: {fileID: 0}
 --- !u!114 &729624651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5066,7 +5048,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24, y: -8, z: 0}
-  grid: {fileID: 0}
 --- !u!114 &777766579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5296,7 +5277,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24.32, y: -7.68, z: 0}
-  grid: {fileID: 0}
 --- !u!114 &805211276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5526,7 +5506,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24.32, y: -7.68, z: 0}
-  grid: {fileID: 0}
 --- !u!114 &831061691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5756,7 +5735,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24, y: -8, z: 0}
-  grid: {fileID: 0}
 --- !u!114 &841831643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5986,7 +5964,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24.32, y: -7.68, z: 0}
-  grid: {fileID: 0}
 --- !u!114 &852865756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6216,7 +6193,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24.32, y: -7.68, z: 0}
-  grid: {fileID: 0}
 --- !u!114 &901299993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6446,7 +6422,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24, y: -8, z: 0}
-  grid: {fileID: 0}
 --- !u!114 &905498559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6713,7 +6688,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24, y: -8, z: 0}
-  grid: {fileID: 0}
 --- !u!114 &970506462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8809,7 +8783,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7785234, y: 1}
+    m_SensorSize: {x: 1.4915663, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -8998,7 +8972,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24, y: -8, z: 0}
-  grid: {fileID: 0}
 --- !u!114 &1049839456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9228,7 +9201,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24, y: -8, z: 0}
-  grid: {fileID: 0}
 --- !u!114 &1109823852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9458,7 +9430,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24.32, y: -7.68, z: 0}
-  grid: {fileID: 501528769}
 --- !u!114 &1149343998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9688,7 +9659,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24.32, y: -7.68, z: 0}
-  grid: {fileID: 0}
 --- !u!114 &1205693795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9917,8 +9887,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstTime: 1
   tilemap: {fileID: 0}
-  tilemapCenter: {x: -24.32, y: -7.68, z: 0}
-  grid: {fileID: 501528769}
+  tilemapCenter: {x: -24, y: -8, z: 0}
 --- !u!114 &1273490265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10182,7 +10151,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24, y: -8, z: 0}
-  grid: {fileID: 0}
 --- !u!114 &1400738699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10412,7 +10380,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24.32, y: -7.68, z: 0}
-  grid: {fileID: 0}
 --- !u!114 &1470845077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10642,7 +10609,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24.32, y: -7.68, z: 0}
-  grid: {fileID: 0}
 --- !u!114 &1472521067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10872,7 +10838,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24.32, y: -7.68, z: 0}
-  grid: {fileID: 0}
 --- !u!114 &1505719465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11137,7 +11102,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24.32, y: -7.68, z: 0}
-  grid: {fileID: 0}
 --- !u!114 &1545363363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11234,7 +11198,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1567259554}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.3599997, y: 0.32, z: 0}
+  m_LocalPosition: {x: -7.152, y: 0.167, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 135410128}
@@ -11367,7 +11331,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24.32, y: -7.68, z: 0}
-  grid: {fileID: 501528769}
 --- !u!114 &1567259562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11597,7 +11560,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24.32, y: -7.68, z: 0}
-  grid: {fileID: 0}
 --- !u!114 &1589875799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13162,7 +13124,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24, y: -8, z: 0}
-  grid: {fileID: 0}
 --- !u!114 &1627867748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13259,7 +13220,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1730108599}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.24, y: 0.32, z: 0}
+  m_LocalPosition: {x: -3.52, y: 0.32, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 944218614}
@@ -13325,7 +13286,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.3645209, y: 0.0035071075}
+  m_Offset: {x: 0.3645209, y: 0.020815343}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.25, y: 0.5}
@@ -13336,7 +13297,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1196234, y: 0.28307092}
+  m_Size: {x: 1.1196234, y: 0.08575714}
   m_EdgeRadius: 0
 --- !u!61 &1730108604
 BoxCollider2D:
@@ -13351,7 +13312,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.31282634, y: 0.033278197}
+  m_Offset: {x: 0.316288, y: -0.032493174}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.25, y: 0.5}
@@ -13362,7 +13323,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8324226, y: 0.6965291}
+  m_Size: {x: 0.26817423, y: 0.56498635}
   m_EdgeRadius: 0
 --- !u!114 &1730108605
 MonoBehaviour:
@@ -13391,8 +13352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstTime: 1
   tilemap: {fileID: 0}
-  tilemapCenter: {x: -24.32, y: -7.68, z: 0}
-  grid: {fileID: 501528769}
+  tilemapCenter: {x: -24, y: -8, z: 0}
 --- !u!114 &1730108607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13505,7 +13465,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1882678581
 Transform:
   m_ObjectHideFlags: 0
@@ -13736,7 +13696,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24, y: -8, z: 0}
-  grid: {fileID: 0}
 --- !u!114 &1936580315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14046,7 +14005,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24, y: -8, z: 0}
-  grid: {fileID: 0}
 --- !u!114 &1988853862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14276,7 +14234,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24.32, y: -7.68, z: 0}
-  grid: {fileID: 0}
 --- !u!114 &1989213039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14538,7 +14495,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24.32, y: -7.68, z: 0}
-  grid: {fileID: 0}
 --- !u!114 &2027993377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14768,7 +14724,6 @@ MonoBehaviour:
   firstTime: 1
   tilemap: {fileID: 0}
   tilemapCenter: {x: -24, y: -8, z: 0}
-  grid: {fileID: 0}
 --- !u!114 &2029994304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14865,7 +14820,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2071077411}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -25.6, y: -1.5999999, z: 0}
+  m_LocalPosition: {x: -25.44, y: -1.5999999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 698357453}
@@ -14997,8 +14952,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstTime: 1
   tilemap: {fileID: 0}
-  tilemapCenter: {x: 8.96, y: -5.7599998, z: 0}
-  grid: {fileID: 501528769}
+  tilemapCenter: {x: 9, y: -6, z: 0}
 --- !u!114 &2071077419
 MonoBehaviour:
   m_ObjectHideFlags: 0

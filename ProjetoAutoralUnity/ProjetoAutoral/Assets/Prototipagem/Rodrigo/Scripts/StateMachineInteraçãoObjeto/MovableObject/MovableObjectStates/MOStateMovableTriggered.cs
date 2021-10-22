@@ -14,57 +14,33 @@ public class MOStateMovableTriggered : MovableObjectBaseState
     public override void EnterState(MovableObjectStateManager Manager)
     {
         gridPosition = Manager.GetComponent<GridPosition>();
-        CheckWalls(Manager);
+        CheckWalls();
     }
     public override void UpdateState(MovableObjectStateManager Manager)
     {
         if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Z))
         {
-            Vector2 playerPos = new Vector2(Manager.player.transform.position.x, Manager.player.transform.position.y);
-            float angle = Mathf.Atan2(playerPos.y - Manager.transform.position.y, playerPos.x - Manager.transform.position.x) * Mathf.Rad2Deg;
-            Debug.Log(angle);
-            if (angle >= 45 && angle < 135)
+            Vector2 directionPlayerPush = (Manager.transform.position - Manager.player.transform.position);
+            if (Mathf.Abs(directionPlayerPush.x) > Mathf.Abs(directionPlayerPush.y))
             {
-                if (wallDetect.y == -1)
+                if (directionPlayerPush.x / Mathf.Abs(directionPlayerPush.x) == wallDetect.x)
                 {
-                    if (!isMoving) Manager.StartCoroutine(MoveObjectAnimation(Manager, new Vector3(0, 1, 0), new Vector2Int(0, 1), true));
+                    if (!isMoving) Manager.StartCoroutine(MoveObjectAnimation(Manager, -new Vector3(directionPlayerPush.x / Mathf.Abs(directionPlayerPush.x), 0, 0), -new Vector2Int(Mathf.RoundToInt(directionPlayerPush.x / Mathf.Abs(directionPlayerPush.x)), 0), true));
                 }
                 else
                 {
-                    if (!isMoving) Manager.StartCoroutine(MoveObjectAnimation(Manager, new Vector3(0, -1, 0), new Vector2Int(0, -1), false));
+                    if (!isMoving) Manager.StartCoroutine(MoveObjectAnimation(Manager, new Vector3(directionPlayerPush.x / Mathf.Abs(directionPlayerPush.x), 0, 0), new Vector2Int(Mathf.RoundToInt(directionPlayerPush.x / Mathf.Abs(directionPlayerPush.x)), 0), false));
                 }
             }
-            if (angle > 135 && angle <= 180 || angle < -135 && angle <= -180)
+            else
             {
-                if (wallDetect.x == 1)
+                if (directionPlayerPush.y / Mathf.Abs(directionPlayerPush.y) == wallDetect.y)
                 {
-                    if (!isMoving) Manager.StartCoroutine(MoveObjectAnimation(Manager, new Vector3(-1, 0, 0), new Vector2Int(-1, 0), true));
+                    if (!isMoving) Manager.StartCoroutine(MoveObjectAnimation(Manager,-new Vector3(0, directionPlayerPush.y / Mathf.Abs(directionPlayerPush.y), 0), -new Vector2Int(0, Mathf.RoundToInt(directionPlayerPush.y / Mathf.Abs(directionPlayerPush.y))),true));
                 }
                 else
                 {
-                    if (!isMoving) Manager.StartCoroutine(MoveObjectAnimation(Manager, new Vector3(1, 0, 0), new Vector2Int(1, 0), false));
-                }
-            }
-            if (angle <= 45 && angle > 0 || angle <= 0 && angle > -45)
-            {
-                if (wallDetect.x == -1)
-                {
-                    if (!isMoving) Manager.StartCoroutine(MoveObjectAnimation(Manager, new Vector3(1, 0, 0), new Vector2Int(1, 0), true));
-                }
-                else
-                {
-                    if (!isMoving) Manager.StartCoroutine(MoveObjectAnimation(Manager, new Vector3(-1, 0, 0), new Vector2Int(-1, 0), false));
-                }
-            }
-            if (angle <= -45 && angle > -135)
-            {
-                if (wallDetect.y == 1)
-                {
-                    if (!isMoving) Manager.StartCoroutine(MoveObjectAnimation(Manager, new Vector3(0, -1, 0), new Vector2Int(0, -1), true));
-                }
-                else
-                {
-                    if (!isMoving) Manager.StartCoroutine(MoveObjectAnimation(Manager, new Vector3(0, 1, 0), new Vector2Int(0, 1), false));
+                    if (!isMoving) Manager.StartCoroutine(MoveObjectAnimation(Manager, new Vector3(0, directionPlayerPush.y / Mathf.Abs(directionPlayerPush.y), 0), new Vector2Int(0, Mathf.RoundToInt(directionPlayerPush.y / Mathf.Abs(directionPlayerPush.y))), false));
                 }
             }
         }
@@ -73,12 +49,12 @@ public class MOStateMovableTriggered : MovableObjectBaseState
     {
         PMStateManager playerMov = Manager.player.GetComponent<PMStateManager>();
         Vector3 startPos = Manager.transform.position;
-        deltaPosition = new Vector3(deltaPosition.x * Manager.gridPosition.tilemap.cellSize.x, deltaPosition.y * Manager.gridPosition.tilemap.cellSize.y, 0);
+        deltaPosition = new Vector3(deltaPosition.x * Manager.gridPosition.tilemap.cellSize.x, deltaPosition.y * Manager.gridPosition.tilemap.cellSize.y,0);
         isMoving = true;
-        if (MovePlayerTogether) playerMov.SmoothSwitchState(playerMov.controlOffState);
-        Vector3 finalPositon = startPos + deltaPosition;
+        if(MovePlayerTogether) playerMov.SmoothSwitchState(playerMov.controlOffState);
+        Vector3 finalPositon = startPos + deltaPosition; 
         while (
-            new Vector3(Mathf.Round(Manager.transform.position.x * 100) / 100, Mathf.Round(Manager.transform.position.y * 100) / 100) != new Vector3(Mathf.Round(finalPositon.x * 100) / 100, Mathf.Round(finalPositon.y * 100) / 100)
+            new Vector3(Mathf.Round(Manager.transform.position.x*100)/100, Mathf.Round(Manager.transform.position.y * 100) / 100) != new Vector3(Mathf.Round(finalPositon.x * 100) / 100, Mathf.Round(finalPositon.y * 100) / 100)
             )
         {
             if (MovePlayerTogether) playerMov.transform.position += deltaPosition / 20;
@@ -93,7 +69,7 @@ public class MOStateMovableTriggered : MovableObjectBaseState
                 Manager.moveOnFuture();
             }
         }
-        CheckWalls(Manager);
+        CheckWalls();
         isMoving = false;
         if (MovePlayerTogether) playerMov.SmoothSwitchState(playerMov.defaultState);
     }
@@ -113,37 +89,29 @@ public class MOStateMovableTriggered : MovableObjectBaseState
             Manager.SmoothSwitchState(Manager.movableState);
         }
     }
-    void CheckWalls(MovableObjectStateManager Manager)
+    void CheckWalls()
     {
         wallDetect = new Vector2(0, 0);
-        SpriteRenderer spriteRenderer = Manager.GetComponent<SpriteRenderer>();
-        //while (spriteRenderer.bounds.size.x == 0 || spriteRenderer.bounds.size.y == 0)
-        //{
-        //}
-        Vector2 objectSize = new Vector2(spriteRenderer.bounds.size.x / 64, spriteRenderer.bounds.size.y / 64);
-        Vector3 feetGridPos = Manager.transform.position - new Vector3(0, spriteRenderer.bounds.size.y / 2, 0);
-        feetGridPos = gridPosition.NearGridPosition(feetGridPos);
-        feetGridPos += gridPosition.tilemap.cellSize * 0.5f;
         if (Physics2D.BoxCast(
-            feetGridPos + new Vector3(0, gridPosition.tilemap.cellSize.y)
+            new Vector3(gridPosition.tilemap.origin.x + gridPosition.gridTilemapPosition.x, gridPosition.tilemap.origin.y + gridPosition.gridTilemapPosition.y, 0) + new Vector3(0.5f, 1.5f, 0)
             , gridPosition.tilemap.cellSize - new Vector3(0.2f, 0.2f, 0), 0, new Vector2(0, 0), Mathf.Infinity, 256))
         {
             wallDetect.y = 1;
         }
         else if (Physics2D.BoxCast(
-            feetGridPos + new Vector3(0, -gridPosition.tilemap.cellSize.y)
+            new Vector3(gridPosition.tilemap.origin.x + gridPosition.gridTilemapPosition.x, gridPosition.tilemap.origin.y + gridPosition.gridTilemapPosition.y, 0) + new Vector3(0.5f, -0.5f, 0)
             , gridPosition.tilemap.cellSize - new Vector3(0.2f, 0.2f, 0), 0, new Vector2(0, 0), Mathf.Infinity, 256))
         {
             wallDetect.y = -1;
         }
         if (Physics2D.BoxCast(
-            feetGridPos + new Vector3(gridPosition.tilemap.cellSize.x, 0)
+            new Vector3(gridPosition.tilemap.origin.x + gridPosition.gridTilemapPosition.x, gridPosition.tilemap.origin.y + gridPosition.gridTilemapPosition.y, 0) + new Vector3(1.5f, 0.5f, 0)
             , gridPosition.tilemap.cellSize - new Vector3(0.2f, 0.2f, 0), 0, new Vector2(0, 0), Mathf.Infinity, 256))
         {
             wallDetect.x = 1;
         }
         else if (Physics2D.BoxCast(
-            feetGridPos + new Vector3(-gridPosition.tilemap.cellSize.x, 0)
+            new Vector3(gridPosition.tilemap.origin.x + gridPosition.gridTilemapPosition.x, gridPosition.tilemap.origin.y + gridPosition.gridTilemapPosition.y, 0) + new Vector3(-0.5f, 0.5f, 0)
             , gridPosition.tilemap.cellSize - new Vector3(0.2f, 0.2f, 0), 0, new Vector2(0, 0), Mathf.Infinity, 256))
         {
             wallDetect.x = -1;
