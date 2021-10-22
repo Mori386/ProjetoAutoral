@@ -5,6 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class GridPosition : MonoBehaviour
 {
+    public bool firstTime = true;
     public Tilemap tilemap;
     public Vector3 tilemapCenter;
     [System.NonSerialized] public bool vector2PositionSetUpType;

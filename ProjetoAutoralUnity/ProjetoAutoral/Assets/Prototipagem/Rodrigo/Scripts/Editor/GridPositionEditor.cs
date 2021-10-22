@@ -9,10 +9,17 @@ public class GridPositionEditor : Editor
     bool firstTime = true;
     public enum TimePeriod
     {
-        Present,Future
+        Present, Future
     }
     public TimePeriod timePeriod;
     private Grid grid;
+    private Vector3 NearGridPosition(Vector3 position)
+    {
+        Vector3 nearGridPosition = new Vector3(0, 0, 0);
+        nearGridPosition.x = Mathf.RoundToInt(position.x / grid.cellSize.x) * grid.cellSize.x;
+        nearGridPosition.y = Mathf.RoundToInt(position.y / grid.cellSize.y) * grid.cellSize.y;
+        return nearGridPosition;
+    }
     public override void OnInspectorGUI()
     {
         GridPosition gridPosition = (GridPosition)target;
@@ -34,7 +41,7 @@ public class GridPositionEditor : Editor
         {
             SerializedProperty serializedPropertyTimeline = serializedObject.FindProperty("timePeriod");
             EditorGUILayout.PropertyField(serializedPropertyTimeline);
-            if(timePeriod==TimePeriod.Present)
+            if (timePeriod == TimePeriod.Present)
             {
                 tilemap = GameObject.Find("TilemapPresente").GetComponent<Tilemap>();
             }
@@ -45,28 +52,36 @@ public class GridPositionEditor : Editor
         }
         grid = tilemap.transform.parent.GetComponent<Grid>();
         gridPosition.tilemapCenter = tilemap.origin + tilemap.transform.position;
+        gridPosition.tilemapCenter = NearGridPosition(gridPosition.tilemapCenter);
         gridPosition.vector2PositionSetUpType = EditorGUILayout.Toggle("Vector2 Position Setup", gridPosition.vector2PositionSetUpType);
+        gridPosition.gridTilemapPosition = EditorGUILayout.Vector2IntField("Position", gridPosition.gridTilemapPosition);
         if (firstTime)
         {
-            gridPosition.transform.position = new Vector3((tilemap.WorldToCell(gridPosition.transform.position).x + 0.5f) * grid.cellSize.x, (tilemap.WorldToCell(gridPosition.transform.position).y + 0.5f) * grid.cellSize.y, (tilemap.WorldToCell(gridPosition.transform.position).z) * grid.cellSize.z) + tilemap.transform.position;
-            Vector2 positionObject = new Vector2(gridPosition.transform.position.x, gridPosition.transform.position.y) - new Vector2(gridPosition.tilemapCenter.x + 0.5f, gridPosition.tilemapCenter.y + 0.5f);
+            Vector3 nearCell = NearGridPosition(gridPosition.transform.position - new Vector3(grid.cellSize.x * 0.5f, grid.cellSize.y * 0.5f));
+            gridPosition.transform.position = nearCell + new Vector3(0.5f * grid.cellSize.x, 0.5f * grid.cellSize.y);
+            Vector2 positionObject = new Vector2(nearCell.x - gridPosition.tilemapCenter.x, nearCell.y - gridPosition.tilemapCenter.y);
+            positionObject = new Vector2(positionObject.x / grid.cellSize.x, positionObject.y / grid.cellSize.y);
             gridPosition.gridTilemapPosition = EditorGUILayout.Vector2IntField("Position", new Vector2Int(Mathf.RoundToInt(positionObject.x), Mathf.RoundToInt(positionObject.y)));
             firstTime = false;
         }
-        gridPosition.gridTilemapPosition = EditorGUILayout.Vector2IntField("Position", gridPosition.gridTilemapPosition);
         if (gridPosition.vector2PositionSetUpType)
         {
-            gridPosition.transform.position = gridPosition.tilemapCenter + new Vector3((gridPosition.gridTilemapPosition.x + 0.5f)*grid.cellSize.x, (gridPosition.gridTilemapPosition.y + 0.5f) * grid.cellSize.x, 0);
+            Vector3 nearCell = NearGridPosition(gridPosition.tilemapCenter + new Vector3(gridPosition.gridTilemapPosition.x * grid.cellSize.x, gridPosition.gridTilemapPosition.y * grid.cellSize.y, 0));
+            gridPosition.transform.position = nearCell + new Vector3(0.5f * grid.cellSize.x, 0.5f * grid.cellSize.y);
+            Vector3 test = gridPosition.transform.position - gridPosition.tilemapCenter - new Vector3(0.5f * grid.cellSize.x, 0.5f * grid.cellSize.y);
+            Debug.Log(new Vector2(test.x/gridPosition.gridTilemapPosition.x, test.y / gridPosition.gridTilemapPosition.y));
         }
         if (GUILayout.Button("Calibrate Position"))
         {
-            gridPosition.transform.position = new Vector3((tilemap.WorldToCell(gridPosition.transform.position).x + 0.5f)*grid.cellSize.x, (tilemap.WorldToCell(gridPosition.transform.position).y + 0.5f)* grid.cellSize.y, (tilemap.WorldToCell(gridPosition.transform.position).z)*grid.cellSize.z) + tilemap.transform.position;
-            Vector2 positionObject = new Vector2(gridPosition.transform.position.x, gridPosition.transform.position.y) - new Vector2(gridPosition.tilemapCenter.x + 0.5f, gridPosition.tilemapCenter.y + 0.5f);
+            Vector3 nearCell = NearGridPosition(gridPosition.transform.position - new Vector3(grid.cellSize.x * 0.5f, grid.cellSize.y * 0.5f));
+            gridPosition.transform.position = nearCell + new Vector3(0.5f * grid.cellSize.x, 0.5f * grid.cellSize.y);
+            Vector2 positionObject = new Vector2(nearCell.x - gridPosition.tilemapCenter.x, nearCell.y - gridPosition.tilemapCenter.y);
+            positionObject = new Vector2(positionObject.x / grid.cellSize.x, positionObject.y / grid.cellSize.y);
             gridPosition.gridTilemapPosition = EditorGUILayout.Vector2IntField("Position", new Vector2Int(Mathf.RoundToInt(positionObject.x), Mathf.RoundToInt(positionObject.y)));
         }
-        if(objectBase!=null)
+        if (objectBase != null)
         {
-            if (objectBase.timePeriod == ObjectBase.timePeriodList.Present && objectBase.objectOtherTimeline!=null)
+            if (objectBase.timePeriod == ObjectBase.timePeriodList.Present && objectBase.objectOtherTimeline != null)
             {
                 if (GUILayout.Button("Move On Other Timeline"))
                 {
