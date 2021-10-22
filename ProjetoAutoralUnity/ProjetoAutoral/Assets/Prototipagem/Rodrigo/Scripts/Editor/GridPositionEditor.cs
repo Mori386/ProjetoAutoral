@@ -12,6 +12,7 @@ public class GridPositionEditor : Editor
         Present,Future
     }
     public TimePeriod timePeriod;
+    private Grid grid;
     public override void OnInspectorGUI()
     {
         GridPosition gridPosition = (GridPosition)target;
@@ -42,11 +43,12 @@ public class GridPositionEditor : Editor
                 tilemap = GameObject.Find("TilemapFuturo").GetComponent<Tilemap>();
             }
         }
+        grid = tilemap.transform.parent.GetComponent<Grid>();
         gridPosition.tilemapCenter = tilemap.origin + tilemap.transform.position;
         gridPosition.vector2PositionSetUpType = EditorGUILayout.Toggle("Vector2 Position Setup", gridPosition.vector2PositionSetUpType);
         if (firstTime)
         {
-            gridPosition.transform.position = new Vector3(tilemap.WorldToCell(gridPosition.transform.position).x + 0.5f, tilemap.WorldToCell(gridPosition.transform.position).y + 0.5f, tilemap.WorldToCell(gridPosition.transform.position).z) + tilemap.transform.position;
+            gridPosition.transform.position = new Vector3((tilemap.WorldToCell(gridPosition.transform.position).x + 0.5f) * grid.cellSize.x, (tilemap.WorldToCell(gridPosition.transform.position).y + 0.5f) * grid.cellSize.y, (tilemap.WorldToCell(gridPosition.transform.position).z) * grid.cellSize.z) + tilemap.transform.position;
             Vector2 positionObject = new Vector2(gridPosition.transform.position.x, gridPosition.transform.position.y) - new Vector2(gridPosition.tilemapCenter.x + 0.5f, gridPosition.tilemapCenter.y + 0.5f);
             gridPosition.gridTilemapPosition = EditorGUILayout.Vector2IntField("Position", new Vector2Int(Mathf.RoundToInt(positionObject.x), Mathf.RoundToInt(positionObject.y)));
             firstTime = false;
@@ -54,11 +56,11 @@ public class GridPositionEditor : Editor
         gridPosition.gridTilemapPosition = EditorGUILayout.Vector2IntField("Position", gridPosition.gridTilemapPosition);
         if (gridPosition.vector2PositionSetUpType)
         {
-            gridPosition.transform.position = gridPosition.tilemapCenter + new Vector3(gridPosition.gridTilemapPosition.x + 0.5f, gridPosition.gridTilemapPosition.y + 0.5f, 0);
+            gridPosition.transform.position = gridPosition.tilemapCenter + new Vector3((gridPosition.gridTilemapPosition.x + 0.5f)*grid.cellSize.x, (gridPosition.gridTilemapPosition.y + 0.5f) * grid.cellSize.x, 0);
         }
         if (GUILayout.Button("Calibrate Position"))
         {
-            gridPosition.transform.position = new Vector3(tilemap.WorldToCell(gridPosition.transform.position).x + 0.5f, tilemap.WorldToCell(gridPosition.transform.position).y + 0.5f, tilemap.WorldToCell(gridPosition.transform.position).z) + tilemap.transform.position;
+            gridPosition.transform.position = new Vector3((tilemap.WorldToCell(gridPosition.transform.position).x + 0.5f)*grid.cellSize.x, (tilemap.WorldToCell(gridPosition.transform.position).y + 0.5f)* grid.cellSize.y, (tilemap.WorldToCell(gridPosition.transform.position).z)*grid.cellSize.z) + tilemap.transform.position;
             Vector2 positionObject = new Vector2(gridPosition.transform.position.x, gridPosition.transform.position.y) - new Vector2(gridPosition.tilemapCenter.x + 0.5f, gridPosition.tilemapCenter.y + 0.5f);
             gridPosition.gridTilemapPosition = EditorGUILayout.Vector2IntField("Position", new Vector2Int(Mathf.RoundToInt(positionObject.x), Mathf.RoundToInt(positionObject.y)));
         }

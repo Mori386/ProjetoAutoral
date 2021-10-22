@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PMDefaultState : PMBaseState
 {
+    private bool focusOnCursor;
     public override void EnterState(PMStateManager Manager)
     {
 
@@ -53,26 +54,76 @@ public class PMDefaultState : PMBaseState
             }
             ItemWorld.DropItem(item, Manager);
         }
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            focusOnCursor = true;
+        }
+        else if (Input.GetKeyUp(KeyCode.Mouse1))
+        {
+            focusOnCursor = false;
+            if (Manager.facingDirection.x != 0)
+            {
+                if (Manager.facingDirection.x == 1) angle = -90;
+
+                else if (Manager.facingDirection.x == -1) angle = 90;
+            }
+            else if (Manager.facingDirection.y != 0)
+            {
+                if (Manager.facingDirection.y == 1) angle = 0;
+                else if (Manager.facingDirection.y == -1) angle = 180;
+            }
+        }
     }
+    float angle;
     public override void FixedUpdateState(PMStateManager Manager)
     {
-        Vector2 direction = new Vector2(Manager.rawInputMove.x / Mathf.Abs(Manager.rawInputMove.x), Manager.rawInputMove.y / Mathf.Abs(Manager.rawInputMove.y));
-        if (direction.x > 0)
+        if (focusOnCursor)
         {
-            Manager.facingDirection = new Vector2Int(1, 0);
+            Vector2 mousePos = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
+            mousePos = Manager.transform.InverseTransformPoint(mousePos);
+            angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg - 90;
+            if (angle > -45 && angle <= 45)
+            {
+                Manager.facingDirection = new Vector2Int(0, 1);
+            }
+            if (angle > 45 && angle <= 90 || angle < -225 && angle <= -270)
+            {
+                Manager.facingDirection = new Vector2Int(-1, 0);
+            }
+            if (angle <= -45 && angle > -135)
+            {
+                Manager.facingDirection = new Vector2Int(1, 0);
+            }
+            if (angle <= -135 && angle >= -225)
+            {
+                Manager.facingDirection = new Vector2Int(0, -1);
+            }
         }
-        else if (direction.x < 0)
+        else
         {
-            Manager.facingDirection = new Vector2Int(-1, 0);
+            Vector2 direction = new Vector2(Manager.rawInputMove.x / Mathf.Abs(Manager.rawInputMove.x), Manager.rawInputMove.y / Mathf.Abs(Manager.rawInputMove.y));
+            if (direction.x > 0)
+            {
+                Manager.facingDirection = new Vector2Int(1, 0);
+                angle = -90;
+            }
+            else if (direction.x < 0)
+            {
+                Manager.facingDirection = new Vector2Int(-1, 0);
+                angle = 90;
+            }
+            else if (direction.y > 0)
+            {
+                Manager.facingDirection = new Vector2Int(0, 1);
+                angle = 0;
+            }
+            else if (direction.y < 0)
+            {
+                Manager.facingDirection = new Vector2Int(0, -1);
+                angle = 180;
+            }
         }
-        else if (direction.y > 0)
-        {
-            Manager.facingDirection = new Vector2Int(0, 1);
-        }
-        else if (direction.y < 0)
-        {
-            Manager.facingDirection = new Vector2Int(0, -1);
-        }
+        Manager.flashlight.transform.rotation = Quaternion.Euler(0, 0, angle);
         Manager.rb.MovePosition(Manager.rb.position + Manager.regulatorDirection(Manager.rawInputMove) * Manager.moveSpeed * Time.fixedDeltaTime);
     }
 }

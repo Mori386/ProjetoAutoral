@@ -18,6 +18,9 @@ public class PMStateManager : MonoBehaviour
     [System.NonSerialized] public PlayerInventoryManager playerInventoryManager;
     [System.NonSerialized] public GameObject tilemapFuturo, tilemapPresente;
     public Vector2Int facingDirection;
+
+    public GameObject flashlight;
+    public Rigidbody2D rbFlashlight;
     private void Awake()
     {
         facingDirection = new Vector2Int(0, 1);
@@ -28,6 +31,8 @@ public class PMStateManager : MonoBehaviour
     }
     void Start()
     {
+        flashlight = transform.Find("Flashlight").gameObject;
+        rbFlashlight = flashlight.GetComponent<Rigidbody2D>();
         currentState = defaultState;
         currentState.EnterState(this);
     }
