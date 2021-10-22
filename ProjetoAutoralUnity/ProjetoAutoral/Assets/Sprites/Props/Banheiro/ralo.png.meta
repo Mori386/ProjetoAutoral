@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a6930b7a5be636f45a8e914b157fda97
+guid: fec603ca19b1fb143ab0268bc8057a58
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4070506286810786423
-    second: kit  futuro_0
+      213: -7615969389186063509
+    second: ralo_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -90,13 +90,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: kit  futuro_0
+      name: ralo_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 7
-        width: 25
-        height: 20
+        x: 23
+        y: 25
+        width: 17
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -104,8 +104,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98516ae3918a287c0800000000000000
-      internalID: -4070506286810786423
+      spriteID: b63e0511134ae4690800000000000000
+      internalID: -7615969389186063509
       vertices: []
       indices: 
       edges: []
