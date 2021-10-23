@@ -12,4 +12,12 @@ public class ItemAssets : MonoBehaviour
     public Transform pfItemWorld;
     public Sprite flashlightPresentSprite, flashlightFutureSprite;
     public Sprite placeholderSprite;
+    //puzzle1
+    #region
+    public Sprite panoPresentSprite, panoFutureSprite,
+        chaveCab1PresentSprite, chaveCab1FutureSprite,
+        chaveCab2PresentSprite, chaveCab2FutureSprite,
+        desentupidorPresentSprite, desentupidorFutureSprite,
+        chaveSaidaPresentSprite, chaveSaidaFutureSprite;
+    #endregion
 }

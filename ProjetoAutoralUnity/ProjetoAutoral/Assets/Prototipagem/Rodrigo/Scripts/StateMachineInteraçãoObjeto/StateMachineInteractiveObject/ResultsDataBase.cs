@@ -8,8 +8,9 @@ public class ResultsDataBase : MonoBehaviour
     {
         switch (result)
         {
-            case "Test":
-                Debug.Log("InteractionDebugLog");
+            //cases do Puzzle1
+            case "SofaPresente":
+                Debug.Log("InteraçãoSucesso");
                 break;
         }
     }

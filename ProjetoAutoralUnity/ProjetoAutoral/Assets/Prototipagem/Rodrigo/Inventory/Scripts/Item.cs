@@ -12,7 +12,9 @@ public class Item
     }
     public enum ItemType
     {
-        Flashlight, Placeholder
+        Flashlight, Placeholder, 
+        KeyCabine1, KeyCabine2, Cloth, Plunger, KeyExit1 //itens do puzzle1
+        
     }
     public ItemType itemType;
     public int amount;
@@ -29,6 +31,21 @@ public class Item
             default:
             case ItemType.Flashlight:
                 return false;
+            //puzzle1
+            #region
+            case ItemType.KeyCabine1:
+            case ItemType.KeyCabine2:
+            case ItemType.Cloth:
+            case ItemType.Plunger:
+            case ItemType.KeyExit1:
+                #endregion
+                //puzzle2
+                #region
+                #endregion
+                //puzzle3
+                #region
+                #endregion
+                return true;
         }
     }
     public bool IsStackable()
@@ -37,6 +54,9 @@ public class Item
         {
             default:
             case ItemType.Flashlight:
+            case ItemType.Cloth:
+            case ItemType.KeyCabine1:
+            case ItemType.KeyCabine2:
                 return false;
             case ItemType.Placeholder:
                 return true;

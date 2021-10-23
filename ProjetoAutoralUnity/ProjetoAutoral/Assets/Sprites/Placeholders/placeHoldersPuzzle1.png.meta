@@ -1,31 +1,22 @@
 fileFormatVersion: 2
-guid: c88f4c88225ec58459f2d67a791b31e0
+guid: 0a1efa9031e6b68459d1aeac49ff6c16
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7726868060883452799
-    second: sheetQuartoF_0
+      213: 5710488225478818329
+    second: placeHoldersPuzzle1_0
   - first:
-      213: 204361981811068302
-    second: sheetQuartoF_1
+      213: -8849433661784543790
+    second: placeHoldersPuzzle1_1
   - first:
-      213: 8468155651832942043
-    second: sheetQuartoF_3
+      213: -2312239266539014467
+    second: placeHoldersPuzzle1_2
   - first:
-      213: 5145668735275619565
-    second: sheetQuartoF_5
+      213: -4422607349217785885
+    second: placeHoldersPuzzle1_3
   - first:
-      213: 8183825508600618075
-    second: sheetQuartoF_7
-  - first:
-      213: 94082462942764031
-    second: sheetQuartoF_8
-  - first:
-      213: 7029945770073181865
-    second: sheetQuartoF_9
-  - first:
-      213: -1550445967035886286
-    second: sheetQuartoF_14
+      213: -3997652817918864015
+    second: placeHoldersPuzzle1_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -111,169 +102,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sheetQuartoF_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 128
-        width: 64
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f73054b00995b3b60800000000000000
-      internalID: 7726868060883452799
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sheetQuartoF_1
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 128
-        width: 64
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e8d8173c32a06d200800000000000000
-      internalID: 204361981811068302
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sheetQuartoF_3
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 64
-        width: 128
-        height: 128
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bdd083af2bee48570800000000000000
-      internalID: 8468155651832942043
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sheetQuartoF_5
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 64
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.25, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: de4dfe9a376196740800000000000000
-      internalID: 5145668735275619565
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sheetQuartoF_7
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 64
-        width: 64
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b5c9be7b0f9c29170800000000000000
-      internalID: 8183825508600618075
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sheetQuartoF_8
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 64
-        width: 64
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ffb1c47608f3e4100800000000000000
-      internalID: 94082462942764031
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sheetQuartoF_9
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 64
-        width: 59
-        height: 128
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9aec87f7e626f8160800000000000000
-      internalID: 7029945770073181865
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sheetQuartoF_14
+      name: placeHoldersPuzzle1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 235936b8b95bb7ae0800000000000000
-      internalID: -1550445967035886286
+      spriteID: 91a37bd19cabf3f40800000000000000
+      internalID: 5710488225478818329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: placeHoldersPuzzle1_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dda2fd88fe703580800000000000000
+      internalID: -8849433661784543790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: placeHoldersPuzzle1_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db67b3a43a649efd0800000000000000
+      internalID: -2312239266539014467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: placeHoldersPuzzle1_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e787d04c0ebf92c0800000000000000
+      internalID: -4422607349217785885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: placeHoldersPuzzle1_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1755b9c41fb7588c0800000000000000
+      internalID: -3997652817918864015
       vertices: []
       indices: 
       edges: []
