@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 61d119bd5c46e634db95080227eb722d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - fullBathPresent: {fileID: 1970322921121284886, guid: 32400a839fb48dc4489fd5829b71d9dc,
+      type: 3}
+  - fullBathFuture: {fileID: -513463478592231945, guid: 32400a839fb48dc4489fd5829b71d9dc,
+      type: 3}
+  - emptyBathPresent: {fileID: -5998140876414859084, guid: 32400a839fb48dc4489fd5829b71d9dc,
+      type: 3}
+  - emptyBathFuture: {fileID: 5130717455756487778, guid: 32400a839fb48dc4489fd5829b71d9dc,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

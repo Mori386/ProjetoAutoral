@@ -33,8 +33,8 @@ public class IODefaultState : IOBaseState
         coroutineIsRunning = true;
         bool successive=false;
         while (!Input.GetKeyDown(KeyCode.E)) yield return null;
-        PMStateManager player = collision.GetComponent<PMStateManager>();
-        player.SmoothSwitchState(player.controlOffState);
+        PMStateManager Player = collision.GetComponent<PMStateManager>();
+        Player.SmoothSwitchState(Player.controlOffState);
         if (Manager.canSuccessiveInteract)
         {
             if (Manager.needItemToInteract)
@@ -47,7 +47,7 @@ public class IODefaultState : IOBaseState
                         int numberOfItemsRequiredInInventory = 0;
                         foreach (Item item in Manager.itemsNeeded)
                         {
-                            foreach (Item itemInInventory in player.playerInventoryManager.inventory.GetItemList())
+                            foreach (Item itemInInventory in Player.playerInventoryManager.inventory.GetItemList())
                             {
                                 if (item.itemType == itemInInventory.itemType
                                     && item.isAged == itemInInventory.isAged
@@ -69,9 +69,9 @@ public class IODefaultState : IOBaseState
                             {
                                 foreach (Item item in itemsNeeded)
                                 {
-                                    player.playerInventoryManager.inventory.GetItemList().Remove(item);
+                                    Player.playerInventoryManager.inventory.GetItemList().Remove(item);
                                 }
-                                player.playerInventoryManager.uiInventory.SetInventory(player.playerInventoryManager.inventory);
+                                Player.playerInventoryManager.uiInventory.SetInventory(Player.playerInventoryManager.inventory);
                             }
                             successive = true;
                             Manager.textBox.text = Manager.textBoxOnSuccessiveInteraction;
@@ -81,7 +81,7 @@ public class IODefaultState : IOBaseState
                         bool foundItem = false;
                         foreach (Item item in Manager.itemsNeeded)
                         {
-                            foreach (Item itemInInventory in player.playerInventoryManager.inventory.GetItemList())
+                            foreach (Item itemInInventory in Player.playerInventoryManager.inventory.GetItemList())
                             {
                                 if (item.itemType == itemInInventory.itemType
                                     && item.isAged == itemInInventory.isAged
@@ -90,8 +90,8 @@ public class IODefaultState : IOBaseState
                                 {
                                     if (Manager.destroyItemOnSuccessiveInteraction)
                                     {
-                                        player.playerInventoryManager.inventory.GetItemList().Remove(itemInInventory);
-                                        player.playerInventoryManager.uiInventory.SetInventory(player.playerInventoryManager.inventory);
+                                        Player.playerInventoryManager.inventory.GetItemList().Remove(itemInInventory);
+                                        Player.playerInventoryManager.uiInventory.SetInventory(Player.playerInventoryManager.inventory);
                                     }
                                     Manager.textBox.text = Manager.textBoxOnSuccessiveInteraction;
                                     successive = true;
@@ -135,14 +135,14 @@ public class IODefaultState : IOBaseState
         }
         if (successive)
         {
-            ResultsDataBase.Interaction(Manager.onSuccessiveInteractionConsequence);
+            ResultsDataBase.Interaction(Manager.onSuccessiveInteractionConsequence, Manager, Player);
         }
         Manager.ui.SetActive(true);
         TextBoxDefineEnabled(Manager, false);
-        player.SmoothSwitchState(player.defaultState);
+        Player.SmoothSwitchState(Player.defaultState);
         Time.timeScale = 1;
-        coroutineIsRunning = false;
         Manager.textBox.text = "";
+        coroutineIsRunning = false;
         if (successive && Manager.singleTimeUse)
         {
             foreach (BoxCollider2D boxCollider2D in Manager.GetComponents<BoxCollider2D>())
@@ -153,10 +153,7 @@ public class IODefaultState : IOBaseState
                 }
             }
         }
-        else if (!Manager.singleTimeUse)
-        {
-            Manager.StartCoroutine(ifStayOnTrigger(Manager, collision));
-        }
+        
     }
     IEnumerator ifStayOnTrigger(IOStateManager Manager,Collider2D collision)
     {

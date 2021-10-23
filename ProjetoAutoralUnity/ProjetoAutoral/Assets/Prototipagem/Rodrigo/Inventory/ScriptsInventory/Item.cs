@@ -12,9 +12,9 @@ public class Item
     }
     public enum ItemType
     {
-        Flashlight, Placeholder, 
+        Flashlight, Placeholder,
         KeyCabine1, KeyCabine2, Cloth, Plunger, KeyExit1 //itens do puzzle1
-        
+
     }
     public ItemType itemType;
     public int amount;
@@ -68,15 +68,29 @@ public class Item
         {
             default:
             case ItemType.Flashlight:
-                if (isAged)
-                {
-                    return ItemAssets.Instance.flashlightFutureSprite;
-                }
-                else
-                {
-                    return ItemAssets.Instance.flashlightPresentSprite;
-                }
+                if (isAged) return ItemAssets.Instance.flashlightFutureSprite;
+                else return ItemAssets.Instance.flashlightPresentSprite;
+
             case ItemType.Placeholder: return ItemAssets.Instance.placeholderSprite;
+            //puzzle1
+            #region
+            case ItemType.KeyCabine1:
+                if (isAged) return ItemAssets.Instance.chaveCab1FutureSprite;
+                else return ItemAssets.Instance.chaveCab1PresentSprite;
+            case ItemType.KeyCabine2:
+                if (isAged) return ItemAssets.Instance.chaveCab2FutureSprite;
+                else return ItemAssets.Instance.chaveCab2PresentSprite;
+            case ItemType.Cloth:
+                if (isAged) return ItemAssets.Instance.panoFutureSprite;
+                else return ItemAssets.Instance.panoPresentSprite;
+            case ItemType.Plunger:
+                if (isAged) return ItemAssets.Instance.desentupidorFutureSprite;
+                else return ItemAssets.Instance.desentupidorPresentSprite;
+            case ItemType.KeyExit1:
+                if (isAged) return ItemAssets.Instance.chaveSaidaFutureSprite;
+                else return ItemAssets.Instance.chaveSaidaPresentSprite;
+                #endregion
+
         }
     }
 }

@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: cfdc209f2623da340ae7c8e63531ed90
+guid: 32400a839fb48dc4489fd5829b71d9dc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4361735882420647763
-    second: cortina aberto_0
+      213: 5130717455756487778
+    second: banheiraV2_0
+  - first:
+      213: -5998140876414859084
+    second: banheiraV2_1
+  - first:
+      213: -513463478592231945
+    second: banheiraV2_2
+  - first:
+      213: 1970322921121284886
+    second: banheiraV2_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -90,13 +99,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cortina aberto_0
+      name: banheiraV2_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 2
-        width: 63
-        height: 60
+        x: 0
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -104,8 +113,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 357f1c3fcaff78c30800000000000000
-      internalID: 4361735882420647763
+      spriteID: 26ce241a758f33740800000000000000
+      internalID: 5130717455756487778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: banheiraV2_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b8ca8407a252cca0800000000000000
+      internalID: -5998140876414859084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: banheiraV2_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f5af59cfafcfd8f0800000000000000
+      internalID: -513463478592231945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: banheiraV2_3
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6138e3ee14ef75b10800000000000000
+      internalID: 1970322921121284886
       vertices: []
       indices: 
       edges: []
