@@ -19,8 +19,8 @@ public class PMStateManager : MonoBehaviour
     [System.NonSerialized] public GameObject tilemapFuturo, tilemapPresente;
     public Vector2Int facingDirection;
 
-    public GameObject flashlight;
-    public Rigidbody2D rbFlashlight;
+    [System.NonSerialized] public GameObject flashlight;
+    [System.NonSerialized] public Rigidbody2D rbFlashlight;
     private void Awake()
     {
         facingDirection = new Vector2Int(0, 1);

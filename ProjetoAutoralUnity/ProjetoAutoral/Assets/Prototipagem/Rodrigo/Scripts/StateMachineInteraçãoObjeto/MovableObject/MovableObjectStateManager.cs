@@ -15,7 +15,7 @@ public class MovableObjectStateManager : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-
+        currentState.GizmosState(this);
     }
     void Start()
     {

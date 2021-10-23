@@ -30,8 +30,7 @@ public class GridPosition : MonoBehaviour
             {
                 tilemap = GameObject.Find("TilemapFuturo").GetComponent<Tilemap>();
             }
-            tilemapCenter = tilemap.transform.position + tilemap.transform.position;
-            tilemapCenter = NearGridPosition(tilemapCenter);
+            tilemapCenter = tilemap.origin + tilemap.transform.position;
             gridTilemapPosition = new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y)) - new Vector2Int(Mathf.RoundToInt(tilemapCenter.x), Mathf.RoundToInt(tilemapCenter.y));
         }
     }

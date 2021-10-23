@@ -7,9 +7,18 @@ public class MOStateMovableTriggered : MovableObjectBaseState
     bool isMoving;
     public Vector2 wallDetect;
     GridPosition gridPosition;
+    int layer = 768;
     public override void GizmosState(MovableObjectStateManager Manager)
     {
-
+        SpriteRenderer spriteRenderer = Manager.GetComponent<SpriteRenderer>();
+        if (spriteRenderer.sprite.bounds.size.x != 0)
+        {
+            int i = 1;
+            Vector3 a = new Vector3(Manager.transform.position.x + spriteRenderer.sprite.bounds.size.x / 2 - spriteRenderer.sprite.pivot.x / spriteRenderer.sprite.pixelsPerUnit, Manager.transform.position.y + spriteRenderer.sprite.bounds.size.y / 2 - spriteRenderer.sprite.pivot.y / spriteRenderer.sprite.pixelsPerUnit);
+            Vector3 centerPivot = new Vector3(Manager.transform.position.x + spriteRenderer.sprite.bounds.size.x / 2 - spriteRenderer.sprite.pivot.x / spriteRenderer.sprite.pixelsPerUnit, Manager.transform.position.y + spriteRenderer.sprite.bounds.size.y / 2 - spriteRenderer.sprite.pivot.y / spriteRenderer.sprite.pixelsPerUnit);
+            Vector2 objectSize = new Vector2(spriteRenderer.sprite.bounds.size.x / 0.64f, spriteRenderer.sprite.bounds.size.y / 0.64f);
+            Gizmos.DrawCube(feetGridPos + new Vector3(gridPosition.tilemap.cellSize.x * (objectSize.x + 1), gridPosition.tilemap.cellSize.y * i), gridPosition.tilemap.cellSize - new Vector3(0.2f, 0.2f, 0));
+        }
     }
     public override void EnterState(MovableObjectStateManager Manager)
     {
@@ -20,10 +29,11 @@ public class MOStateMovableTriggered : MovableObjectBaseState
     {
         if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Z))
         {
+            SpriteRenderer spriteRenderer = Manager.GetComponent<SpriteRenderer>();
+            Vector3 centerPivot = new Vector3(Manager.transform.position.x + spriteRenderer.sprite.bounds.size.x / 2 - spriteRenderer.sprite.pivot.x / spriteRenderer.sprite.pixelsPerUnit, Manager.transform.position.y + spriteRenderer.sprite.bounds.size.y / 2 - spriteRenderer.sprite.pivot.y / spriteRenderer.sprite.pixelsPerUnit);
             Vector2 playerPos = new Vector2(Manager.player.transform.position.x, Manager.player.transform.position.y);
-            float angle = Mathf.Atan2(playerPos.y - Manager.transform.position.y, playerPos.x - Manager.transform.position.x) * Mathf.Rad2Deg;
-            Debug.Log(angle);
-            if (angle >= 45 && angle < 135)
+            float angle = Mathf.Atan2(playerPos.y - centerPivot.y, playerPos.x - centerPivot.x) * Mathf.Rad2Deg;
+            if (angle > 45 && angle <= 135)
             {
                 if (wallDetect.y == -1)
                 {
@@ -34,7 +44,7 @@ public class MOStateMovableTriggered : MovableObjectBaseState
                     if (!isMoving) Manager.StartCoroutine(MoveObjectAnimation(Manager, new Vector3(0, -1, 0), new Vector2Int(0, -1), false));
                 }
             }
-            if (angle > 135 && angle <= 180 || angle < -135 && angle <= -180)
+            else if (angle > 135 && angle <= 180 || angle < -135 && angle >= -180)
             {
                 if (wallDetect.x == 1)
                 {
@@ -45,7 +55,7 @@ public class MOStateMovableTriggered : MovableObjectBaseState
                     if (!isMoving) Manager.StartCoroutine(MoveObjectAnimation(Manager, new Vector3(1, 0, 0), new Vector2Int(1, 0), false));
                 }
             }
-            if (angle <= 45 && angle > 0 || angle <= 0 && angle > -45)
+            else if (angle <= 45 && angle > 0 || angle <= 0 && angle > -45)
             {
                 if (wallDetect.x == -1)
                 {
@@ -56,7 +66,7 @@ public class MOStateMovableTriggered : MovableObjectBaseState
                     if (!isMoving) Manager.StartCoroutine(MoveObjectAnimation(Manager, new Vector3(-1, 0, 0), new Vector2Int(-1, 0), false));
                 }
             }
-            if (angle <= -45 && angle > -135)
+            else if (angle <= -45 && angle > -135)
             {
                 if (wallDetect.y == 1)
                 {
@@ -113,40 +123,86 @@ public class MOStateMovableTriggered : MovableObjectBaseState
             Manager.SmoothSwitchState(Manager.movableState);
         }
     }
+    Vector3 feetGridPos;
     void CheckWalls(MovableObjectStateManager Manager)
     {
         wallDetect = new Vector2(0, 0);
         SpriteRenderer spriteRenderer = Manager.GetComponent<SpriteRenderer>();
-        //while (spriteRenderer.bounds.size.x == 0 || spriteRenderer.bounds.size.y == 0)
-        //{
-        //}
-        Vector2 objectSize = new Vector2(spriteRenderer.bounds.size.x / 64, spriteRenderer.bounds.size.y / 64);
-        Vector3 feetGridPos = Manager.transform.position - new Vector3(0, spriteRenderer.bounds.size.y / 2, 0);
-        feetGridPos = gridPosition.NearGridPosition(feetGridPos);
-        feetGridPos += gridPosition.tilemap.cellSize * 0.5f;
-        if (Physics2D.BoxCast(
-            feetGridPos + new Vector3(0, gridPosition.tilemap.cellSize.y)
-            , gridPosition.tilemap.cellSize - new Vector3(0.2f, 0.2f, 0), 0, new Vector2(0, 0), Mathf.Infinity, 256))
+        Vector3 centerPivot = new Vector3(Manager.transform.position.x + spriteRenderer.sprite.bounds.size.x / 2 - spriteRenderer.sprite.pivot.x / spriteRenderer.sprite.pixelsPerUnit, Manager.transform.position.y + spriteRenderer.sprite.bounds.size.y / 2 - spriteRenderer.sprite.pivot.y / spriteRenderer.sprite.pixelsPerUnit);
+        Vector2 objectSize = new Vector2(spriteRenderer.sprite.bounds.size.x / 0.64f, spriteRenderer.sprite.bounds.size.y / 0.64f);
+        feetGridPos = centerPivot - new Vector3(0, spriteRenderer.sprite.bounds.size.y / 2, 0);
+        feetGridPos -= gridPosition.tilemap.cellSize * 0.5f + new Vector3(gridPosition.tilemap.cellSize.x * 0.5f, 0);
+        RaycastHit2D[] raycastHit2D;
+        for (int i = 1; i <= objectSize.y; i++)
         {
-            wallDetect.y = 1;
+            if (wallDetect.x == 0)
+            {
+                raycastHit2D = Physics2D.BoxCastAll(
+                feetGridPos + new Vector3(gridPosition.tilemap.cellSize.x * (objectSize.x + 1), gridPosition.tilemap.cellSize.y * i)
+                , gridPosition.tilemap.cellSize - new Vector3(0.2f, 0.2f, 0), 0, new Vector2(0, 0), Mathf.Infinity, layer);
+                foreach (RaycastHit2D hit2D in raycastHit2D)
+                {
+                    if (hit2D.collider.gameObject != Manager.gameObject)
+                    {
+                        if (!hit2D.collider.isTrigger)
+                        {
+                            Debug.Log(hit2D.collider.gameObject);
+                            wallDetect.x = 1;
+                        }
+                    }
+                }
+                raycastHit2D = Physics2D.BoxCastAll(
+                    feetGridPos + new Vector3(0, gridPosition.tilemap.cellSize.y * i)
+                    , gridPosition.tilemap.cellSize - new Vector3(0.2f, 0.2f, 0), 0, new Vector2(0, 0), Mathf.Infinity, layer);
+                foreach (RaycastHit2D hit2D in raycastHit2D)
+                {
+                    if (hit2D.collider.gameObject != Manager.gameObject)
+                    {
+                        if (!hit2D.collider.isTrigger)
+                        {
+                            //Debug.Log(hit2D.collider.gameObject);
+                            wallDetect.x = -1;
+                        }
+                    }
+
+                }
+            }
         }
-        else if (Physics2D.BoxCast(
-            feetGridPos + new Vector3(0, -gridPosition.tilemap.cellSize.y)
-            , gridPosition.tilemap.cellSize - new Vector3(0.2f, 0.2f, 0), 0, new Vector2(0, 0), Mathf.Infinity, 256))
+        for (int i = 1; i <= objectSize.x; i++)
         {
-            wallDetect.y = -1;
+            if (wallDetect.y == 0)
+            {
+                raycastHit2D = Physics2D.BoxCastAll(
+            feetGridPos + new Vector3(gridPosition.tilemap.cellSize.x * i, gridPosition.tilemap.cellSize.y * (objectSize.y + 1))
+            , gridPosition.tilemap.cellSize - new Vector3(0.2f, 0.2f, 0), 0, new Vector2(0, 0), Mathf.Infinity, layer);
+                foreach (RaycastHit2D hit2D in raycastHit2D)
+                {
+                    if (hit2D.collider.gameObject != Manager.gameObject)
+                    {
+                        if (!hit2D.collider.isTrigger)
+                        {
+                            //Debug.Log(hit2D.collider.gameObject);
+                            wallDetect.y = 1;
+                        }
+                    }
+                }
+                raycastHit2D = Physics2D.BoxCastAll(
+                feetGridPos + new Vector3(gridPosition.tilemap.cellSize.x * i, 0)
+                , gridPosition.tilemap.cellSize - new Vector3(0.2f, 0.2f, 0), 0, new Vector2(0, 0), Mathf.Infinity, layer);
+                foreach (RaycastHit2D hit2D in raycastHit2D)
+                {
+                    if (hit2D.collider.gameObject != Manager.gameObject)
+                    {
+                        if (!hit2D.collider.isTrigger)
+                        {
+                            //Debug.Log(hit2D.collider.gameObject);
+                            wallDetect.y = -1;
+                        }
+                    }
+                }
+            }
         }
-        if (Physics2D.BoxCast(
-            feetGridPos + new Vector3(gridPosition.tilemap.cellSize.x, 0)
-            , gridPosition.tilemap.cellSize - new Vector3(0.2f, 0.2f, 0), 0, new Vector2(0, 0), Mathf.Infinity, 256))
-        {
-            wallDetect.x = 1;
-        }
-        else if (Physics2D.BoxCast(
-            feetGridPos + new Vector3(-gridPosition.tilemap.cellSize.x, 0)
-            , gridPosition.tilemap.cellSize - new Vector3(0.2f, 0.2f, 0), 0, new Vector2(0, 0), Mathf.Infinity, 256))
-        {
-            wallDetect.x = -1;
-        }
+        Debug.Log(objectSize);
+        Debug.Log(wallDetect);
     }
 }
