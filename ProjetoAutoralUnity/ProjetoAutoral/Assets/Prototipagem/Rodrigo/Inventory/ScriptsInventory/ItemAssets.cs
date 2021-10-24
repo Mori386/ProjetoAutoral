@@ -20,4 +20,13 @@ public class ItemAssets : MonoBehaviour
         desentupidorPresentSprite, desentupidorFutureSprite,
         chaveSaidaPresentSprite, chaveSaidaFutureSprite;
     #endregion
+    //puzzle2
+    #region
+    public Sprite fosforoPresentSprite, fosforoFutureSprite,
+        chaveCongeladaPresentSprite, chaveCongelaFutureSprite,
+        chaveEscritPresentSprite, chaveEscritFutureSprite,
+        estiletePresentSprite, estileteFutureSprite,
+        cabidePresentSprite, cabideFutureSprite,
+        chaveSaida2PresentSprite, chaveSaida2FutureSprite;
+    #endregion
 }
