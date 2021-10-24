@@ -16,7 +16,7 @@ public class Ui_Inventory : MonoBehaviour
         itemSlotContainer = transform.Find("ItemSlotContainer");
         itemSlotTemplate = itemSlotContainer.Find("ItemSlotTemplate");
         playerInventoryManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInventoryManager>();
-        itemsUi = new RectTransform[5];
+        itemsUi = new RectTransform[3];
     }
     public void SetInventory(Inventory inventory)
     {
@@ -38,7 +38,7 @@ public class Ui_Inventory : MonoBehaviour
             Destroy(child.gameObject);
         }
         int x = 0;
-        float itemSlotCellSize = 110f;
+        float itemSlotCellSize = 100f;
         foreach (Item item in inventory.GetItemList())
         {
             RectTransform itemSlotRectTransform = Instantiate(itemSlotTemplate, itemSlotContainer).GetComponent<RectTransform>();

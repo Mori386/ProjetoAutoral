@@ -12,28 +12,46 @@ public class ObjectBase : MonoBehaviour
     [System.NonSerialized] public GameObject objectOtherTimeline;
     private void Start()
     {
-        StartCoroutine(WaitForStart());
-    }
-    IEnumerator WaitForStart()
-    {
-        yield return new WaitForSeconds(0.5f);
-        if (timePeriod == timePeriodList.Present)
+        if (GetComponent<GridPosition>() != null)
         {
-            SeachForObjectOtherTimeline(GameObject.Find("ObjectsFuture"));
-        }
-        else
-        {
-            SeachForObjectOtherTimeline(GameObject.Find("ObjectsPresent"));
+            if (timePeriod == timePeriodList.Present)
+            {
+                SeachForObjectOtherTimeline(GameObject.Find("ObjectsFuture"));
+            }
+            else
+            {
+                SeachForObjectOtherTimeline(GameObject.Find("ObjectsPresent"));
+            }
         }
     }
     public void SeachForObjectOtherTimeline(GameObject List)
     {
-        for (int i = 0; i <List.transform.childCount; i++)
+        for (int i = 0; i < List.transform.childCount; i++)
         {
-            if (List.transform.GetChild(i).GetComponent<GridPosition>().gridTilemapPosition == GetComponent<GridPosition>().gridTilemapPosition)
+            if (List.transform.GetChild(i).GetComponent<GridPosition>() == null)
             {
-                objectOtherTimeline = List.transform.GetChild(i).gameObject;
-                break;
+                if (List.transform.GetChild(i).childCount > 0)
+                {
+                    for (int c = 0; c < List.transform.GetChild(i).childCount; c++)
+                    {
+                        if (List.transform.GetChild(i).GetChild(c).GetComponent<GridPosition>() != null)
+                        {
+                            if (List.transform.GetChild(i).GetChild(c).GetComponent<GridPosition>().gridTilemapPosition == GetComponent<GridPosition>().gridTilemapPosition)
+                            {
+                                objectOtherTimeline = List.transform.GetChild(i).GetChild(c).gameObject;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                if (List.transform.GetChild(i).GetComponent<GridPosition>().gridTilemapPosition == GetComponent<GridPosition>().gridTilemapPosition)
+                {
+                    objectOtherTimeline = List.transform.GetChild(i).gameObject;
+                    break;
+                }
             }
         }
     }

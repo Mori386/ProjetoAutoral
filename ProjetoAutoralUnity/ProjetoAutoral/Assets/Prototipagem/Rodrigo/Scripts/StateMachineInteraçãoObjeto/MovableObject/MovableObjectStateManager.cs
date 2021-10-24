@@ -15,7 +15,7 @@ public class MovableObjectStateManager : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        currentState.GizmosState(this);
+        //currentState.GizmosState(this);
     }
     void Start()
     {
@@ -60,9 +60,9 @@ public class MovableObjectStateManager : MonoBehaviour
     public void moveOnFuture()
     {
         GameObject objectFuture = GetComponent<ObjectBase>().objectOtherTimeline;
-        objectFuture.GetComponent<GridPosition>().gridTilemapPosition = GetComponent<GridPosition>().gridTilemapPosition;
         GridPosition gridFromObjectFuture = objectFuture.GetComponent<GridPosition>();
-        objectFuture.transform.position = gridFromObjectFuture.tilemapCenter + new Vector3(gridFromObjectFuture.gridTilemapPosition.x + 0.5f, gridFromObjectFuture.gridTilemapPosition.y + 0.5f, 0);
+        gridFromObjectFuture.gridTilemapPosition = GetComponent<GridPosition>().gridTilemapPosition;
+        objectFuture.transform.position = gridFromObjectFuture.tilemapCenter + new Vector3(gridFromObjectFuture.gridTilemapPosition.x*gridFromObjectFuture.tilemap.cellSize.x + 0.5f*gridFromObjectFuture.tilemap.cellSize.x, gridFromObjectFuture.gridTilemapPosition.y * gridFromObjectFuture.tilemap.cellSize.y + 0.5f * gridFromObjectFuture.tilemap.cellSize.y);
     }
     public void ManualEnterStateCurrentState()
     {

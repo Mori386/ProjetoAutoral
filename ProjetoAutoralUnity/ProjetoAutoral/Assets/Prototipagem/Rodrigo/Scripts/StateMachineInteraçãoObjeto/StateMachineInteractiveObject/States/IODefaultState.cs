@@ -26,6 +26,10 @@ public class IODefaultState : IOBaseState
                 Manager.StopCoroutine(coroutine);
                 coroutineIsRunning = false;
             }
+            else if (coroutineRestarter!=null)
+            {
+                Manager.StopCoroutine(coroutineRestarter);
+            }
         }
     }
     public IEnumerator WaitForPlayerInput(IOStateManager Manager, Collider2D collision)
@@ -153,8 +157,13 @@ public class IODefaultState : IOBaseState
                 }
             }
         }
+        else if (!successive)
+        {
+            coroutineRestarter = Manager.StartCoroutine(ifStayOnTrigger(Manager, collision));
+        }
         
     }
+    Coroutine coroutineRestarter;
     IEnumerator ifStayOnTrigger(IOStateManager Manager,Collider2D collision)
     {
         yield return new WaitForSecondsRealtime(1);

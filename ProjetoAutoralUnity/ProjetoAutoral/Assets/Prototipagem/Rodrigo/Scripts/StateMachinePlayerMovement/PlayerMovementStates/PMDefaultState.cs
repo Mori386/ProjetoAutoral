@@ -5,10 +5,9 @@ using UnityEngine.UI;
 
 public class PMDefaultState : PMBaseState
 {
-    private bool focusOnCursor;
     public override void EnterState(PMStateManager Manager)
     {
-
+        focusOnCursorOff = Manager.StartCoroutine(FocusOnCursorOff(Manager));
     }
     private int inventoryCount;
     public override void UpdateState(PMStateManager Manager)
@@ -56,15 +55,16 @@ public class PMDefaultState : PMBaseState
         }
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-            focusOnCursor = true;
+            focusOnCursorOn = Manager.StartCoroutine(FocusOnCursorOn(Manager));
+            Manager.StopCoroutine(focusOnCursorOff);
         }
         else if (Input.GetKeyUp(KeyCode.Mouse1))
         {
-            focusOnCursor = false;
+            Manager.StopCoroutine(focusOnCursorOn);
+            focusOnCursorOff = Manager.StartCoroutine(FocusOnCursorOff(Manager));
             if (Manager.facingDirection.x != 0)
             {
                 if (Manager.facingDirection.x == 1) angle = -90;
-
                 else if (Manager.facingDirection.x == -1) angle = 90;
             }
             else if (Manager.facingDirection.y != 0)
@@ -72,36 +72,46 @@ public class PMDefaultState : PMBaseState
                 if (Manager.facingDirection.y == 1) angle = 0;
                 else if (Manager.facingDirection.y == -1) angle = 180;
             }
+            Manager.flashlight.transform.rotation = Quaternion.Euler(0, 0, angle);
         }
     }
     float angle;
-    public override void FixedUpdateState(PMStateManager Manager)
+    private Coroutine focusOnCursorOn;
+    private Coroutine focusOnCursorOff;
+    private IEnumerator FocusOnCursorOn(PMStateManager Manager)
     {
-        if (focusOnCursor)
+        Vector2 mousePos;
+        while (true)
         {
-            Vector2 mousePos = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
+            mousePos = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
             mousePos = Manager.transform.InverseTransformPoint(mousePos);
             angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg - 90;
             if (angle > -45 && angle <= 45)
             {
                 Manager.facingDirection = new Vector2Int(0, 1);
             }
-            if (angle > 45 && angle <= 90 || angle < -225 && angle <= -270)
+            else if (angle > 45 && angle <= 90 || angle < -225 && angle <= -270)
             {
                 Manager.facingDirection = new Vector2Int(-1, 0);
             }
-            if (angle <= -45 && angle > -135)
+            else if (angle <= -45 && angle > -135)
             {
                 Manager.facingDirection = new Vector2Int(1, 0);
             }
-            if (angle <= -135 && angle >= -225)
+            else if (angle <= -135 && angle >= -225)
             {
                 Manager.facingDirection = new Vector2Int(0, -1);
             }
+            Manager.flashlight.transform.rotation = Quaternion.Euler(0, 0, angle);
+            yield return new WaitForFixedUpdate();
         }
-        else
+    }
+    private IEnumerator FocusOnCursorOff(PMStateManager Manager)
+    {
+        Vector2 direction;
+        while (true)
         {
-            Vector2 direction = new Vector2(Manager.rawInputMove.x / Mathf.Abs(Manager.rawInputMove.x), Manager.rawInputMove.y / Mathf.Abs(Manager.rawInputMove.y));
+            direction = new Vector2(Manager.rawInputMove.x / Mathf.Abs(Manager.rawInputMove.x), Manager.rawInputMove.y / Mathf.Abs(Manager.rawInputMove.y));
             if (direction.x > 0)
             {
                 Manager.facingDirection = new Vector2Int(1, 0);
@@ -122,8 +132,12 @@ public class PMDefaultState : PMBaseState
                 Manager.facingDirection = new Vector2Int(0, -1);
                 angle = 180;
             }
+            Manager.flashlight.transform.rotation = Quaternion.Euler(0, 0, angle);
+            yield return new WaitForFixedUpdate();
         }
-        Manager.flashlight.transform.rotation = Quaternion.Euler(0, 0, angle);
+    }
+    public override void FixedUpdateState(PMStateManager Manager)
+    {
         Manager.rb.MovePosition(Manager.rb.position + Manager.regulatorDirection(Manager.rawInputMove) * Manager.moveSpeed * Time.fixedDeltaTime);
     }
 }

@@ -17,6 +17,7 @@ public class MOStateMovableTriggered : MovableObjectBaseState
             Vector3 a = new Vector3(Manager.transform.position.x + spriteRenderer.sprite.bounds.size.x / 2 - spriteRenderer.sprite.pivot.x / spriteRenderer.sprite.pixelsPerUnit, Manager.transform.position.y + spriteRenderer.sprite.bounds.size.y / 2 - spriteRenderer.sprite.pivot.y / spriteRenderer.sprite.pixelsPerUnit);
             Vector3 centerPivot = new Vector3(Manager.transform.position.x + spriteRenderer.sprite.bounds.size.x / 2 - spriteRenderer.sprite.pivot.x / spriteRenderer.sprite.pixelsPerUnit, Manager.transform.position.y + spriteRenderer.sprite.bounds.size.y / 2 - spriteRenderer.sprite.pivot.y / spriteRenderer.sprite.pixelsPerUnit);
             Vector2 objectSize = new Vector2(spriteRenderer.sprite.bounds.size.x / 0.64f, spriteRenderer.sprite.bounds.size.y / 0.64f);
+            Gizmos.DrawCube(feetGridPos, gridPosition.grid.cellSize - new Vector3(0.2f, 0.2f, 0));
             Gizmos.DrawCube(feetGridPos + new Vector3(gridPosition.tilemap.cellSize.x * (objectSize.x + 1), gridPosition.tilemap.cellSize.y * i), gridPosition.tilemap.cellSize - new Vector3(0.2f, 0.2f, 0));
         }
     }
@@ -102,6 +103,10 @@ public class MOStateMovableTriggered : MovableObjectBaseState
             {
                 Manager.moveOnFuture();
             }
+            else
+            {
+                Debug.Log(Manager.objectBase.objectOtherTimeline);
+            }
         }
         CheckWalls(Manager);
         isMoving = false;
@@ -130,8 +135,16 @@ public class MOStateMovableTriggered : MovableObjectBaseState
         SpriteRenderer spriteRenderer = Manager.GetComponent<SpriteRenderer>();
         Vector3 centerPivot = new Vector3(Manager.transform.position.x + spriteRenderer.sprite.bounds.size.x / 2 - spriteRenderer.sprite.pivot.x / spriteRenderer.sprite.pixelsPerUnit, Manager.transform.position.y + spriteRenderer.sprite.bounds.size.y / 2 - spriteRenderer.sprite.pivot.y / spriteRenderer.sprite.pixelsPerUnit);
         Vector2 objectSize = new Vector2(spriteRenderer.sprite.bounds.size.x / 0.64f, spriteRenderer.sprite.bounds.size.y / 0.64f);
-        feetGridPos = centerPivot - new Vector3(0, spriteRenderer.sprite.bounds.size.y / 2, 0);
-        feetGridPos -= gridPosition.tilemap.cellSize * 0.5f + new Vector3(gridPosition.tilemap.cellSize.x * 0.5f, 0);
+        feetGridPos = centerPivot;
+        feetGridPos.y -= spriteRenderer.sprite.bounds.size.y / 2 + gridPosition.tilemap.cellSize.y / 2;
+        if (objectSize.y > 1 || objectSize.x > 1)
+        {
+            feetGridPos.x -= gridPosition.tilemap.cellSize.x / 2 + gridPosition.tilemap.cellSize.x;
+        }
+        else
+        {
+            feetGridPos.x -= gridPosition.tilemap.cellSize.x;
+        }
         RaycastHit2D[] raycastHit2D;
         for (int i = 1; i <= objectSize.y; i++)
         {

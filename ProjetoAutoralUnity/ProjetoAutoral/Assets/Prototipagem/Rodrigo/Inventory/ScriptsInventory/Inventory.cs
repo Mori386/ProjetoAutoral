@@ -15,31 +15,38 @@ public class Inventory
     }
     public void AddItem(Item item)
     {
-        if (item.IsStackable())
+        if (GetItemList().Count<3)
         {
-            bool itemAlreadyInInventory = false;
-            foreach (Item inventoryItem in itemList)
+            if (item.IsStackable())
             {
-                if (inventoryItem.itemType == item.itemType)
+                bool itemAlreadyInInventory = false;
+                foreach (Item inventoryItem in itemList)
                 {
-                    inventoryItem.amount += item.amount;
-                    itemAlreadyInInventory = true;
+                    if (inventoryItem.itemType == item.itemType)
+                    {
+                        inventoryItem.amount += item.amount;
+                        itemAlreadyInInventory = true;
+                    }
+                }
+                if (!itemAlreadyInInventory)
+                {
+                    itemList.Add(item);
                 }
             }
-            if (!itemAlreadyInInventory)
+            else
             {
                 itemList.Add(item);
+            }
+            OnItemListChanged?.Invoke(this, EventArgs.Empty);
+            if (playerInventoryManager.activeItem == 0)
+            {
+                playerInventoryManager.activeItem = 1;
+                playerInventoryManager.uiInventory.itemsUi[0].Find("Border").GetComponent<Outline>().enabled = true;
             }
         }
         else
         {
-            itemList.Add(item);
-        }
-        OnItemListChanged?.Invoke(this, EventArgs.Empty);
-        if (playerInventoryManager.activeItem == 0)
-        {
-            playerInventoryManager.activeItem = 1;
-            playerInventoryManager.uiInventory.itemsUi[0].Find("Border").GetComponent<Outline>().enabled = true;
+            ItemWorld.DropItem(item, playerInventoryManager.GetComponent<PMStateManager>());
         }
     }
     public void RemoveItem(int itemNumber)
