@@ -30924,16 +30924,26 @@ MonoBehaviour:
     type: 3}
   fosforoFutureSprite: {fileID: -4716356664623820015, guid: fff7cbeebfa2f1043ad4ec0f52e1e20e,
     type: 3}
-  chaveCongeladaPresentSprite: {fileID: 0}
-  chaveCongelaFutureSprite: {fileID: 0}
-  chaveEscritPresentSprite: {fileID: 0}
-  chaveEscritFutureSprite: {fileID: 0}
-  estiletePresentSprite: {fileID: 0}
-  estileteFutureSprite: {fileID: 0}
-  cabidePresentSprite: {fileID: 0}
-  cabideFutureSprite: {fileID: 0}
-  chaveSaida2PresentSprite: {fileID: 0}
-  chaveSaida2FutureSprite: {fileID: 0}
+  chaveCongeladaPresentSprite: {fileID: -142587196841513143, guid: ebe7bb27a84c79249940f0eee78b205b,
+    type: 3}
+  chaveCongelaFutureSprite: {fileID: -142587196841513143, guid: ebe7bb27a84c79249940f0eee78b205b,
+    type: 3}
+  chaveEscritPresentSprite: {fileID: -1855245798543475952, guid: 58656cd20e958b7449399741322c7c1b,
+    type: 3}
+  chaveEscritFutureSprite: {fileID: -954119807445965653, guid: 919195322b9c7ab4fb5b6ab2cea7dd8c,
+    type: 3}
+  estiletePresentSprite: {fileID: 3414662640567194669, guid: 20f1248dd17452a40b76fbb090817430,
+    type: 3}
+  estileteFutureSprite: {fileID: 6565460055693968944, guid: 20f1248dd17452a40b76fbb090817430,
+    type: 3}
+  cabidePresentSprite: {fileID: 7322934799368640194, guid: 20f1248dd17452a40b76fbb090817430,
+    type: 3}
+  cabideFutureSprite: {fileID: -944107281408699506, guid: 20f1248dd17452a40b76fbb090817430,
+    type: 3}
+  chaveSaida2PresentSprite: {fileID: 6174479069255367884, guid: 58656cd20e958b7449399741322c7c1b,
+    type: 3}
+  chaveSaida2FutureSprite: {fileID: -5175295312320310806, guid: 919195322b9c7ab4fb5b6ab2cea7dd8c,
+    type: 3}
 --- !u!4 &1459691366
 Transform:
   m_ObjectHideFlags: 0
