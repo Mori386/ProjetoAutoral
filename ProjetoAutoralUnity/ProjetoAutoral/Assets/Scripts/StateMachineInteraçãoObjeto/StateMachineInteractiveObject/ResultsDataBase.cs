@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ResultsDataBase : MonoBehaviour
 {
+    
     public static void Interaction(string result, IOStateManager manager, PMStateManager player)
     {
         switch (result)
@@ -54,7 +55,7 @@ public class ResultsDataBase : MonoBehaviour
                 player.playerInventoryManager.inventory.AddItem(new Item { itemType = Item.ItemType.KeyEscritCongela, amount = 1 });
                 player.playerInventoryManager.uiInventory.SetInventory(player.playerInventoryManager.inventory);
                 break;
-            case "GavetasPia":
+            case "GavetasPiaCozinha":
                 player.playerInventoryManager.inventory.AddItem(new Item { itemType = Item.ItemType.Matches, amount = 1 });
                 player.playerInventoryManager.uiInventory.SetInventory(player.playerInventoryManager.inventory);
                 break;
@@ -62,8 +63,20 @@ public class ResultsDataBase : MonoBehaviour
                 player.playerInventoryManager.inventory.AddItem(new Item { itemType = Item.ItemType.KeyEscrit, amount = 1 });
                 player.playerInventoryManager.uiInventory.SetInventory(player.playerInventoryManager.inventory);
                 break;
-            case "Armario quarto":
+            case "AbrirEscritorio":
+                manager.gameObject.GetComponent<SpriteRenderer>().sprite = DoorSprite.Instance.doorFrontPresentOpen;
+                manager.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                break;
+            case "Escrivaninha":
+                player.playerInventoryManager.inventory.AddItem(new Item { itemType = Item.ItemType.Stilleto, amount = 1 });
+                player.playerInventoryManager.uiInventory.SetInventory(player.playerInventoryManager.inventory);
+                break;
+            case "ArmarioQuarto":
                 player.playerInventoryManager.inventory.AddItem(new Item { itemType = Item.ItemType.ClothesHanger, amount = 1 });
+                player.playerInventoryManager.uiInventory.SetInventory(player.playerInventoryManager.inventory);
+                break;
+            case "Ralo":
+                player.playerInventoryManager.inventory.AddItem(new Item { itemType = Item.ItemType.KeyExit2, amount = 1 });
                 player.playerInventoryManager.uiInventory.SetInventory(player.playerInventoryManager.inventory);
                 break;
             case "ExitPuzzle2Present":
