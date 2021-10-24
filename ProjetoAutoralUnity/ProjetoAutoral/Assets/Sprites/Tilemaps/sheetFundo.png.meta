@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: cfdc209f2623da340ae7c8e63531ed90
+guid: d5b12eedb7639d940bd40cb9ab0d8f56
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4361735882420647763
-    second: cortina aberto_0
+      213: -2027086488530989798
+    second: sheetFundo_0
+  - first:
+      213: 9181335432235082824
+    second: sheetFundo_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -90,22 +93,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cortina aberto_0
+      name: sheetFundo_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 2
-        width: 63
-        height: 60
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 357f1c3fcaff78c30800000000000000
-      internalID: 4361735882420647763
+      spriteID: a1dcd1224975ed3e0800000000000000
+      internalID: -2027086488530989798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheetFundo_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 844641a4ee7aa6f70800000000000000
+      internalID: 9181335432235082824
       vertices: []
       indices: 
       edges: []

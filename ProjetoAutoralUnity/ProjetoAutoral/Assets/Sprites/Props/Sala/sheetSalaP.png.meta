@@ -1,7 +1,46 @@
 fileFormatVersion: 2
 guid: 3dadefa9904e46848aa7a324ba2949f7
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -3452844999330452774
+    second: sheetSalaP_0
+  - first:
+      213: -7987082569805657663
+    second: sheetSalaP_3
+  - first:
+      213: 4769483624302583675
+    second: sheetSalaP_4
+  - first:
+      213: -8832888962787343351
+    second: sheetSalaP_9
+  - first:
+      213: 2660158902660596490
+    second: sheetSalaP_10
+  - first:
+      213: 2877851895353102198
+    second: sheetSalaP_12
+  - first:
+      213: -3314238490841001729
+    second: sheetSalaP_13
+  - first:
+      213: 7417957501426590038
+    second: sheetSalaP_14
+  - first:
+      213: 1630753420967754160
+    second: sheetSalaP_15
+  - first:
+      213: -8181202292395685411
+    second: sheetSalaP_18
+  - first:
+      213: 8952237466872406452
+    second: sheetSalaP_20
+  - first:
+      213: 4426646765761770520
+    second: sheetSalaP_21
+  - first:
+      213: 5827932463572924427
+    second: sheetSalaP_22
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -136,8 +175,8 @@ TextureImporter:
         y: 192
         width: 128
         height: 64
-      alignment: 9
-      pivot: {x: 0.25, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -157,8 +196,8 @@ TextureImporter:
         y: 128
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -178,8 +217,8 @@ TextureImporter:
         y: 128
         width: 128
         height: 64
-      alignment: 9
-      pivot: {x: 0.25, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -220,8 +259,8 @@ TextureImporter:
         y: 64
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -279,12 +318,12 @@ TextureImporter:
       name: sheetSalaP_18
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
         width: 128
         height: 64
-      alignment: 9
-      pivot: {x: 0.25, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -346,8 +385,8 @@ TextureImporter:
         y: 0
         width: 64
         height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
