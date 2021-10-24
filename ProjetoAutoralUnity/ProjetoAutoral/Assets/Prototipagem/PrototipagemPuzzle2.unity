@@ -1728,7 +1728,7 @@ MonoBehaviour:
     isAged: 0
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 1
-  textBoxOnSuccessiveInteraction: 
+  textBoxOnSuccessiveInteraction: "(Est\xE1 destrancada)"
   textBoxOnFailedInteraction: "(O escrit\xF3rio est\xE1 trancado)"
   textBox: {fileID: 0}
   ui: {fileID: 0}
@@ -7739,7 +7739,6 @@ GameObject:
   - component: {fileID: 495047918}
   - component: {fileID: 495047921}
   - component: {fileID: 495047920}
-  - component: {fileID: 495047922}
   m_Layer: 0
   m_Name: SaidaP
   m_TagString: Untagged
@@ -7788,9 +7787,8 @@ MonoBehaviour:
     isAged: 1
   needToInteract: 1
   destroyItemOnSuccessiveInteraction: 1
-  textBoxOnSuccessiveInteraction: (Abriu!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!)
-  textBoxOnFailedInteraction: "(Essa, supostamente, seria a porta de sa\xEDda. Est\xE1
-    trancada.) "
+  textBoxOnSuccessiveInteraction: "(Est\xE1 destrancada)"
+  textBoxOnFailedInteraction: "(A porta de sa\xEDda est\xE1 trancada, mais uma vez)"
   textBox: {fileID: 0}
   ui: {fileID: 0}
   onSuccessiveInteractionConsequence: ExitPuzzle2Present
@@ -7897,30 +7895,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.64, y: 0.79}
   m_EdgeRadius: 0
---- !u!114 &495047922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 495047916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 573f6dc5f24f47c4f88bcb19f97370e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canSuccessiveInteract: 0
-  textOnDisabledSuccessiveInteract: 
-  singleTimeUse: 0
-  needItemToInteract: 0
-  itemsNeeded: []
-  needToInteract: 0
-  destroyItemOnSuccessiveInteraction: 0
-  textBoxOnSuccessiveInteraction: 
-  textBoxOnFailedInteraction: 
-  textBox: {fileID: 0}
-  ui: {fileID: 0}
-  onSuccessiveInteractionConsequence: 
 --- !u!1 &501528768
 GameObject:
   m_ObjectHideFlags: 0
@@ -30077,7 +30051,9 @@ MonoBehaviour:
   destroyItemOnSuccessiveInteraction: 1
   textBoxOnSuccessiveInteraction: "(Depois de abrir um espa\xE7o usando o estilete,
     consegui pegar um cabide)"
-  textBoxOnFailedInteraction: 
+  textBoxOnFailedInteraction: "(A porta foi arrombada pela vegeta\xE7\xE3o, mas agora
+    preciso liberar um espa\xE7o para ver o que t\xEAm dentro - quem sabe, se eu
+    tivesse algo cortante)"
   textBox: {fileID: 0}
   ui: {fileID: 0}
   onSuccessiveInteractionConsequence: ArmarioQuarto
@@ -39060,20 +39036,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canSuccessiveInteract: 1
   textOnDisabledSuccessiveInteract: 
-  singleTimeUse: 0
+  singleTimeUse: 1
   needItemToInteract: 1
   itemsNeeded:
   - itemType: 12
-    amount: 0
+    amount: 1
+    active: 0
+    isAged: 0
+  - itemType: 12
+    amount: 1
     active: 0
     isAged: 1
-  needToInteract: 0
+  needToInteract: 1
   destroyItemOnSuccessiveInteraction: 1
-  textBoxOnSuccessiveInteraction: 
+  textBoxOnSuccessiveInteraction: "(Est\xE1 destrancada)"
   textBoxOnFailedInteraction: "(A sa\xEDda est\xE1 trancada)"
   textBox: {fileID: 0}
   ui: {fileID: 0}
-  onSuccessiveInteractionConsequence: 
+  onSuccessiveInteractionConsequence: ExitPuzzle2Future
 --- !u!1 &2087098033
 GameObject:
   m_ObjectHideFlags: 0
