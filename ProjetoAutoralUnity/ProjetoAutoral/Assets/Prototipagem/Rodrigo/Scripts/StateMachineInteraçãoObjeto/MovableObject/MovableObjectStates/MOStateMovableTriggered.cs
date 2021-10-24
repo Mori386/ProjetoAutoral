@@ -159,7 +159,7 @@ public class MOStateMovableTriggered : MovableObjectBaseState
                     {
                         if (!hit2D.collider.isTrigger)
                         {
-                            Debug.Log(hit2D.collider.gameObject);
+                            //Debug.Log(hit2D.collider.gameObject);
                             wallDetect.x = 1;
                         }
                     }
@@ -215,7 +215,7 @@ public class MOStateMovableTriggered : MovableObjectBaseState
                 }
             }
         }
-        Debug.Log(objectSize);
-        Debug.Log(wallDetect);
+        //Debug.Log(objectSize);
+        //Debug.Log(wallDetect);
     }
 }

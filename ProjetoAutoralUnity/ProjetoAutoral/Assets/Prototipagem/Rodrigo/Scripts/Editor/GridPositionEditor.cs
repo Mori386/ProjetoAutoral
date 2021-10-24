@@ -46,12 +46,12 @@ public class GridPositionEditor : Editor
             }
             gridPosition.grid = tilemap.transform.parent.GetComponent<Grid>();
             gridPosition.tilemapCenter = tilemap.origin + tilemap.transform.position;
-            gridPosition.tilemapCenter = gridPosition.NearGridPosition(gridPosition.tilemapCenter);
+            gridPosition.tilemapCenter = GridPosition.NearGridPosition(gridPosition.tilemapCenter);
             gridPosition.vector2PositionSetUpType = EditorGUILayout.Toggle("Vector2 Position Setup", gridPosition.vector2PositionSetUpType);
             gridPosition.gridTilemapPosition = EditorGUILayout.Vector2IntField("Position", gridPosition.gridTilemapPosition);
             if (firstTime)
             {
-                Vector3 nearCell = gridPosition.NearGridPosition(gridPosition.transform.position - new Vector3(gridPosition.grid.cellSize.x * 0.5f, gridPosition.grid.cellSize.y * 0.5f));
+                Vector3 nearCell = GridPosition.NearGridPosition(gridPosition.transform.position - new Vector3(gridPosition.grid.cellSize.x * 0.5f, gridPosition.grid.cellSize.y * 0.5f));
                 gridPosition.transform.position = nearCell + new Vector3(0.5f * gridPosition.grid.cellSize.x, 0.5f * gridPosition.grid.cellSize.y);
                 Vector2 positionObject = new Vector2(nearCell.x - gridPosition.tilemapCenter.x, nearCell.y - gridPosition.tilemapCenter.y);
                 positionObject = new Vector2(positionObject.x / gridPosition.grid.cellSize.x, positionObject.y / gridPosition.grid.cellSize.y);
@@ -60,13 +60,13 @@ public class GridPositionEditor : Editor
             }
             if (gridPosition.vector2PositionSetUpType)
             {
-                Vector3 nearCell = gridPosition.NearGridPosition(gridPosition.tilemapCenter + new Vector3(gridPosition.gridTilemapPosition.x * gridPosition.grid.cellSize.x, gridPosition.gridTilemapPosition.y * gridPosition.grid.cellSize.y, 0));
+                Vector3 nearCell = GridPosition.NearGridPosition(gridPosition.tilemapCenter + new Vector3(gridPosition.gridTilemapPosition.x * gridPosition.grid.cellSize.x, gridPosition.gridTilemapPosition.y * gridPosition.grid.cellSize.y, 0));
                 gridPosition.transform.position = nearCell + new Vector3(0.5f * gridPosition.grid.cellSize.x, 0.5f * gridPosition.grid.cellSize.y);
                 Vector3 test = gridPosition.transform.position - gridPosition.tilemapCenter - new Vector3(0.5f * gridPosition.grid.cellSize.x, 0.5f * gridPosition.grid.cellSize.y);
             }
             if (GUILayout.Button("Calibrate Position"))
             {
-                Vector3 nearCell = gridPosition.NearGridPosition(gridPosition.transform.position - new Vector3(gridPosition.grid.cellSize.x * 0.5f, gridPosition.grid.cellSize.y * 0.5f));
+                Vector3 nearCell = GridPosition.NearGridPosition(gridPosition.transform.position - new Vector3(gridPosition.grid.cellSize.x * 0.5f, gridPosition.grid.cellSize.y * 0.5f));
                 gridPosition.transform.position = nearCell + new Vector3(0.5f * gridPosition.grid.cellSize.x, 0.5f * gridPosition.grid.cellSize.y);
                 Vector2 positionObject = new Vector2(nearCell.x - gridPosition.tilemapCenter.x, nearCell.y - gridPosition.tilemapCenter.y);
                 positionObject = new Vector2(positionObject.x / gridPosition.grid.cellSize.x, positionObject.y / gridPosition.grid.cellSize.y);
