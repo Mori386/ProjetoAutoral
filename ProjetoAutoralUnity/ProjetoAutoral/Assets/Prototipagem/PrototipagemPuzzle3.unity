@@ -9357,7 +9357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timePeriod: 0
-  moveSpeed: 1.85
+  moveSpeed: 5
   facingDirection: {x: 0, y: 0}
 --- !u!50 &751575555
 Rigidbody2D:
