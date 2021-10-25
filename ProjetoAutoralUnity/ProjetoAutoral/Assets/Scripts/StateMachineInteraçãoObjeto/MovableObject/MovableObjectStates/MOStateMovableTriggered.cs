@@ -124,7 +124,7 @@ public class MOStateMovableTriggered : MovableObjectBaseState
         }
         CheckWalls(Manager);
         isMoving = false;
-        if (MovePlayerTogether) playerMov.SmoothSwitchState(playerMov.defaultState);
+        playerMov.SmoothSwitchState(playerMov.defaultState);
     }
     public override void FixedUpdateState(MovableObjectStateManager Manager)
     {
