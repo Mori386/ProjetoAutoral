@@ -14,7 +14,11 @@ public class IODefaultState : IOBaseState
     {
         if (collision.CompareTag("Player"))
         {
-            if (!coroutineIsRunning) coroutine = Manager.StartCoroutine(WaitForPlayerInput(Manager, collision));
+            if (!coroutineIsRunning)
+            {
+                collision.transform.Find("TeclaE").gameObject.SetActive(true);
+                coroutine = Manager.StartCoroutine(WaitForPlayerInput(Manager, collision)); 
+            }
         }
     }
     public override void OnTriggerExit2DState(IOStateManager Manager, Collider2D collision)
@@ -23,6 +27,7 @@ public class IODefaultState : IOBaseState
         {
             if (coroutineIsRunning)
             {
+                collision.transform.Find("TeclaE").gameObject.SetActive(false);
                 Manager.StopCoroutine(coroutine);
                 coroutineIsRunning = false;
             }

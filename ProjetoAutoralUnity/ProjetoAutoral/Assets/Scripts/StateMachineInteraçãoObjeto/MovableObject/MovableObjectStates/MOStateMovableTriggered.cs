@@ -132,6 +132,7 @@ public class MOStateMovableTriggered : MovableObjectBaseState
     {
         if (collision.gameObject == Manager.player)
         {
+            collision.transform.Find("TeclaE").gameObject.SetActive(false);
             Manager.SmoothSwitchState(Manager.movableState);
         }
     }
