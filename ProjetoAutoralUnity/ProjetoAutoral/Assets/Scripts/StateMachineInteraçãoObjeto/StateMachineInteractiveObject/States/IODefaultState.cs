@@ -152,6 +152,7 @@ public class IODefaultState : IOBaseState
         Time.timeScale = 1;
         Manager.textBox.text = "";
         coroutineIsRunning = false;
+        collision.transform.Find("TeclaE").gameObject.SetActive(false);
         if (successive && Manager.singleTimeUse)
         {
             foreach (BoxCollider2D boxCollider2D in Manager.GetComponents<BoxCollider2D>())

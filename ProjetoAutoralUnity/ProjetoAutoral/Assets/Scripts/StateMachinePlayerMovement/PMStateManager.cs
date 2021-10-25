@@ -22,6 +22,8 @@ public class PMStateManager : MonoBehaviour
 
     [System.NonSerialized] public GameObject flashlight;
     [System.NonSerialized] public Rigidbody2D rbFlashlight;
+
+    [System.NonSerialized] public bool endedAnimation;
     private void Awake()
     {
         facingDirection = new Vector2Int(0, 1);
@@ -87,16 +89,16 @@ public class PMStateManager : MonoBehaviour
         switch (method)
         {
             case "PushBackEnd":
-
-                break;
             case "PushFrontEnd":
-
-                break;
             case "PushRightEnd":
-
-                break;
             case "PushLeftEnd":
-
+                endedAnimation = true;
+                break;
+            case "PullRightEnd":
+            case "PullLeftEnd":
+            case "PullFrontEnd":
+            case "PullBackEnd":
+                animator.SetBool("PULLOBJECTMIDEND", false);
                 break;
         }
     }

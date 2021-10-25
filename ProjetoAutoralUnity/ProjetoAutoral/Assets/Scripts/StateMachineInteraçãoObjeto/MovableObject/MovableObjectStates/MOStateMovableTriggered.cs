@@ -86,7 +86,7 @@ public class MOStateMovableTriggered : MovableObjectBaseState
         Vector3 startPos = Manager.transform.position;
         deltaPosition = new Vector3(deltaPosition.x * Manager.gridPosition.tilemap.cellSize.x, deltaPosition.y * Manager.gridPosition.tilemap.cellSize.y, 0);
         isMoving = true;
-        if (MovePlayerTogether) playerMov.SmoothSwitchState(playerMov.controlOffState);
+        playerMov.SmoothSwitchState(playerMov.controlOffState);
         if (MovePlayerTogether)
         {
             playerMov.animator.SetTrigger("PULLOBJECT");
@@ -94,6 +94,11 @@ public class MOStateMovableTriggered : MovableObjectBaseState
         else
         {
             playerMov.animator.SetTrigger("PUSHOBJECT");
+            while (!playerMov.endedAnimation)
+            {
+                yield return null;
+            }
+            playerMov.endedAnimation = false;
         }
         Vector3 finalPositon = startPos + deltaPosition;
         while (
@@ -104,6 +109,7 @@ public class MOStateMovableTriggered : MovableObjectBaseState
             Manager.transform.position += deltaPosition / 20;
             yield return new WaitForSeconds(0.01f);
         }
+        playerMov.animator.SetBool("PULLOBJECTMIDEND", true);
         Manager.GetComponent<GridPosition>().gridTilemapPosition += deltaGridPosition;
         if (Manager.objectBase.timePeriod == ObjectBase.timePeriodList.Present)
         {
