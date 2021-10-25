@@ -87,6 +87,14 @@ public class MOStateMovableTriggered : MovableObjectBaseState
         deltaPosition = new Vector3(deltaPosition.x * Manager.gridPosition.tilemap.cellSize.x, deltaPosition.y * Manager.gridPosition.tilemap.cellSize.y, 0);
         isMoving = true;
         if (MovePlayerTogether) playerMov.SmoothSwitchState(playerMov.controlOffState);
+        if (MovePlayerTogether)
+        {
+            playerMov.animator.SetTrigger("PULLOBJECT");
+        }
+        else
+        {
+            playerMov.animator.SetTrigger("PUSHOBJECT");
+        }
         Vector3 finalPositon = startPos + deltaPosition;
         while (
             new Vector3(Mathf.Round(Manager.transform.position.x * 100) / 100, Mathf.Round(Manager.transform.position.y * 100) / 100) != new Vector3(Mathf.Round(finalPositon.x * 100) / 100, Mathf.Round(finalPositon.y * 100) / 100)
@@ -124,7 +132,6 @@ public class MOStateMovableTriggered : MovableObjectBaseState
     {
         if (collision.gameObject == Manager.player)
         {
-            Manager.GetComponent<SpriteRenderer>().color = new Color32(255, 0, 255, 255);
             Manager.SmoothSwitchState(Manager.movableState);
         }
     }

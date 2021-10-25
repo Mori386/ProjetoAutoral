@@ -24,7 +24,6 @@ public class MOStateMovable : MovableObjectBaseState
     {
         if(collision.gameObject==Manager.player)
         {
-            Manager.GetComponent<SpriteRenderer>().color = Color.yellow;
             Manager.SwitchState(Manager.triggeredState);
         }
     }

@@ -18,6 +18,7 @@ public class PMStateManager : MonoBehaviour
     [System.NonSerialized] public PlayerInventoryManager playerInventoryManager;
     [System.NonSerialized] public GameObject tilemapFuturo, tilemapPresente;
     public Vector2Int facingDirection;
+    [System.NonSerialized] public Animator animator;
 
     [System.NonSerialized] public GameObject flashlight;
     [System.NonSerialized] public Rigidbody2D rbFlashlight;
@@ -28,6 +29,7 @@ public class PMStateManager : MonoBehaviour
         tilemapPresente = GameObject.Find("TilemapPresente");
         rb = GetComponent<Rigidbody2D>();
         playerInventoryManager = GetComponent<PlayerInventoryManager>();
+        animator = GetComponent<Animator>();
     }
     void Start()
     {
@@ -78,6 +80,24 @@ public class PMStateManager : MonoBehaviour
             direction.x = rawDirection.x / (Mathf.Abs(rawDirection.x) + Mathf.Abs(rawDirection.y));
             direction.y = rawDirection.y / (Mathf.Abs(rawDirection.x) + Mathf.Abs(rawDirection.y));
             return direction;
+        }
+    }
+    public void AnimatorMethod(string method)
+    {
+        switch (method)
+        {
+            case "PushBackEnd":
+
+                break;
+            case "PushFrontEnd":
+
+                break;
+            case "PushRightEnd":
+
+                break;
+            case "PushLeftEnd":
+
+                break;
         }
     }
 }

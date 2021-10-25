@@ -22,6 +22,7 @@ public class PMDefaultState : PMBaseState
         if (inventoryCount == 0)
         {
             Manager.playerInventoryManager.activeItem = 0;
+            Manager.animator.SetBool("FLASHLIGHT", false);
         }
         else
         {
@@ -33,6 +34,14 @@ public class PMDefaultState : PMBaseState
                     Manager.playerInventoryManager.activeItem = i;
                     Manager.playerInventoryManager.uiInventory.itemsUi[Manager.playerInventoryManager.activeItem - 1].Find("Border").GetComponent<Outline>().enabled = true;
                 }
+            }
+            if (Manager.playerInventoryManager.inventory.GetItemList()[Manager.playerInventoryManager.activeItem - 1].itemType == Item.ItemType.Flashlight && Manager.playerInventoryManager.inventory.GetItemList()[Manager.playerInventoryManager.activeItem - 1].isAged == false)
+            {
+                Manager.animator.SetBool("FLASHLIGHT", true);
+            }
+            else
+            {
+                Manager.animator.SetBool("FLASHLIGHT", false);
             }
         }
         if (Input.GetKeyDown(KeyCode.C) && Manager.playerInventoryManager.activeItem > 0)
@@ -103,6 +112,9 @@ public class PMDefaultState : PMBaseState
                 Manager.facingDirection = new Vector2Int(0, -1);
             }
             Manager.flashlight.transform.rotation = Quaternion.Euler(0, 0, angle);
+            float FACINGDIRECTION = Manager.facingDirection.x + Manager.facingDirection.y / 10;
+            Manager.animator.SetInteger("FACINGDIRECTIONX", Manager.facingDirection.x);
+            Manager.animator.SetInteger("FACINGDIRECTIONY", Manager.facingDirection.y);
             yield return new WaitForFixedUpdate();
         }
     }
@@ -133,11 +145,22 @@ public class PMDefaultState : PMBaseState
                 angle = 180;
             }
             Manager.flashlight.transform.rotation = Quaternion.Euler(0, 0, angle);
+            Manager.animator.SetInteger("FACINGDIRECTIONX", Manager.facingDirection.x);
+            Manager.animator.SetInteger("FACINGDIRECTIONY", Manager.facingDirection.y);
             yield return new WaitForFixedUpdate();
         }
     }
     public override void FixedUpdateState(PMStateManager Manager)
     {
-        Manager.rb.MovePosition(Manager.rb.position + Manager.regulatorDirection(Manager.rawInputMove) * Manager.moveSpeed * Time.fixedDeltaTime);
+        Vector2 regulatedDirection = Manager.regulatorDirection(Manager.rawInputMove);
+        if (regulatedDirection.x != 0 || regulatedDirection.y !=0)
+        {
+            Manager.animator.SetBool("MOVING", true);
+        }
+        else
+        {
+            Manager.animator.SetBool("MOVING", false);
+        }
+        Manager.rb.MovePosition(Manager.rb.position + regulatedDirection * Manager.moveSpeed * Time.fixedDeltaTime);
     }
 }
