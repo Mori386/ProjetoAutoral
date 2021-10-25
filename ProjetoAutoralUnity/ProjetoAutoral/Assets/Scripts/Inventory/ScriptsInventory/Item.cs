@@ -14,7 +14,8 @@ public class Item
     {
         Flashlight, Placeholder,
         KeyCabine1, KeyCabine2, Cloth, Plunger, KeyExit1, //itens do puzzle1
-        KeyEscritCongela, KeyEscrit, Matches, ClothesHanger, Stilleto, KeyExit2 //itens do puzzle2
+        KeyEscritCongela, KeyEscrit, Matches, ClothesHanger, Stilleto, KeyExit2, //itens do puzzle2
+        HairClip, ToothPick, LoginPass, SecretPass, Screwdriver, KeyExit3
 
     }
     public ItemType itemType;
@@ -41,6 +42,13 @@ public class Item
             case ItemType.KeyEscritCongela:
             case ItemType.Matches:
             case ItemType.Stilleto:
+            case ItemType.KeyExit2:
+            case ItemType.HairClip:
+            case ItemType.ToothPick:
+            case ItemType.LoginPass:
+            case ItemType.SecretPass:
+            case ItemType.Screwdriver:
+            case ItemType.KeyExit3:
                 return false;
                 //return true;
         }
@@ -59,6 +67,12 @@ public class Item
             case ItemType.KeyEscritCongela:
             case ItemType.Matches:
             case ItemType.Stilleto:
+            case ItemType.HairClip:
+            case ItemType.ToothPick:
+            case ItemType.LoginPass:
+            case ItemType.SecretPass:
+            case ItemType.Screwdriver:
+            case ItemType.KeyExit3:
                 return false;
             case ItemType.Placeholder:
                 return true;
@@ -112,8 +126,28 @@ public class Item
             case ItemType.KeyExit2:
                 if (isAged) return ItemAssets.Instance.chaveSaida2FutureSprite;
                 else return ItemAssets.Instance.chaveSaida2PresentSprite;
-             #endregion
+            #endregion
             //puzzle3
+            #region
+            case ItemType.HairClip:
+                if (isAged) return ItemAssets.Instance.grampoFutureSprite;
+                else return ItemAssets.Instance.grampoPresentSprite;
+            case ItemType.ToothPick:
+                if (isAged) return ItemAssets.Instance.palitoFutureSprite;
+                else return ItemAssets.Instance.palitoPresentSprite;
+            case ItemType.LoginPass:
+                if (isAged) return ItemAssets.Instance.senhaLoginFutureSprite;
+                else return ItemAssets.Instance.senhaLoginPresentSprite;
+            case ItemType.SecretPass:
+                if (isAged) return ItemAssets.Instance.senhaCompartimentoFutureSprite;
+                else return ItemAssets.Instance.senhaCompartimentoPresentSprite;
+            case ItemType.Screwdriver:
+                if (isAged) return ItemAssets.Instance.chaveFendaFutureSprite;
+                else return ItemAssets.Instance.chaveFendaPresentSprite;
+            case ItemType.KeyExit3:
+                if (isAged) return ItemAssets.Instance.chaveSaida3FutureSprite;
+                else return ItemAssets.Instance.chaveSaida3PresentSprite;
+                #endregion
         }
     }
 }

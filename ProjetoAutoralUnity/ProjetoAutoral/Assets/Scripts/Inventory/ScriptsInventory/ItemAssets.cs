@@ -29,4 +29,13 @@ public class ItemAssets : MonoBehaviour
         cabidePresentSprite, cabideFutureSprite,
         chaveSaida2PresentSprite, chaveSaida2FutureSprite;
     #endregion
+    //puzzle3
+    #region
+    public Sprite grampoPresentSprite, grampoFutureSprite,
+        palitoPresentSprite, palitoFutureSprite,
+        senhaLoginPresentSprite, senhaLoginFutureSprite,
+        senhaCompartimentoPresentSprite, senhaCompartimentoFutureSprite,
+        chaveFendaPresentSprite, chaveFendaFutureSprite,
+        chaveSaida3PresentSprite, chaveSaida3FutureSprite;
+    #endregion
 }

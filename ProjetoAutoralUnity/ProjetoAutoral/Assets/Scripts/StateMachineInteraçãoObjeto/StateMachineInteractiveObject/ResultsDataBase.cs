@@ -87,6 +87,41 @@ public class ResultsDataBase : MonoBehaviour
                 manager.gameObject.GetComponent<SpriteRenderer>().sprite = DoorSprite.Instance.doorFrontFutureOpen;
                 manager.gameObject.GetComponent<BoxCollider2D>().enabled = false;
                 break;
+            #endregion
+            //cases do Puzzle3
+            #region
+            case "PalitoDente":
+                player.playerInventoryManager.inventory.AddItem(new Item { itemType = Item.ItemType.ToothPick, amount = 1 });
+                player.playerInventoryManager.uiInventory.SetInventory(player.playerInventoryManager.inventory);
+                break;
+            case "GrampoPrivada":
+                player.playerInventoryManager.inventory.AddItem(new Item { itemType = Item.ItemType.HairClip, amount = 1 });
+                player.playerInventoryManager.uiInventory.SetInventory(player.playerInventoryManager.inventory);
+                break;
+            case "Bau":
+                player.playerInventoryManager.inventory.AddItem(new Item { itemType = Item.ItemType.LoginPass, amount = 1 });
+                player.playerInventoryManager.uiInventory.SetInventory(player.playerInventoryManager.inventory);
+                break;
+            case "Computador":
+                player.playerInventoryManager.inventory.AddItem(new Item { itemType = Item.ItemType.SecretPass, amount = 1 });
+                player.playerInventoryManager.uiInventory.SetInventory(player.playerInventoryManager.inventory);
+                break;
+            case "GloboQuebrado":
+                player.playerInventoryManager.inventory.AddItem(new Item { itemType = Item.ItemType.KeyExit3, amount = 1 });
+                player.playerInventoryManager.uiInventory.SetInventory(player.playerInventoryManager.inventory);
+                break;
+            case "Compartimento":
+                player.playerInventoryManager.inventory.AddItem(new Item { itemType = Item.ItemType.Screwdriver, amount = 1 });
+                player.playerInventoryManager.uiInventory.SetInventory(player.playerInventoryManager.inventory);
+                break;
+            case "ExitPuzzle3Present":
+                manager.gameObject.GetComponent<SpriteRenderer>().sprite = DoorSprite.Instance.doorFrontPresentOpen;
+                manager.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                break;
+            case "ExitPuzzle3Future":
+                manager.gameObject.GetComponent<SpriteRenderer>().sprite = DoorSprite.Instance.doorFrontFutureOpen;
+                manager.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                break;
                 #endregion
         }
     }
