@@ -4,5 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Prototipagem/PrototipagemPuzzle1.unity
+    guid: 904868406638b7c4fa3996aeeba3477e
+  - enabled: 1
+    path: Assets/Prototipagem/PrototipagemPuzzle2.unity
+    guid: 34cc1c9acf7a36f498749342d05f224f
+  - enabled: 1
+    path: Assets/Prototipagem/PrototipagemPuzzle3.unity
+    guid: 99a4f3a7e744e71439e5817b367a991e
+  - enabled: 1
+    path: Assets/Prototipagem/Fim.unity
+    guid: d85747ad41b20ad47b735043d1e112a6
   m_configObjects: {}
