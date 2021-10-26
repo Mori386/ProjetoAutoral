@@ -46,21 +46,29 @@ public class PMDefaultState : PMBaseState
         }
         if (Input.GetKeyDown(KeyCode.C) && Manager.playerInventoryManager.activeItem > 0)
         {
-            Item item = Manager.playerInventoryManager.inventory.GetItemList()[Manager.playerInventoryManager.activeItem - 1];
-            Manager.playerInventoryManager.inventory.RemoveItem(Manager.playerInventoryManager.activeItem - 1);
-            if (Manager.playerInventoryManager.inventory.GetItemList().Count > 0)
+            Vector3 dropGridPosition = ItemWorld.CellPositionCenter(Manager.transform.position - new Vector3(0, Manager.GetComponent<SpriteRenderer>().bounds.size.y / 2));
+            dropGridPosition -= Vector3.Scale(new Vector3(0.5f, 0.5f), new Vector2(0.64f, 0.64f));
+            RaycastHit2D[] otherItemFound = Physics2D.BoxCastAll(
+                dropGridPosition
+                , new Vector3(0.2f, 0.2f, 0), 0, new Vector2(0, 0), Mathf.Infinity, 2048);
+            if (otherItemFound.Length <= 0)
             {
-                if (Manager.playerInventoryManager.activeItem == Manager.playerInventoryManager.inventory.GetItemList().Count + 1)
+                Item item = Manager.playerInventoryManager.inventory.GetItemList()[Manager.playerInventoryManager.activeItem - 1];
+                Manager.playerInventoryManager.inventory.RemoveItem(Manager.playerInventoryManager.activeItem - 1);
+                if (Manager.playerInventoryManager.inventory.GetItemList().Count > 0)
+                {
+                    if (Manager.playerInventoryManager.activeItem == Manager.playerInventoryManager.inventory.GetItemList().Count + 1)
+                    {
+                        Manager.playerInventoryManager.activeItem--;
+                    }
+                    Manager.playerInventoryManager.uiInventory.itemsUi[Manager.playerInventoryManager.activeItem - 1].Find("Border").GetComponent<Outline>().enabled = true;
+                }
+                else
                 {
                     Manager.playerInventoryManager.activeItem--;
                 }
-                Manager.playerInventoryManager.uiInventory.itemsUi[Manager.playerInventoryManager.activeItem - 1].Find("Border").GetComponent<Outline>().enabled = true;
+                ItemWorld.DropItem(item, Manager);
             }
-            else
-            {
-                Manager.playerInventoryManager.activeItem--;
-            }
-            ItemWorld.DropItem(item, Manager);
         }
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
@@ -153,7 +161,7 @@ public class PMDefaultState : PMBaseState
     public override void FixedUpdateState(PMStateManager Manager)
     {
         Vector2 regulatedDirection = Manager.regulatorDirection(Manager.rawInputMove);
-        if (regulatedDirection.x != 0 || regulatedDirection.y !=0)
+        if (regulatedDirection.x != 0 || regulatedDirection.y != 0)
         {
             Manager.animator.SetBool("MOVING", true);
         }

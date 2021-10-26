@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -8556,6 +8556,54 @@ Transform:
   - {fileID: 2134061782}
   m_Father: {fileID: 1474554911}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &727183906
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 727183908}
+  - component: {fileID: 727183907}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &727183907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727183906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af4c3c6f4fb117a488291234b1c69d62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item:
+    itemType: 0
+    amount: 1
+    active: 0
+    isAged: 0
+--- !u!4 &727183908
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727183906}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.156, y: -0.296, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &729624643
 GameObject:
@@ -32558,7 +32606,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7772194, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -36060,9 +36108,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pfItemWorld: {fileID: 9176638056551940681, guid: f6787217c634fd9489d65e4c7f8fe82f,
     type: 3}
-  flashlightPresentSprite: {fileID: 21300000, guid: 356b52d9f90a8e2428665ea9911e3993,
+  flashlightPresentSprite: {fileID: 21300000, guid: 464124626fe3a3b458b0fa430f678a82,
     type: 3}
-  flashlightFutureSprite: {fileID: 21300000, guid: b1072dde2a6dacb49b960df97b1ffb72,
+  flashlightFutureSprite: {fileID: 21300000, guid: 8e9bf016d54f7114aad63ed33bab30dd,
     type: 3}
   placeholderSprite: {fileID: 21300000, guid: e78a4120a22b80d4bac6184941687013, type: 3}
   panoPresentSprite: {fileID: -2312239266539014467, guid: 0a1efa9031e6b68459d1aeac49ff6c16,
@@ -41034,9 +41082,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.34015357}
   serializedVersion: 2
-  m_Radius: 0.47
+  m_Radius: 0.12984645
 --- !u!212 &1845465335
 SpriteRenderer:
   m_ObjectHideFlags: 0

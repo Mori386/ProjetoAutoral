@@ -20,11 +20,8 @@ public class ItemWorld : MonoBehaviour
             tilemap = player.tilemapPresente.GetComponent<Tilemap>();
         }
         else tilemap = player.tilemapFuturo.GetComponent<Tilemap>();
-        //Vector3 dropGridPosition = tilemap.WorldToCell(player.transform.position) + new Vector3Int(player.facingDirection.x, player.facingDirection.y, 0);
-        Vector3 dropGridPosition = GridPosition.NearGridPosition(player.transform.position-player.GetComponent<SpriteRenderer>().bounds.size);
-        //Dropar item na direção que olha desativado por hora
-        //dropGridPosition += Vector3.Scale(new Vector3(player.facingDirection.x, player.facingDirection.y),tilemap.cellSize);
-        dropGridPosition += Vector3.Scale(new Vector3(0.5f, 0.5f), tilemap.cellSize);
+        Vector3 dropGridPosition = CellPositionCenter(player.transform.position - new Vector3(0, player.GetComponent<SpriteRenderer>().bounds.size.y / 2));
+        dropGridPosition -= Vector3.Scale(new Vector3(0.5f, 0.5f), tilemap.cellSize);
         if (!item.isAged)
         {
             ItemWorld itemWorld = SpawnItemWorld(dropGridPosition, item);
@@ -36,10 +33,32 @@ public class ItemWorld : MonoBehaviour
             return SpawnItemWorld(dropGridPosition, item);
         }
     }
+    public static Vector3 CellPositionCenter(Vector3 position)
+    {
+        Grid grid = GameObject.Find("Grid").GetComponent<Grid>();
+        Vector3 nearGridPosition = new Vector3(0, 0, 0);
+        if (nearGridPosition.x > 0)
+        {
+            nearGridPosition.x = Mathf.Floor(position.x / grid.cellSize.x) * grid.cellSize.x;
+        }
+        else
+        {
+            nearGridPosition.x = Mathf.Ceil(position.x / grid.cellSize.x) * grid.cellSize.x;
+        }
+        if (nearGridPosition.y > 0)
+        {
+            nearGridPosition.y = Mathf.Floor(position.y / grid.cellSize.y) * grid.cellSize.y;
+        }
+        else
+        {
+            nearGridPosition.y = Mathf.Ceil(position.y / grid.cellSize.y) * grid.cellSize.y;
+        }
+        return nearGridPosition;
+    }
     public static ItemWorld SpawnItemInFuture(Item itemPresent, Vector3 itemPresentGridPosition)
     {
         PMStateManager player = GameObject.FindGameObjectWithTag("Player").GetComponent<PMStateManager>();
-        return SpawnItemWorld(itemPresentGridPosition + player.tilemapFuturo.transform.position - player.tilemapPresente.transform.position, new Item { itemType = itemPresent.itemType, amount = itemPresent.amount, itemTimeline = Item.ItemTimeline.Future,isAged=true});
+        return SpawnItemWorld(itemPresentGridPosition + player.tilemapFuturo.transform.position - player.tilemapPresente.transform.position, new Item { itemType = itemPresent.itemType, amount = itemPresent.amount, itemTimeline = Item.ItemTimeline.Future, isAged = true });
     }
     private Item item;
     private SpriteRenderer spriteRenderer;

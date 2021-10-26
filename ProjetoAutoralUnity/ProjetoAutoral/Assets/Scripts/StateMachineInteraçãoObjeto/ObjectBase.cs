@@ -60,7 +60,7 @@ public class ObjectBase : MonoBehaviour
                 }
                 break;
         }
-        Debug.Log(objectOtherTimeline);
+        //Debug.Log(objectOtherTimeline);
     }
     private bool finishedSearching = false;
     public void SeachForObjectOtherTimeline(GameObject List)

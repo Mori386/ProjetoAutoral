@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -26430,7 +26430,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7772194, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -31242,9 +31242,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pfItemWorld: {fileID: 9176638056551940681, guid: f6787217c634fd9489d65e4c7f8fe82f,
     type: 3}
-  flashlightPresentSprite: {fileID: 21300000, guid: 356b52d9f90a8e2428665ea9911e3993,
+  flashlightPresentSprite: {fileID: 21300000, guid: 464124626fe3a3b458b0fa430f678a82,
     type: 3}
-  flashlightFutureSprite: {fileID: 21300000, guid: b1072dde2a6dacb49b960df97b1ffb72,
+  flashlightFutureSprite: {fileID: 21300000, guid: 8e9bf016d54f7114aad63ed33bab30dd,
     type: 3}
   placeholderSprite: {fileID: 21300000, guid: e78a4120a22b80d4bac6184941687013, type: 3}
   panoPresentSprite: {fileID: -2312239266539014467, guid: 0a1efa9031e6b68459d1aeac49ff6c16,
