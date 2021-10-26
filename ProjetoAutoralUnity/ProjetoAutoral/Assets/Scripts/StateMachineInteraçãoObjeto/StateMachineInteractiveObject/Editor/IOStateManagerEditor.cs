@@ -12,8 +12,8 @@ public class EditorGUIPropertyField : Editor
     {
         IOStateManager iOStateManager = (IOStateManager)target;
         SerializedObject serializedObject = new UnityEditor.SerializedObject(iOStateManager);
-        iOStateManager.canSuccessiveInteract = EditorGUILayout.Toggle("Can Successive Interact",iOStateManager.canSuccessiveInteract);
-        if(iOStateManager.canSuccessiveInteract)
+        iOStateManager.canSuccessiveInteract = EditorGUILayout.Toggle("Can Successive Interact", iOStateManager.canSuccessiveInteract);
+        if (iOStateManager.canSuccessiveInteract)
         {
             EditorGUILayout.LabelField("Successive Interaction Consequence");
             iOStateManager.onSuccessiveInteractionConsequence = EditorGUILayout.TextArea(iOStateManager.onSuccessiveInteractionConsequence);

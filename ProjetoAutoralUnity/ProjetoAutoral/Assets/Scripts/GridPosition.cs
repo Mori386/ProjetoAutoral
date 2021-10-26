@@ -9,7 +9,7 @@ public class GridPosition : MonoBehaviour
     public Tilemap tilemap;
     public Vector3 tilemapCenter;
     [System.NonSerialized] public bool vector2PositionSetUpType;
-    [System.NonSerialized] public Vector2Int gridTilemapPosition;
+    [System.NonSerialized] public Vector2Int gridTilemapPosition = new Vector2Int(1234,1234);
     public Grid grid;
     public static Vector3 NearGridPosition(Vector3 position)
     {

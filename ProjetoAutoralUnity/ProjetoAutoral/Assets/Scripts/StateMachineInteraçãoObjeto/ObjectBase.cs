@@ -10,26 +10,59 @@ public class ObjectBase : MonoBehaviour
     }
     [SerializeField] public timePeriodList timePeriod;
     [System.NonSerialized] public GameObject objectOtherTimeline;
+    private GridPosition gridPosition;
+    private void Awake()
+    {
+        gridPosition = GetComponent<GridPosition>();
+    }
     private void Start()
     {
-        StartCoroutine(waitForSetup());
+        if (gridPosition != null) StartCoroutine(waitForSetup());
     }
     private IEnumerator waitForSetup()
     {
-        yield return new WaitForSecondsRealtime(2f);
-        if (GetComponent<GridPosition>() != null)
+        //Debug.Log("a");
+        while (ObjectsList.Instance == null)
         {
-            if (timePeriod == timePeriodList.Present)
-            {
-                SeachForObjectOtherTimeline(GameObject.Find("ObjectsFuture"));
-            }
-            else
-            {
-                SeachForObjectOtherTimeline(GameObject.Find("ObjectsPresent"));
-            }
+            yield return null;
         }
+        //Debug.Log("b");
+        while (!ObjectsList.Instance.finishedSearchingPresent || !ObjectsList.Instance.finishedSearchingFuture)
+        {
+            Debug.Log("c");
+            yield return null;
+        }
+        //Debug.Log("d");
+        switch (timePeriod)
+        {
+            case timePeriodList.Present:
+                foreach (GridPosition gp in ObjectsList.Instance.gridPositionObjectFutureList)
+                {
+                    if (gp != null)
+                    {
+                        if (gp.gridTilemapPosition == gridPosition.gridTilemapPosition)
+                        {
+                            objectOtherTimeline = gp.gameObject;
+                        }
+                    }
+                }
+                break;
+            case timePeriodList.Future:
+                foreach (GridPosition gp in ObjectsList.Instance.gridPositionObjectPresentList)
+                {
+                    if (gp != null)
+                    {
+                        if (gp.gridTilemapPosition == gridPosition.gridTilemapPosition)
+                        {
+                            objectOtherTimeline = gp.gameObject;
+                        }
+                    }
+                }
+                break;
+        }
+        Debug.Log(objectOtherTimeline);
     }
-    private bool finishedSearching=false;
+    private bool finishedSearching = false;
     public void SeachForObjectOtherTimeline(GameObject List)
     {
         for (int i = 0; i < List.transform.childCount; i++)

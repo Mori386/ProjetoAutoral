@@ -35,10 +35,10 @@ public class IOStateManager : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        currentState.OnTriggerEnter2DState(this, collision);
+        if(enabled)currentState.OnTriggerEnter2DState(this, collision);
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        currentState.OnTriggerExit2DState(this, collision);
+        if (enabled) currentState.OnTriggerExit2DState(this, collision);
     }
 }
