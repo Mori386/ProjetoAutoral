@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -32246,7 +32246,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1567259554}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.9999995, y: 0.96000004, z: 0}
+  m_LocalPosition: {x: -8.64, y: 0.96000004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1288541548}
@@ -32289,9 +32289,9 @@ BoxCollider2D:
   m_Offset: {x: -0.4332285, y: 0.044558167}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.75, y: 0.5}
-    oldSize: {x: 1.6, y: 1.6}
-    newSize: {x: 1, y: 1}
+    pivot: {x: 0.25, y: 0.5}
+    oldSize: {x: 1.28, y: 1.28}
+    newSize: {x: 1.28, y: 1.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -32315,9 +32315,9 @@ BoxCollider2D:
   m_Offset: {x: -0.4307704, y: 0.009848475}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.75, y: 0.5}
-    oldSize: {x: 1.6, y: 1.6}
-    newSize: {x: 1, y: 1}
+    pivot: {x: 0.25, y: 0.5}
+    oldSize: {x: 1.28, y: 1.28}
+    newSize: {x: 1.28, y: 1.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -32341,9 +32341,9 @@ BoxCollider2D:
   m_Offset: {x: -0.40368962, y: 0.029545665}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.75, y: 0.5}
-    oldSize: {x: 1.6, y: 1.6}
-    newSize: {x: 1, y: 1}
+    pivot: {x: 0.25, y: 0.5}
+    oldSize: {x: 1.28, y: 1.28}
+    newSize: {x: 1.28, y: 1.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -32432,15 +32432,16 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6adaed1b2a11ab74995e6a567ab9802e, type: 3}
+  m_Sprite: {fileID: -4796997848528170662, guid: 9ea2a7b26edeaaf459661324dd7dcf4c,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.28, y: 1.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1582037973
