@@ -1,0 +1,968 @@
+fileFormatVersion: 2
+guid: b6b53cb2419a7474e9e71317ced83716
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3097763206042188961
+    second: bossCasaPhase4_0
+  - first:
+      213: 2922635655483489811
+    second: bossCasaPhase4_1
+  - first:
+      213: 2858471500030175004
+    second: bossCasaPhase4_2
+  - first:
+      213: -7733924877016903557
+    second: bossCasaPhase4_3
+  - first:
+      213: 3464194366515437730
+    second: bossCasaPhase4_4
+  - first:
+      213: 2385300083248401418
+    second: bossCasaPhase4_5
+  - first:
+      213: -7781309093492739537
+    second: bossCasaPhase4_6
+  - first:
+      213: -8236657486875720080
+    second: bossCasaPhase4_7
+  - first:
+      213: 7922791786134796337
+    second: bossCasaPhase4_8
+  - first:
+      213: 2658829531138416583
+    second: bossCasaPhase4_9
+  - first:
+      213: -2667853065612162254
+    second: bossCasaPhase4_10
+  - first:
+      213: 4797426253630977477
+    second: bossCasaPhase4_11
+  - first:
+      213: 7332084809749525474
+    second: bossCasaPhase4_12
+  - first:
+      213: 680018764799457582
+    second: bossCasaPhase4_13
+  - first:
+      213: -330436219125441152
+    second: bossCasaPhase4_14
+  - first:
+      213: 6908461134102696860
+    second: bossCasaPhase4_15
+  - first:
+      213: -6293221104996412868
+    second: bossCasaPhase4_16
+  - first:
+      213: 3864765049222800740
+    second: bossCasaPhase4_17
+  - first:
+      213: 6339250426288217807
+    second: bossCasaPhase4_18
+  - first:
+      213: 1040240594483716915
+    second: bossCasaPhase4_19
+  - first:
+      213: -7238375478842249611
+    second: bossCasaPhase4_20
+  - first:
+      213: -5588957114794400215
+    second: bossCasaPhase4_21
+  - first:
+      213: 5267887785425626592
+    second: bossCasaPhase4_22
+  - first:
+      213: 2689635614709270954
+    second: bossCasaPhase4_23
+  - first:
+      213: -246650452117782973
+    second: bossCasaPhase4_24
+  - first:
+      213: -1544059951013605514
+    second: bossCasaPhase4_25
+  - first:
+      213: 6082007039574411308
+    second: bossCasaPhase4_26
+  - first:
+      213: -1948606097369809229
+    second: bossCasaPhase4_27
+  - first:
+      213: -1857538281813451729
+    second: bossCasaPhase4_28
+  - first:
+      213: -7499950355084825232
+    second: bossCasaPhase4_29
+  - first:
+      213: 5988923222796900219
+    second: bossCasaPhase4_30
+  - first:
+      213: 919355340630631200
+    second: bossCasaPhase4_31
+  - first:
+      213: 2663739080651143673
+    second: bossCasaPhase4_32
+  - first:
+      213: 8877235655340598364
+    second: bossCasaPhase4_33
+  - first:
+      213: -1247763921241115423
+    second: bossCasaPhase4_34
+  - first:
+      213: -3014802731313733210
+    second: bossCasaPhase4_35
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: bossCasaPhase4_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 936
+        width: 96
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ac7b6629377dfa20800000000000000
+      internalID: 3097763206042188961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bossCasaPhase4_1
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 936
+        width: 96
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31efbf4d4a94f8820800000000000000
+      internalID: 2922635655483489811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bossCasaPhase4_2
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 936
+        width: 96
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1760e73fa45ba720800000000000000
+      internalID: 2858471500030175004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bossCasaPhase4_3
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 936
+        width: 96
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b70d9d9ec449ba490800000000000000
+      internalID: -7733924877016903557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bossCasaPhase4_4
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 936
+        width: 96
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a0ef091c6a431030800000000000000
+      internalID: 3464194366515437730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bossCasaPhase4_5
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 936
+        width: 96
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0c0bb0b9c94a1120800000000000000
+      internalID: 2385300083248401418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bossCasaPhase4_6
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 936
+        width: 96
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2239da4b9c330490800000000000000
+      internalID: -7781309093492739537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bossCasaPhase4_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 819
+        width: 96
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0760636c7a381bd80800000000000000
+      internalID: -8236657486875720080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bossCasaPhase4_8
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 819
+        width: 96
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13872f9172963fd60800000000000000
+      internalID: 7922791786134796337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bossCasaPhase4_9
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 819
+        width: 96
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cfd2d91f5f06e420800000000000000
+      internalID: 2658829531138416583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bossCasaPhase4_10
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 819
+        width: 96
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23b004f85c1e9fad0800000000000000
+      internalID: -2667853065612162254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bossCasaPhase4_11
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 819
+        width: 96
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c5bec382c1e39240800000000000000
+      internalID: 4797426253630977477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bossCasaPhase4_12
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 819
+        width: 96
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e37824994cc0c560800000000000000
+      internalID: 7332084809749525474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bossCasaPhase4_13
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 819
+        width: 96
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e29b874b679ef6900800000000000000
+      internalID: 680018764799457582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bossCasaPhase4_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 702
+        width: 96
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08dda1a620e0a6bf0800000000000000
+      internalID: -330436219125441152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bossCasaPhase4_15
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 702
+        width: 96
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9398c28cc8cfdf50800000000000000
+      internalID: 6908461134102696860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bossCasaPhase4_16
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 702
+        width: 96
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3292b77fbcf9a8a0800000000000000
+      internalID: -6293221104996412868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bossCasaPhase4_17
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 702
+        width: 96
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 465254bf55762a530800000000000000
+      internalID: 3864765049222800740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bossCasaPhase4_18
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 702
+        width: 96
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fce17290daa89f750800000000000000
+      internalID: 6339250426288217807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bossCasaPhase4_19
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 702
+        width: 96
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 333a42b2f4daf6e00800000000000000
+      internalID: 1040240594483716915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bossCasaPhase4_20
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 702
+        width: 96
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57ea5b04adf1c8b90800000000000000
+      internalID: -7238375478842249611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bossCasaPhase4_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 585
+        width: 96
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 926a9cb9d190072b0800000000000000
+      internalID: -5588957114794400215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bossCasaPhase4_22
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 585
+        width: 96
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e5e9e6c70c4b1940800000000000000
+      internalID: 5267887785425626592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bossCasaPhase4_23
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 585
+        width: 96
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa94cfd5751835520800000000000000
+      internalID: 2689635614709270954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bossCasaPhase4_24
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 585
+        width: 96
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34e74d978b8b39cf0800000000000000
+      internalID: -246650452117782973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bossCasaPhase4_25
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 585
+        width: 96
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67f4de3c7a5629ae0800000000000000
+      internalID: -1544059951013605514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bossCasaPhase4_26
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 585
+        width: 96
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c28024bbd21a76450800000000000000
+      internalID: 6082007039574411308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bossCasaPhase4_27
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 585
+        width: 96
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bebc1f141925f4e0800000000000000
+      internalID: -1948606097369809229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bossCasaPhase4_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 468
+        width: 96
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2cd1db36c2b836e0800000000000000
+      internalID: -1857538281813451729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bossCasaPhase4_29
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 468
+        width: 96
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07daa1473e2dae790800000000000000
+      internalID: -7499950355084825232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bossCasaPhase4_30
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 468
+        width: 96
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7795e1c0fdec1350800000000000000
+      internalID: 5988923222796900219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bossCasaPhase4_31
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 468
+        width: 96
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 023a5a4bfc432cc00800000000000000
+      internalID: 919355340630631200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bossCasaPhase4_32
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 468
+        width: 96
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f9798ca49087f420800000000000000
+      internalID: 2663739080651143673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bossCasaPhase4_33
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 468
+        width: 96
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5422008bc6423b70800000000000000
+      internalID: 8877235655340598364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bossCasaPhase4_34
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 468
+        width: 96
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e4ffd6135d0faee0800000000000000
+      internalID: -1247763921241115423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bossCasaPhase4_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 351
+        width: 96
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a1ea2493e44926d0800000000000000
+      internalID: -3014802731313733210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
