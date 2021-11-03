@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - Event
+  - Rachadura
   layers:
   - Default
   - TransparentFX
