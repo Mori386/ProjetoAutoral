@@ -7,4 +7,5 @@ public class NodeInfo
     public Vector2 gridPosition;
     public int gCost, hCost, fCost;
     public NodeInfo cameFromNode;
+    public float distanceFromFinalPosition;
 }

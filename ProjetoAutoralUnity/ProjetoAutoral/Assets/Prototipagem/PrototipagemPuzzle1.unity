@@ -18465,7 +18465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d00897a07353834db667d49f4ad6ab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: 1
+  nextScene: 2
 --- !u!1 &991664496
 GameObject:
   m_ObjectHideFlags: 0
@@ -32607,7 +32607,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.8453947, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -41496,7 +41496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d00897a07353834db667d49f4ad6ab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: 1
+  nextScene: 2
 --- !u!1 &1935828355
 GameObject:
   m_ObjectHideFlags: 0

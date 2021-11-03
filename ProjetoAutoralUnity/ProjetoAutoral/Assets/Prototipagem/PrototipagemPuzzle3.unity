@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -27223,7 +27223,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.84375, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -29743,7 +29743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d00897a07353834db667d49f4ad6ab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: 3
+  nextScene: 4
 --- !u!1 &1342375507
 GameObject:
   m_ObjectHideFlags: 0
@@ -35042,7 +35042,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d00897a07353834db667d49f4ad6ab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: 3
+  nextScene: 4
 --- !u!1 &1627867740
 GameObject:
   m_ObjectHideFlags: 0

@@ -21,18 +21,14 @@ public class ObjectBase : MonoBehaviour
     }
     private IEnumerator waitForSetup()
     {
-        //Debug.Log("a");
         while (ObjectsList.Instance == null)
         {
             yield return null;
         }
-        //Debug.Log("b");
         while (!ObjectsList.Instance.finishedSearchingPresent || !ObjectsList.Instance.finishedSearchingFuture)
         {
-            Debug.Log("c");
             yield return null;
         }
-        //Debug.Log("d");
         switch (timePeriod)
         {
             case timePeriodList.Present:
