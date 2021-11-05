@@ -175,10 +175,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1412196063}
+  - component: {fileID: 1412196064}
   - component: {fileID: 1412196062}
   - component: {fileID: 1412196061}
-  - component: {fileID: 1412196065}
-  - component: {fileID: 1412196064}
   - component: {fileID: 1412196066}
   - component: {fileID: 1412196067}
   m_Layer: 0
@@ -262,7 +261,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1412196060}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.46, y: -2.52, z: 0}
+  m_LocalPosition: {x: -1.97, y: -1.28, z: 0}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -277,31 +276,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1412196060}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7232d8b6ae3d3e84dbeb4872dd10fe30, type: 3}
+  m_Script: {fileID: 11500000, guid: cd8ab0646c5ef6c439197f3ed6c3d9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   finalPoint: {fileID: 1476477610}
   tilemap: {fileID: 1653825221}
-  collideWithLayers:
-    serializedVersion: 2
-    m_Bits: 768
-  finished: 0
-  pf: {fileID: 8696666154080047666, guid: ac0b33c4a3d27c44baef865567214962, type: 3}
-  foundNewPos: 0
---- !u!114 &1412196065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1412196060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a40993a0ff3686a4084ca4072ab7fc47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 1
-  enragedChargeTime: 2
 --- !u!50 &1412196066
 Rigidbody2D:
   serializedVersion: 4
@@ -427,7 +406,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1476477608}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.34, y: -0.96, z: 0}
+  m_LocalPosition: {x: -2.79, y: -1.58, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -495,7 +474,6 @@ GameObject:
   - component: {fileID: 1619559173}
   - component: {fileID: 1619559172}
   - component: {fileID: 1619559171}
-  - component: {fileID: 1619559174}
   m_Layer: 8
   m_Name: Parede
   m_TagString: Wall
@@ -571,7 +549,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -1442,18 +1420,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!114 &1619559174
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1619559169}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8aef8280e1b7f9a49b0ec01cbccf0ce8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1653825218
 GameObject:
   m_ObjectHideFlags: 0

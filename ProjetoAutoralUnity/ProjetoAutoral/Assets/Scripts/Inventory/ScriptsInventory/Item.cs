@@ -6,6 +6,7 @@ using UnityEngine;
 [Serializable]
 public class Item
 {
+
     public enum ItemTimeline
     {
         Present, Future
@@ -26,6 +27,23 @@ public class Item
 
     [System.NonSerialized] public Item itemInFuture;
     [System.NonSerialized] public ItemWorld itemWorld;
+    public string getItemName(ItemType itemType, bool isAged)
+    {
+        switch (MenuConfigs.getLanguage())
+        {
+            default:
+            case "English":
+                string itemName;
+                switch (itemType)
+                {
+                    default:
+                    case ItemType.Flashlight:
+                        itemName = "Flashlight";
+                        if (isAged) itemName += " (aged)";
+                        return itemName;
+                }
+        }
+    }
     public bool isDestroyedOnUse()
     {
         switch (itemType)
