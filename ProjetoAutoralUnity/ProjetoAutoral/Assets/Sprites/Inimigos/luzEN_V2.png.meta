@@ -1,0 +1,896 @@
+fileFormatVersion: 2
+guid: 557e4a60e32116a4fa548156687be67c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3339118045837267847
+    second: luzEN_V2_0
+  - first:
+      213: 883348166546014733
+    second: luzEN_V2_1
+  - first:
+      213: 4752502174697676447
+    second: luzEN_V2_2
+  - first:
+      213: 6929147560291117546
+    second: luzEN_V2_3
+  - first:
+      213: -4229200465847588804
+    second: luzEN_V2_4
+  - first:
+      213: -1214769086854384251
+    second: luzEN_V2_5
+  - first:
+      213: 7502648429490732362
+    second: luzEN_V2_6
+  - first:
+      213: 2615895356354027221
+    second: luzEN_V2_7
+  - first:
+      213: -1434630742572185961
+    second: luzEN_V2_8
+  - first:
+      213: 112664817383569731
+    second: luzEN_V2_9
+  - first:
+      213: -5332465111144627652
+    second: luzEN_V2_10
+  - first:
+      213: -8632410241483669565
+    second: luzEN_V2_11
+  - first:
+      213: 8698303216560229061
+    second: luzEN_V2_12
+  - first:
+      213: 1343738308626952627
+    second: luzEN_V2_13
+  - first:
+      213: -3696090962883251627
+    second: luzEN_V2_14
+  - first:
+      213: 5984306814082729623
+    second: luzEN_V2_15
+  - first:
+      213: 5446159663528285157
+    second: luzEN_V2_16
+  - first:
+      213: 4056293627004640384
+    second: luzEN_V2_17
+  - first:
+      213: 7026021019466468682
+    second: luzEN_V2_18
+  - first:
+      213: -4326208992317012411
+    second: luzEN_V2_19
+  - first:
+      213: -6524154195339502143
+    second: luzEN_V2_20
+  - first:
+      213: 2094063025498665728
+    second: luzEN_V2_21
+  - first:
+      213: -2929653562772869558
+    second: luzEN_V2_22
+  - first:
+      213: 4002770847842010603
+    second: luzEN_V2_23
+  - first:
+      213: 6809997039604779016
+    second: luzEN_V2_24
+  - first:
+      213: -6578540631268726429
+    second: luzEN_V2_25
+  - first:
+      213: 8962924250405535329
+    second: luzEN_V2_26
+  - first:
+      213: -2589884623079246008
+    second: luzEN_V2_27
+  - first:
+      213: 4077879523259034080
+    second: luzEN_V2_28
+  - first:
+      213: -2186765538204566253
+    second: luzEN_V2_29
+  - first:
+      213: 5967561348025146534
+    second: luzEN_V2_30
+  - first:
+      213: -2022096590501576767
+    second: luzEN_V2_31
+  - first:
+      213: 1963950097266638867
+    second: luzEN_V2_32
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 50
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: luzEN_V2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 800
+        width: 130
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7831a39db2ee65e20800000000000000
+      internalID: 3339118045837267847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luzEN_V2_1
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 800
+        width: 130
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d02c7ff2a78424c00800000000000000
+      internalID: 883348166546014733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luzEN_V2_2
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 800
+        width: 130
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9e502d4c8744f140800000000000000
+      internalID: 4752502174697676447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luzEN_V2_3
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 800
+        width: 130
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae9aa6f6ef6492060800000000000000
+      internalID: 6929147560291117546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luzEN_V2_4
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 800
+        width: 130
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c38ec35659cde45c0800000000000000
+      internalID: -4229200465847588804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luzEN_V2_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 130
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5853bed93f5442fe0800000000000000
+      internalID: -1214769086854384251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luzEN_V2_6
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 640
+        width: 130
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4dff62fef2ce1860800000000000000
+      internalID: 7502648429490732362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luzEN_V2_7
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 640
+        width: 130
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5de531d87f68d4420800000000000000
+      internalID: 2615895356354027221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luzEN_V2_8
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 640
+        width: 130
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 796412dc0fa271ce0800000000000000
+      internalID: -1434630742572185961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luzEN_V2_9
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 640
+        width: 130
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 349f4d2fd04409100800000000000000
+      internalID: 112664817383569731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luzEN_V2_10
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 640
+        width: 130
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c328f09eb374ff5b0800000000000000
+      internalID: -5332465111144627652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luzEN_V2_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 480
+        width: 130
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cffbe03f94833880800000000000000
+      internalID: -8632410241483669565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luzEN_V2_12
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 480
+        width: 130
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cac5bb90b496b870800000000000000
+      internalID: 8698303216560229061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luzEN_V2_13
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 480
+        width: 130
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b13bcc4fdae5a210800000000000000
+      internalID: 1343738308626952627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luzEN_V2_14
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 480
+        width: 130
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 552ffcb1ad8d4bcc0800000000000000
+      internalID: -3696090962883251627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luzEN_V2_15
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 480
+        width: 130
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 796c95857578c0350800000000000000
+      internalID: 5984306814082729623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luzEN_V2_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 130
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e31aa6eb55a49b40800000000000000
+      internalID: 5446159663528285157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luzEN_V2_17
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 320
+        width: 130
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08cda460099da4830800000000000000
+      internalID: 4056293627004640384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luzEN_V2_18
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 320
+        width: 130
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4d0ab944e0718160800000000000000
+      internalID: 7026021019466468682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luzEN_V2_19
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 320
+        width: 130
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54608dcb7d736f3c0800000000000000
+      internalID: -4326208992317012411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luzEN_V2_20
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 320
+        width: 130
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cd1ae6635c8575a0800000000000000
+      internalID: -6524154195339502143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luzEN_V2_21
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 320
+        width: 130
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 003b0241a3b9f0d10800000000000000
+      internalID: 2094063025498665728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luzEN_V2_22
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 130
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4e27fb4b97c757d0800000000000000
+      internalID: -2929653562772869558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luzEN_V2_23
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 160
+        width: 130
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be589e6e0e2bc8730800000000000000
+      internalID: 4002770847842010603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luzEN_V2_24
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 160
+        width: 130
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 808ca130a38f18e50800000000000000
+      internalID: 6809997039604779016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luzEN_V2_25
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 160
+        width: 130
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 369e0c4862454b4a0800000000000000
+      internalID: -6578540631268726429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luzEN_V2_26
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 160
+        width: 130
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16ef72e3e14b26c70800000000000000
+      internalID: 8962924250405535329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luzEN_V2_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 130
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8477d1838a1ee0cd0800000000000000
+      internalID: -2589884623079246008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luzEN_V2_28
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 0
+        width: 130
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e9a1b422d9879830800000000000000
+      internalID: 4077879523259034080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luzEN_V2_29
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 0
+        width: 130
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31d3048345c07a1e0800000000000000
+      internalID: -2186765538204566253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luzEN_V2_30
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 0
+        width: 130
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6acd364bd6901d250800000000000000
+      internalID: 5967561348025146534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luzEN_V2_31
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 0
+        width: 130
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cfff9d4dd110f3e0800000000000000
+      internalID: -2022096590501576767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luzEN_V2_32
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 0
+        width: 130
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3100c20453a514b10800000000000000
+      internalID: 1963950097266638867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
