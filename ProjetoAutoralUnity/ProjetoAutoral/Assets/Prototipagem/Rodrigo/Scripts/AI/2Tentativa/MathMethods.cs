@@ -33,9 +33,9 @@ public class MathMethods
         }
         return roundedVector;
     }
-    public static Vector3 WorldToGrid(Vector3 relativePoint,Vector3 cellSize,Vector3 position)
+    public static Vector2 WorldToGrid(Vector3 relativePoint,Vector3 cellSize,Vector3 position)
     {
-        return Vector3Int.RoundToInt(Vector3.Scale(position - relativePoint,new Vector3(1/ cellSize.x, 1 / cellSize.y)));
+        return Vector2Int.RoundToInt(Vector3.Scale(position - relativePoint,new Vector3(1/ cellSize.x, 1 / cellSize.y)));
     }
     public static Vector3 GridToWorld(Vector3 pointZero, Vector3 gridPosition, Vector3 cellSize)
     {

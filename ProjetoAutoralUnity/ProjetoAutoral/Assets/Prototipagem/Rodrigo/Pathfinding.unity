@@ -261,7 +261,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1412196060}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.97, y: -1.28, z: 0}
+  m_LocalPosition: {x: 0.96, y: -0.68, z: 0}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -281,6 +281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finalPoint: {fileID: 1476477610}
   tilemap: {fileID: 1653825221}
+  maxCoroutines: 1
 --- !u!50 &1412196066
 Rigidbody2D:
   serializedVersion: 4
@@ -406,7 +407,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1476477608}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.79, y: -1.58, z: 0}
+  m_LocalPosition: {x: -6.15, y: -2.89, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

@@ -28,16 +28,35 @@ public class PathfindingV2 : MonoBehaviour
         top, left, right, bottom
     }
     Directions[] directionSearchOrder = new Directions[4];
-    private int maxCoroutines;
+
+    public int maxCoroutines;
     private int coroutinesRunning;
+
+    List<Vector3> gizmosRoute = new List<Vector3>();
+    Coroutine[] pathCheckRunning;
+
+    bool found = false;
     private void OnDrawGizmos()
     {
         if (showGizmosOnPlay)
         {
             Gizmos.DrawCube(tilemapPointZero, new Vector3(0.1f, 0.1f));
-            //Gizmos.DrawCube(MathMethods.GridToWorld(tilemapPointZero,new Vector3(1,1),tilemap.cellSize), new Vector3(0.1f, 0.1f));
-            //Gizmos.DrawCube(MathMethods.WorldToGrid(tilemapPointZero,tilemap.cellSize,MathMethods.GridToWorld(tilemapPointZero, new Vector3(1, 1), tilemap.cellSize)), new Vector3(0.1f, 0.1f));
-            //Gizmos.DrawCube(MathMethods.GridToWorld(tilemapPointZero,MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, MathMethods.GridToWorld(tilemapPointZero, new Vector3(1, 1), tilemap.cellSize)),tilemap.cellSize), new Vector3(0.1f, 0.1f));
+            if (found)
+            {
+                foreach (Vector3 gridPosNode in gizmosRoute)
+                {
+                    Gizmos.color = Color.green;
+                    Gizmos.DrawCube(MathMethods.GridToWorld(tilemapPointZero, gridPosNode, tilemap.cellSize), new Vector3(0.2f, 0.2f));
+                }
+            }
+            else
+            {
+                foreach (NodeInfo nodeInfo in knownNodes)
+                {
+                    Gizmos.color = Color.blue;
+                    Gizmos.DrawCube(MathMethods.GridToWorld(tilemapPointZero, nodeInfo.gridPosition, tilemap.cellSize), new Vector3(0.1f, 0.1f));
+                }
+            }
         }
     }
     private void Awake()
@@ -46,6 +65,7 @@ public class PathfindingV2 : MonoBehaviour
         nodeQueue = new List<NodeInfo>();
         knownNodes = new List<NodeInfo>();
         route = new List<NodeInfo>();
+        pathCheckRunning = new Coroutine[maxCoroutines];
         foreach (CapsuleCollider2D capsuleCollider2D in GetComponents<CapsuleCollider2D>())
         {
             if (!capsuleCollider2D.isTrigger) cc = GetComponent<CapsuleCollider2D>();
@@ -56,36 +76,85 @@ public class PathfindingV2 : MonoBehaviour
         showGizmosOnPlay = true;
         tilemapPointZero = tilemap.GetCellCenterWorld(tilemap.origin);
         DefineDirectionPriorty();
-        StartCoroutine(PathCheck(new NodeInfo() { gridPosition = MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, cc.bounds.center), cameFromNode = null }, 0));
+        pathCheckRunning[0] = StartCoroutine(PathCheck(new NodeInfo() { gridPosition = MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, cc.bounds.center), cameFromNode = null }, 0));
+    }
+    private void Update()
+    {
+        //se mudar
+        if (found)
+        {
+            NodeInfo nearestNode = new NodeInfo() {distanceFromFinalPosition = Mathf.Infinity};
+            for (int i=0; i < route.Count;i++)
+            {
+                if (route[i].distanceFromFinalPosition < nearestNode.distanceFromFinalPosition)
+                {
+                    nearestNode = route[i];
+                }
+            }
+        }
+        else
+        {
+
+        }
     }
     private IEnumerator PathCheck(NodeInfo nodeToCheck, int nodeRoutesToGetThere)
     {
+        Debug.Log(nodeToCheck.gridPosition);
+        coroutinesRunning++;
         Vector3 deltaPos = finalPoint.position - MathMethods.GridToWorld(tilemapPointZero, nodeToCheck.gridPosition, tilemap.cellSize);
-        NodeInfo thisNode = new NodeInfo() { gridPosition = nodeToCheck.gridPosition, cameFromNode = nodeToCheck.cameFromNode, distanceFromFinalPosition = deltaPos.x + deltaPos.y };
+        NodeInfo thisNode = new NodeInfo() { gridPosition = nodeToCheck.gridPosition, cameFromNode = nodeToCheck.cameFromNode, distanceFromFinalPosition = Mathf.Abs(deltaPos.x) + Mathf.Abs(deltaPos.y) };
+        if (nodeToCheck.gridPosition == MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, finalPoint.position))
+        {
+            NodeInfo nodeInfo;
+            nodeInfo = nodeToCheck;
+            for (int i = 0; i <= nodeRoutesToGetThere; i++)
+            {
+                Debug.Log(nodeInfo.gridPosition);
+                gizmosRoute.Add(nodeInfo.gridPosition);
+                route.Add(nodeInfo);
+                nodeInfo = nodeInfo.cameFromNode;
+            }
+            foreach (Coroutine coroutine in pathCheckRunning)
+            {
+                if(coroutine!=null)StopCoroutine(coroutine);
+            }
+            found = true;
+            yield break;
+        }
         knownNodes.Add(thisNode);
         foreach (Directions direction in directionSearchOrder)
         {
+            Vector3 nextNodeDistanceFromFinalPoint;
             switch (direction)
             {
                 case Directions.top:
-                    nodeQueue.Add(new NodeInfo() { cameFromNode = thisNode, gridPosition = thisNode.gridPosition + new Vector2(0, 1), nodesToGetThere = nodeRoutesToGetThere + 1 });
+                    nextNodeDistanceFromFinalPoint = finalPoint.position - MathMethods.GridToWorld(tilemapPointZero, thisNode.gridPosition + new Vector2(0, 1), tilemap.cellSize);
+                    nodeQueue.Add(new NodeInfo() { cameFromNode = thisNode, gridPosition = thisNode.gridPosition + new Vector2(0, 1), nodesToGetThere = nodeRoutesToGetThere + 1,distanceFromFinalPosition = Mathf.Abs(nextNodeDistanceFromFinalPoint.x) + Mathf.Abs(nextNodeDistanceFromFinalPoint.y) });
                     break;
                 case Directions.bottom:
-                    nodeQueue.Add(new NodeInfo() { cameFromNode = thisNode, gridPosition = thisNode.gridPosition + new Vector2(0, -1), nodesToGetThere = nodeRoutesToGetThere + 1 });
+                    nextNodeDistanceFromFinalPoint = finalPoint.position - MathMethods.GridToWorld(tilemapPointZero, thisNode.gridPosition + new Vector2(0, -1), tilemap.cellSize);
+                    nodeQueue.Add(new NodeInfo() { cameFromNode = thisNode, gridPosition = thisNode.gridPosition + new Vector2(0, -1), nodesToGetThere = nodeRoutesToGetThere + 1, distanceFromFinalPosition = Mathf.Abs(nextNodeDistanceFromFinalPoint.x) + Mathf.Abs(nextNodeDistanceFromFinalPoint.y) });
                     break;
                 case Directions.left:
-                    nodeQueue.Add(new NodeInfo() { cameFromNode = thisNode, gridPosition = thisNode.gridPosition + new Vector2(-1, 0), nodesToGetThere = nodeRoutesToGetThere + 1 });
+                    nextNodeDistanceFromFinalPoint = finalPoint.position - MathMethods.GridToWorld(tilemapPointZero, thisNode.gridPosition + new Vector2(-1, 0), tilemap.cellSize);
+                    nodeQueue.Add(new NodeInfo() { cameFromNode = thisNode, gridPosition = thisNode.gridPosition + new Vector2(-1, 0), nodesToGetThere = nodeRoutesToGetThere + 1, distanceFromFinalPosition = Mathf.Abs(nextNodeDistanceFromFinalPoint.x) + Mathf.Abs(nextNodeDistanceFromFinalPoint.y) });
                     break;
                 case Directions.right:
-                    nodeQueue.Add(new NodeInfo() { cameFromNode = thisNode, gridPosition = thisNode.gridPosition + new Vector2(1, 0), nodesToGetThere = nodeRoutesToGetThere + 1 });
+                    nextNodeDistanceFromFinalPoint = finalPoint.position - MathMethods.GridToWorld(tilemapPointZero, thisNode.gridPosition + new Vector2(1, 0), tilemap.cellSize);
+                    nodeQueue.Add(new NodeInfo() { cameFromNode = thisNode, gridPosition = thisNode.gridPosition + new Vector2(1, 0), nodesToGetThere = nodeRoutesToGetThere + 1, distanceFromFinalPosition = Mathf.Abs(nextNodeDistanceFromFinalPoint.x) + Mathf.Abs(nextNodeDistanceFromFinalPoint.y) });
                     break;
             }
         }
-        yield break;
-    }
-    private void startCoroutines()
-    {
-
+        clearRepeatedNodes();
+        coroutinesRunning--;
+        yield return new WaitForFixedUpdate();
+        int a = coroutinesRunning;
+        foreach (NodeInfo nodeInfo in TopXLowestDistanceFromFinalPosition(maxCoroutines - coroutinesRunning))
+        {
+            pathCheckRunning[a] = StartCoroutine(PathCheck(nodeInfo, nodeInfo.nodesToGetThere));
+            nodeQueue.Remove(nodeInfo);
+            a++;
+        }
     }
     void clearRepeatedNodes()
     {
@@ -96,32 +165,81 @@ public class PathfindingV2 : MonoBehaviour
             {
                 if (nodeInfo != nodeInfo2 && nodeInfo.gridPosition == nodeInfo2.gridPosition)
                 {
-                    if (nodeInfo.nodesToGetThere >= nodeInfo2.nodesToGetThere)
+                    if (nodeInfo.nodesToGetThere < nodeInfo2.nodesToGetThere)
                     {
-                        bool found=false;
+                        bool found = false;
                         foreach (NodeInfo remove in removeThisNodes)
                         {
                             if (remove == nodeInfo2) found = true;
                         }
-                        if(!found)removeThisNodes.Add(nodeInfo2);
+                        if (!found) removeThisNodes.Add(nodeInfo2);
                     }
-                    else
+                    else if (nodeInfo.nodesToGetThere > nodeInfo2.nodesToGetThere)
                     {
                         bool found = false;
                         foreach (NodeInfo remove in removeThisNodes)
                         {
                             if (remove == nodeInfo) found = true;
                         }
-                        if(!found)removeThisNodes.Add(nodeInfo);
+                        if (!found) removeThisNodes.Add(nodeInfo);
+                    }
+                    else
+                    {
+                        if (nodeInfo.GetHashCode() > nodeInfo2.GetHashCode())
+                        {
+                            bool found = false;
+                            foreach (NodeInfo remove in removeThisNodes)
+                            {
+                                if (remove == nodeInfo) found = true;
+                            }
+                            if (!found) removeThisNodes.Add(nodeInfo);
+                        }
+                        else
+                        {
+                            bool found = false;
+                            foreach (NodeInfo remove in removeThisNodes)
+                            {
+                                if (remove == nodeInfo2) found = true;
+                            }
+                            if (!found) removeThisNodes.Add(nodeInfo2);
+                        }
                     }
                 }
             }
         }
+        foreach (NodeInfo nodeInfo in removeThisNodes)
+        {
+            nodeQueue.Remove(nodeInfo);
+        }
     }
-    //NodeInfo[] TopXLowestDistanceFromFinalPosition(int X)
-    //{
-
-    //}
+    List<NodeInfo> TopXLowestDistanceFromFinalPosition(int X)
+    {
+        List<NodeInfo> LowestDistanceList = new List<NodeInfo>();
+        for (int i = 0; i < X; i++)
+        {
+            LowestDistanceList.Add(new NodeInfo());
+        }
+        for (int i = 0; i < X; i++)
+        {
+            LowestDistanceList[i] = new NodeInfo() { distanceFromFinalPosition = float.PositiveInfinity };
+        }
+        foreach (NodeInfo nodeQ in nodeQueue)
+        {
+            for (int i = 0; i < X; i++)
+            {
+                if (nodeQ.distanceFromFinalPosition < LowestDistanceList[i].distanceFromFinalPosition)
+                {
+                    for (int a = X - 1 - 1; a > i; a--)
+                    {
+                        LowestDistanceList[a] = LowestDistanceList[a - 1];
+                    }
+                    LowestDistanceList[i] = nodeQ;
+                    break;
+                }
+            }
+        }
+        return LowestDistanceList;
+    }
     void DefineDirectionPriorty()
     {
         Vector2 deltaFinalPoint = new Vector3(finalPoint.position.x, finalPoint.position.y) - cc.bounds.center;

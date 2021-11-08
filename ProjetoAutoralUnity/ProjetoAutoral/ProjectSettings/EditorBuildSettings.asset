@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Prototipagem/Menu.unity
     guid: f94f798242b7539468c5f442256d1910
   - enabled: 1
+    path: Assets/Prototipagem/Intro.unity
+    guid: db6d9b93ffef4204aa802d1961c41a5b
+  - enabled: 1
     path: Assets/Prototipagem/PrototipagemPuzzle1.unity
     guid: 904868406638b7c4fa3996aeeba3477e
   - enabled: 1

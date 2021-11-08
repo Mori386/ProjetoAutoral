@@ -29724,12 +29724,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1311314109}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.31, y: 4.44, z: -60.927288}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.31000137, y: 4.44, z: -60.927288}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1311314112
 MonoBehaviour:
@@ -29743,7 +29743,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d00897a07353834db667d49f4ad6ab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: 4
+  loadSceneOnStart: 0
+  nextScene: 6
 --- !u!1 &1342375507
 GameObject:
   m_ObjectHideFlags: 0
@@ -35028,7 +35029,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1622501709
 MonoBehaviour:
@@ -35042,7 +35043,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d00897a07353834db667d49f4ad6ab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: 4
+  loadSceneOnStart: 0
+  nextScene: 6
 --- !u!1 &1627867740
 GameObject:
   m_ObjectHideFlags: 0

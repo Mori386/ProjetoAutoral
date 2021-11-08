@@ -6,7 +6,16 @@ using UnityEngine.SceneManagement;
 public class LoadScene : MonoBehaviour
 {
     [SerializeField]
+    private bool loadSceneOnStart;
+    [SerializeField]
     private int nextScene;
+    private void Start()
+    {
+        if (loadSceneOnStart)
+        {
+            SceneManager.LoadScene(nextScene);
+        }
+    }
     // Start is called before the first frame update
     private void OnTriggerEnter2D(Collider2D collision)
     {

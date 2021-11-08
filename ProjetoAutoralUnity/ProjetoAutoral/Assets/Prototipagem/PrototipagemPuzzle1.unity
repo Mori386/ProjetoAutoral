@@ -15673,7 +15673,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 805211268}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -15699,7 +15699,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 805211268}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -15725,12 +15725,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 805211268}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 993f9bbb6a6ca9649b39b0cb398f1015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isMovable: 1
+  isMovable: 0
 --- !u!114 &805211275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18465,7 +18465,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d00897a07353834db667d49f4ad6ab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: 2
+  loadSceneOnStart: 0
+  nextScene: 3
 --- !u!1 &991664496
 GameObject:
   m_ObjectHideFlags: 0
@@ -32607,7 +32608,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.8453947, y: 1}
+    m_SensorSize: {x: 1.7783171, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -41496,7 +41497,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d00897a07353834db667d49f4ad6ab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: 2
+  loadSceneOnStart: 0
+  nextScene: 3
 --- !u!1 &1935828355
 GameObject:
   m_ObjectHideFlags: 0
