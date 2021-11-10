@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -384,7 +384,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0014243126, y: 0.12860942}
+  m_Offset: {x: 0.0014243126, y: 0.13202739}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -395,7 +395,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.35524082, y: 0.25902963}
+  m_Size: {x: 0.35524082, y: 0.26586556}
   m_EdgeRadius: 0
 --- !u!212 &47214186
 SpriteRenderer:
@@ -3228,7 +3228,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 288213434}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.0799994, y: 0.96000004, z: 0}
+  m_LocalPosition: {x: -6.0799994, y: 0.916, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1288541548}
@@ -4215,8 +4215,8 @@ MonoBehaviour:
   itemsNeeded: []
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 0
-  textBoxOnSuccessiveInteraction: "(Muitas das gavetas est\xE3o vazias. Mas, em uma
-    delas, achei um pano)"
+  textBoxOnSuccessiveInteraction: "\"Muitas das gavetas est\xE3o vazias. Mas, em
+    uma delas, achei um pano que posso usar para quebrar algo.\""
   textBoxOnFailedInteraction: 
   textBox: {fileID: 0}
   ui: {fileID: 0}
@@ -6657,16 +6657,6 @@ Tilemap:
       serializedVersion: 2
       m_TileIndex: 0
       m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 75, y: -11, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 1
-      m_TileSpriteIndex: 1
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -12706,17 +12696,17 @@ Tilemap:
   m_TileAssetArray:
   - m_RefCount: 351
     m_Data: {fileID: 11400000, guid: 198f184088348f0468a364e9bf9e4e56, type: 2}
-  - m_RefCount: 280
+  - m_RefCount: 279
     m_Data: {fileID: 11400000, guid: f66d87ad343842f469caf064254b0dfa, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 351
     m_Data: {fileID: -2027086488530989798, guid: d5b12eedb7639d940bd40cb9ab0d8f56,
       type: 3}
-  - m_RefCount: 280
+  - m_RefCount: 279
     m_Data: {fileID: 9181335432235082824, guid: d5b12eedb7639d940bd40cb9ab0d8f56,
       type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 631
+  - m_RefCount: 630
     m_Data:
       e00: 1
       e01: 0
@@ -12735,7 +12725,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 631
+  - m_RefCount: 630
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -13347,7 +13337,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canSuccessiveInteract: 1
   textOnDisabledSuccessiveInteract: 
-  singleTimeUse: 0
+  singleTimeUse: 1
   needItemToInteract: 1
   itemsNeeded:
   - itemType: 5
@@ -13360,10 +13350,11 @@ MonoBehaviour:
     isAged: 0
   needToInteract: 1
   destroyItemOnSuccessiveInteraction: 1
-  textBoxOnSuccessiveInteraction: (Tinha uma chave no fundo)
-  textBoxOnFailedInteraction: "(Consigo ver algo brilhando no fundo da banheira,
-    mas n\xE3o parece ser seguro meter a m\xE3o a\xED dentro. Preciso de algo pra
-    desentupir ela) "
+  textBoxOnSuccessiveInteraction: "\"Ap\xF3s desentup\xED-la, encontrei uma chave
+    no fundo.\""
+  textBoxOnFailedInteraction: "\"Consigo ver algo brilhando no fundo da banheira,
+    mas n\xE3o parece ser seguro colocar minha m\xE3o a\xED dentro. Preciso... ...de
+    algo pra desentup\xED-la.\""
   textBox: {fileID: 0}
   ui: {fileID: 0}
   onSuccessiveInteractionConsequence: BanheiraPresente
@@ -22167,8 +22158,8 @@ Tilemap:
   - first: {x: 81, y: 4, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 36
-      m_TileSpriteIndex: 36
+      m_TileIndex: 37
+      m_TileSpriteIndex: 37
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -22177,8 +22168,8 @@ Tilemap:
   - first: {x: 83, y: 4, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 37
-      m_TileSpriteIndex: 37
+      m_TileIndex: 50
+      m_TileSpriteIndex: 50
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -22478,7 +22469,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 18
-      m_TileSpriteIndex: 23
+      m_TileSpriteIndex: 38
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -22488,7 +22479,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 19
-      m_TileSpriteIndex: 22
+      m_TileSpriteIndex: 23
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -22498,7 +22489,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 22
-      m_TileSpriteIndex: 21
+      m_TileSpriteIndex: 22
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -22508,7 +22499,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 23
-      m_TileSpriteIndex: 20
+      m_TileSpriteIndex: 21
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -23287,8 +23278,8 @@ Tilemap:
   - first: {x: 80, y: 6, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 36
-      m_TileSpriteIndex: 36
+      m_TileIndex: 37
+      m_TileSpriteIndex: 37
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -23297,8 +23288,8 @@ Tilemap:
   - first: {x: 85, y: 6, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 37
-      m_TileSpriteIndex: 37
+      m_TileIndex: 50
+      m_TileSpriteIndex: 50
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -23777,8 +23768,8 @@ Tilemap:
   - first: {x: 80, y: 7, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 36
-      m_TileSpriteIndex: 36
+      m_TileIndex: 37
+      m_TileSpriteIndex: 37
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -23827,8 +23818,8 @@ Tilemap:
   - first: {x: 85, y: 7, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 37
-      m_TileSpriteIndex: 37
+      m_TileIndex: 50
+      m_TileSpriteIndex: 50
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -24058,7 +24049,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 16
-      m_TileSpriteIndex: 19
+      m_TileSpriteIndex: 20
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -24337,8 +24328,8 @@ Tilemap:
   - first: {x: 81, y: 8, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 38
-      m_TileSpriteIndex: 38
+      m_TileIndex: 36
+      m_TileSpriteIndex: 36
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -24347,8 +24338,8 @@ Tilemap:
   - first: {x: 82, y: 8, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 38
-      m_TileSpriteIndex: 38
+      m_TileIndex: 36
+      m_TileSpriteIndex: 51
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -24357,8 +24348,8 @@ Tilemap:
   - first: {x: 83, y: 8, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 38
-      m_TileSpriteIndex: 38
+      m_TileIndex: 36
+      m_TileSpriteIndex: 51
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -24367,8 +24358,8 @@ Tilemap:
   - first: {x: 84, y: 8, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 38
-      m_TileSpriteIndex: 38
+      m_TileIndex: 36
+      m_TileSpriteIndex: 36
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -27558,34 +27549,36 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 7a751fdd18b8769418971e204bb254a1, type: 2}
   - m_RefCount: 4
     m_Data: {fileID: 11400000, guid: b45b1a45d4575e842826f1af53ea6886, type: 2}
-  - m_RefCount: 3
-    m_Data: {fileID: 11400000, guid: e3594fd7efcdeab459cdf1969e6967be, type: 2}
-  - m_RefCount: 3
-    m_Data: {fileID: 11400000, guid: 33f551995b8bc1848a729558c261a7b9, type: 2}
   - m_RefCount: 4
-    m_Data: {fileID: 11400000, guid: 640034c992ad9904099348d8322fda2c, type: 2}
+    m_Data: {fileID: 11400000, guid: eaf9e3cab22b2d744b438df4dbb27f40, type: 2}
+  - m_RefCount: 3
+    m_Data: {fileID: 11400000, guid: 02f52a709fed45d48bd7971e8e60c46a, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 505
     m_Data: {fileID: 11400000, guid: 198f184088348f0468a364e9bf9e4e56, type: 2}
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: dbe8bf5b2c5d1f5429962caafa078c7a, type: 2}
+    m_Data: {fileID: 11400000, guid: a3d35a4e42064304c8ad59266f613f08, type: 2}
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 766b09558a46c9b44b18eae463b8f233, type: 2}
+    m_Data: {fileID: 11400000, guid: a2f373c2b5486bb4882cf36a14de24de, type: 2}
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 7f8b1f5924f43d441bf7ce79ad237142, type: 2}
+    m_Data: {fileID: 11400000, guid: 1fbcdbd09e0c0104b86752596bd46878, type: 2}
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 26d5b0d03fd16614793968e9cc6676ed, type: 2}
+    m_Data: {fileID: 11400000, guid: 99d9322c6e20f1f459319515612f48fd, type: 2}
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 35621a385f8cd2640a0a4598d9a410f1, type: 2}
+    m_Data: {fileID: 11400000, guid: 83b7866858932544fa895a18e2a9cf5a, type: 2}
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 57f787d930f946f4191b70c7deba4c74, type: 2}
+    m_Data: {fileID: 11400000, guid: 618221019c6586a4ab8f043943527314, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: cee64817a729dff43a52d8eaaea3e676, type: 2}
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 1cb0f278b0a53634d85275abd8e6b8b4, type: 2}
+    m_Data: {fileID: 11400000, guid: a9c94dbdea713bd4ba058daa197bf7fe, type: 2}
   - m_RefCount: 4
     m_Data: {fileID: 11400000, guid: 26f33c4868f69634881417d861dd7c1f, type: 2}
   - m_RefCount: 460
     m_Data: {fileID: 11400000, guid: f66d87ad343842f469caf064254b0dfa, type: 2}
+  - m_RefCount: 3
+    m_Data: {fileID: 11400000, guid: e443fc7a95b2aa44f9cdbf9a569a88bc, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 30
     m_Data: {fileID: 1283104369552844496, guid: 0aad21112331d814591bfa1a52908dd3,
@@ -27641,6 +27634,8 @@ Tilemap:
   - m_RefCount: 4
     m_Data: {fileID: -2638174346398417057, guid: 51cd6628b51fec146b1006ea74496461,
       type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: -1855063206002627086, guid: 51cd6628b51fec146b1006ea74496461,
       type: 3}
@@ -27652,9 +27647,6 @@ Tilemap:
       type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -8078422577388067611, guid: 51cd6628b51fec146b1006ea74496461,
-      type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 7246144623765504582, guid: 51cd6628b51fec146b1006ea74496461,
       type: 3}
   - m_RefCount: 3
     m_Data: {fileID: -3108695374460624881, guid: 51cd6628b51fec146b1006ea74496461,
@@ -27690,47 +27682,51 @@ Tilemap:
   - m_RefCount: 4
     m_Data: {fileID: -897823112303740414, guid: 0aad21112331d814591bfa1a52908dd3,
       type: 3}
-  - m_RefCount: 3
-    m_Data: {fileID: -7698698906591611365, guid: 51cd6628b51fec146b1006ea74496461,
+  - m_RefCount: 2
+    m_Data: {fileID: 2759834238519336907, guid: 47ad969be364dbe4f9619abf59f6ff6f,
       type: 3}
   - m_RefCount: 3
-    m_Data: {fileID: -4324652622546934049, guid: 51cd6628b51fec146b1006ea74496461,
+    m_Data: {fileID: -8725567300533293005, guid: 47ad969be364dbe4f9619abf59f6ff6f,
       type: 3}
-  - m_RefCount: 4
-    m_Data: {fileID: 2912105716004664092, guid: 51cd6628b51fec146b1006ea74496461,
+  - m_RefCount: 1
+    m_Data: {fileID: 7246144623765504582, guid: 51cd6628b51fec146b1006ea74496461,
       type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -6055933297586951270, guid: 51cd6628b51fec146b1006ea74496461,
       type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: -5742174931367658995, guid: 51cd6628b51fec146b1006ea74496461,
+    m_Data: {fileID: 4580411062077879670, guid: 30aad18a36921124286308013adaa9cc,
       type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: -2536482342784314797, guid: 51cd6628b51fec146b1006ea74496461,
+    m_Data: {fileID: -34487486735421544, guid: 30aad18a36921124286308013adaa9cc, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: -6775403134720085497, guid: 47ad969be364dbe4f9619abf59f6ff6f,
       type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 4206584192614148319, guid: 51cd6628b51fec146b1006ea74496461,
+    m_Data: {fileID: -3548234406385579540, guid: 47ad969be364dbe4f9619abf59f6ff6f,
       type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 3906828557021233725, guid: 51cd6628b51fec146b1006ea74496461,
-      type: 3}
+    m_Data: {fileID: 250078175051838442, guid: f8ed7a486cb1d8846825a708dbc8187b, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 1478094204467019290, guid: 51cd6628b51fec146b1006ea74496461,
-      type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -1799268760286711018, guid: 51cd6628b51fec146b1006ea74496461,
+    m_Data: {fileID: 1085404769061849691, guid: f8ed7a486cb1d8846825a708dbc8187b,
       type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -1576777711520227937, guid: 51cd6628b51fec146b1006ea74496461,
       type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: -8538034757238772071, guid: 51cd6628b51fec146b1006ea74496461,
+    m_Data: {fileID: -8131451922967707775, guid: 47ad969be364dbe4f9619abf59f6ff6f,
       type: 3}
   - m_RefCount: 4
     m_Data: {fileID: 8657399249913048326, guid: 51cd6628b51fec146b1006ea74496461,
       type: 3}
   - m_RefCount: 460
     m_Data: {fileID: 9181335432235082824, guid: d5b12eedb7639d940bd40cb9ab0d8f56,
+      type: 3}
+  - m_RefCount: 3
+    m_Data: {fileID: 4611466534973241394, guid: 47ad969be364dbe4f9619abf59f6ff6f,
+      type: 3}
+  - m_RefCount: 2
+    m_Data: {fileID: 2744763461884904728, guid: 47ad969be364dbe4f9619abf59f6ff6f,
       type: 3}
   m_TileMatrixArray:
   - m_RefCount: 1289
@@ -28193,7 +28189,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1024930389}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 57.519, y: 0.996, z: 0}
+  m_LocalPosition: {x: 57.519, y: 0.961, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1780994582}
@@ -28259,7 +28255,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.000118255615, y: 0.31900215}
+  m_Offset: {x: -0.0059280396, y: 0.31547713}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -28270,7 +28266,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.34916687, y: 0.19320726}
+  m_Size: {x: 0.6237259, y: 0.25665903}
   m_EdgeRadius: 0
 --- !u!61 &1024930394
 BoxCollider2D:
@@ -28285,7 +28281,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0069713593, y: 0.3170491}
+  m_Offset: {x: 0.0069713593, y: 0.28884834}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -28296,7 +28292,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2789421, y: 0.25339544}
+  m_Size: {x: 0.6133003, y: 0.4226004}
   m_EdgeRadius: 0
 --- !u!114 &1024930395
 MonoBehaviour:
@@ -28312,7 +28308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canSuccessiveInteract: 1
   textOnDisabledSuccessiveInteract: 
-  singleTimeUse: 1
+  singleTimeUse: 0
   needItemToInteract: 1
   itemsNeeded:
   - itemType: 4
@@ -28325,9 +28321,10 @@ MonoBehaviour:
     isAged: 1
   needToInteract: 1
   destroyItemOnSuccessiveInteraction: 1
-  textBoxOnSuccessiveInteraction: '(Havia uma chave dentro do objeto de porcelana) '
-  textBoxOnFailedInteraction: "(Dando uma sacudida, d\xE1 pra ouvir algo batendo
-    de dentro, mas \xE9 melhor n\xE3o quebrar isso com minhas pr\xF3prias m\xE3os) "
+  textBoxOnSuccessiveInteraction: "\"Os musgos prenderam a porcelana na mesa, n\xE3o
+    consigo mais peg\xE1-la.\""
+  textBoxOnFailedInteraction: "\"Os musgos prenderam a porcelana na mesa, n\xE3o
+    consigo mais peg\xE1-la.\""
   textBox: {fileID: 0}
   ui: {fileID: 0}
   onSuccessiveInteractionConsequence: PorcelanaQuebrada
@@ -28441,7 +28438,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7783985, y: 1}
+    m_SensorSize: {x: 1.7769653, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -28992,10 +28989,10 @@ MonoBehaviour:
     isAged: 0
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 1
-  textBoxOnSuccessiveInteraction: "(Dentro da cabine, h\xE1 um desentupidor) "
-  textBoxOnFailedInteraction: "(Quem sabe tenha algo de \xFAtil nessa cabine, mas
-    ela est\xE1 trancada por dois cadeados. Ainda n\xE3o tenho todas as chaves pra
-    abri-la.) "
+  textBoxOnSuccessiveInteraction: '"Consegui usar as duas chaves para abrir a cabine,
+    dentro encontrei um desentupidor."'
+  textBoxOnFailedInteraction: "\"Posso achar algo \xFAtil nessa cabine, mas ela est\xE1
+    trancada por dois cadeados. Ainda n\xE3o tenho todas as chaves pra abr\xED-la.\""
   textBox: {fileID: 0}
   ui: {fileID: 0}
   onSuccessiveInteractionConsequence: CabinePia
@@ -30228,7 +30225,7 @@ MonoBehaviour:
     isAged: 0
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 1
-  textBoxOnSuccessiveInteraction: "(N\xE3o consigo abrir a cabine da pia) "
+  textBoxOnSuccessiveInteraction: "\"N\xE3o consigo abrir a cabine da pia.\""
   textBoxOnFailedInteraction: "(Quem sabe tenha algo de \xFAtil nessa cabine, mas
     ela est\xE1 trancada por dois cadeados. Ainda n\xE3o tenho todas as chaves pra
     abri-la.) "
@@ -30325,7 +30322,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1392936998}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 54.079998, y: 0.96000004, z: 0}
+  m_LocalPosition: {x: 54.079998, y: 0.897, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 325878630}
@@ -30644,7 +30641,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0071582794, y: 0.12708482}
+  m_Offset: {x: -0.0071582794, y: 0.13413501}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -30655,7 +30652,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3621254, y: 0.24465054}
+  m_Size: {x: 0.3621254, y: 0.25875092}
   m_EdgeRadius: 0
 --- !u!212 &1453136628
 SpriteRenderer:
@@ -30695,7 +30692,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 1893673605219640192, guid: 949e39043c3f63548aeb7cb493406ff2,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -33467,9 +33464,10 @@ MonoBehaviour:
     isAged: 0
   needToInteract: 1
   destroyItemOnSuccessiveInteraction: 1
-  textBoxOnSuccessiveInteraction: (Tinha uma chave no fundo)
-  textBoxOnFailedInteraction: "(Agora, do jeito que t\xE1, n\xE3o vou mergulhar minha
-    m\xE3o pro bem da minha sa\xFAde. Preciso de algo pra desentupir ela) "
+  textBoxOnSuccessiveInteraction: "\"N\xE3o consigo mais enxergar o brilo que estava
+    no fundo.\""
+  textBoxOnFailedInteraction: "\"N\xE3o consigo mais enxergar o brilo que estava
+    no fundo.\""
   textBox: {fileID: 0}
   ui: {fileID: 0}
   onSuccessiveInteractionConsequence: BanheiraPresente
@@ -34018,8 +34016,8 @@ MonoBehaviour:
   itemsNeeded: []
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 0
-  textBoxOnSuccessiveInteraction: "(Ao sentar no sof\xE1, senti algo duro dentro
-    do estofado)"
+  textBoxOnSuccessiveInteraction: "\"Ao sentar no sof\xE1, senti algo duro dentro
+    do estofado, pode ser uma chave.\""
   textBoxOnFailedInteraction: 
   textBox: {fileID: 0}
   ui: {fileID: 0}
@@ -35214,7 +35212,7 @@ MonoBehaviour:
   itemsNeeded: []
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 0
-  textBoxOnSuccessiveInteraction: "(N\xE3o consigo abrir as gavetas)"
+  textBoxOnSuccessiveInteraction: "\"N\xE3o consigo abrir as gavetas, est\xE3o emperradas.\""
   textBoxOnFailedInteraction: 
   textBox: {fileID: 0}
   ui: {fileID: 0}
@@ -35354,7 +35352,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0058478117, y: 0.30488968}
+  m_Offset: {x: 0.0058478117, y: 0.30817544}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -35365,7 +35363,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.1390574, y: 0.13195801}
+  m_Size: {x: 0.1390574, y: 0.12538648}
   m_EdgeRadius: 0
 --- !u!61 &1988853858
 BoxCollider2D:
@@ -35380,7 +35378,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0063319206, y: 0.30003875}
+  m_Offset: {x: 0.009617686, y: 0.25732392}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -35391,7 +35389,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2782712, y: 0.3433646}
+  m_Size: {x: 0.49513125, y: 0.46822345}
   m_EdgeRadius: 0
 --- !u!61 &1988853859
 BoxCollider2D:
@@ -35406,7 +35404,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.008200884, y: 0.30273384}
+  m_Offset: {x: 0.004915118, y: 0.25673336}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -35417,7 +35415,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5125704, y: 0.19387877}
+  m_Size: {x: 0.532285, y: 0.39102376}
   m_EdgeRadius: 0
 --- !u!114 &1988853862
 MonoBehaviour:
@@ -35510,9 +35508,11 @@ MonoBehaviour:
     isAged: 1
   needToInteract: 1
   destroyItemOnSuccessiveInteraction: 1
-  textBoxOnSuccessiveInteraction: '(Havia uma chave dentro do objeto de porcelana) '
-  textBoxOnFailedInteraction: "(Dando uma sacudida, d\xE1 pra ouvir algo batendo
-    de dentro, mas \xE9 melhor n\xE3o quebrar isso com minhas pr\xF3prias m\xE3os) "
+  textBoxOnSuccessiveInteraction: '"Usando o pano para quebrar o objeto de porcelana,
+    encontrei uma chave dentro dele."'
+  textBoxOnFailedInteraction: "\"Dando uma sacudida, consegui ouvir algo batendo
+    dentro desse objeto de porcelana, mas \xE9 melhor n\xE3o quebr\xE1-lo com minhas...
+    ...pr\xF3prias m\xE3os.\""
   textBox: {fileID: 0}
   ui: {fileID: 0}
   onSuccessiveInteractionConsequence: PorcelanaQuebrada
@@ -35817,8 +35817,7 @@ MonoBehaviour:
   itemsNeeded: []
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 0
-  textBoxOnSuccessiveInteraction: "(Examinando os buracos do sof\xE1, eu achei uma
-    chave pequena)"
+  textBoxOnSuccessiveInteraction: "\"Olhando os buracos do sof\xE1, achei uma chave.\""
   textBoxOnFailedInteraction: 
   textBox: {fileID: 0}
   ui: {fileID: 0}
