@@ -1068,7 +1068,8 @@ MonoBehaviour:
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 1
   textBoxOnSuccessiveInteraction: "\"Consegui destranc\xE1-la.\""
-  textBoxOnFailedInteraction: "\"O escrit\xF3rio est\xE1 trancado.\""
+  textBoxOnFailedInteraction: "\"O escrit\xF3rio est\xE1 trancado, preciso de uma
+    chave para abrir a porta.\""
   textBox: {fileID: 0}
   ui: {fileID: 0}
   onSuccessiveInteractionConsequence: AbrirEscritorio
@@ -1258,7 +1259,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 145436643}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.6839986, y: 0.3410001, z: 0}
+  m_LocalPosition: {x: 0.679, y: 0.3410001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 944218614}
@@ -3876,7 +3877,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 279137739}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 68.149, y: -2.281, z: 0}
+  m_LocalPosition: {x: 68.156, y: -2.281, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1062381720}
@@ -5547,7 +5548,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 456593097}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 60.85, y: 0.317, z: 0}
+  m_LocalPosition: {x: 60.859, y: 0.317, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1780994582}
@@ -5765,7 +5766,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 468214998}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 69.009, y: -2.281, z: 0}
+  m_LocalPosition: {x: 68.969, y: -2.281, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1062381720}
@@ -22619,8 +22620,8 @@ MonoBehaviour:
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 0
   textBoxOnSuccessiveInteraction: "\"Dentro da geladeira, havia um bloco de gelo
-    ma\xE7isso. Consigo ver algo dentro dele, mas preciso descongel\xE1-lo de alguma
-    forma pra poder ver o que \xE9.\""
+    ma\xE7isso. Consigo ver algo dentro dele, mas preciso descongel\xE1-lo de...
+    ...alguma forma pra poder ver o que \xE9.\""
   textBoxOnFailedInteraction: 
   textBox: {fileID: 0}
   ui: {fileID: 0}
@@ -23114,8 +23115,8 @@ MonoBehaviour:
   itemsNeeded: []
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 0
-  textBoxOnSuccessiveInteraction: "(A madeira umedeceu tanto que n\xE3o consigo mais
-    acend\xEA-la)"
+  textBoxOnSuccessiveInteraction: "\"A madeira se desgastou tanto que n\xE3o consigo
+    mais acend\xEA-la\""
   textBoxOnFailedInteraction: 
   textBox: {fileID: 0}
   ui: {fileID: 0}
@@ -23421,7 +23422,7 @@ MonoBehaviour:
     isAged: 0
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 1
-  textBoxOnSuccessiveInteraction: '"Consegui descongelar o bloco de gelo, Havia uma
+  textBoxOnSuccessiveInteraction: '"Consegui descongelar o bloco de gelo. Havia uma
     chave dentro dele."'
   textBoxOnFailedInteraction: "\"Dentro da lareira, h\xE1 alguns peda\xE7os de madeira
     seca que ainda podem ser acesos, posso usar para descongelar... ...algo.\""
@@ -25046,11 +25047,11 @@ MonoBehaviour:
     isAged: 0
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 1
-  textBoxOnSuccessiveInteraction: "(Depois de abrir um espa\xE7o usando o estilete,
-    consegui pegar um cabide)"
-  textBoxOnFailedInteraction: "(A porta foi arrombada pela vegeta\xE7\xE3o, mas agora
-    preciso liberar um espa\xE7o para ver o que t\xEAm dentro - quem sabe, se eu
-    tivesse algo cortante)"
+  textBoxOnSuccessiveInteraction: "\"Depois de abrir um espa\xE7o usando o estilete,
+    consegui pegar um cabide, isso pode ser \xFAtil em algum lugar.\""
+  textBoxOnFailedInteraction: "\"A porta foi arrombada pelos musgos, mas agora preciso
+    liberar um espa\xE7o para ver o que t\xEAm dentro, quem sabe se eu... ...tivesse
+    algo para cortar o musgo.\""
   textBox: {fileID: 0}
   ui: {fileID: 0}
   onSuccessiveInteractionConsequence: ArmarioQuarto
@@ -25226,7 +25227,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1436508820}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.27, y: -2.276, z: 0}
+  m_LocalPosition: {x: 6.248, y: -2.276, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1749890234}
@@ -27147,7 +27148,8 @@ MonoBehaviour:
   itemsNeeded: []
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 0
-  textBoxOnSuccessiveInteraction: "(O ralo est\xE1 completamente de musgo)"
+  textBoxOnSuccessiveInteraction: "\"O ralo est\xE1 completamente de musgo, n\xE3o
+    consigo ver mais nada l\xE1 dentro.\""
   textBoxOnFailedInteraction: 
   textBox: {fileID: 0}
   ui: {fileID: 0}
@@ -38642,9 +38644,8 @@ MonoBehaviour:
     isAged: 1
   needToInteract: 1
   destroyItemOnSuccessiveInteraction: 1
-  textBoxOnSuccessiveInteraction: (Abriu!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!)
-  textBoxOnFailedInteraction: "(Essa, supostamente, seria a porta de sa\xEDda. Est\xE1
-    trancada.) "
+  textBoxOnSuccessiveInteraction: "\"Os musgos est\xE3o na frente da fechadura novamente.\""
+  textBoxOnFailedInteraction: "\"Os musgos est\xE3o na frente da fechadura novamente.\""
   textBox: {fileID: 0}
   ui: {fileID: 0}
   onSuccessiveInteractionConsequence: ExitPuzzle2Future
@@ -38726,8 +38727,8 @@ MonoBehaviour:
     isAged: 1
   needToInteract: 1
   destroyItemOnSuccessiveInteraction: 1
-  textBoxOnSuccessiveInteraction: "(Est\xE1 destrancada)"
-  textBoxOnFailedInteraction: "(A sa\xEDda est\xE1 trancada)"
+  textBoxOnSuccessiveInteraction: "\"Os musgos est\xE3o na frente da fechadura novamente.\""
+  textBoxOnFailedInteraction: "\"Os musgos est\xE3o na frente da fechadura novamente.\""
   textBox: {fileID: 0}
   ui: {fileID: 0}
   onSuccessiveInteractionConsequence: ExitPuzzle2Future
