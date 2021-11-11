@@ -41,6 +41,169 @@ public class Item
                         itemName = "Flashlight";
                         if (isAged) itemName += " (aged)";
                         return itemName;
+                    //puzzle1
+                    #region
+                    case ItemType.KeyCabine1:
+                        itemName = "Sink Drawer Key 1";
+                        if (isAged) itemName += " (aged)";
+                        return itemName;
+                    case ItemType.KeyCabine2:
+                        itemName = "Sink Drawer Key 2";
+                        if (isAged) itemName += " (aged)";
+                        return itemName;
+                    case ItemType.Cloth:
+                        itemName = "Piece of Cloth";
+                        if (isAged) itemName += " (aged)";
+                        return itemName;
+                    case ItemType.Plunger:
+                        itemName = "Plunger";
+                        if (isAged) itemName += " (aged)";
+                        return itemName;
+                    case ItemType.KeyExit1:
+                        itemName = "Exit Key";
+                        if (isAged) itemName += " (aged)";
+                        return itemName;
+                    #endregion
+                    //puzzle 2
+                    #region
+                    case ItemType.KeyEscrit:
+                        itemName = "Office Room Key";
+                        if (isAged) itemName += " (aged)";
+                        return itemName;
+                    case ItemType.KeyEscritCongela:
+                        itemName = "Frozen Office Room Key";
+                        if (isAged) itemName += " (aged)";
+                        return itemName;
+                    case ItemType.Matches:
+                        itemName = "Box of Matches";
+                        if (isAged) itemName += " (aged)";
+                        return itemName;
+                    case ItemType.ClothesHanger:
+                        itemName = "Clothes Hanger";
+                        if (isAged) itemName += " (aged)";
+                        return itemName;
+                    case ItemType.Stilleto:
+                        itemName = "Box Cutter";
+                        if (isAged) itemName += " (aged)";
+                        return itemName;
+                    case ItemType.KeyExit2:
+                        itemName = "Exit Key";
+                        if (isAged) itemName += " (aged)";
+                        return itemName;
+                    #endregion
+                    //puzzle 3
+                    #region
+                    case ItemType.HairClip:
+                        itemName = "Hair Clip";
+                        if (isAged) itemName += " (aged)";
+                        return itemName;
+                    case ItemType.ToothPick:
+                        itemName = "Box of Toothpicks";
+                        if (isAged) itemName += " (aged)";
+                        return itemName;
+                    case ItemType.LoginPass:
+                        itemName = "Login Password";
+                        if (isAged) itemName += " (aged)";
+                        return itemName;
+                    case ItemType.SecretPass:
+                        itemName = "Padlock Code";
+                        if (isAged) itemName += " (aged)";
+                        return itemName;
+                    case ItemType.Screwdriver:
+                        itemName = "Screwdriver";
+                        if (isAged) itemName += " (aged)";
+                        return itemName;
+                    case ItemType.KeyExit3:
+                        itemName = "Exit Key";
+                        if (isAged) itemName += " (aged)";
+                        return itemName;
+                        #endregion
+                }
+            case "Português":
+                switch (itemType)
+                {
+                    default:
+                    case ItemType.Flashlight:
+                        itemName = "Lanterna";
+                        if (isAged) itemName += " (envelhecida)";
+                        return itemName;
+                    //puzzle1
+                    #region
+                    case ItemType.KeyCabine1:
+                        itemName = "Chave Gaveta Pia 1";
+                        if (isAged) itemName += " (envelhecida)";
+                        return itemName;
+                    case ItemType.KeyCabine2:
+                        itemName = "Chave Gaveta Pia 2";
+                        if (isAged) itemName += " (envelhecida)";
+                        return itemName;
+                    case ItemType.Cloth:
+                        itemName = "Pedaço de Pano";
+                        if (isAged) itemName += " (envelhecido)";
+                        return itemName;
+                    case ItemType.Plunger:
+                        itemName = "Desentupidor";
+                        if (isAged) itemName += " (envelhecido)";
+                        return itemName;
+                    case ItemType.KeyExit1:
+                        itemName = "Chave de Saída";
+                        if (isAged) itemName += " (envelhecida)";
+                        return itemName;
+                    #endregion
+                    //puzzle 2
+                    #region
+                    case ItemType.KeyEscrit:
+                        itemName = "Chave do Escritório";
+                        if (isAged) itemName += " (envelhecida)";
+                        return itemName;
+                    case ItemType.KeyEscritCongela:
+                        itemName = "Chave Congelada do Escritório";
+                        if (isAged) itemName += " (envelhecida)";
+                        return itemName;
+                    case ItemType.Matches:
+                        itemName = "Caixa de Fósforos";
+                        if (isAged) itemName += " (envelhecida)";
+                        return itemName;
+                    case ItemType.ClothesHanger:
+                        itemName = "Cabide";
+                        if (isAged) itemName += " (envelhecido)";
+                        return itemName;
+                    case ItemType.Stilleto:
+                        itemName = "Estilete";
+                        if (isAged) itemName += " (envelhecido)";
+                        return itemName;
+                    case ItemType.KeyExit2:
+                        itemName = "Chave de Saída";
+                        if (isAged) itemName += " (envelhecida)";
+                        return itemName;
+                    #endregion
+                    //puzzle 3
+                    #region
+                    case ItemType.HairClip:
+                        itemName = "Grampo de Cabelo";
+                        if (isAged) itemName += " (envelhecido)";
+                        return itemName;
+                    case ItemType.ToothPick:
+                        itemName = "Palitos de Dente";
+                        if (isAged) itemName += " (envelhecidos)";
+                        return itemName;
+                    case ItemType.LoginPass:
+                        itemName = "Senha de Login";
+                        if (isAged) itemName += " (envelhecida)";
+                        return itemName;
+                    case ItemType.SecretPass:
+                        itemName = "Senha de Cadeado";
+                        if (isAged) itemName += " (envelhecida)";
+                        return itemName;
+                    case ItemType.Screwdriver:
+                        itemName = "Chave de Fenda";
+                        if (isAged) itemName += " (envelhecida)";
+                        return itemName;
+                    case ItemType.KeyExit3:
+                        itemName = "Chave de Saída";
+                        if (isAged) itemName += " (envelhecida)";
+                        return itemName;
+                        #endregion
                 }
         }
     }
