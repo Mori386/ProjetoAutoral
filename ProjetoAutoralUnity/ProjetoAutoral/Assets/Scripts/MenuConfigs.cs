@@ -8,4 +8,13 @@ public class MenuConfigs : MonoBehaviour
     {
         return "English";
     }
+    public enum Action
+    {
+        Interaction,
+        UseItem,
+        DropItem,
+        Radio,
+        TimeTravel,
+        PointFlashlight
+    }
 }
