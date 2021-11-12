@@ -8,6 +8,8 @@ public class AiBoss : MonoBehaviour
     Vector3 positionToCenter;
     [SerializeField] public GameObject target;
 
+    public bool attackingPlayer;
+
     [System.NonSerialized] public int vida = 4;
     private void Start()
     {
@@ -54,6 +56,11 @@ public class AiBoss : MonoBehaviour
     {
         while (true)
         {
+            if (pathfindingV2.route.Count == 0)
+            {
+                followRoute = null;
+                yield break;
+            }
             Vector3 deltaPos = (MathMethods.GridToWorld(pathfindingV2.tilemapPointZero, pathfindingV2.tilemap.cellSize, pathfindingV2.route[0].gridPosition) - positionToCenter) - transform.position;
             deltaPos = Vector3.Normalize(deltaPos);
             while (Vector2.Distance(transform.position, MathMethods.GridToWorld(pathfindingV2.tilemapPointZero, pathfindingV2.tilemap.cellSize, pathfindingV2.route[0].gridPosition) - positionToCenter) > 0.1f)
@@ -62,6 +69,11 @@ public class AiBoss : MonoBehaviour
                 yield return new WaitForFixedUpdate();
             }
             pathfindingV2.route.Remove(pathfindingV2.route[0]);
+            if (pathfindingV2.route.Count == 0)
+            {
+                followRoute = null;
+                yield break;
+            }
             yield return new WaitForFixedUpdate();
         }
     }
@@ -121,6 +133,14 @@ public class AiBoss : MonoBehaviour
                 StopAndStun(2);
             }
         }
+        else
+        {
+            if (collision.CompareTag("Player"))
+            {
+                attackingPlayer = true;
+                Debug.Log("Bate No Player");
+            }
+        }
     }
     private void StopAndStun(float stunDuration)
     {
@@ -128,11 +148,14 @@ public class AiBoss : MonoBehaviour
         pathfindingV2.found = false;
         pathfindingV2.route = new List<NodeInfo>();
         pathfindingV2.StopAllPathCheck();
-        pathfindingV2.pathCheckRunning[0] = pathfindingV2.StartCoroutine(pathfindingV2.PathCheck(new NodeInfo() { gridPosition = MathMethods.WorldToGrid(pathfindingV2.tilemapPointZero, pathfindingV2.tilemap.cellSize, pathfindingV2.cc.bounds.center), cameFromNode = null }, pathfindingV2.player.position, 0, false));
+        pathfindingV2.pathCheckRunning[0] = pathfindingV2.StartCoroutine(pathfindingV2.PathCheck(new NodeInfo() { gridPosition = MathMethods.WorldToGrid(pathfindingV2.tilemapPointZero, pathfindingV2.tilemap.cellSize, pathfindingV2.cc.bounds.center), cameFromNode = null }, pathfindingV2.playercc.bounds.center, 0, false));
         StartCoroutine(Stun(stunDuration));
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-
+        if (collision.CompareTag("Player") && enragedDash == null)
+        {
+            attackingPlayer = false;
+        }
     }
 }

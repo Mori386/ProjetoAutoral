@@ -15,10 +15,12 @@ public class PathfindingV2 : MonoBehaviour
     AiBoss aiBoss;
 
     //Componentes
-    [System.NonSerialized]public CapsuleCollider2D cc;
+    [System.NonSerialized] public CapsuleCollider2D cc;
 
     //tilemap
     public Transform player;
+    public CapsuleCollider2D playercc;
+
     public Tilemap tilemap;
     [System.NonSerialized] public Vector3 tilemapPointZero;
 
@@ -50,11 +52,12 @@ public class PathfindingV2 : MonoBehaviour
 
     public GameObject pedraPf;
 
-    [System.NonSerialized]public bool found = false;
+    public bool found = false;
     private void OnDrawGizmos()
     {
         if (showGizmosOnPlay)
         {
+            Gizmos.DrawCube(playercc.bounds.center, new Vector2(0.1f, 0.1f));
             if (futureNode != null)
             {
                 Gizmos.color = Color.magenta;
@@ -95,52 +98,62 @@ public class PathfindingV2 : MonoBehaviour
     {
         showGizmosOnPlay = true;
         tilemapPointZero = tilemap.GetCellCenterWorld(tilemap.origin);
-        DefineDirectionPriorty(player.position);
-        pathCheckRunning[0] = StartCoroutine(PathCheck(new NodeInfo() { gridPosition = MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, cc.bounds.center), cameFromNode = null }, player.position, 0, false));
+        playercc = player.GetComponent<CapsuleCollider2D>();
+        DefineDirectionPriorty(playercc.bounds.center);
+        pathCheckRunning[0] = StartCoroutine(PathCheck(new NodeInfo() { gridPosition = MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, cc.bounds.center), cameFromNode = null }, playercc.bounds.center, 0, false));
     }
     private void Update()
     {
         //se mudar
-        if (found && route[route.Count - 1].gridPosition != MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, player.position))
+        if (route.Count != 0)
         {
-            NodeInfo nearestNode = new NodeInfo() { distanceFromFinalPosition = Mathf.Infinity };
-            int positionInRoute = 0;
-            foreach (NodeInfo routeNode in route)
+            if (found && route[route.Count - 1].gridPosition != MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, playercc.bounds.center))
             {
-                Vector3 deltaPos = player.position - MathMethods.GridToWorld(tilemapPointZero, routeNode.gridPosition, tilemap.cellSize);
-                routeNode.distanceFromFinalPosition = Mathf.Abs(deltaPos.x) + Mathf.Abs(deltaPos.y);
-            }
-            for (int i = 0; i < route.Count; i++)
-            {
-                if (route[i].distanceFromFinalPosition < nearestNode.distanceFromFinalPosition)
+                NodeInfo nearestNode = new NodeInfo() { distanceFromFinalPosition = Mathf.Infinity };
+                int positionInRoute = 0;
+                foreach (NodeInfo routeNode in route)
                 {
-                    nearestNode = route[i];
-                    positionInRoute = i;
+                    Vector3 deltaPos = playercc.bounds.center - MathMethods.GridToWorld(tilemapPointZero, routeNode.gridPosition, tilemap.cellSize);
+                    routeNode.distanceFromFinalPosition = Mathf.Abs(deltaPos.x) + Mathf.Abs(deltaPos.y);
                 }
-                else if (route[i].distanceFromFinalPosition == nearestNode.distanceFromFinalPosition)
+                for (int i = 0; i < route.Count; i++)
                 {
-                    if (route[i].nodesToGetThere < nearestNode.nodesToGetThere)
+                    if (route[i].distanceFromFinalPosition < nearestNode.distanceFromFinalPosition)
                     {
                         nearestNode = route[i];
                         positionInRoute = i;
                     }
-                    else if (route[i].nodesToGetThere == nearestNode.nodesToGetThere)
+                    else if (route[i].distanceFromFinalPosition == nearestNode.distanceFromFinalPosition)
                     {
-                        if (route[i].GetHashCode() < nearestNode.GetHashCode())
+                        if (route[i].nodesToGetThere < nearestNode.nodesToGetThere)
                         {
                             nearestNode = route[i];
                             positionInRoute = i;
                         }
+                        else if (route[i].nodesToGetThere == nearestNode.nodesToGetThere)
+                        {
+                            if (route[i].GetHashCode() < nearestNode.GetHashCode())
+                            {
+                                nearestNode = route[i];
+                                positionInRoute = i;
+                            }
+                        }
                     }
                 }
+                int nodesNeededToBeRemoved = route.Count - positionInRoute;
+                for (int i = 0; i < nodesNeededToBeRemoved; i++)
+                {
+                    route.Remove(route[positionInRoute]);
+                }
+                found = false;
+                pathCheckRunning[0] = StartCoroutine(PathCheck(new NodeInfo() { gridPosition = nearestNode.gridPosition, cameFromNode = null }, playercc.bounds.center, nearestNode.nodesToGetThere, false));
             }
-            int nodesNeededToBeRemoved = route.Count - positionInRoute;
-            for (int i = 0; i < nodesNeededToBeRemoved; i++)
-            {
-                route.Remove(route[positionInRoute]);
-            }
+        }
+        else if (!aiBoss.attackingPlayer)
+        {
             found = false;
-            pathCheckRunning[0] = StartCoroutine(PathCheck(new NodeInfo() { gridPosition = nearestNode.gridPosition, cameFromNode = null }, player.position, nearestNode.nodesToGetThere, false));
+            DefineDirectionPriorty(playercc.bounds.center);
+            pathCheckRunning[0] = StartCoroutine(PathCheck(new NodeInfo() { gridPosition = MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, cc.bounds.center), cameFromNode = null }, playercc.bounds.center, 0, false));
         }
     }
     public IEnumerator PathCheck(NodeInfo nodeToStart, Vector3 finalPoint, int startNodesRoutesInt, bool secondCheck)
@@ -184,14 +197,14 @@ public class PathfindingV2 : MonoBehaviour
                         }
                     }
                 }
-                else if (invertedRoute[0].nodesToGetThere+ Mathf.CeilToInt(deltaPosInTheNextXSec) < route[route.Count - 1].nodesToGetThere)
+                else if (invertedRoute[0].nodesToGetThere + Mathf.CeilToInt(deltaPosInTheNextXSec) < route[route.Count - 1].nodesToGetThere)
                 {
                     updatedRoute = new List<NodeInfo>();
                     for (int i = invertedRoute.Count - 1; i >= 0; i--)
                     {
                         updatedRoute.Add(invertedRoute[i]);
                     }
-                    for(int i =0; i<route.Count;i++)
+                    for (int i = 0; i < route.Count; i++)
                     {
                         if (route[i].gridPosition == updatedRoute[0].gridPosition)
                         {
