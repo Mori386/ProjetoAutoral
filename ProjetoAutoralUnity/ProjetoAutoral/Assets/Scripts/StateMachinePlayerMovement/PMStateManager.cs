@@ -54,6 +54,20 @@ public class PMStateManager : MonoBehaviour
         currentState = State;
         currentState.EnterState(this);
     }
+    public void SwitchStateBasedOnID(int IDState)
+    {
+        switch (IDState)
+        {
+            case 0:
+                currentState = defaultState;
+                currentState.EnterState(this);
+                break;
+            case 1:
+                currentState = controlOffState;
+                currentState.EnterState(this);
+                break;
+        }
+    }
     public void SmoothSwitchState(PMBaseState State)
     {
         currentState = State;

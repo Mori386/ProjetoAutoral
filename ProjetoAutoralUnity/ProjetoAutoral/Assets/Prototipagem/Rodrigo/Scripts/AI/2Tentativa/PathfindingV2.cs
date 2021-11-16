@@ -168,60 +168,7 @@ public class PathfindingV2 : MonoBehaviour
             NodeInfo thisNode = new NodeInfo() { gridPosition = nodeToCheck.gridPosition, cameFromNode = nodeToCheck.cameFromNode, distanceFromFinalPosition = Mathf.Abs(deltaPos.x) + Mathf.Abs(deltaPos.y) };
             if (nodeToCheck.gridPosition == MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, finalPoint))
             {
-                NodeInfo nodeInfo;
-                nodeInfo = nodeToCheck;
-                List<NodeInfo> invertedRoute = new List<NodeInfo>();
-                while (true)
-                {
-                    if (nodeInfo != null)
-                    {
-                        invertedRoute.Add(nodeInfo);
-                        nodeInfo = nodeInfo.cameFromNode;
-                    }
-                    else break;
-                }
-                if (!secondCheck)
-                {
-                    for (int i = 0; i < invertedRoute.Count; i++)
-                    {
-                        route.Add(invertedRoute[invertedRoute.Count - 1 - i]);
-                    }
-                    found = true;
-                    if (route.Count > 0)
-                    {
-                        if (Mathf.CeilToInt(deltaPosInTheNextXSec) < route.Count - 1)
-                        {
-                            futureNode = route[Mathf.CeilToInt(deltaPosInTheNextXSec)];
-                            futureNode.cameFromNode = null;
-                            pathCheckRunning[1] = StartCoroutine(PathCheck(futureNode, MathMethods.GridToWorld(tilemapPointZero, route[route.Count - 1].gridPosition, tilemap.cellSize), futureNode.nodesToGetThere, true));
-                        }
-                    }
-                }
-                else if (invertedRoute[0].nodesToGetThere + Mathf.CeilToInt(deltaPosInTheNextXSec) < route[route.Count - 1].nodesToGetThere)
-                {
-                    updatedRoute = new List<NodeInfo>();
-                    for (int i = invertedRoute.Count - 1; i >= 0; i--)
-                    {
-                        updatedRoute.Add(invertedRoute[i]);
-                    }
-                    for (int i = 0; i < route.Count; i++)
-                    {
-                        if (route[i].gridPosition == updatedRoute[0].gridPosition)
-                        {
-                            while (true)
-                            {
-                                if (route.Count != i) route.Remove(route[i]);
-                                else break;
-                            }
-                            for (int a = 0; a < updatedRoute.Count; a++)
-                            {
-                                route.Add(updatedRoute[a]);
-                            }
-                            break;
-                        }
-                    }
-                    found = true;
-                }
+                FoundRoute(nodeToCheck, secondCheck);
                 yield break;
             }
             knownNodes.Add(thisNode);
@@ -266,6 +213,11 @@ public class PathfindingV2 : MonoBehaviour
                         {
                             wallNodes.Add(new NodeInfo() { gridPosition = thisNode.gridPosition + new Vector2(0, 1) });
                         }
+                        else if (raycastHit2D.collider.gameObject.layer == LayerMask.NameToLayer("Objects") && MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, finalPoint) == thisNode.gridPosition + new Vector2(0, 1))
+                        {
+                            FoundRoute(nodeToCheck, secondCheck);
+                            yield break;
+                        }
                         break;
                     case Directions.bottom:
                         foreach (NodeInfo wallNode in wallNodes)
@@ -300,6 +252,11 @@ public class PathfindingV2 : MonoBehaviour
                         else if (raycastHit2D.collider.gameObject.layer == LayerMask.NameToLayer("Wall"))
                         {
                             wallNodes.Add(new NodeInfo() { gridPosition = thisNode.gridPosition + new Vector2(0, -1) });
+                        }
+                        else if (raycastHit2D.collider.gameObject.layer == LayerMask.NameToLayer("Objects") && MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, finalPoint) == thisNode.gridPosition + new Vector2(0, -1))
+                        {
+                            FoundRoute(nodeToCheck, secondCheck);
+                            yield break;
                         }
                         break;
                     case Directions.left:
@@ -336,6 +293,11 @@ public class PathfindingV2 : MonoBehaviour
                         {
                             wallNodes.Add(new NodeInfo() { gridPosition = thisNode.gridPosition + new Vector2(-1, 0) });
                         }
+                        else if (raycastHit2D.collider.gameObject.layer == LayerMask.NameToLayer("Objects") && MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, finalPoint) == thisNode.gridPosition + new Vector2(-1, 0))
+                        {
+                            FoundRoute(nodeToCheck, secondCheck);
+                            yield break;
+                        }
                         break;
                     case Directions.right:
                         foreach (NodeInfo wallNode in wallNodes)
@@ -371,6 +333,11 @@ public class PathfindingV2 : MonoBehaviour
                         {
                             wallNodes.Add(new NodeInfo() { gridPosition = thisNode.gridPosition + new Vector2(1, 0) });
                         }
+                        else if (raycastHit2D.collider.gameObject.layer == LayerMask.NameToLayer("Objects") && MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, finalPoint) == thisNode.gridPosition + new Vector2(1, 0))
+                        {
+                            FoundRoute(nodeToCheck, secondCheck);
+                            yield break;
+                        }
                         break;
                 }
             }
@@ -382,6 +349,63 @@ public class PathfindingV2 : MonoBehaviour
                 nodeRoutesToGetThere = nodeInfo.nodesToGetThere;
                 nodeQueue.Remove(nodeInfo);
             }
+        }
+    }
+    private void FoundRoute(NodeInfo nodeToCheck,bool secondCheck)
+    {
+        NodeInfo nodeInfo;
+        nodeInfo = nodeToCheck;
+        List<NodeInfo> invertedRoute = new List<NodeInfo>();
+        while (true)
+        {
+            if (nodeInfo != null)
+            {
+                invertedRoute.Add(nodeInfo);
+                nodeInfo = nodeInfo.cameFromNode;
+            }
+            else break;
+        }
+        if (!secondCheck)
+        {
+            for (int i = 0; i < invertedRoute.Count; i++)
+            {
+                route.Add(invertedRoute[invertedRoute.Count - 1 - i]);
+            }
+            found = true;
+            if (route.Count > 0)
+            {
+                if (Mathf.CeilToInt(deltaPosInTheNextXSec) < route.Count - 1)
+                {
+                    futureNode = route[Mathf.CeilToInt(deltaPosInTheNextXSec)];
+                    futureNode.cameFromNode = null;
+                    pathCheckRunning[1] = StartCoroutine(PathCheck(futureNode, MathMethods.GridToWorld(tilemapPointZero, route[route.Count - 1].gridPosition, tilemap.cellSize), futureNode.nodesToGetThere, true));
+                }
+            }
+        }
+        else if (invertedRoute[0].nodesToGetThere + Mathf.CeilToInt(deltaPosInTheNextXSec) < route[route.Count - 1].nodesToGetThere)
+        {
+            updatedRoute = new List<NodeInfo>();
+            for (int i = invertedRoute.Count - 1; i >= 0; i--)
+            {
+                updatedRoute.Add(invertedRoute[i]);
+            }
+            for (int i = 0; i < route.Count; i++)
+            {
+                if (route[i].gridPosition == updatedRoute[0].gridPosition)
+                {
+                    while (true)
+                    {
+                        if (route.Count != i) route.Remove(route[i]);
+                        else break;
+                    }
+                    for (int a = 0; a < updatedRoute.Count; a++)
+                    {
+                        route.Add(updatedRoute[a]);
+                    }
+                    break;
+                }
+            }
+            found = true;
         }
     }
     public void StopAllPathCheck()
