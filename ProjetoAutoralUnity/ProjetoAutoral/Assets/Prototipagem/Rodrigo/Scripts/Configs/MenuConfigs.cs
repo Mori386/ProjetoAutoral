@@ -24,7 +24,7 @@ public class MenuConfigs : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    private void UpdateAllInputKeysInGame()
+    public void UpdateAllInputKeysInGame()
     {
         foreach (KeyBasedOnMenuConfigs keyBased in inputKeysInGame)
         {

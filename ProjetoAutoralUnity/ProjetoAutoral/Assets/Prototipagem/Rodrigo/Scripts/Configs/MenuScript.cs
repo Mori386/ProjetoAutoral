@@ -17,6 +17,8 @@ public class MenuScript : MonoBehaviour
 
     private void Awake()
     {
+        #region
+        #endregion
         GameObject canvas = GameObject.Find("Canvas");
         optionsMenu = canvas.transform.Find("OptionsTab").gameObject;
         baseMenu = canvas.transform.Find("BaseMenu").gameObject;
@@ -27,15 +29,12 @@ public class MenuScript : MonoBehaviour
     public void Play()
     {
         SceneManager.LoadScene(1);
-        Debug.Log("Jogar");
     }
     public void Credits()
     {
-        Debug.Log("Creditos");
     }
     public void Controls()
     {
-        Debug.Log("Controles");
         baseMenu.SetActive(false);
         controlsMenu.SetActive(true);
         waitForInput = StartCoroutine(WaitForInput(MenuConfigs.Action.Menu, ExitControls));
@@ -50,16 +49,19 @@ public class MenuScript : MonoBehaviour
     {
         StopCoroutine(waitForInput);
         waitForInput = null;
-        while (Input.inputString == "")
+        KeyInput keyInput = gameObject.AddComponent<KeyInput>();
+        while (true)
         {
+            if (keyInput.keyPressed != KeyCode.None) break;
             yield return null;
         }
-        MenuConfigs.Instance.InputKeys[actionKeyID] = (KeyCode)System.Enum.Parse(typeof(KeyCode), Input.inputString.ToUpper());
-        //update all 
+        MenuConfigs.Instance.InputKeys[actionKeyID] = keyInput.keyPressed;
+        MenuConfigs.Instance.UpdateAllInputKeysInGame();
         controlsOnWaitForInputMsg.SetActive(false);
         controlsButtons.SetActive(true);
         yield return new WaitForSeconds(0.1f);
         waitForInput = StartCoroutine(WaitForInput(MenuConfigs.Action.Menu, ExitControls));
+        yield break;
     }
     public void ExitControls()
     {
@@ -68,7 +70,6 @@ public class MenuScript : MonoBehaviour
     }
     public void Options()
     {
-        Debug.Log("Opções");
         baseMenu.SetActive(false);
         optionsMenu.SetActive(true);
         waitForInput = StartCoroutine(WaitForInput(MenuConfigs.Action.Menu, ExitOptions));

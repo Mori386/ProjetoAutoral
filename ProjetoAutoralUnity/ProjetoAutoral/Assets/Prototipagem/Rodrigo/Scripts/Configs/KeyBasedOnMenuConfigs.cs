@@ -5,47 +5,83 @@ using TMPro;
 
 public class KeyBasedOnMenuConfigs : MonoBehaviour
 {
-    private MenuConfigs.Action action;
+    [SerializeField] private MenuConfigs.Action action;
     void Start()
     {
-        FirstTime();
+        MenuConfigs.Instance.inputKeysInGame.Add(this);
+        UpdateTextBasedOnInputKey();
     }
-    private void FirstTime()
+    public void UpdateTextBasedOnInputKey()
     {
         if (GetComponent<TextMeshProUGUI>() != null)
         {
             TextMeshProUGUI TMP = GetComponent<TextMeshProUGUI>();
-            switch (TMP.text)
+            switch (action)
             {
-                case "Menu":
+                case MenuConfigs.Action.Menu:
                     if (MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.Menu].ToString() == "Escape") TMP.text = "Esc";
                     else TMP.text = MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.Menu].ToString();
-                    action = MenuConfigs.Action.Menu;
                     break;
-                case "Interaction":
+                case MenuConfigs.Action.Interaction:
                     if (MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.Interaction].ToString() == "Escape") TMP.text = "Esc";
                     else TMP.text = MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.Interaction].ToString();
-                    action = MenuConfigs.Action.Interaction;
                     break;
-                case "UseItem":
+                case MenuConfigs.Action.UseItem:
+                    if (MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.UseItem].ToString() == "Escape") TMP.text = "Esc";
+                    else TMP.text = MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.UseItem].ToString();
                     break;
-                case "DropItem":
+                case MenuConfigs.Action.DropItem:
+                    if (MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.DropItem].ToString() == "Escape") TMP.text = "Esc";
+                    else TMP.text = MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.DropItem].ToString();
                     break;
-                case "Radio":
+                case MenuConfigs.Action.Radio:
+                    if (MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.Radio].ToString() == "Escape") TMP.text = "Esc";
+                    else TMP.text = MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.Radio].ToString();
                     break;
-                case "TimeTravel":
+                case MenuConfigs.Action.TimeTravel:
+                    if (MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.TimeTravel].ToString() == "Escape") TMP.text = "Esc";
+                    else TMP.text = MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.TimeTravel].ToString();
                     break;
-                case "PointFlashlight":
+                case MenuConfigs.Action.PointFlashlight:
+                    if (MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.PointFlashlight].ToString() == "Escape") TMP.text = "Esc";
+                    else TMP.text = MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.PointFlashlight].ToString();
                     break;
             }
         }
         else if (GetComponent<TextMeshPro>() != null)
         {
             TextMeshPro TMP = GetComponent<TextMeshPro>();
+            switch (action)
+            {
+                case MenuConfigs.Action.Menu:
+                    if (MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.Menu].ToString() == "Escape") TMP.text = "Esc";
+                    else TMP.text = MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.Menu].ToString();
+                    break;
+                case MenuConfigs.Action.Interaction:
+                    if (MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.Interaction].ToString() == "Escape") TMP.text = "Esc";
+                    else TMP.text = MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.Interaction].ToString();
+                    break;
+                case MenuConfigs.Action.UseItem:
+                    if (MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.UseItem].ToString() == "Escape") TMP.text = "Esc";
+                    else TMP.text = MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.UseItem].ToString();
+                    break;
+                case MenuConfigs.Action.DropItem:
+                    if (MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.DropItem].ToString() == "Escape") TMP.text = "Esc";
+                    else TMP.text = MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.DropItem].ToString();
+                    break;
+                case MenuConfigs.Action.Radio:
+                    if (MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.Radio].ToString() == "Escape") TMP.text = "Esc";
+                    else TMP.text = MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.Radio].ToString();
+                    break;
+                case MenuConfigs.Action.TimeTravel:
+                    if (MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.TimeTravel].ToString() == "Escape") TMP.text = "Esc";
+                    else TMP.text = MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.TimeTravel].ToString();
+                    break;
+                case MenuConfigs.Action.PointFlashlight:
+                    if (MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.PointFlashlight].ToString() == "Escape") TMP.text = "Esc";
+                    else TMP.text = MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.PointFlashlight].ToString();
+                    break;
+            }
         }
-    }
-    public void UpdateTextBasedOnInputKey()
-    {
-
     }
 }
