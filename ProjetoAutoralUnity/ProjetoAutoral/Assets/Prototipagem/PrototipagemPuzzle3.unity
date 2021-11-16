@@ -972,7 +972,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 81483361}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.52, y: 2.823, z: 0}
+  m_LocalPosition: {x: -3.529, y: 2.823, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 944218614}
@@ -1328,10 +1328,8 @@ MonoBehaviour:
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 1
   textBoxOnSuccessiveInteraction: "\"Usando o grampo de cabelo e a caixa de palito
-    de dente consegui abrir o ba\xFA e pegar um papel que estava dentro dele... ...No
-    papel, est\xE1 escrito \"Login\", junto com um monte de letras.\"\n\"Usando o
-    grampo de cabelo e a caixa de palito de dente consegui abrir o ba\xFA e encontrei
-    algo que parece ser um cart\xE3o de mem\xF3ria.\""
+    de dente consegui abrir o ba\xFA e encontrei algo que parece ser um cart\xE3o...
+    ...de mem\xF3ria.\""
   textBoxOnFailedInteraction: "\"Se n\xE3o tiver uma chave pra esse ba\xFA, vou ter
     que achar um outro jeito de abrir esse cadeado.\""
   textBox: {fileID: 0}
@@ -2222,9 +2220,8 @@ MonoBehaviour:
   destroyItemOnSuccessiveInteraction: 1
   textBoxOnSuccessiveInteraction: '"Explorando os arquivos do computador, encontrei
     um bloco de notas com uma senha para - Um lugar secreto do meu... ...quarto."'
-  textBoxOnFailedInteraction: "\"O computador est\xE1 ligado, mas n\xE3o sei qual
-    \xE9 a senha para fazer login.\"\n\"O computador est\xE1 ligado, mas acho que
-    est\xE1 faltando algo como um cart\xE3o de mem\xF3ria.\""
+  textBoxOnFailedInteraction: "\"O computador est\xE1 ligado, mas acho que est\xE1
+    faltando algo como um cart\xE3o de mem\xF3ria.\""
   textBox: {fileID: 0}
   ui: {fileID: 0}
   onSuccessiveInteractionConsequence: Computador
@@ -26765,7 +26762,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1545363355}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.964, y: 0.32, z: 0}
+  m_LocalPosition: {x: 0.968, y: 0.32, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 944218614}
