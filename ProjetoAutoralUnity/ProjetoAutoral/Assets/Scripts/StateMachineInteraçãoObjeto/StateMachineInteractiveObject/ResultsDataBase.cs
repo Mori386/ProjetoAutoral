@@ -22,11 +22,14 @@ public class ResultsDataBase : MonoBehaviour
                 player.playerInventoryManager.inventory.AddItem(new Item { itemType = Item.ItemType.KeyExit1, amount = 1, isAged = false });
                 player.playerInventoryManager.uiInventory.SetInventory(player.playerInventoryManager.inventory);
                 manager.gameObject.GetComponent<SpriteRenderer>().sprite = bathSprite.Instance.emptyBathPresent;
+                GameObject.Find("BanheiraF").GetComponent<SpriteRenderer>().sprite = bathSprite.Instance.emptyBathFuture;
+                GameObject.Find("BanheiraF").GetComponent<IOStateManager>().enabled = false;
                 break;
             case "BanheiraFuturo":
                 player.playerInventoryManager.inventory.AddItem(new Item { itemType = Item.ItemType.KeyExit1, amount = 1, isAged = true });
                 player.playerInventoryManager.uiInventory.SetInventory(player.playerInventoryManager.inventory);
                 manager.gameObject.GetComponent<SpriteRenderer>().sprite = bathSprite.Instance.emptyBathFuture;
+                manager.gameObject.GetComponent<IOStateManager>().enabled = false;
                 break;
             case "CabinePia":
                 player.playerInventoryManager.inventory.AddItem(new Item { itemType = Item.ItemType.Plunger, amount = 1});
@@ -36,9 +39,11 @@ public class ResultsDataBase : MonoBehaviour
                 player.playerInventoryManager.inventory.AddItem(new Item { itemType = Item.ItemType.Cloth, amount = 1 });
                 player.playerInventoryManager.uiInventory.SetInventory(player.playerInventoryManager.inventory);
                 break;
-            case "PorcelanaQuebrada":
+            case "PorcelanaQuebradaPres":
                 player.playerInventoryManager.inventory.AddItem(new Item { itemType = Item.ItemType.KeyCabine2, amount = 1 });
                 player.playerInventoryManager.uiInventory.SetInventory(player.playerInventoryManager.inventory);
+                Object.Destroy(GameObject.Find("PorcelanaP"));
+                Object.Destroy(GameObject.Find("PorcelanaF"));
                 break;
             case "ExitPuzzle1Present":
                 manager.gameObject.GetComponent<SpriteRenderer>().sprite = DoorSprite.Instance.doorFrontPresentOpen;
