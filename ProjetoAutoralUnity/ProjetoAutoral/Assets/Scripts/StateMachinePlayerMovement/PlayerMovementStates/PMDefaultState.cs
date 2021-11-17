@@ -16,7 +16,7 @@ public class PMDefaultState : PMBaseState
         Manager.rawInputMove.y = Input.GetAxisRaw("Vertical");// mesma coisa que o de cima so que para os botoes de mover na vertical
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            //Manager.director.Play();
+            if(Manager.director!=null)Manager.director.Play();
             Manager.TravelTime();
         }
         inventoryCount = Manager.playerInventoryManager.inventory.GetItemList().Count;
