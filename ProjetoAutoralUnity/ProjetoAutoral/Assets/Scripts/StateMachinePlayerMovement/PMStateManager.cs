@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class PMStateManager : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class PMStateManager : MonoBehaviour
     [System.NonSerialized] public Rigidbody2D rbFlashlight;
 
     [System.NonSerialized] public AudioSource audioData;
+    [System.NonSerialized] public PlayableDirector director;
 
     [System.NonSerialized] public bool endedAnimation;
     private void Awake()
@@ -40,6 +42,7 @@ public class PMStateManager : MonoBehaviour
     {
         flashlight = transform.Find("Flashlight").gameObject;
         rbFlashlight = flashlight.GetComponent<Rigidbody2D>();
+        director = GameObject.Find("directorTime").GetComponent<PlayableDirector>();
         currentState = defaultState;
         currentState.EnterState(this);
     }

@@ -24321,7 +24321,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7786885, y: 1}
+    m_SensorSize: {x: 1.7772436, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -31506,7 +31506,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1836984463}
   - component: {fileID: 1836984462}
-  - component: {fileID: 1836984461}
   m_Layer: 0
   m_Name: directorTime
   m_TagString: Untagged
@@ -31514,18 +31513,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1836984461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1836984460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cac7d6bc3d935c448008cc9b04a153a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!320 &1836984462
 PlayableDirector:
   m_ObjectHideFlags: 0

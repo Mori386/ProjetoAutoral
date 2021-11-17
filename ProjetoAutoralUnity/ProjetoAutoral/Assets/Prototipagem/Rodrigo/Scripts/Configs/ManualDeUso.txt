@@ -1,2 +1,14 @@
-Quando for colocar alguma coisa no jogo mostre as teclas de interação, utilize o script KeyBasedOnMenuConfigs.cs, para colocar uma tecla adaptavel coloque na parte de texto do componente
-TextMeshPro o nome da tecla que voce deseja inserir, para pegar o nome da tecla abra o script MenuConfigs.cs, utilize os nomes citados no enumerador(enum) Action, ex: Menu, TimeTravel, ...
+Quando for colocar em jogo a imagem de uma tecla q se adapte baseado na configuração de teclas vc devera:
+Inserir em um objeto o componente TextMeshPro ou TextMeshProGui se caso ele for um elemento do canvas 
+Configuração do TextMeshPro:
+	Delimitar a area de texto: 
+		se caso for um TextMeshProGUI: modificar a area pelo RectTransform
+		se caso for um TextMeshPro: modificar pelo prorpio delimitador de area do TextMeshPro
+	Ligar a opção Auto Size
+	Colocar nas Auto Size Options o valor "Min" como 0
+	Na area de Alignment:
+		Colocar as configurações "Center" na primeira linha e "Middle" na segunda linha 
+Inserir como componente o script KeyBasedOnMenuConfig.cs nesse mesmo objeto
+Configuração do KeyBasedOnMenuConfig.cs:
+	Colocar dentro do KeyBasedOnMenuConfig.cs a tecla que será utilizada, ex: Menu,Interaction,UseItem,...
+

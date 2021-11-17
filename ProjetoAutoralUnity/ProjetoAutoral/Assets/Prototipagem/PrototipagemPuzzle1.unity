@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -28949,7 +28949,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7786885, y: 1}
+    m_SensorSize: {x: 1.7772436, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -35249,7 +35249,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1827868901}
   - component: {fileID: 1827868900}
-  - component: {fileID: 1827868899}
   m_Layer: 0
   m_Name: directorTime
   m_TagString: Untagged
@@ -35257,18 +35256,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1827868899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1827868898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cac7d6bc3d935c448008cc9b04a153a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!320 &1827868900
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -36605,7 +36592,7 @@ MonoBehaviour:
     ...pr\xF3prias m\xE3os.\""
   textBox: {fileID: 0}
   ui: {fileID: 0}
-  onSuccessiveInteractionConsequence: PorcelanaQuebrada
+  onSuccessiveInteractionConsequence: PorcelanaQuebradaPres
 --- !u!1 &1989213031
 GameObject:
   m_ObjectHideFlags: 0
