@@ -17,8 +17,6 @@ public class MenuScript : MonoBehaviour
 
     private void Awake()
     {
-        #region
-        #endregion
         GameObject canvas = GameObject.Find("Canvas");
         optionsMenu = canvas.transform.Find("OptionsTab").gameObject;
         baseMenu = canvas.transform.Find("BaseMenu").gameObject;

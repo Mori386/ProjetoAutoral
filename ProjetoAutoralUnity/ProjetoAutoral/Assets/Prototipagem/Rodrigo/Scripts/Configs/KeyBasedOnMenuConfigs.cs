@@ -16,72 +16,33 @@ public class KeyBasedOnMenuConfigs : MonoBehaviour
         if (GetComponent<TextMeshProUGUI>() != null)
         {
             TextMeshProUGUI TMP = GetComponent<TextMeshProUGUI>();
-            switch (action)
-            {
-                case MenuConfigs.Action.Menu:
-                    if (MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.Menu].ToString() == "Escape") TMP.text = "Esc";
-                    else TMP.text = MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.Menu].ToString();
-                    break;
-                case MenuConfigs.Action.Interaction:
-                    if (MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.Interaction].ToString() == "Escape") TMP.text = "Esc";
-                    else TMP.text = MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.Interaction].ToString();
-                    break;
-                case MenuConfigs.Action.UseItem:
-                    if (MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.UseItem].ToString() == "Escape") TMP.text = "Esc";
-                    else TMP.text = MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.UseItem].ToString();
-                    break;
-                case MenuConfigs.Action.DropItem:
-                    if (MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.DropItem].ToString() == "Escape") TMP.text = "Esc";
-                    else TMP.text = MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.DropItem].ToString();
-                    break;
-                case MenuConfigs.Action.Radio:
-                    if (MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.Radio].ToString() == "Escape") TMP.text = "Esc";
-                    else TMP.text = MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.Radio].ToString();
-                    break;
-                case MenuConfigs.Action.TimeTravel:
-                    if (MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.TimeTravel].ToString() == "Escape") TMP.text = "Esc";
-                    else TMP.text = MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.TimeTravel].ToString();
-                    break;
-                case MenuConfigs.Action.PointFlashlight:
-                    if (MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.PointFlashlight].ToString() == "Escape") TMP.text = "Esc";
-                    else TMP.text = MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.PointFlashlight].ToString();
-                    break;
-            }
+            if (ChangeIfNameIsWrong(action) != null) TMP.text = ChangeIfNameIsWrong(action);
+            else TMP.text = MenuConfigs.Instance.InputKeys[(int)action].ToString();
         }
         else if (GetComponent<TextMeshPro>() != null)
         {
             TextMeshPro TMP = GetComponent<TextMeshPro>();
-            switch (action)
-            {
-                case MenuConfigs.Action.Menu:
-                    if (MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.Menu].ToString() == "Escape") TMP.text = "Esc";
-                    else TMP.text = MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.Menu].ToString();
-                    break;
-                case MenuConfigs.Action.Interaction:
-                    if (MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.Interaction].ToString() == "Escape") TMP.text = "Esc";
-                    else TMP.text = MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.Interaction].ToString();
-                    break;
-                case MenuConfigs.Action.UseItem:
-                    if (MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.UseItem].ToString() == "Escape") TMP.text = "Esc";
-                    else TMP.text = MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.UseItem].ToString();
-                    break;
-                case MenuConfigs.Action.DropItem:
-                    if (MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.DropItem].ToString() == "Escape") TMP.text = "Esc";
-                    else TMP.text = MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.DropItem].ToString();
-                    break;
-                case MenuConfigs.Action.Radio:
-                    if (MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.Radio].ToString() == "Escape") TMP.text = "Esc";
-                    else TMP.text = MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.Radio].ToString();
-                    break;
-                case MenuConfigs.Action.TimeTravel:
-                    if (MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.TimeTravel].ToString() == "Escape") TMP.text = "Esc";
-                    else TMP.text = MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.TimeTravel].ToString();
-                    break;
-                case MenuConfigs.Action.PointFlashlight:
-                    if (MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.PointFlashlight].ToString() == "Escape") TMP.text = "Esc";
-                    else TMP.text = MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.PointFlashlight].ToString();
-                    break;
-            }
+            if (ChangeIfNameIsWrong(action) != null) TMP.text = ChangeIfNameIsWrong(action);
+            else TMP.text = MenuConfigs.Instance.InputKeys[(int)action].ToString();
+        }
+    }
+    private string ChangeIfNameIsWrong(MenuConfigs.Action action)
+    {
+        switch (MenuConfigs.Instance.InputKeys[(int)action])
+        {
+            case KeyCode.Escape: return "Esc";
+            case KeyCode.BackQuote: return "'";
+            case KeyCode.Alpha1: return "1";
+            case KeyCode.Alpha2: return "2";
+            case KeyCode.Alpha3: return "3";
+            case KeyCode.Alpha4: return "4";
+            case KeyCode.Alpha5: return "5";
+            case KeyCode.Alpha6: return "6";
+            case KeyCode.Alpha7: return "7";
+            case KeyCode.Alpha8: return "8";
+            case KeyCode.Alpha9: return "9";
+            case KeyCode.Alpha0: return "0";
+            default: return null;
         }
     }
 }

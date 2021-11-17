@@ -168,8 +168,7 @@ public class PMDefaultState : PMBaseState
         else
         {
             Manager.animator.SetBool("MOVING", false);
-            AudioSource audioData = Manager.GetComponent<AudioSource>();
-            audioData.Play(0);
+            if (Manager.audioData != null) Manager.audioData.Play(0);
         }
         Manager.rb.MovePosition(Manager.rb.position + regulatedDirection * Manager.moveSpeed * Time.fixedDeltaTime);
     }

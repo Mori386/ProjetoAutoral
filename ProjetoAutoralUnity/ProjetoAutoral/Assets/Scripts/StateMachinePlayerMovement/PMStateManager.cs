@@ -23,6 +23,8 @@ public class PMStateManager : MonoBehaviour
     [System.NonSerialized] public GameObject flashlight;
     [System.NonSerialized] public Rigidbody2D rbFlashlight;
 
+    [System.NonSerialized] public AudioSource audioData;
+
     [System.NonSerialized] public bool endedAnimation;
     private void Awake()
     {
@@ -32,6 +34,7 @@ public class PMStateManager : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerInventoryManager = GetComponent<PlayerInventoryManager>();
         animator = GetComponent<Animator>();
+        audioData = GetComponent<AudioSource>();
     }
     void Start()
     {
