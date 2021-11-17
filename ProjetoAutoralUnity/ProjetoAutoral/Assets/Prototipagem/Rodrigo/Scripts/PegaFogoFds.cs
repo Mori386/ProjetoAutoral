@@ -13,6 +13,7 @@ public class PegaFogoFds : MonoBehaviour
             aiBoss.StopCoroutine(aiBoss.followRoute);
             aiBoss.followRoute = null;
             aiBoss.enragedChargeTime = StartCoroutine(aiBoss.EnragedChargeTime(2));
+
         }
     }
 }

@@ -127,7 +127,17 @@ public class ResultsDataBase : MonoBehaviour
                 manager.gameObject.GetComponent<SpriteRenderer>().sprite = DoorSprite.Instance.doorFrontFutureOpen;
                 manager.gameObject.GetComponent<BoxCollider2D>().enabled = false;
                 break;
-                #endregion
+            #endregion
+            case "fogoSofa":
+                AiBoss aiBoss = GameObject.Find("Boss").GetComponent<AiBoss>();
+                aiBoss.target = manager.gameObject;
+                aiBoss.StopCoroutine(aiBoss.followRoute);
+                aiBoss.followRoute = null;
+                aiBoss.enragedChargeTime = aiBoss.StartCoroutine(aiBoss.EnragedChargeTime(2));
+                manager.transform.Find("ParticleEmissorSmoke").GetComponent<ParticleSystem>().Play();
+                manager.transform.Find("fogoMovel").GetComponent<Animator>().SetBool("onFire", true);
+                manager.transform.Find("fogoMovel2").GetComponent<Animator>().SetBool("onFire", true);
+                break;
         }
     }
 }
