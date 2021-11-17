@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -28076,7 +28076,6 @@ GameObject:
   - component: {fileID: 1591163133}
   - component: {fileID: 1591163135}
   - component: {fileID: 1591163134}
-  - component: {fileID: 1591163136}
   m_Layer: 0
   m_Name: TilemapPresente
   m_TagString: Untagged
@@ -30556,40 +30555,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!114 &1591163136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1591163132}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 573f6dc5f24f47c4f88bcb19f97370e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canSuccessiveInteract: 1
-  textOnDisabledSuccessiveInteract: 
-  singleTimeUse: 0
-  needItemToInteract: 1
-  itemsNeeded:
-  - itemType: 7
-    amount: 1
-    active: 0
-    isAged: 0
-  - itemType: 9
-    amount: 1
-    active: 0
-    isAged: 0
-  needToInteract: 0
-  destroyItemOnSuccessiveInteraction: 1
-  textBoxOnSuccessiveInteraction: (Consegui descongelar o bloco, agora posso usar
-    essa chave)
-  textBoxOnFailedInteraction: 
-  textBox: {fileID: 0}
-  ui: {fileID: 0}
-  onSuccessiveInteractionConsequence: "(Tem alguns peda\xE7os de madeira seca dentro
-    da lareira)"
 --- !u!1 &1614020094
 GameObject:
   m_ObjectHideFlags: 0

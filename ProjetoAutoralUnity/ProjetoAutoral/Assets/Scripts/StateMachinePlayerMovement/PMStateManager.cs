@@ -42,7 +42,7 @@ public class PMStateManager : MonoBehaviour
     {
         flashlight = transform.Find("Flashlight").gameObject;
         rbFlashlight = flashlight.GetComponent<Rigidbody2D>();
-        director = GameObject.Find("directorTime").GetComponent<PlayableDirector>();
+        //if(GameObject.Find("directorTime").GetComponent<PlayableDirector>() != null) director = GameObject.Find("directorTime").GetComponent<PlayableDirector>();
         currentState = defaultState;
         currentState.EnterState(this);
     }

@@ -17,7 +17,7 @@ public class IODefaultState : IOBaseState
             if (!coroutineIsRunning)
             {
                 collision.transform.Find("TeclaE").gameObject.SetActive(true);
-                coroutine = Manager.StartCoroutine(WaitForPlayerInput(Manager, collision)); 
+                coroutine = Manager.StartCoroutine(WaitForPlayerInput(Manager, collision));
             }
         }
     }
@@ -31,7 +31,7 @@ public class IODefaultState : IOBaseState
                 Manager.StopCoroutine(coroutine);
                 coroutineIsRunning = false;
             }
-            else if (coroutineRestarter!=null)
+            else if (coroutineRestarter != null)
             {
                 Manager.StopCoroutine(coroutineRestarter);
             }
@@ -40,10 +40,10 @@ public class IODefaultState : IOBaseState
     public IEnumerator WaitForPlayerInput(IOStateManager Manager, Collider2D collision)
     {
         coroutineIsRunning = true;
-        bool successive=false;
+        bool successive = false;
         while (!Input.GetKeyDown(KeyCode.E)) yield return null;
         PMStateManager Player = collision.GetComponent<PMStateManager>();
-        Player.SmoothSwitchState(Player.controlOffState);
+        if (Manager.textBox.text != "")  Player.SmoothSwitchState(Player.controlOffState);
         if (Manager.canSuccessiveInteract)
         {
             if (Manager.needItemToInteract)
@@ -127,30 +127,36 @@ public class IODefaultState : IOBaseState
         {
             Manager.textBox.text = Manager.textOnDisabledSuccessiveInteract;
         }
-        Manager.textBox.pageToDisplay = 1;
-        Manager.ui.SetActive(false);
-        TextBoxDefineEnabled(Manager, true);
-        Time.timeScale = 0;
-        while (Manager.textBox.textInfo.pageCount == 0)
+        if (Manager.textBox.text != "")
         {
-            yield return null;
-        }
-        yield return new WaitForSecondsRealtime(0.1f);
-        while (Manager.textBox.textInfo.pageCount - Manager.textBox.pageToDisplay >= 0)
-        {
-            while (!Input.GetKeyDown(KeyCode.E)) yield return null;
-            Manager.textBox.pageToDisplay++;
-            yield return null;
+            Manager.textBox.pageToDisplay = 1;
+            Manager.ui.SetActive(false);
+            TextBoxDefineEnabled(Manager, true);
+            Time.timeScale = 0;
+            while (Manager.textBox.textInfo.pageCount == 0)
+            {
+                yield return null;
+            }
+            yield return new WaitForSecondsRealtime(0.1f);
+            while (Manager.textBox.textInfo.pageCount - Manager.textBox.pageToDisplay >= 0)
+            {
+                while (!Input.GetKeyDown(KeyCode.E)) yield return null;
+                Manager.textBox.pageToDisplay++;
+                yield return null;
+            }
         }
         if (successive)
         {
             ResultsDataBase.Interaction(Manager.onSuccessiveInteractionConsequence, Manager, Player);
         }
-        Manager.ui.SetActive(true);
-        TextBoxDefineEnabled(Manager, false);
-        Player.SmoothSwitchState(Player.defaultState);
-        Time.timeScale = 1;
-        Manager.textBox.text = "";
+        if (Manager.textBox.text != "")
+        {
+            Manager.ui.SetActive(true);
+            TextBoxDefineEnabled(Manager, false);
+            Player.SmoothSwitchState(Player.defaultState);
+            Time.timeScale = 1;
+            Manager.textBox.text = "";
+        }
         coroutineIsRunning = false;
         collision.transform.Find("TeclaE").gameObject.SetActive(false);
         if (successive && Manager.singleTimeUse)
@@ -167,10 +173,10 @@ public class IODefaultState : IOBaseState
         {
             coroutineRestarter = Manager.StartCoroutine(ifStayOnTrigger(Manager, collision));
         }
-        
+
     }
     Coroutine coroutineRestarter;
-    IEnumerator ifStayOnTrigger(IOStateManager Manager,Collider2D collision)
+    IEnumerator ifStayOnTrigger(IOStateManager Manager, Collider2D collision)
     {
         yield return new WaitForSecondsRealtime(1);
         if (!coroutineIsRunning) coroutine = Manager.StartCoroutine(WaitForPlayerInput(Manager, collision));
