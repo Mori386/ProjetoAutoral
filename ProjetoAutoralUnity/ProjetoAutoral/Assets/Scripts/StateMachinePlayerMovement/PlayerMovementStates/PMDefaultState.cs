@@ -16,7 +16,7 @@ public class PMDefaultState : PMBaseState
         Manager.rawInputMove.y = Input.GetAxisRaw("Vertical");// mesma coisa que o de cima so que para os botoes de mover na vertical
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            if(Manager.director!=null)Manager.director.Play();
+            if (Manager.director != null) Manager.director.Play();
             Manager.TravelTime();
         }
         inventoryCount = Manager.playerInventoryManager.inventory.GetItemList().Count;
@@ -165,11 +165,26 @@ public class PMDefaultState : PMBaseState
         if (regulatedDirection.x != 0 || regulatedDirection.y != 0)
         {
             Manager.animator.SetBool("MOVING", true);
+            if (Manager.audioData != null)
+            {
+                if (!Manager.playingAudio)
+                {
+                    Manager.playingAudio = true;
+                    Manager.audioData.Play(0);
+                }
+            }
         }
         else
         {
             Manager.animator.SetBool("MOVING", false);
-            if (Manager.audioData != null) Manager.audioData.Play(0);
+            if (Manager.audioData != null)
+            {
+                if (Manager.playingAudio)
+                {
+                    Manager.playingAudio = false;
+                    Manager.audioData.Stop();
+                }
+            }
         }
         Manager.rb.MovePosition(Manager.rb.position + regulatedDirection * Manager.moveSpeed * Time.fixedDeltaTime);
     }

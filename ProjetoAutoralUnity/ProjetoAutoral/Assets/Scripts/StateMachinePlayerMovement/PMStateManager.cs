@@ -25,6 +25,7 @@ public class PMStateManager : MonoBehaviour
     [System.NonSerialized] public Rigidbody2D rbFlashlight;
 
     [System.NonSerialized] public AudioSource audioData;
+    [System.NonSerialized] public bool playingAudio;
     [System.NonSerialized] public PlayableDirector director;
 
     [System.NonSerialized] public bool endedAnimation;
