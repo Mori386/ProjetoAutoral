@@ -74,7 +74,7 @@ public class Ui_Inventory : MonoBehaviour
         while (inventory.GetItemList().Count > 0)
         {
             coroutineRunning = true;
-            while (!Input.GetKeyDown(KeyCode.Mouse0))
+            while (!Input.GetKeyDown(MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.UseItem]))
             {
                 yield return null;
             }

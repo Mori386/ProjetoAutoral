@@ -28,7 +28,7 @@ public class MOStateMovableTriggered : MovableObjectBaseState
     }
     public override void UpdateState(MovableObjectStateManager Manager)
     {
-        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.Interaction]))
         {
             SpriteRenderer spriteRenderer = Manager.GetComponent<SpriteRenderer>();
             Vector3 centerPivot = new Vector3(Manager.transform.position.x + spriteRenderer.sprite.bounds.size.x / 2 - spriteRenderer.sprite.pivot.x / spriteRenderer.sprite.pixelsPerUnit, Manager.transform.position.y + spriteRenderer.sprite.bounds.size.y / 2 - spriteRenderer.sprite.pivot.y / spriteRenderer.sprite.pixelsPerUnit);

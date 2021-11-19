@@ -35,7 +35,7 @@ public class PlayerInventoryManager : MonoBehaviour
     }
     private IEnumerator WaitForInput(ItemWorld itemW)
     {
-        while (!Input.GetKeyDown(KeyCode.E))
+        while (!Input.GetKeyDown(MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.Interaction]))
         {
             yield return null;
         }

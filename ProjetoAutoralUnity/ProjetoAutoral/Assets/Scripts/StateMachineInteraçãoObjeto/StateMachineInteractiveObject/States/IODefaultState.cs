@@ -41,7 +41,7 @@ public class IODefaultState : IOBaseState
     {
         coroutineIsRunning = true;
         bool successive = false;
-        while (!Input.GetKeyDown(KeyCode.E)) yield return null;
+        while (!Input.GetKeyDown(MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.Interaction])) yield return null;
         PMStateManager Player = collision.GetComponent<PMStateManager>();
         if (Manager.textBox.text != "")  Player.SmoothSwitchState(Player.controlOffState);
         if (Manager.canSuccessiveInteract)
@@ -140,7 +140,7 @@ public class IODefaultState : IOBaseState
             yield return new WaitForSecondsRealtime(0.1f);
             while (Manager.textBox.textInfo.pageCount - Manager.textBox.pageToDisplay >= 0)
             {
-                while (!Input.GetKeyDown(KeyCode.E)) yield return null;
+                while (!Input.GetKeyDown(MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.Interaction])) yield return null;
                 Manager.textBox.pageToDisplay++;
                 yield return null;
             }

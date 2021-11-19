@@ -14,7 +14,7 @@ public class PMDefaultState : PMBaseState
     {
         Manager.rawInputMove.x = Input.GetAxisRaw("Horizontal");//adiciona variaveis baseadas no input de teclas(de 0 a 1,baseado no tempo pressionado, quanto mais tempo, mais proximo de 1 e vice versa)
         Manager.rawInputMove.y = Input.GetAxisRaw("Vertical");// mesma coisa que o de cima so que para os botoes de mover na vertical
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.TimeTravel]))
         {
             if (Manager.director != null) Manager.director.Play();
             Manager.TravelTime();
@@ -27,14 +27,23 @@ public class PMDefaultState : PMBaseState
         }
         else
         {
-            for (int i = 1; i <= inventoryCount; i++)
+            if (Input.GetKeyDown(MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.InventorySlot1]))
             {
-                if (Input.GetKeyDown(i.ToString()))
-                {
-                    if (Manager.playerInventoryManager.activeItem != 0) Manager.playerInventoryManager.uiInventory.itemsUi[Manager.playerInventoryManager.activeItem - 1].Find("Border").GetComponent<Outline>().enabled = false;
-                    Manager.playerInventoryManager.activeItem = i;
-                    Manager.playerInventoryManager.uiInventory.itemsUi[Manager.playerInventoryManager.activeItem - 1].Find("Border").GetComponent<Outline>().enabled = true;
-                }
+                if (Manager.playerInventoryManager.activeItem != 0) Manager.playerInventoryManager.uiInventory.itemsUi[Manager.playerInventoryManager.activeItem - 1].Find("Border").GetComponent<Outline>().enabled = false;
+                Manager.playerInventoryManager.activeItem = 1;
+                Manager.playerInventoryManager.uiInventory.itemsUi[Manager.playerInventoryManager.activeItem - 1].Find("Border").GetComponent<Outline>().enabled = true;
+            }
+            else if (Input.GetKeyDown(MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.InventorySlot2]) && inventoryCount > 1)
+            {
+                if (Manager.playerInventoryManager.activeItem != 0) Manager.playerInventoryManager.uiInventory.itemsUi[Manager.playerInventoryManager.activeItem - 1].Find("Border").GetComponent<Outline>().enabled = false;
+                Manager.playerInventoryManager.activeItem = 2;
+                Manager.playerInventoryManager.uiInventory.itemsUi[Manager.playerInventoryManager.activeItem - 1].Find("Border").GetComponent<Outline>().enabled = true;
+            }
+            else if(Input.GetKeyDown(MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.InventorySlot3]) && inventoryCount > 2)
+            {
+                if (Manager.playerInventoryManager.activeItem != 0) Manager.playerInventoryManager.uiInventory.itemsUi[Manager.playerInventoryManager.activeItem - 1].Find("Border").GetComponent<Outline>().enabled = false;
+                Manager.playerInventoryManager.activeItem = 3;
+                Manager.playerInventoryManager.uiInventory.itemsUi[Manager.playerInventoryManager.activeItem - 1].Find("Border").GetComponent<Outline>().enabled = true;
             }
             if (Manager.playerInventoryManager.inventory.GetItemList()[Manager.playerInventoryManager.activeItem - 1].itemType == Item.ItemType.Flashlight && Manager.playerInventoryManager.inventory.GetItemList()[Manager.playerInventoryManager.activeItem - 1].isAged == false)
             {
@@ -45,7 +54,7 @@ public class PMDefaultState : PMBaseState
                 Manager.animator.SetBool("FLASHLIGHT", false);
             }
         }
-        if (Input.GetKeyDown(KeyCode.C) && Manager.playerInventoryManager.activeItem > 0)
+        if (Input.GetKeyDown(MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.DropItem]) && Manager.playerInventoryManager.activeItem > 0)
         {
             Vector3 dropGridPosition = ItemWorld.CellPositionCenter(Manager.transform.position - new Vector3(0, Manager.GetComponent<SpriteRenderer>().bounds.size.y / 2));
             dropGridPosition -= Vector3.Scale(new Vector3(0.5f, 0.5f), new Vector2(0.64f, 0.64f));
@@ -71,12 +80,12 @@ public class PMDefaultState : PMBaseState
                 ItemWorld.DropItem(item, Manager);
             }
         }
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (Input.GetKeyDown(MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.PointFlashlight]))
         {
             focusOnCursorOn = Manager.StartCoroutine(FocusOnCursorOn(Manager));
             Manager.StopCoroutine(focusOnCursorOff);
         }
-        else if (Input.GetKeyUp(KeyCode.Mouse1))
+        else if (Input.GetKeyUp(MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.PointFlashlight]))
         {
             Manager.StopCoroutine(focusOnCursorOn);
             focusOnCursorOff = Manager.StartCoroutine(FocusOnCursorOff(Manager));

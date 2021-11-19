@@ -11,9 +11,6 @@ public class ResultsDataBase : MonoBehaviour
         {
             //cases do Puzzle1
             #region
-            case "SofaPresente":
-                Debug.Log("InteraçãoSucesso");
-                break;
             case "SofaFuturo":
                 player.playerInventoryManager.inventory.AddItem(new Item {itemType = Item.ItemType.KeyCabine1, amount = 1, isAged = true });
                 player.playerInventoryManager.uiInventory.SetInventory(player.playerInventoryManager.inventory);

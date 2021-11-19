@@ -53,6 +53,20 @@ public class MenuScript : MonoBehaviour
             if (keyInput.keyPressed != KeyCode.None) break;
             yield return null;
         }
+        for (int i = 0; i < MenuConfigs.Instance.InputKeys.Length; i++)
+        {
+            if (keyInput.keyPressed == MenuConfigs.Instance.InputKeys[i])
+            {
+                MenuConfigs.Instance.InputKeys[actionKeyID] = keyInput.keyPressed;
+                MenuConfigs.Instance.InputKeys[i] = KeyCode.None;
+                MenuConfigs.Instance.UpdateAllInputKeysInGame();
+                controlsOnWaitForInputMsg.SetActive(false);
+                controlsButtons.SetActive(true);
+                yield return new WaitForSeconds(0.1f);
+                waitForInput = StartCoroutine(WaitForInput(MenuConfigs.Action.Menu, ExitControls));
+                yield break;
+            }
+        }
         MenuConfigs.Instance.InputKeys[actionKeyID] = keyInput.keyPressed;
         MenuConfigs.Instance.UpdateAllInputKeysInGame();
         controlsOnWaitForInputMsg.SetActive(false);

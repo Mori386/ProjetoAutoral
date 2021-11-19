@@ -30,6 +30,7 @@ public class KeyBasedOnMenuConfigs : MonoBehaviour
     {
         switch (MenuConfigs.Instance.InputKeys[(int)action])
         {
+            case KeyCode.None: return "";
             case KeyCode.Escape: return "Esc";
             case KeyCode.BackQuote: return "'";
             case KeyCode.Alpha1: return "1";
