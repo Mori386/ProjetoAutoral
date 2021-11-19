@@ -4398,8 +4398,6 @@ GameObject:
   - component: {fileID: 776472857}
   - component: {fileID: 776472856}
   - component: {fileID: 776472855}
-  - component: {fileID: 776472859}
-  - component: {fileID: 776472858}
   - component: {fileID: 776472861}
   - component: {fileID: 776472860}
   m_Layer: 0
@@ -4493,30 +4491,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &776472858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 776472854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7232d8b6ae3d3e84dbeb4872dd10fe30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &776472859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 776472854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a40993a0ff3686a4084ca4072ab7fc47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!70 &776472860
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
