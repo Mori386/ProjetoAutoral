@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class GridPosition : MonoBehaviour
+public class NewGridPosition : MonoBehaviour
 {
     public Vector3 tilemapPointZero;
     public Tilemap tilemap;
@@ -40,7 +40,5 @@ public class GridPosition : MonoBehaviour
         tilemap = tilemapFind();
         tilemapPointZero = findTilemapPointZero(tilemap);
         spriteRenderer = GetComponent<SpriteRenderer>();
-        transform.position = MathMethods.NearGrid(tilemapPointZero, tilemap.cellSize, transform.position);
-        gridTilemapPosition = Vector2Int.RoundToInt(MathMethods.WorldToGrid(tilemapPointZero,tilemap.cellSize, transform.position));
     }
 }

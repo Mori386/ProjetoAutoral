@@ -8,7 +8,7 @@ public class MenuConfigs : MonoBehaviour
 
     [System.NonSerialized] public List<KeyBasedOnMenuConfigs> inputKeysInGame = new List<KeyBasedOnMenuConfigs>();
 
-    public KeyCode[] InputKeys = new KeyCode[11];
+    [System.NonSerialized] public KeyCode[] InputKeys = new KeyCode[11];
 
     private void Awake()
     {
@@ -23,7 +23,8 @@ public class MenuConfigs : MonoBehaviour
         InputKeys[8] = KeyCode.S;
         InputKeys[9] = KeyCode.A;
         InputKeys[10] = KeyCode.D;
-        Instance = this;
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
     }
 

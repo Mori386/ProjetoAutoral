@@ -62,7 +62,7 @@ public class MovableObjectStateManager : MonoBehaviour
         GameObject objectFuture = GetComponent<ObjectBase>().objectOtherTimeline;
         GridPosition gridFromObjectFuture = objectFuture.GetComponent<GridPosition>();
         gridFromObjectFuture.gridTilemapPosition = GetComponent<GridPosition>().gridTilemapPosition;
-        objectFuture.transform.position = gridFromObjectFuture.tilemapCenter + new Vector3(gridFromObjectFuture.gridTilemapPosition.x*gridFromObjectFuture.tilemap.cellSize.x + 0.5f*gridFromObjectFuture.tilemap.cellSize.x, gridFromObjectFuture.gridTilemapPosition.y * gridFromObjectFuture.tilemap.cellSize.y + 0.5f * gridFromObjectFuture.tilemap.cellSize.y);
+        objectFuture.transform.position = gridFromObjectFuture.tilemapPointZero + new Vector3(gridFromObjectFuture.gridTilemapPosition.x*gridFromObjectFuture.tilemap.cellSize.x, gridFromObjectFuture.gridTilemapPosition.y * gridFromObjectFuture.tilemap.cellSize.y);
     }
     public void ManualEnterStateCurrentState()
     {

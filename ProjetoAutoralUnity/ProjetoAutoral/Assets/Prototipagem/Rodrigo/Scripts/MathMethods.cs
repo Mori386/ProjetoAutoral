@@ -33,13 +33,16 @@ public class MathMethods
         }
         return roundedVector;
     }
-    public static Vector2 WorldToGrid(Vector3 relativePoint,Vector3 cellSize,Vector3 position)
+    public static Vector2 WorldToGrid(Vector3 pointZero, Vector3 cellSize,Vector3 position)
     {
-        return Vector2Int.RoundToInt(Vector3.Scale(position - relativePoint,new Vector3(1/ cellSize.x, 1 / cellSize.y)));
+        return Vector2Int.RoundToInt(Vector3.Scale(position - pointZero, new Vector3(1/ cellSize.x, 1 / cellSize.y)));
     }
     public static Vector3 GridToWorld(Vector3 pointZero, Vector3 gridPosition, Vector3 cellSize)
     {
         return Vector3.Scale(gridPosition, cellSize) + pointZero;
     }
-    
+    public static Vector3 NearGrid(Vector3 pointZero, Vector3 cellSize, Vector3 position)
+    {
+        return GridToWorld(pointZero, WorldToGrid(pointZero, cellSize, position), cellSize);
+    }
 }

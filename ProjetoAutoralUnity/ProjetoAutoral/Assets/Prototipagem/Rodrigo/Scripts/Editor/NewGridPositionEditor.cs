@@ -4,12 +4,12 @@ using UnityEditor;
 using System.Collections.Generic;
 
 
-[CustomEditor(typeof(GridPosition))]
-public class GridPositionEditor : Editor
+[CustomEditor(typeof(NewGridPosition))]
+public class NewGridPositionEditor : Editor
 {
     public override void OnInspectorGUI()
     {
-        GridPosition Main = (GridPosition)target;
+        NewGridPosition Main = (NewGridPosition)target;
         SerializedObject serializedSelf = new SerializedObject(this);
         SerializedObject serializedMain = new SerializedObject(Main);
         Main.tilemap = Main.tilemapFind();
@@ -23,7 +23,7 @@ public class GridPositionEditor : Editor
         }
         if (GUILayout.Button("Calibrate Position"))
         {
-            Main.transform.position = MathMethods.NearGrid(Main.tilemapPointZero, Main.tilemap.cellSize, Main.transform.position);
+            Main.transform.position = MathMethods.NearGrid(Main.tilemapPointZero,Main.tilemap.cellSize, Main.transform.position);
             Main.gridTilemapPosition = Vector2Int.RoundToInt(MathMethods.WorldToGrid(Main.tilemapPointZero, Main.tilemap.cellSize, Main.transform.position));
         }
     }
