@@ -22,6 +22,7 @@ public class PlayerInventoryManager : MonoBehaviour
         ItemWorld itemWorld = collision.GetComponent<ItemWorld>();
         if (itemWorld != null)
         {
+            transform.Find("TeclaE").gameObject.SetActive(true);
             coroutine = StartCoroutine(WaitForInput(itemWorld));
         }
     }
@@ -30,6 +31,7 @@ public class PlayerInventoryManager : MonoBehaviour
         ItemWorld itemWorld = collision.GetComponent<ItemWorld>();
         if (itemWorld != null)
         {
+            transform.Find("TeclaE").gameObject.SetActive(false);
             StopCoroutine(coroutine);
         }
     }
@@ -39,6 +41,7 @@ public class PlayerInventoryManager : MonoBehaviour
         {
             yield return null;
         }
+        transform.Find("TeclaE").gameObject.SetActive(false);
         inventory.AddItem(itemW.GetItem());
         if (itemW.GetItem().itemInFuture != null)
         {

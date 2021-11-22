@@ -4545,7 +4545,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timePeriod: 0
   moveSpeed: 1.85
-  hp: 0
+  hp: 5
   facingDirection: {x: 0, y: 0}
   canTimeTravel: 0
 --- !u!50 &751575555
@@ -10905,7 +10905,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7772436, y: 1}
+    m_SensorSize: {x: 1.7779751, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
