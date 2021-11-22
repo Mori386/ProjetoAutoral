@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.Playables;
+using UnityEngine.UI;
 
 public class PMStateManager : MonoBehaviour
 {
@@ -14,6 +15,10 @@ public class PMStateManager : MonoBehaviour
     [System.NonSerialized] public Rigidbody2D rb; //Rigidbody2D do personagem 
     [System.NonSerialized] public Vector2 rawInputMove; //Variaveis baseadas no input de teclas do personagem(de 0 a 1,baseado no tempo pressionado, quanto mais tempo, mais proximo de 1 e vice versa)
     public float moveSpeed; // velocidade de movimento do personagem 
+
+    public int hp;
+    [System.NonSerialized] public Slider hpSlider;
+
     PMBaseState currentState;
     public PMDefaultState defaultState = new PMDefaultState();
     public PMControlOffState controlOffState = new PMControlOffState();
@@ -42,6 +47,10 @@ public class PMStateManager : MonoBehaviour
         playerInventoryManager = GetComponent<PlayerInventoryManager>();
         animator = GetComponent<Animator>();
         audioData = GetComponent<AudioSource>();
+        hpSlider = GameObject.Find("HealthSlidderControler").GetComponent<Slider>();
+        hpSlider.maxValue = hp;
+        hpSlider.value = hpSlider.maxValue;
+        if (canTimeTravel) defaultState.interactionCheck += defaultState.TimeTravelCheck;
     }
     void Start()
     {
@@ -55,7 +64,6 @@ public class PMStateManager : MonoBehaviour
         currentState = defaultState;
         currentState.EnterState(this);
     }
-
     void Update()
     {
         currentState.UpdateState(this);
@@ -147,5 +155,9 @@ public class PMStateManager : MonoBehaviour
                 animator.SetBool("PULLOBJECTMIDEND", false);
                 break;
         }
+    }
+    public void UpdateHealthBar()
+    {
+        hpSlider.value = hp;
     }
 }

@@ -8,6 +8,7 @@ public class PMDefaultState : PMBaseState
 
     public override void EnterState(PMStateManager Manager)
     {
+        ManagerTTC = Manager;
         focusOnCursorOff = Manager.StartCoroutine(FocusOnCursorOff(Manager));
     }
     private int inventoryCount;
@@ -15,7 +16,7 @@ public class PMDefaultState : PMBaseState
     {
         Manager.rawInputMove.x = Input.GetAxisRaw("Horizontal");//adiciona variaveis baseadas no input de teclas(de 0 a 1,baseado no tempo pressionado, quanto mais tempo, mais proximo de 1 e vice versa)
         Manager.rawInputMove.y = Input.GetAxisRaw("Vertical");// mesma coisa que o de cima so que para os botoes de mover na vertical
-        TimeTravelCheck(Manager);
+        if(interactionCheck!=null)interactionCheck();
         inventoryCount = Manager.playerInventoryManager.inventory.GetItemList().Count;
         if (inventoryCount == 0)
         {
@@ -102,12 +103,15 @@ public class PMDefaultState : PMBaseState
     float angle;
     private Coroutine focusOnCursorOn;
     private Coroutine focusOnCursorOff;
-    public void TimeTravelCheck(PMStateManager Manager)
+    PMStateManager ManagerTTC;
+    public delegate void InteractionCheck();
+    public InteractionCheck interactionCheck;
+    public void TimeTravelCheck()
     {
         if (Input.GetKeyDown(MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.TimeTravel]))
         {
-            if (Manager.director != null) Manager.director.Play();
-            Manager.TravelTime();
+            if (ManagerTTC.director != null) ManagerTTC.director.Play();
+            ManagerTTC.TravelTime();
         }
     }
     private IEnumerator FocusOnCursorOn(PMStateManager Manager)
