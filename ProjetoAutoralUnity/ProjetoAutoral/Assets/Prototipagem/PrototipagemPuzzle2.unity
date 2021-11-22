@@ -1141,9 +1141,8 @@ MonoBehaviour:
     isAged: 0
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 1
-  textBoxOnSuccessiveInteraction: "\"Consegui destranc\xE1-la.\""
-  textBoxOnFailedInteraction: "\"O escrit\xF3rio est\xE1 trancado, preciso de uma
-    chave para abrir a porta.\""
+  textBoxOnSuccessiveInteraction: '"I got it open"'
+  textBoxOnFailedInteraction: '"The office is locked, I need a key to open the door."'
   textBox: {fileID: 0}
   ui: {fileID: 0}
   onSuccessiveInteractionConsequence: AbrirEscritorio
@@ -1969,8 +1968,8 @@ MonoBehaviour:
   itemsNeeded: []
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 0
-  textBoxOnSuccessiveInteraction: '"Dentro da escrivanhia, encontrei um estilete,
-    posso usar para cortar algo."'
+  textBoxOnSuccessiveInteraction: '"Inside the desk, I found a stylus, I can use
+    it to cut something."'
   textBoxOnFailedInteraction: 
   textBox: {fileID: 0}
   ui: {fileID: 0}
@@ -4242,8 +4241,8 @@ MonoBehaviour:
   itemsNeeded: []
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 0
-  textBoxOnSuccessiveInteraction: "\"A porta do arm\xE1rio parece estar emperrada.
-    Preciso abr\xED-la de algum jeito.\""
+  textBoxOnSuccessiveInteraction: '"The closet door seems to be jammed. I need to
+    open it somehow."'
   textBoxOnFailedInteraction: 
   textBox: {fileID: 0}
   ui: {fileID: 0}
@@ -5312,8 +5311,8 @@ MonoBehaviour:
   itemsNeeded: []
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 0
-  textBoxOnSuccessiveInteraction: "\"Grande parte do interior da gaveta est\xE1 ocupada
-    por musgo e bolor.\""
+  textBoxOnSuccessiveInteraction: '"Much of the inside of the drawer is occupied
+    by moss and mold."'
   textBoxOnFailedInteraction: 
   textBox: {fileID: 0}
   ui: {fileID: 0}
@@ -6600,8 +6599,8 @@ MonoBehaviour:
     isAged: 1
   needToInteract: 1
   destroyItemOnSuccessiveInteraction: 1
-  textBoxOnSuccessiveInteraction: "\"Est\xE1 destrancada.\""
-  textBoxOnFailedInteraction: "\"A porta de sa\xEDda est\xE1 trancada, mais uma vez.\""
+  textBoxOnSuccessiveInteraction: '"It''s unlocked."'
+  textBoxOnFailedInteraction: '"The exit door is locked, again."'
   textBox: {fileID: 0}
   ui: {fileID: 0}
   onSuccessiveInteractionConsequence: ExitPuzzle2Present
@@ -6961,7 +6960,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 513598316}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.23, y: -4.68, z: 0}
+  m_LocalPosition: {x: 6.239, y: -4.495, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1749890234}
@@ -23425,7 +23424,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7769653, y: 1}
+    m_SensorSize: {x: 1.7781754, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -23639,9 +23638,9 @@ MonoBehaviour:
   itemsNeeded: []
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 0
-  textBoxOnSuccessiveInteraction: "\"Dentro da geladeira, havia um bloco de gelo
-    ma\xE7isso. Consigo ver algo dentro dele, mas preciso descongel\xE1-lo de alguma...
-    ...forma pra poder ver o que \xE9.\""
+  textBoxOnSuccessiveInteraction: '"Inside the refrigerator, there was a block of
+    ice . I can see something inside it, but I need to thaw it somehow.... so I can
+    see what it is."'
   textBoxOnFailedInteraction: 
   textBox: {fileID: 0}
   ui: {fileID: 0}
@@ -24255,8 +24254,8 @@ MonoBehaviour:
   itemsNeeded: []
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 0
-  textBoxOnSuccessiveInteraction: "\"A madeira se desgastou tanto que n\xE3o consigo
-    mais acend\xEA-la\""
+  textBoxOnSuccessiveInteraction: '"The wood has worn down so much that I can no
+    longer light it"'
   textBoxOnFailedInteraction: 
   textBox: {fileID: 0}
   ui: {fileID: 0}
@@ -24790,10 +24789,10 @@ MonoBehaviour:
     isAged: 0
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 1
-  textBoxOnSuccessiveInteraction: '"Consegui descongelar o bloco de gelo. Havia uma
-    chave dentro dele."'
-  textBoxOnFailedInteraction: "\"Dentro da lareira, h\xE1 alguns peda\xE7os de madeira
-    seca que ainda podem ser acesos, posso usar para descongelar algo.\""
+  textBoxOnSuccessiveInteraction: '"I was able to thaw the block of ice. There was
+    a key inside it."'
+  textBoxOnFailedInteraction: '"Inside the fireplace, there are some pieces of dry
+    wood that can still be lit, I can use them to defrost something."'
   textBox: {fileID: 0}
   ui: {fileID: 0}
   onSuccessiveInteractionConsequence: Descongelar
@@ -27083,12 +27082,14 @@ MonoBehaviour:
     isAged: 0
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 1
-  textBoxOnSuccessiveInteraction: "\"As vinhas abriram a porta do arm\xE1rio, ent\xE3o
-    consegui usar o estilete para cort\xE1-las e abrir um espa\xE7o onde achei um...
-    ...cabide, isso pode ser \xFAtil em algum lugar.\""
-  textBoxOnFailedInteraction: "\"A porta foi arrombada pelas vinhas, mas agora preciso
-    liberar um espa\xE7o para ver o que t\xEAm dentro, quem sabe se eu... ...tivesse
-    algo para cort\xE1-las.\""
+  textBoxOnSuccessiveInteraction: '"The vines opened the closet door, so I was able
+    to use the stylus to cut them down and open a space where I found a.... ...hanger,
+    that might come in handy ."'
+  textBoxOnFailedInteraction: '"The door was busted by the vines, but now i need
+    to clear some space to see what''s inside, what if I... ... had something to
+    cut them."
+
+'
   textBox: {fileID: 0}
   ui: {fileID: 0}
   onSuccessiveInteractionConsequence: ArmarioQuarto
@@ -28255,8 +28256,8 @@ MonoBehaviour:
   itemsNeeded: []
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 0
-  textBoxOnSuccessiveInteraction: "\"O congelador da geladeira est\xE1 trancado por
-    um cadeado frouxo. Com o tempo, talvez ele possa ser quebrado facilmente.\""
+  textBoxOnSuccessiveInteraction: '"The freezer in the refrigerator is locked by
+    a loose padlock. Over time, perhaps it can be broken easily."'
   textBoxOnFailedInteraction: 
   textBox: {fileID: 0}
   ui: {fileID: 0}
@@ -28621,8 +28622,7 @@ MonoBehaviour:
   itemsNeeded: []
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 0
-  textBoxOnSuccessiveInteraction: "\"Dentro de uma das gavetas, encontrei uma caixa
-    de f\xF3sforos.\""
+  textBoxOnSuccessiveInteraction: '"Inside one of the drawers, I found a box of matches."'
   textBoxOnFailedInteraction: 
   textBox: {fileID: 0}
   ui: {fileID: 0}
@@ -29643,8 +29643,8 @@ MonoBehaviour:
   itemsNeeded: []
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 0
-  textBoxOnSuccessiveInteraction: "\"O ralo est\xE1 completamente de musgo, n\xE3o
-    consigo ver mais nada l\xE1 dentro.\""
+  textBoxOnSuccessiveInteraction: '"The drain is completely mossy, I can''t see anything
+    else in there."'
   textBoxOnFailedInteraction: 
   textBox: {fileID: 0}
   ui: {fileID: 0}
@@ -32899,9 +32899,9 @@ MonoBehaviour:
     isAged: 0
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 1
-  textBoxOnSuccessiveInteraction: '"Consegui pescar uma chave usando o cabide."'
-  textBoxOnFailedInteraction: "\"H\xE1 alguma coisa refletindo luz no fundo do ralo,
-    mas n\xE3o alcan\xE7o, vou precisar de algo para me ajudar.\""
+  textBoxOnSuccessiveInteraction: '"I was able to fish out a key using the hanger."'
+  textBoxOnFailedInteraction: '"There''s something reflecting light at the bottom
+    of the drain, but I can''t reach it, I''m going to need something to help me."'
   textBox: {fileID: 0}
   ui: {fileID: 0}
   onSuccessiveInteractionConsequence: Ralo
@@ -41070,8 +41070,8 @@ MonoBehaviour:
   itemsNeeded: []
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 0
-  textBoxOnSuccessiveInteraction: "(Examinando os buracos do sof\xE1, eu achei uma
-    chave pequena)  \n"
+  textBoxOnSuccessiveInteraction: "(Examining the holes in the sofa, I found a small
+    key)  \r\n"
   textBoxOnFailedInteraction: 
   textBox: {fileID: 0}
   ui: {fileID: 0}
@@ -41792,8 +41792,8 @@ MonoBehaviour:
     isAged: 1
   needToInteract: 1
   destroyItemOnSuccessiveInteraction: 1
-  textBoxOnSuccessiveInteraction: "\"Os musgos est\xE3o na frente da fechadura novamente.\""
-  textBoxOnFailedInteraction: "\"Os musgos est\xE3o na frente da fechadura novamente.\""
+  textBoxOnSuccessiveInteraction: '"The mosses are in front of the lock again."'
+  textBoxOnFailedInteraction: '"The mosses are in front of the lock again."'
   textBox: {fileID: 0}
   ui: {fileID: 0}
   onSuccessiveInteractionConsequence: ExitPuzzle2Future
