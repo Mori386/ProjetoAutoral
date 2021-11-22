@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.Playables;
 
 public class PMStateManager : MonoBehaviour
@@ -27,8 +28,11 @@ public class PMStateManager : MonoBehaviour
     [System.NonSerialized] public AudioSource audioData;
     [System.NonSerialized] public bool playingAudio;
     [System.NonSerialized] public PlayableDirector director;
-
     [System.NonSerialized] public bool endedAnimation;
+    [Header("Interactions")]
+    public bool canTimeTravel;
+    //Lights
+    [System.NonSerialized] public GameObject lightPresent, lightFuture;
     private void Awake()
     {
         facingDirection = new Vector2Int(0, 1);
@@ -43,7 +47,11 @@ public class PMStateManager : MonoBehaviour
     {
         flashlight = transform.Find("Flashlight").gameObject;
         rbFlashlight = flashlight.GetComponent<Rigidbody2D>();
-        if(GameObject.Find("directorTime")!=null) director = GameObject.Find("directorTime").GetComponent<PlayableDirector>();
+        if (GameObject.Find("directorTime") != null) director = GameObject.Find("directorTime").GetComponent<PlayableDirector>();
+        Transform Light = GameObject.Find("controleLight").transform;
+        lightPresent = Light.Find("luzP").gameObject;
+        lightFuture = Light.Find("luzFGlobal").gameObject;
+        SwitchLight();
         currentState = defaultState;
         currentState.EnterState(this);
     }
@@ -86,11 +94,28 @@ public class PMStateManager : MonoBehaviour
         {
             transform.position += tilemapFuturo.transform.position - tilemapPresente.transform.position;
             timePeriod = timePeriodList.Future;
+            transform.Find("RoundLight").gameObject.SetActive(true);
         }
         else
         {
             transform.position += tilemapPresente.transform.position - tilemapFuturo.transform.position;
             timePeriod = timePeriodList.Present;
+            transform.Find("RoundLight").gameObject.SetActive(false);
+        }
+        SwitchLight();
+    }
+    public void SwitchLight()
+    {
+        switch (timePeriod)
+        {
+            case timePeriodList.Present:
+                lightFuture.SetActive(false);
+                lightPresent.SetActive(true);
+                break;
+            case timePeriodList.Future:
+                lightPresent.SetActive(false);
+                lightFuture.SetActive(true);
+                break;
         }
     }
     public Vector2 regulatorDirection(Vector2 rawDirection)

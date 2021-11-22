@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PMDefaultState : PMBaseState
 {
+
     public override void EnterState(PMStateManager Manager)
     {
         focusOnCursorOff = Manager.StartCoroutine(FocusOnCursorOff(Manager));
@@ -14,11 +15,7 @@ public class PMDefaultState : PMBaseState
     {
         Manager.rawInputMove.x = Input.GetAxisRaw("Horizontal");//adiciona variaveis baseadas no input de teclas(de 0 a 1,baseado no tempo pressionado, quanto mais tempo, mais proximo de 1 e vice versa)
         Manager.rawInputMove.y = Input.GetAxisRaw("Vertical");// mesma coisa que o de cima so que para os botoes de mover na vertical
-        if (Input.GetKeyDown(MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.TimeTravel]))
-        {
-            if (Manager.director != null) Manager.director.Play();
-            Manager.TravelTime();
-        }
+        TimeTravelCheck(Manager);
         inventoryCount = Manager.playerInventoryManager.inventory.GetItemList().Count;
         if (inventoryCount == 0)
         {
@@ -105,6 +102,14 @@ public class PMDefaultState : PMBaseState
     float angle;
     private Coroutine focusOnCursorOn;
     private Coroutine focusOnCursorOff;
+    public void TimeTravelCheck(PMStateManager Manager)
+    {
+        if (Input.GetKeyDown(MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.TimeTravel]))
+        {
+            if (Manager.director != null) Manager.director.Play();
+            Manager.TravelTime();
+        }
+    }
     private IEnumerator FocusOnCursorOn(PMStateManager Manager)
     {
         Vector2 mousePos;
