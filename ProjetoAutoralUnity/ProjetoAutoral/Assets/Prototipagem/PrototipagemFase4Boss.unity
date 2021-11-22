@@ -22168,6 +22168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9ddfe4d959591447ab3bee7fc7ca8a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Puzzle: 4
 --- !u!4 &1471633615
 Transform:
   m_ObjectHideFlags: 0

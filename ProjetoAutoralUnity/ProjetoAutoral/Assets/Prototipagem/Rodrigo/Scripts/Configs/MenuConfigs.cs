@@ -10,6 +10,8 @@ public class MenuConfigs : MonoBehaviour
 
     [System.NonSerialized] public KeyCode[] InputKeys = new KeyCode[14];
 
+    public int Puzzle;
+    [System.NonSerialized] public int PuzzleStep;
     private void Awake()
     {
         InputKeys[0] = KeyCode.Escape;
@@ -27,10 +29,14 @@ public class MenuConfigs : MonoBehaviour
         InputKeys[12] = KeyCode.Alpha2;
         InputKeys[13] = KeyCode.Alpha3;
         if (Instance == null) Instance = this;
-        else Destroy(gameObject);
+        else
+        {
+            Instance.PuzzleStep = 0;
+            Instance.Puzzle = Puzzle;
+            Destroy(gameObject);
+        }
         DontDestroyOnLoad(gameObject);
     }
-
     public void UpdateAllInputKeysInGame()
     {
         foreach (KeyBasedOnMenuConfigs keyBased in inputKeysInGame)
