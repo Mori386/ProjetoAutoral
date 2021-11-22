@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -766,7 +766,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 81483361}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.954, y: 1.543, z: 0}
+  m_LocalPosition: {x: 0.958, y: 1.547, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 944218614}
@@ -9397,7 +9397,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 23b4cc1684539de4b9cd0f5ab5db2d98, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -9461,7 +9461,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &878506687
@@ -23426,7 +23426,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7779751, y: 1}
+    m_SensorSize: {x: 1.7769653, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -23750,8 +23750,8 @@ MonoBehaviour:
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 0
   textBoxOnSuccessiveInteraction: "\"Dentro da geladeira, havia um bloco de gelo
-    ma\xE7isso. Consigo ver algo dentro dele, mas preciso descongel\xE1-lo de...
-    ...alguma forma pra poder ver o que \xE9.\""
+    ma\xE7isso. Consigo ver algo dentro dele, mas preciso descongel\xE1-lo de alguma...
+    ...forma pra poder ver o que \xE9.\""
   textBoxOnFailedInteraction: 
   textBox: {fileID: 0}
   ui: {fileID: 0}
@@ -24662,7 +24662,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 23b4cc1684539de4b9cd0f5ab5db2d98, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -24726,7 +24726,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -0.15438843, w: -0.27342987}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1138837207
@@ -24903,7 +24903,7 @@ MonoBehaviour:
   textBoxOnSuccessiveInteraction: '"Consegui descongelar o bloco de gelo. Havia uma
     chave dentro dele."'
   textBoxOnFailedInteraction: "\"Dentro da lareira, h\xE1 alguns peda\xE7os de madeira
-    seca que ainda podem ser acesos, posso usar para descongelar... ...algo.\""
+    seca que ainda podem ser acesos, posso usar para descongelar algo.\""
   textBox: {fileID: 0}
   ui: {fileID: 0}
   onSuccessiveInteractionConsequence: Descongelar
@@ -27194,11 +27194,12 @@ MonoBehaviour:
     isAged: 0
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 1
-  textBoxOnSuccessiveInteraction: "\"Depois de abrir um espa\xE7o usando o estilete,
-    consegui pegar um cabide, isso pode ser \xFAtil em algum lugar.\""
-  textBoxOnFailedInteraction: "\"A porta foi arrombada pelos musgos, mas agora preciso
+  textBoxOnSuccessiveInteraction: "\"As vinhas abriram a porta do arm\xE1rio, ent\xE3o
+    consegui usar o estilete para cort\xE1-las e abrir um espa\xE7o onde achei um...
+    ...cabide, isso pode ser \xFAtil em algum lugar.\""
+  textBoxOnFailedInteraction: "\"A porta foi arrombada pelas vinhas, mas agora preciso
     liberar um espa\xE7o para ver o que t\xEAm dentro, quem sabe se eu... ...tivesse
-    algo para cortar o musgo.\""
+    algo para cort\xE1-las.\""
   textBox: {fileID: 0}
   ui: {fileID: 0}
   onSuccessiveInteractionConsequence: ArmarioQuarto
@@ -28916,7 +28917,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 30.448, y: -33.596}
+  m_AnchoredPosition: {x: 30.448, y: -36.1}
   m_SizeDelta: {x: 23.428108, y: 23.456032}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1535822278
@@ -28953,8 +28954,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Q
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 23b4cc1684539de4b9cd0f5ab5db2d98, type: 2}
+  m_sharedMaterial: {fileID: 6100500340704497147, guid: 23b4cc1684539de4b9cd0f5ab5db2d98,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -28978,8 +28980,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -42268,7 +42270,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -615.847, y: -387.434}
+  m_AnchoredPosition: {x: -616.1, y: -390.8}
   m_SizeDelta: {x: 23.363953, y: 23.27652}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2114029600
@@ -42305,8 +42307,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: F
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 23b4cc1684539de4b9cd0f5ab5db2d98, type: 2}
+  m_sharedMaterial: {fileID: 6100500340704497147, guid: 23b4cc1684539de4b9cd0f5ab5db2d98,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -42330,8 +42333,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
-  m_fontSizeBase: 16
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0

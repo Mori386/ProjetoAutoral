@@ -810,7 +810,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 81483361}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.513, y: 1.543, z: 0}
+  m_LocalPosition: {x: -3.513, y: 1.549, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 944218614}
@@ -6949,7 +6949,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 729624643}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.956, y: 3.93, z: 0}
+  m_LocalPosition: {x: -5.956, y: 3.924, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 656265363}
@@ -14316,8 +14316,8 @@ MonoBehaviour:
   textBoxOnSuccessiveInteraction: "\"Ap\xF3s desentup\xED-la, encontrei uma chave
     no fundo.\""
   textBoxOnFailedInteraction: "\"Consigo ver algo brilhando no fundo da banheira,
-    mas n\xE3o parece ser seguro colocar minha m\xE3o a\xED dentro. Preciso... ...de
-    algo pra desentup\xED-la.\""
+    mas n\xE3o parece ser seguro colocar minha m\xE3o a\xED dentro. Preciso de...
+    ...algo pra desentup\xED-la.\""
   textBox: {fileID: 0}
   ui: {fileID: 0}
   onSuccessiveInteractionConsequence: BanheiraPresente
