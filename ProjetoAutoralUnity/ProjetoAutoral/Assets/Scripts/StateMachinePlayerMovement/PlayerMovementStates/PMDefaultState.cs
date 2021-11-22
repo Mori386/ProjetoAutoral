@@ -106,13 +106,25 @@ public class PMDefaultState : PMBaseState
     PMStateManager ManagerTTC;
     public delegate void InteractionCheck();
     public InteractionCheck interactionCheck;
+
+    bool TimeTravelOnCooldown;
     public void TimeTravelCheck()
     {
-        if (Input.GetKeyDown(MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.TimeTravel]))
+        if (!TimeTravelOnCooldown)
         {
-            if (ManagerTTC.director != null) ManagerTTC.director.Play();
-            ManagerTTC.TravelTime();
+            if (Input.GetKeyDown(MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.TimeTravel]))
+            {
+                if (ManagerTTC.director != null) ManagerTTC.director.Play();
+                ManagerTTC.TravelTime();
+                ManagerTTC.StartCoroutine(TimeTravelCooldown());
+            }
         }
+    }
+    private IEnumerator TimeTravelCooldown()
+    {
+        TimeTravelOnCooldown = true;
+        yield return new WaitForSeconds(((float)ManagerTTC.director.duration));
+        TimeTravelOnCooldown = false;
     }
     private IEnumerator FocusOnCursorOn(PMStateManager Manager)
     {
