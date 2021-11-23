@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -459,8 +459,8 @@ MonoBehaviour:
   itemsNeeded: []
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 0
-  textBoxOnSuccessiveInteraction: "\"Dentro de uma das gavetas do arm\xE1rio, encontrei
-    uma caixa de palito de dente, isso pode me ajudar a abrir algo.\""
+  textBoxOnSuccessiveInteraction: '"Inside one of the cabinet drawers, I found a
+    box of toothpicks, that might help me open something."'
   textBoxOnFailedInteraction: 
   textBox: {fileID: 0}
   ui: {fileID: 0}
@@ -1531,11 +1531,11 @@ MonoBehaviour:
     isAged: 0
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 1
-  textBoxOnSuccessiveInteraction: "\"Usando o grampo de cabelo e a caixa de palito
-    de dente consegui abrir o ba\xFA e encontrei algo que parece ser um cart\xE3o...
-    ...de mem\xF3ria.\""
-  textBoxOnFailedInteraction: "\"Se n\xE3o tiver uma chave pra esse ba\xFA, vou ter
-    que achar um outro jeito de abrir esse cadeado.\""
+  textBoxOnSuccessiveInteraction: '"Using the hairpin and the box of toothpicks,
+    I was able to open the trunk and found something that appears to be a memory
+    card....."'
+  textBoxOnFailedInteraction: '"If I don''t have the key to the trunk, I''m going
+    to have to find another way to open that lock."'
   textBox: {fileID: 0}
   ui: {fileID: 0}
   onSuccessiveInteractionConsequence: Bau
@@ -3164,10 +3164,10 @@ MonoBehaviour:
     isAged: 0
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 1
-  textBoxOnSuccessiveInteraction: '"Explorando os arquivos do computador, encontrei
-    um bloco de notas com uma senha para - Um lugar secreto do meu quarto."'
-  textBoxOnFailedInteraction: "\"O computador est\xE1 ligado, mas acho que est\xE1
-    faltando algo como um cart\xE3o de mem\xF3ria.\""
+  textBoxOnSuccessiveInteraction: '"Exploring the computer files, I found a notepad
+    with a password for - A secret place in my room".'
+  textBoxOnFailedInteraction: '"The computer is on, but something like a memory card
+    is missing".'
   textBox: {fileID: 0}
   ui: {fileID: 0}
   onSuccessiveInteractionConsequence: Computador
@@ -8219,10 +8219,10 @@ MonoBehaviour:
     isAged: 0
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 1
-  textBoxOnSuccessiveInteraction: '"Consegui desparafusar a chapa de metal com a
-    chave de fenda e abri a porta."'
-  textBoxOnFailedInteraction: "\"A fechadura dessa porta est\xE1 sendo bloqueado
-    por uma chapa de metal presa por parafusos.\""
+  textBoxOnSuccessiveInteraction: '"I was able to unscrew the sheet metal with the
+    screwdriver and opened the door."'
+  textBoxOnFailedInteraction: '"The door lock is blocked by a metal plate secured
+    by screws".'
   textBox: {fileID: 0}
   ui: {fileID: 0}
   onSuccessiveInteractionConsequence: ExitPuzzle3Present
@@ -9809,8 +9809,8 @@ MonoBehaviour:
   itemsNeeded: []
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 0
-  textBoxOnSuccessiveInteraction: "\"N\xE3o consigo abrir o tanque da privada, mas
-    ou\xE7o algo batendo dentro dela quando dou uma descarga.\""
+  textBoxOnSuccessiveInteraction: '"I can''t open the toilet tank, but I hear something
+    banging on the inside when I do."'
   textBoxOnFailedInteraction: 
   textBox: {fileID: 0}
   ui: {fileID: 0}
@@ -10586,8 +10586,8 @@ MonoBehaviour:
   itemsNeeded: []
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 0
-  textBoxOnSuccessiveInteraction: '"A tampa do tanque quebrou com o tempo e dentro
-    dele encontrei um grampo de cabelo, isso pode me ajudar a abrir algo."'
+  textBoxOnSuccessiveInteraction: '"The tank lid break over time and inside I found
+    a hairpin, this might help open something."'
   textBoxOnFailedInteraction: 
   textBox: {fileID: 0}
   ui: {fileID: 0}
@@ -11069,12 +11069,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2d34ce11981d764aba90c9dd40ffa87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tilemapPointZero: {x: 0, y: 0, z: 0}
-  tilemap: {fileID: 0}
+  tilemapPointZero: {x: -11.84, y: -6.72, z: 0}
+  tilemap: {fileID: 1591163135}
   timePeriod: 0
   vector2PositionSetUp: 0
   gridTilemapPosition: {x: 0, y: 0}
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 805211277}
 --- !u!114 &805211276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11419,7 +11419,7 @@ MonoBehaviour:
   itemsNeeded: []
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 0
-  textBoxOnSuccessiveInteraction: "\"Os musgos trancaram as gavetas do arm\xE1rio.\""
+  textBoxOnSuccessiveInteraction: '"The mosses have locked the drawers in the closet."'
   textBoxOnFailedInteraction: 
   textBox: {fileID: 0}
   ui: {fileID: 0}
@@ -12080,8 +12080,9 @@ MonoBehaviour:
   itemsNeeded: []
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 0
-  textBoxOnSuccessiveInteraction: "\"Com o tempo as pe\xE7as do computador pararam
-    de funcionar.\"\n"
+  textBoxOnSuccessiveInteraction: '"Over time the computer parts stopped working."
+
+'
   textBoxOnFailedInteraction: 
   textBox: {fileID: 0}
   ui: {fileID: 0}
@@ -16774,7 +16775,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1001369438}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 54.712, y: 0.32, z: 0}
+  m_LocalPosition: {x: 54.721, y: 0.358, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 325878630}
@@ -17114,7 +17115,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.7781754, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -17270,10 +17271,9 @@ MonoBehaviour:
     isAged: 0
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 1
-  textBoxOnSuccessiveInteraction: '"Dentro do compartimento secreto, encontrei uma
-    chave de fenda."'
-  textBoxOnFailedInteraction: "\"O compartimento secreto est\xE1 trancado com um
-    cadeado de d\xEDgitos numerais, preciso achar a senha.\""
+  textBoxOnSuccessiveInteraction: '"Inside the secret compartment, I found a screwdriver."'
+  textBoxOnFailedInteraction: '"The secret compartment is locked with a numeral digit
+    padlock, I need to find the password."'
   textBox: {fileID: 0}
   ui: {fileID: 0}
   onSuccessiveInteractionConsequence: Compartimento
@@ -18562,8 +18562,8 @@ MonoBehaviour:
   itemsNeeded: []
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 0
-  textBoxOnSuccessiveInteraction: "\"O cadeado enferrujou tanto que n\xE3o vou poder
-    destranc\xE1-lo.\""
+  textBoxOnSuccessiveInteraction: '"The lock has rusted so badly that I won''t be
+    able to unlock it."'
   textBoxOnFailedInteraction: 
   textBox: {fileID: 0}
   ui: {fileID: 0}
@@ -20468,8 +20468,8 @@ MonoBehaviour:
   itemsNeeded: []
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 0
-  textBoxOnSuccessiveInteraction: "\"O ventilador acima de mim est\xE1 pendurado
-    por poucos fios. Melhor n\xE3o ficar aqui quando ir para o futuro.\""
+  textBoxOnSuccessiveInteraction: '"The fan above me is hanging by some wires. It
+    better not be here when I go to the future."'
   textBoxOnFailedInteraction: 
   textBox: {fileID: 0}
   ui: {fileID: 0}
@@ -24076,8 +24076,8 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 797387797
+  m_SortingLayer: 7
   m_SortingOrder: 7
 --- !u!1 &1722015418
 GameObject:
@@ -25397,8 +25397,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 797387797
+  m_SortingLayer: 7
   m_SortingOrder: 7
   m_Sprite: {fileID: 21300000, guid: 9c8d3688f0b4f6840ae89f126fc06593, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -26771,7 +26771,7 @@ MonoBehaviour:
   itemsNeeded: []
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 0
-  textBoxOnSuccessiveInteraction: '"Dentro do globo, encontrei uma chave."'
+  textBoxOnSuccessiveInteraction: '"Inside the globe, I found a key."'
   textBoxOnFailedInteraction: 
   textBox: {fileID: 0}
   ui: {fileID: 0}
@@ -26955,10 +26955,8 @@ MonoBehaviour:
     isAged: 0
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 1
-  textBoxOnSuccessiveInteraction: "\"A porta est\xE1 t\xE3o desgastada que n\xE3o
-    consigo abr\xED-la.\""
-  textBoxOnFailedInteraction: "\"A porta est\xE1 t\xE3o desgastada que n\xE3o consigo
-    abr\xED-la.\""
+  textBoxOnSuccessiveInteraction: '"The door is so worn out I can''t open it."'
+  textBoxOnFailedInteraction: '"The door is so worn out I can''t open it."'
   textBox: {fileID: 0}
   ui: {fileID: 0}
   onSuccessiveInteractionConsequence: ExitPuzzle3Present
