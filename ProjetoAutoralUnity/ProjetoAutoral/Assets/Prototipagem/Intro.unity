@@ -210,8 +210,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Seu of\xEDcio, como cobaia, ser\xE1 de entrar dentro da Casa e fazer parte
-    da pr\xF3xima etapa dos nossos experimentos."
+  m_Text: Your duty, as a test subject, will be to enter the House and be part of
+    the next stage of our experiments.
 --- !u!222 &19672568
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -454,8 +454,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Caso tente, de alguma forma, contrariar-se ao seu of\xEDcio, temos devida
-    permiss\xE3o de lhe neutralizar usando o colar acoplado ao seu pesco\xE7o."
+  m_Text: If you try, in any way, to go against your duty, we are duly allowed to
+    neutralize you using the collar attached to your neck.
 --- !u!222 &175481350
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1050,8 +1050,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Junto contigo, h\xE1 uma lanterna, um r\xE1dio para comunica\xE7\xE3o
-    e um rel\xF3gio de bolso, destinado ao teste."
+  m_Text: With you, there is a flashlight, a radio for communication and a pocket
+    watch, destined for the experiment.
 --- !u!222 &953296257
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1298,8 +1298,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Estamos pr\xF3ximos de chegar no local, ent\xE3o irei lhe informar sobre
-    o experimento mais uma vez."
+  m_Text: We are close to arriving at the house, so I will inform you about the experiment
+    one more time.
 --- !u!222 &1309797335
 CanvasRenderer:
   m_ObjectHideFlags: 0
