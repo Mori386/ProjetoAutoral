@@ -24,7 +24,7 @@ public class controleQG : MonoBehaviour
             default:
             case 0:
             /*Teste*/ case 1: return "faladoQG";
-            /*Esquentar cubo de gelo com fosforo na lareira*/ case 2: return "Aqui é o QG, informe sua situação atual...  esse fósforo pode ser útil. Houveram cobaias que acendiam a lareira e se aconchegavam horas afim. Mas, como não estavam progredindo no experimento, foram neutralizados. Um conselho amigável: se for usar a lareira, que seja pra prosseguir no experimento.";
+            /*Esquentar cubo de gelo com fosforo na lareira*/ case 2: return "Aqui é o QG, informe sua situação atual...  em certos casos, mesmo que um móvel não pareça ter um item, ele pode ser crucial para algum problema. Também há vezes que apenas um objeto não basta para que você possa seguir em frente.";
             /*Com fósforo sem gelo*/ case 3: return "Aqui é o QG, informe sua situação atual...  esse fósforo pode ser útil. Houveram cobaias que acendiam a lareira e se aconchegavam horas afim. Mas, como não estavam progredindo no experimento, foram neutralizados. Um conselho amigável: se for usar a lareira, que seja pra prosseguir no experimento.";
             /*Com gelo sem fósforo*/ case 4: return "Aqui é o QG, informe sua situação atual...  você vai precisar pegar o objeto que está dentro desse bloco de alguma forma. Como ele parece ser duro o suficiente pra não ser quebrado, é preciso de algo que possa enfraquecer sua estrutura. Quem sabe, se der uma esquentada nele.";
             /*Com ambos gelo e fósforo*/ case 5: return "Aqui é o QG, informe sua situação atual...  agora, tente encontrar uma forma de usar os fósforos pra descongelar esse cubo de gelo até que ele possa ser quebrável.";

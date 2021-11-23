@@ -31,6 +31,7 @@ public class ResultsDataBase : MonoBehaviour
             case "CabinePia":
                 player.playerInventoryManager.inventory.AddItem(new Item { itemType = Item.ItemType.Plunger, amount = 1});
                 player.playerInventoryManager.uiInventory.SetInventory(player.playerInventoryManager.inventory);
+                MenuConfigs.Instance.PuzzleStep = 3;
                 break;
             case "PanoEstante":
                 player.playerInventoryManager.inventory.AddItem(new Item { itemType = Item.ItemType.Cloth, amount = 1 });
@@ -56,10 +57,12 @@ public class ResultsDataBase : MonoBehaviour
             case "Geladeira":
                 player.playerInventoryManager.inventory.AddItem(new Item { itemType = Item.ItemType.KeyEscritCongela, amount = 1 });
                 player.playerInventoryManager.uiInventory.SetInventory(player.playerInventoryManager.inventory);
+                MenuConfigs.Instance.PuzzleStep = 4;
                 break;
             case "GavetasPiaCozinha":
                 player.playerInventoryManager.inventory.AddItem(new Item { itemType = Item.ItemType.Matches, amount = 1 });
                 player.playerInventoryManager.uiInventory.SetInventory(player.playerInventoryManager.inventory);
+                MenuConfigs.Instance.PuzzleStep = 3;
                 break;
             case "Descongelar":
                 player.playerInventoryManager.inventory.AddItem(new Item { itemType = Item.ItemType.KeyEscrit, amount = 1 });
@@ -72,10 +75,12 @@ public class ResultsDataBase : MonoBehaviour
             case "Escrivaninha":
                 player.playerInventoryManager.inventory.AddItem(new Item { itemType = Item.ItemType.Stilleto, amount = 1 });
                 player.playerInventoryManager.uiInventory.SetInventory(player.playerInventoryManager.inventory);
+                MenuConfigs.Instance.PuzzleStep = 6;
                 break;
             case "ArmarioQuarto":
                 player.playerInventoryManager.inventory.AddItem(new Item { itemType = Item.ItemType.ClothesHanger, amount = 1 });
                 player.playerInventoryManager.uiInventory.SetInventory(player.playerInventoryManager.inventory);
+                MenuConfigs.Instance.PuzzleStep = 7;
                 break;
             case "Ralo":
                 player.playerInventoryManager.inventory.AddItem(new Item { itemType = Item.ItemType.KeyExit2, amount = 1 });
@@ -95,11 +100,13 @@ public class ResultsDataBase : MonoBehaviour
             case "PalitoDente":
                 player.playerInventoryManager.inventory.AddItem(new Item { itemType = Item.ItemType.ToothPick, amount = 1 });
                 player.playerInventoryManager.uiInventory.SetInventory(player.playerInventoryManager.inventory);
+                MenuConfigs.Instance.PuzzleStep = 3;
                 break;
             case "GrampoPrivada":
                 player.playerInventoryManager.inventory.AddItem(new Item { itemType = Item.ItemType.HairClip, amount = 1 });
                 player.playerInventoryManager.uiInventory.SetInventory(player.playerInventoryManager.inventory);
                 break;
+                MenuConfigs.Instance.PuzzleStep = 2;
             case "Bau":
                 player.playerInventoryManager.inventory.AddItem(new Item { itemType = Item.ItemType.LoginPass, amount = 1 });
                 player.playerInventoryManager.uiInventory.SetInventory(player.playerInventoryManager.inventory);
