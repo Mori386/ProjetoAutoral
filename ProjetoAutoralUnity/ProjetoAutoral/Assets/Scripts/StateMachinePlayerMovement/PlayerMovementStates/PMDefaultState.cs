@@ -23,6 +23,7 @@ public class PMDefaultState : PMBaseState
         if (inventoryCount == 0)
         {
             Manager.playerInventoryManager.activeItem = 0;
+            Manager.flashlightLP.transform.parent.gameObject.SetActive(false);
             Manager.animator.SetBool("FLASHLIGHT", false);
         }
         else
@@ -51,6 +52,7 @@ public class PMDefaultState : PMBaseState
             }
             else
             {
+                Manager.flashlightLP.transform.parent.gameObject.SetActive(false);
                 Manager.animator.SetBool("FLASHLIGHT", false);
             }
         }
