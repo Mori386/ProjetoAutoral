@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.UI;
 
 public class PMDefaultState : PMBaseState
@@ -16,7 +18,7 @@ public class PMDefaultState : PMBaseState
     {
         Manager.rawInputMove.x = Input.GetAxisRaw("Horizontal");//adiciona variaveis baseadas no input de teclas(de 0 a 1,baseado no tempo pressionado, quanto mais tempo, mais proximo de 1 e vice versa)
         Manager.rawInputMove.y = Input.GetAxisRaw("Vertical");// mesma coisa que o de cima so que para os botoes de mover na vertical
-        if(interactionCheck!=null)interactionCheck();
+        if (interactionCheck != null) interactionCheck();
         inventoryCount = Manager.playerInventoryManager.inventory.GetItemList().Count;
         if (inventoryCount == 0)
         {
@@ -37,7 +39,7 @@ public class PMDefaultState : PMBaseState
                 Manager.playerInventoryManager.activeItem = 2;
                 Manager.playerInventoryManager.uiInventory.itemsUi[Manager.playerInventoryManager.activeItem - 1].Find("Border").GetComponent<Outline>().enabled = true;
             }
-            else if(Input.GetKeyDown(MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.InventorySlot3]) && inventoryCount > 2)
+            else if (Input.GetKeyDown(MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.InventorySlot3]) && inventoryCount > 2)
             {
                 if (Manager.playerInventoryManager.activeItem != 0) Manager.playerInventoryManager.uiInventory.itemsUi[Manager.playerInventoryManager.activeItem - 1].Find("Border").GetComponent<Outline>().enabled = false;
                 Manager.playerInventoryManager.activeItem = 3;
@@ -97,7 +99,7 @@ public class PMDefaultState : PMBaseState
                 if (Manager.facingDirection.y == 1) angle = 0;
                 else if (Manager.facingDirection.y == -1) angle = 180;
             }
-            Manager.flashlight.transform.rotation = Quaternion.Euler(0, 0, angle);
+            Manager.flashlightLP.transform.parent.rotation = Quaternion.Euler(0, 0, angle);
         }
     }
     float angle;
@@ -128,6 +130,7 @@ public class PMDefaultState : PMBaseState
     }
     private IEnumerator FocusOnCursorOn(PMStateManager Manager)
     {
+        GameObject flashlight = Manager.flashlightNLP;
         Vector2 mousePos;
         while (true)
         {
@@ -137,20 +140,49 @@ public class PMDefaultState : PMBaseState
             if (angle > -45 && angle <= 45)
             {
                 Manager.facingDirection = new Vector2Int(0, 1);
+                if (flashlight != Manager.flashlightNLP)
+                {
+                    flashlight.SetActive(false);
+                    flashlight = Manager.flashlightNLP;
+                    flashlight.SetActive(true);
+                }
+                flashlight.transform.parent.localPosition = new Vector3(0.102f, -0.051f, 0);
+
             }
             else if (angle > 45 && angle <= 90 || angle < -225 && angle <= -270)
             {
                 Manager.facingDirection = new Vector2Int(-1, 0);
+                if (flashlight != Manager.flashlightNLP)
+                {
+                    flashlight.SetActive(false);
+                    flashlight = Manager.flashlightNLP;
+                    flashlight.SetActive(true);
+                }
+                flashlight.transform.parent.localPosition = new Vector3(-0.139f, -0.01f, 0);
             }
             else if (angle <= -45 && angle > -135)
             {
                 Manager.facingDirection = new Vector2Int(1, 0);
+                if (flashlight != Manager.flashlightNLP)
+                {
+                    flashlight.SetActive(false);
+                    flashlight = Manager.flashlightNLP;
+                    flashlight.SetActive(true);
+                }
+                flashlight.transform.parent.localPosition = new Vector3(0.129f, -0.008f, 0);
             }
             else if (angle <= -135 && angle >= -225)
             {
                 Manager.facingDirection = new Vector2Int(0, -1);
+                if (flashlight != Manager.flashlightLP)
+                {
+                    flashlight.SetActive(false);
+                    flashlight = Manager.flashlightLP;
+                    flashlight.SetActive(true);
+                }
+                flashlight.transform.parent.localPosition = new Vector3(-0.0732f, -0.0342f, 0);
             }
-            Manager.flashlight.transform.rotation = Quaternion.Euler(0, 0, angle);
+            flashlight.transform.parent.rotation = Quaternion.Euler(0, 0, angle);
             float FACINGDIRECTION = Manager.facingDirection.x + Manager.facingDirection.y / 10;
             Manager.animator.SetInteger("FACINGDIRECTIONX", Manager.facingDirection.x);
             Manager.animator.SetInteger("FACINGDIRECTIONY", Manager.facingDirection.y);
@@ -160,30 +192,59 @@ public class PMDefaultState : PMBaseState
     private IEnumerator FocusOnCursorOff(PMStateManager Manager)
     {
         Vector2 direction;
+        GameObject flashlight = Manager.flashlightNLP;
         while (true)
         {
             direction = new Vector2(Manager.rawInputMove.x / Mathf.Abs(Manager.rawInputMove.x), Manager.rawInputMove.y / Mathf.Abs(Manager.rawInputMove.y));
             if (direction.x > 0)
             {
                 Manager.facingDirection = new Vector2Int(1, 0);
+                if (flashlight != Manager.flashlightNLP)
+                {
+                    flashlight.SetActive(false);
+                    flashlight = Manager.flashlightNLP;
+                    flashlight.SetActive(true);
+                }
+                flashlight.transform.parent.localPosition = new Vector3(0.129f, -0.008f, 0);
                 angle = -90;
             }
             else if (direction.x < 0)
             {
                 Manager.facingDirection = new Vector2Int(-1, 0);
+                if (flashlight != Manager.flashlightNLP)
+                {
+                    flashlight.SetActive(false);
+                    flashlight = Manager.flashlightNLP;
+                    flashlight.SetActive(true);
+                }
+                flashlight.transform.parent.localPosition = new Vector3(-0.139f, -0.01f, 0);
                 angle = 90;
             }
             else if (direction.y > 0)
             {
                 Manager.facingDirection = new Vector2Int(0, 1);
+                if (flashlight != Manager.flashlightNLP)
+                {
+                    flashlight.SetActive(false);
+                    flashlight = Manager.flashlightNLP;
+                    flashlight.SetActive(true);
+                }
+                flashlight.transform.parent.localPosition = new Vector3(0.102f, -0.051f, 0);
                 angle = 0;
             }
             else if (direction.y < 0)
             {
                 Manager.facingDirection = new Vector2Int(0, -1);
+                if (flashlight != Manager.flashlightLP)
+                {
+                    flashlight.SetActive(false);
+                    flashlight = Manager.flashlightLP;
+                    flashlight.SetActive(true);
+                }
+                flashlight.transform.parent.localPosition = new Vector3(-0.0732f, -0.0342f, 0);
                 angle = 180;
             }
-            Manager.flashlight.transform.rotation = Quaternion.Euler(0, 0, angle);
+            flashlight.transform.parent.rotation = Quaternion.Euler(0, 0, angle);
             Manager.animator.SetInteger("FACINGDIRECTIONX", Manager.facingDirection.x);
             Manager.animator.SetInteger("FACINGDIRECTIONY", Manager.facingDirection.y);
             yield return new WaitForFixedUpdate();

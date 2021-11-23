@@ -27,8 +27,8 @@ public class PMStateManager : MonoBehaviour
     public Vector2Int facingDirection;
     [System.NonSerialized] public Animator animator;
 
-    [System.NonSerialized] public GameObject flashlight;
-    [System.NonSerialized] public Rigidbody2D rbFlashlight;
+    [System.NonSerialized] public GameObject flashlightNLP;
+    [System.NonSerialized] public GameObject flashlightLP;
 
     [System.NonSerialized] public AudioSource audioData;
     [System.NonSerialized] public bool playingAudio;
@@ -54,13 +54,17 @@ public class PMStateManager : MonoBehaviour
     }
     void Start()
     {
-        flashlight = transform.Find("Flashlight").gameObject;
-        rbFlashlight = flashlight.GetComponent<Rigidbody2D>();
+        flashlightNLP = transform.Find("Flashlights").transform.Find("FlashlightNotLightPlayer").gameObject;
+        flashlightLP = transform.Find("Flashlights").transform.Find("FlashlightLightPlayer").gameObject;
         if (GameObject.Find("directorTime") != null) director = GameObject.Find("directorTime").GetComponent<PlayableDirector>();
-        Transform Light = GameObject.Find("controleLight").transform;
-        lightPresent = Light.Find("luzP").gameObject;
-        lightFuture = Light.Find("luzFGlobal").gameObject;
-        SwitchLight();
+        if (canTimeTravel)
+        {
+            Transform Light = GameObject.Find("controleLight").transform;
+            lightPresent = Light.Find("luzP").gameObject;
+            lightFuture = Light.Find("luzFGlobal").gameObject;
+            SwitchLight();
+        }
+        playerInventoryManager.inventory.AddItem(new Item { itemType = Item.ItemType.Flashlight, amount = 1, active = false });
         currentState = defaultState;
         currentState.EnterState(this);
     }

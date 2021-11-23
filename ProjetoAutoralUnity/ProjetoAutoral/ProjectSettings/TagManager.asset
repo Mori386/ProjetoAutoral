@@ -46,6 +46,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: TesteLayer
-    uniqueID: 3645319397
+  - name: LowerWall
+    uniqueID: 2133169539
+    locked: 0
+  - name: LowerPlayer
+    uniqueID: 1850504413
+    locked: 0
+  - name: Player
+    uniqueID: 3850711249
+    locked: 0
+  - name: UpperPlayer
+    uniqueID: 1588497137
+    locked: 0
+  - name: UpperWall
+    uniqueID: 3611107263
+    locked: 0
+  - name: UpperAll
+    uniqueID: 797387797
     locked: 0

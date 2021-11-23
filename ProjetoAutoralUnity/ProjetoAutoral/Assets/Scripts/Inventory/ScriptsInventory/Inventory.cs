@@ -76,22 +76,16 @@ public class Inventory
         switch (item.itemType)
         {
             case Item.ItemType.Flashlight:
-                if (item.isAged)
-                {
-
-                }
-                else
+                if (!item.isAged)
                 {
                     if (!item.active)
                     {
-                        //liga
-                        Debug.Log("Liga");
+                        playerInventoryManager.transform.Find("Flashlights").gameObject.SetActive(true);
                         item.active = true;
                     }
                     else
                     {
-                        //desliga
-                        Debug.Log("Desliga");
+                        playerInventoryManager.transform.Find("Flashlights").gameObject.SetActive(false);
                         item.active = false;
                     }
                 }
