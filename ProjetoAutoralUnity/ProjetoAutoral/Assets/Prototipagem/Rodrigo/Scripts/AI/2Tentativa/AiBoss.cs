@@ -17,9 +17,13 @@ public class AiBoss : MonoBehaviour
         positionToCenter = positionToCenter = GetComponent<CapsuleCollider2D>().bounds.center - transform.position;
         target = pathfindingV2.player.gameObject;
     }
-    private void Update()
+    private void FixedUpdate()
     {
-        if (vida == 1)
+        if (enragedDash == null && enragedChargeTime == null)
+        {
+            if (pathfindingV2.route.Count > 0 && followRoute == null) followRoute = StartCoroutine(FollowRoute());
+        }
+        else if (vida == 1)
         {
             if (enragedDash == null)
             {
@@ -27,27 +31,6 @@ public class AiBoss : MonoBehaviour
                 {
                     enragedChargeTime = StartCoroutine(EnragedChargeTime(pathfindingV2.chargeTime));
                 }
-            }
-        }
-        else if (enragedDash == null)
-        {
-            if (enragedChargeTime != null)
-            {
-                if (Input.GetKeyUp(KeyCode.Tab))
-                {
-                    StopCoroutine(enragedChargeTime);
-                    enragedChargeTime = null;
-                }
-            }
-            else
-            {
-                if (Input.GetKeyDown(KeyCode.Tab))
-                {
-                    StopCoroutine(followRoute);
-                    followRoute = null;
-                    enragedChargeTime = StartCoroutine(EnragedChargeTime(pathfindingV2.chargeTime));
-                }
-                else if (pathfindingV2.route.Count > 0 && followRoute == null) followRoute = StartCoroutine(FollowRoute());
             }
         }
     }
@@ -140,6 +123,19 @@ public class AiBoss : MonoBehaviour
                 attackingPlayer = true;
                 Debug.Log("Bate No Player");
             }
+            else if (collision.name == "Flashlights")
+            {
+                if (enragedDash == null)
+                {
+                    if (enragedChargeTime == null)
+                    {
+                        Debug.Log("LuzOn");
+                        StopCoroutine(followRoute);
+                        followRoute = null;
+                        enragedChargeTime = StartCoroutine(EnragedChargeTime(pathfindingV2.chargeTime));
+                    }
+                }
+            }
         }
     }
     private void StopAndStun(float stunDuration)
@@ -156,6 +152,18 @@ public class AiBoss : MonoBehaviour
         if (collision.CompareTag("Player") && enragedDash == null)
         {
             attackingPlayer = false;
+        }
+        else if (collision.name == "Flashlights")
+        {
+            if (enragedDash == null)
+            {
+                if (enragedChargeTime != null)
+                {
+                    Debug.Log("LuzOff");
+                    StopCoroutine(enragedChargeTime);
+                    enragedChargeTime = null;
+                }
+            }
         }
     }
 }

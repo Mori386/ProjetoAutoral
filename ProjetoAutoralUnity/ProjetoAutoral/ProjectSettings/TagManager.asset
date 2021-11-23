@@ -46,6 +46,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: LowerAll
+    uniqueID: 3328993411
+    locked: 0
   - name: LowerWall
     uniqueID: 2133169539
     locked: 0

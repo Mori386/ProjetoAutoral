@@ -24,11 +24,11 @@ public class SmartLayer : MonoBehaviour
         {
             if (player.position.y > transform.position.y + deltaPivotToCenter.y)
             {
-                spriteRenderer.sortingOrder = 3;
+                spriteRenderer.sortingLayerName = "UpperPlayer";
             }
             else
             {
-                spriteRenderer.sortingOrder = 1;
+                spriteRenderer.sortingLayerName = "LowerPlayer";
             }
             yield return new WaitForSeconds(0.05f);
         }

@@ -25,7 +25,7 @@ public class LightsNear : MonoBehaviour
         yield return new WaitForFixedUpdate();
         while (true)
         {
-            if (Vector2.Distance(player.position, transform.position) > 6)
+            if (Vector2.Distance(player.position, transform.position) > light2D.pointLightOuterRadius+4)
             {
                 light2D.enabled = false;
                 switchLightOn = null;
@@ -41,7 +41,7 @@ public class LightsNear : MonoBehaviour
         yield return new WaitForFixedUpdate();
         while (true)
         {
-            if (Vector2.Distance(player.position, transform.position) < 6)
+            if (Vector2.Distance(player.position, transform.position) < light2D.pointLightOuterRadius + 4)
             {
                 light2D.enabled = true;
                 switchLightOff = null;
