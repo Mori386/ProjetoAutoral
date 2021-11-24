@@ -42,8 +42,6 @@ public class PathfindingV2 : MonoBehaviour
 
     public float moveSpeed;
 
-    public float chargeTime;
-
     public float dashSpeed;
 
     NodeInfo futureNode;
@@ -52,7 +50,9 @@ public class PathfindingV2 : MonoBehaviour
 
     public GameObject pedraPf;
 
-    public bool found = false;
+    [System.NonSerialized] public bool found = false;
+
+    [System.NonSerialized] public bool search=true;
     private void OnDrawGizmos()
     {
         if (showGizmosOnPlay)
@@ -83,7 +83,7 @@ public class PathfindingV2 : MonoBehaviour
     {
         if (EnemyType == enemyType.Boss)
         {
-            aiBoss = gameObject.AddComponent<AiBoss>();
+            aiBoss = GetComponent<AiBoss>();
         }
         wallNodes = new List<NodeInfo>();
         route = new List<NodeInfo>();
@@ -100,60 +100,66 @@ public class PathfindingV2 : MonoBehaviour
         tilemapPointZero = tilemap.GetCellCenterWorld(tilemap.origin);
         playercc = player.GetComponent<CapsuleCollider2D>();
         DefineDirectionPriorty(playercc.bounds.center);
+        nowSearchingForGrid = MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, cc.bounds.center);
         pathCheckRunning[0] = StartCoroutine(PathCheck(new NodeInfo() { gridPosition = MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, cc.bounds.center), cameFromNode = null }, playercc.bounds.center, 0, false));
     }
+    [System.NonSerialized] public Vector2 nowSearchingForGrid;
     private void Update()
     {
-        //se mudar
-        if (route.Count != 0)
+        if (MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, cc.bounds.center) != nowSearchingForGrid && search)
         {
-            if (found && route[route.Count - 1].gridPosition != MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, playercc.bounds.center))
+            if (route.Count != 0)
             {
-                NodeInfo nearestNode = new NodeInfo() { distanceFromFinalPosition = Mathf.Infinity };
-                int positionInRoute = 0;
-                foreach (NodeInfo routeNode in route)
+                if (found && route[route.Count - 1].gridPosition != MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, playercc.bounds.center))
                 {
-                    Vector3 deltaPos = playercc.bounds.center - MathMethods.GridToWorld(tilemapPointZero, routeNode.gridPosition, tilemap.cellSize);
-                    routeNode.distanceFromFinalPosition = Mathf.Abs(deltaPos.x) + Mathf.Abs(deltaPos.y);
-                }
-                for (int i = 0; i < route.Count; i++)
-                {
-                    if (route[i].distanceFromFinalPosition < nearestNode.distanceFromFinalPosition)
+                    NodeInfo nearestNode = new NodeInfo() { distanceFromFinalPosition = Mathf.Infinity };
+                    int positionInRoute = 0;
+                    foreach (NodeInfo routeNode in route)
                     {
-                        nearestNode = route[i];
-                        positionInRoute = i;
+                        Vector3 deltaPos = playercc.bounds.center - MathMethods.GridToWorld(tilemapPointZero, routeNode.gridPosition, tilemap.cellSize);
+                        routeNode.distanceFromFinalPosition = Mathf.Abs(deltaPos.x) + Mathf.Abs(deltaPos.y);
                     }
-                    else if (route[i].distanceFromFinalPosition == nearestNode.distanceFromFinalPosition)
+                    for (int i = 0; i < route.Count; i++)
                     {
-                        if (route[i].nodesToGetThere < nearestNode.nodesToGetThere)
+                        if (route[i].distanceFromFinalPosition < nearestNode.distanceFromFinalPosition)
                         {
                             nearestNode = route[i];
                             positionInRoute = i;
                         }
-                        else if (route[i].nodesToGetThere == nearestNode.nodesToGetThere)
+                        else if (route[i].distanceFromFinalPosition == nearestNode.distanceFromFinalPosition)
                         {
-                            if (route[i].GetHashCode() < nearestNode.GetHashCode())
+                            if (route[i].nodesToGetThere < nearestNode.nodesToGetThere)
                             {
                                 nearestNode = route[i];
                                 positionInRoute = i;
                             }
+                            else if (route[i].nodesToGetThere == nearestNode.nodesToGetThere)
+                            {
+                                if (route[i].GetHashCode() < nearestNode.GetHashCode())
+                                {
+                                    nearestNode = route[i];
+                                    positionInRoute = i;
+                                }
+                            }
                         }
                     }
+                    int nodesNeededToBeRemoved = route.Count - positionInRoute;
+                    for (int i = 0; i < nodesNeededToBeRemoved; i++)
+                    {
+                        route.Remove(route[positionInRoute]);
+                    }
+                    found = false;
+                    nowSearchingForGrid = MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, cc.bounds.center);
+                    pathCheckRunning[0] = StartCoroutine(PathCheck(new NodeInfo() { gridPosition = nearestNode.gridPosition, cameFromNode = null }, playercc.bounds.center, nearestNode.nodesToGetThere, false));
                 }
-                int nodesNeededToBeRemoved = route.Count - positionInRoute;
-                for (int i = 0; i < nodesNeededToBeRemoved; i++)
-                {
-                    route.Remove(route[positionInRoute]);
-                }
-                found = false;
-                pathCheckRunning[0] = StartCoroutine(PathCheck(new NodeInfo() { gridPosition = nearestNode.gridPosition, cameFromNode = null }, playercc.bounds.center, nearestNode.nodesToGetThere, false));
             }
-        }
-        else if (!aiBoss.attackingPlayer)
-        {
-            found = false;
-            DefineDirectionPriorty(playercc.bounds.center);
-            pathCheckRunning[0] = StartCoroutine(PathCheck(new NodeInfo() { gridPosition = MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, cc.bounds.center), cameFromNode = null }, playercc.bounds.center, 0, false));
+            else
+            {
+                found = false;
+                DefineDirectionPriorty(playercc.bounds.center);
+                nowSearchingForGrid = MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, cc.bounds.center);
+                pathCheckRunning[0] = StartCoroutine(PathCheck(new NodeInfo() { gridPosition = MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, cc.bounds.center), cameFromNode = null }, playercc.bounds.center, 0, false));
+            }
         }
     }
     public IEnumerator PathCheck(NodeInfo nodeToStart, Vector3 finalPoint, int startNodesRoutesInt, bool secondCheck)
@@ -175,7 +181,7 @@ public class PathfindingV2 : MonoBehaviour
             foreach (Directions direction in directionSearchOrder)
             {
                 Vector3 nextNodeDistanceFromFinalPoint;
-                RaycastHit2D raycastHit2D;
+                RaycastHit2D[] raycastHit2D;
                 bool cancelThisDirectionSearch = false;
                 switch (direction)
                 {
@@ -198,25 +204,45 @@ public class PathfindingV2 : MonoBehaviour
                             }
                         }
                         if (cancelThisDirectionSearch) continue;
-                        raycastHit2D = Physics2D.BoxCast(MathMethods.GridToWorld(tilemapPointZero, thisNode.gridPosition + new Vector2(0, 1), tilemap.cellSize),
+                        raycastHit2D = Physics2D.BoxCastAll(MathMethods.GridToWorld(tilemapPointZero, thisNode.gridPosition + new Vector2(0, 1), tilemap.cellSize),
                             new Vector3(0.25f, 0.25f),
                             0f,
                             new Vector2(0, 0),
                             Mathf.Infinity,
                             collideWithLayer);
-                        if (!raycastHit2D || raycastHit2D.collider.isTrigger)
+                        if(raycastHit2D.Length==0)
                         {
                             nextNodeDistanceFromFinalPoint = finalPoint - MathMethods.GridToWorld(tilemapPointZero, thisNode.gridPosition + new Vector2(0, 1), tilemap.cellSize);
                             nodeQueue.Add(new NodeInfo() { cameFromNode = thisNode, gridPosition = thisNode.gridPosition + new Vector2(0, 1), nodesToGetThere = nodeRoutesToGetThere + 1, distanceFromFinalPosition = Mathf.Abs(nextNodeDistanceFromFinalPoint.x) + Mathf.Abs(nextNodeDistanceFromFinalPoint.y) });
                         }
-                        else if (raycastHit2D.collider.gameObject.layer == LayerMask.NameToLayer("Wall"))
+                        else
                         {
-                            wallNodes.Add(new NodeInfo() { gridPosition = thisNode.gridPosition + new Vector2(0, 1) });
-                        }
-                        else if (raycastHit2D.collider.gameObject.layer == LayerMask.NameToLayer("Objects") && MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, finalPoint) == thisNode.gridPosition + new Vector2(0, 1))
-                        {
-                            FoundRoute(nodeToCheck, secondCheck);
-                            yield break;
+                            bool trigger=true;
+                            foreach (RaycastHit2D raycastHit in raycastHit2D)
+                            {
+                                if (!raycastHit.collider.isTrigger) trigger = false;
+                            }
+                            if (trigger)
+                            {
+                                nextNodeDistanceFromFinalPoint = finalPoint - MathMethods.GridToWorld(tilemapPointZero, thisNode.gridPosition + new Vector2(0, 1), tilemap.cellSize);
+                                nodeQueue.Add(new NodeInfo() { cameFromNode = thisNode, gridPosition = thisNode.gridPosition + new Vector2(0, 1), nodesToGetThere = nodeRoutesToGetThere + 1, distanceFromFinalPosition = Mathf.Abs(nextNodeDistanceFromFinalPoint.x) + Mathf.Abs(nextNodeDistanceFromFinalPoint.y) });
+                            }
+                            else
+                            {
+                                foreach (RaycastHit2D raycastHit in raycastHit2D)
+                                {
+                                    if (raycastHit.collider.gameObject.layer == LayerMask.NameToLayer("Wall"))
+                                    {
+                                        wallNodes.Add(new NodeInfo() { gridPosition = thisNode.gridPosition + new Vector2(0, 1) });
+                                        break;
+                                    }
+                                    else if (raycastHit.collider.gameObject.layer == LayerMask.NameToLayer("Objects") && MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, finalPoint) == thisNode.gridPosition + new Vector2(0, 1))
+                                    {
+                                        FoundRoute(nodeToCheck, secondCheck);
+                                        yield break;
+                                    }
+                                }
+                            }
                         }
                         break;
                     case Directions.bottom:
@@ -238,25 +264,45 @@ public class PathfindingV2 : MonoBehaviour
                             }
                         }
                         if (cancelThisDirectionSearch) continue;
-                        raycastHit2D = Physics2D.BoxCast(MathMethods.GridToWorld(tilemapPointZero, thisNode.gridPosition + new Vector2(0, -1), tilemap.cellSize),
+                        raycastHit2D = Physics2D.BoxCastAll(MathMethods.GridToWorld(tilemapPointZero, thisNode.gridPosition + new Vector2(0, -1), tilemap.cellSize),
                             new Vector3(0.25f, 0.25f),
                             0f,
                             new Vector2(0, 0),
                             Mathf.Infinity,
                             collideWithLayer);
-                        if (!raycastHit2D || raycastHit2D.collider.isTrigger)
+                        if (raycastHit2D.Length == 0)
                         {
                             nextNodeDistanceFromFinalPoint = finalPoint - MathMethods.GridToWorld(tilemapPointZero, thisNode.gridPosition + new Vector2(0, -1), tilemap.cellSize);
                             nodeQueue.Add(new NodeInfo() { cameFromNode = thisNode, gridPosition = thisNode.gridPosition + new Vector2(0, -1), nodesToGetThere = nodeRoutesToGetThere + 1, distanceFromFinalPosition = Mathf.Abs(nextNodeDistanceFromFinalPoint.x) + Mathf.Abs(nextNodeDistanceFromFinalPoint.y) });
                         }
-                        else if (raycastHit2D.collider.gameObject.layer == LayerMask.NameToLayer("Wall"))
+                        else
                         {
-                            wallNodes.Add(new NodeInfo() { gridPosition = thisNode.gridPosition + new Vector2(0, -1) });
-                        }
-                        else if (raycastHit2D.collider.gameObject.layer == LayerMask.NameToLayer("Objects") && MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, finalPoint) == thisNode.gridPosition + new Vector2(0, -1))
-                        {
-                            FoundRoute(nodeToCheck, secondCheck);
-                            yield break;
+                            bool trigger = true;
+                            foreach (RaycastHit2D raycastHit in raycastHit2D)
+                            {
+                                if (!raycastHit.collider.isTrigger) trigger = false;
+                            }
+                            if (trigger)
+                            {
+                                nextNodeDistanceFromFinalPoint = finalPoint - MathMethods.GridToWorld(tilemapPointZero, thisNode.gridPosition + new Vector2(0, -1), tilemap.cellSize);
+                                nodeQueue.Add(new NodeInfo() { cameFromNode = thisNode, gridPosition = thisNode.gridPosition + new Vector2(0, -1), nodesToGetThere = nodeRoutesToGetThere + 1, distanceFromFinalPosition = Mathf.Abs(nextNodeDistanceFromFinalPoint.x) + Mathf.Abs(nextNodeDistanceFromFinalPoint.y) });
+                            }
+                            else
+                            {
+                                foreach (RaycastHit2D raycastHit in raycastHit2D)
+                                {
+                                    if (raycastHit.collider.gameObject.layer == LayerMask.NameToLayer("Wall"))
+                                    {
+                                        wallNodes.Add(new NodeInfo() { gridPosition = thisNode.gridPosition + new Vector2(0, -1) });
+                                        break;
+                                    }
+                                    else if (raycastHit.collider.gameObject.layer == LayerMask.NameToLayer("Objects") && MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, finalPoint) == thisNode.gridPosition + new Vector2(0, -1))
+                                    {
+                                        FoundRoute(nodeToCheck, secondCheck);
+                                        yield break;
+                                    }
+                                }
+                            }
                         }
                         break;
                     case Directions.left:
@@ -278,25 +324,45 @@ public class PathfindingV2 : MonoBehaviour
                             }
                         }
                         if (cancelThisDirectionSearch) continue;
-                        raycastHit2D = Physics2D.BoxCast(MathMethods.GridToWorld(tilemapPointZero, thisNode.gridPosition + new Vector2(-1, 0), tilemap.cellSize),
+                        raycastHit2D = Physics2D.BoxCastAll(MathMethods.GridToWorld(tilemapPointZero, thisNode.gridPosition + new Vector2(-1, 0), tilemap.cellSize),
                             new Vector3(0.25f, 0.25f),
                             0f,
                             new Vector2(0, 0),
                             Mathf.Infinity,
                             collideWithLayer);
-                        if (!raycastHit2D || raycastHit2D.collider.isTrigger)
+                        if (raycastHit2D.Length == 0)
                         {
                             nextNodeDistanceFromFinalPoint = finalPoint - MathMethods.GridToWorld(tilemapPointZero, thisNode.gridPosition + new Vector2(-1, 0), tilemap.cellSize);
                             nodeQueue.Add(new NodeInfo() { cameFromNode = thisNode, gridPosition = thisNode.gridPosition + new Vector2(-1, 0), nodesToGetThere = nodeRoutesToGetThere + 1, distanceFromFinalPosition = Mathf.Abs(nextNodeDistanceFromFinalPoint.x) + Mathf.Abs(nextNodeDistanceFromFinalPoint.y) });
                         }
-                        else if (raycastHit2D.collider.gameObject.layer == LayerMask.NameToLayer("Wall"))
+                        else
                         {
-                            wallNodes.Add(new NodeInfo() { gridPosition = thisNode.gridPosition + new Vector2(-1, 0) });
-                        }
-                        else if (raycastHit2D.collider.gameObject.layer == LayerMask.NameToLayer("Objects") && MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, finalPoint) == thisNode.gridPosition + new Vector2(-1, 0))
-                        {
-                            FoundRoute(nodeToCheck, secondCheck);
-                            yield break;
+                            bool trigger = true;
+                            foreach (RaycastHit2D raycastHit in raycastHit2D)
+                            {
+                                if (!raycastHit.collider.isTrigger) trigger = false;
+                            }
+                            if (trigger)
+                            {
+                                nextNodeDistanceFromFinalPoint = finalPoint - MathMethods.GridToWorld(tilemapPointZero, thisNode.gridPosition + new Vector2(-1, 0), tilemap.cellSize);
+                                nodeQueue.Add(new NodeInfo() { cameFromNode = thisNode, gridPosition = thisNode.gridPosition + new Vector2(-1, 0), nodesToGetThere = nodeRoutesToGetThere + 1, distanceFromFinalPosition = Mathf.Abs(nextNodeDistanceFromFinalPoint.x) + Mathf.Abs(nextNodeDistanceFromFinalPoint.y) });
+                            }
+                            else
+                            {
+                                foreach (RaycastHit2D raycastHit in raycastHit2D)
+                                {
+                                    if (raycastHit.collider.gameObject.layer == LayerMask.NameToLayer("Wall"))
+                                    {
+                                        wallNodes.Add(new NodeInfo() { gridPosition = thisNode.gridPosition + new Vector2(-1, 0) });
+                                        break;
+                                    }
+                                    else if (raycastHit.collider.gameObject.layer == LayerMask.NameToLayer("Objects") && MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, finalPoint) == thisNode.gridPosition + new Vector2(-1, 0))
+                                    {
+                                        FoundRoute(nodeToCheck, secondCheck);
+                                        yield break;
+                                    }
+                                }
+                            }
                         }
                         break;
                     case Directions.right:
@@ -318,25 +384,45 @@ public class PathfindingV2 : MonoBehaviour
                             }
                         }
                         if (cancelThisDirectionSearch) continue;
-                        raycastHit2D = Physics2D.BoxCast(MathMethods.GridToWorld(tilemapPointZero, thisNode.gridPosition + new Vector2(1, 0), tilemap.cellSize),
+                        raycastHit2D = Physics2D.BoxCastAll(MathMethods.GridToWorld(tilemapPointZero, thisNode.gridPosition + new Vector2(1, 0), tilemap.cellSize),
                             new Vector3(0.25f, 0.25f),
                             0f,
                             new Vector2(0, 0),
                             Mathf.Infinity,
                             collideWithLayer);
-                        if (!raycastHit2D || raycastHit2D.collider.isTrigger)
+                        if (raycastHit2D.Length == 0)
                         {
                             nextNodeDistanceFromFinalPoint = finalPoint - MathMethods.GridToWorld(tilemapPointZero, thisNode.gridPosition + new Vector2(1, 0), tilemap.cellSize);
                             nodeQueue.Add(new NodeInfo() { cameFromNode = thisNode, gridPosition = thisNode.gridPosition + new Vector2(1, 0), nodesToGetThere = nodeRoutesToGetThere + 1, distanceFromFinalPosition = Mathf.Abs(nextNodeDistanceFromFinalPoint.x) + Mathf.Abs(nextNodeDistanceFromFinalPoint.y) });
                         }
-                        else if (raycastHit2D.collider.gameObject.layer == LayerMask.NameToLayer("Wall"))
+                        else
                         {
-                            wallNodes.Add(new NodeInfo() { gridPosition = thisNode.gridPosition + new Vector2(1, 0) });
-                        }
-                        else if (raycastHit2D.collider.gameObject.layer == LayerMask.NameToLayer("Objects") && MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, finalPoint) == thisNode.gridPosition + new Vector2(1, 0))
-                        {
-                            FoundRoute(nodeToCheck, secondCheck);
-                            yield break;
+                            bool trigger = true;
+                            foreach (RaycastHit2D raycastHit in raycastHit2D)
+                            {
+                                if (!raycastHit.collider.isTrigger) trigger = false;
+                            }
+                            if (trigger)
+                            {
+                                nextNodeDistanceFromFinalPoint = finalPoint - MathMethods.GridToWorld(tilemapPointZero, thisNode.gridPosition + new Vector2(1, 0), tilemap.cellSize);
+                                nodeQueue.Add(new NodeInfo() { cameFromNode = thisNode, gridPosition = thisNode.gridPosition + new Vector2(1, 0), nodesToGetThere = nodeRoutesToGetThere + 1, distanceFromFinalPosition = Mathf.Abs(nextNodeDistanceFromFinalPoint.x) + Mathf.Abs(nextNodeDistanceFromFinalPoint.y) });
+                            }
+                            else
+                            {
+                                foreach (RaycastHit2D raycastHit in raycastHit2D)
+                                {
+                                    if (raycastHit.collider.gameObject.layer == LayerMask.NameToLayer("Wall"))
+                                    {
+                                        wallNodes.Add(new NodeInfo() { gridPosition = thisNode.gridPosition + new Vector2(1, 0) });
+                                        break;
+                                    }
+                                    else if (raycastHit.collider.gameObject.layer == LayerMask.NameToLayer("Objects") && MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, finalPoint) == thisNode.gridPosition + new Vector2(1, 0))
+                                    {
+                                        FoundRoute(nodeToCheck, secondCheck);
+                                        yield break;
+                                    }
+                                }
+                            }
                         }
                         break;
                 }
@@ -351,7 +437,7 @@ public class PathfindingV2 : MonoBehaviour
             }
         }
     }
-    private void FoundRoute(NodeInfo nodeToCheck,bool secondCheck)
+    private void FoundRoute(NodeInfo nodeToCheck, bool secondCheck)
     {
         NodeInfo nodeInfo;
         nodeInfo = nodeToCheck;
@@ -412,8 +498,12 @@ public class PathfindingV2 : MonoBehaviour
     {
         foreach (Coroutine coroutine in pathCheckRunning)
         {
-            if (coroutine != null) StopCoroutine(coroutine);
+            if (coroutine != null)
+            {
+                StopCoroutine(coroutine);
+            }
         }
+        pathCheckRunning = new Coroutine[2];
     }
     List<NodeInfo> clearRepeatedNodes(List<NodeInfo> nodeQueueList)
     {

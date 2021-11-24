@@ -6,7 +6,7 @@ public class ObjectDestroyable : MonoBehaviour
 {
     public Sprite destroyedSprite;
     public bool disableAllTriggerColliders;
-    private SpriteRenderer spriteRenderer;
+    [System.NonSerialized] public SpriteRenderer spriteRenderer;
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -14,5 +14,14 @@ public class ObjectDestroyable : MonoBehaviour
     public void ChangeSprite()
     {
         spriteRenderer.sprite = destroyedSprite;
+        Destroy(this);
+    }
+    private void OnDestroy()
+    {
+        WhenObjectDestroyedItemGoDown whenObjectDestroyedItemGo = GetComponent<WhenObjectDestroyedItemGoDown>();
+        if (whenObjectDestroyedItemGo != null)
+        {
+            whenObjectDestroyedItemGo.consequence();
+        }
     }
 }

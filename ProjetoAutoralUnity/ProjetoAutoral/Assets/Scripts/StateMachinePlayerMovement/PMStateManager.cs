@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class PMStateManager : MonoBehaviour
 {
+    public static PMStateManager Instance { get; private set; }
     public enum timePeriodList
     {
         Present, Future
@@ -40,6 +41,7 @@ public class PMStateManager : MonoBehaviour
     [System.NonSerialized] public GameObject lightPresent, lightFuture;
     private void Awake()
     {
+        Instance = this;
         facingDirection = new Vector2Int(0, 1);
         tilemapFuturo = GameObject.Find("TilemapFuturo");
         tilemapPresente = GameObject.Find("TilemapPresente");
@@ -160,8 +162,39 @@ public class PMStateManager : MonoBehaviour
                 break;
         }
     }
+    public IEnumerator InvincibilityTimer(float time)
+    {
+        OnInvincibilityTimer = true;
+        float timer = 0;
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        while (timer < time)
+        {
+            spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 0.7f+(timer/time*0.3f));
+            timer += Time.fixedDeltaTime;
+            yield return new WaitForFixedUpdate();
+        }
+        spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 255);
+        OnInvincibilityTimer = false;
+    }
+    bool OnInvincibilityTimer;
+    public void TakeDamage(int amountDamage)
+    {
+        if (!OnInvincibilityTimer)
+        {
+            hp -= amountDamage;
+            if (hp <= 0)
+            {
+                //morre 
+                //por hora
+                hp = Mathf.RoundToInt(hpSlider.maxValue);
+            }
+            UpdateHealthBar();
+            StartCoroutine(InvincibilityTimer(2));
+        }
+    }
     public void UpdateHealthBar()
     {
-        hpSlider.value = hp;
+        if (hp >= 0) hpSlider.value = hp;
+        else hpSlider.value = 0;
     }
 }

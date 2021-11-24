@@ -10,6 +10,7 @@ public class ItemWorld : MonoBehaviour
         Transform transform = Instantiate(ItemAssets.Instance.pfItemWorld, position, Quaternion.identity);
         ItemWorld itemWorld = transform.GetComponent<ItemWorld>();
         itemWorld.SetItem(item);
+        itemWorld.name = item.getItemName(item.itemType,item.isAged);
         return itemWorld;
     }
     public static ItemWorld DropItem(Item item, PMStateManager player)

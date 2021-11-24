@@ -105,8 +105,8 @@ public class ResultsDataBase : MonoBehaviour
             case "GrampoPrivada":
                 player.playerInventoryManager.inventory.AddItem(new Item { itemType = Item.ItemType.HairClip, amount = 1 });
                 player.playerInventoryManager.uiInventory.SetInventory(player.playerInventoryManager.inventory);
-                break;
                 MenuConfigs.Instance.PuzzleStep = 2;
+                break;
             case "Bau":
                 player.playerInventoryManager.inventory.AddItem(new Item { itemType = Item.ItemType.LoginPass, amount = 1 });
                 player.playerInventoryManager.uiInventory.SetInventory(player.playerInventoryManager.inventory);
@@ -133,14 +133,19 @@ public class ResultsDataBase : MonoBehaviour
                 break;
             #endregion
             case "fogoSofa":
-                AiBoss aiBoss = GameObject.Find("Boss").GetComponent<AiBoss>();
+                AiBoss aiBoss = AiBoss.Instance;
+                player.transform.Find("Flashlights").GetComponent<PolygonCollider2D>().enabled = false;
                 aiBoss.target = manager.gameObject;
-                aiBoss.StopCoroutine(aiBoss.followRoute);
+                if(aiBoss.followRoute!=null)aiBoss.StopCoroutine(aiBoss.followRoute);
                 aiBoss.followRoute = null;
-                aiBoss.enragedChargeTime = aiBoss.StartCoroutine(aiBoss.EnragedChargeTime(2));
+                aiBoss.enragedCharging = true;
+                aiBoss.animator.SetTrigger("Preparation");
                 manager.transform.Find("ParticleEmissorSmoke").GetComponent<ParticleSystem>().Play();
                 manager.transform.Find("fogoMovel").GetComponent<Animator>().SetBool("onFire", true);
                 manager.transform.Find("fogoMovel2").GetComponent<Animator>().SetBool("onFire", true);
+                Transform FireLight2D = manager.transform.Find("FireLight2D");
+                FireLight2D.gameObject.SetActive(true);
+                FireLight2D.GetComponent<FireLight2D>().StartCoroutine(FireLight2D.GetComponent<FireLight2D>().LightIntensityWave());
                 break;
         }
     }
