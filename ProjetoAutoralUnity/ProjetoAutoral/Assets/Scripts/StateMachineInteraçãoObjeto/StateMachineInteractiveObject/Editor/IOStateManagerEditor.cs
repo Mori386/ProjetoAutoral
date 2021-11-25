@@ -8,6 +8,7 @@ public class EditorGUIPropertyField : Editor
     private bool foldOutTextBoxOnDisabledSuccessiveInteract;
     private bool foldOutTextBoxOnSuccessiveInteraction;
     private bool foldOutTextBoxOnFailedInteraction;
+    private bool foldOutAudio;
     public override void OnInspectorGUI()
     {
         IOStateManager iOStateManager = (IOStateManager)target;
@@ -39,6 +40,23 @@ public class EditorGUIPropertyField : Editor
                 if (foldOutTextBoxOnFailedInteraction)
                 {
                     iOStateManager.textBoxOnFailedInteraction = EditorGUILayout.TextArea(iOStateManager.textBoxOnFailedInteraction, myTextAreaStyle);
+                }
+            }
+            iOStateManager.playAudio = EditorGUILayout.Toggle("Play Audio", iOStateManager.playAudio);
+            if (iOStateManager.playAudio)
+            {
+                if (iOStateManager.GetComponent<AudioSource>() == null)
+                {
+                    iOStateManager.audioSource = iOStateManager.gameObject.AddComponent<AudioSource>();
+                    iOStateManager.audioSource.playOnAwake = false;
+                }
+                foldOutAudio = EditorGUILayout.Foldout(foldOutAudio, "Audio Configs", true);
+                if (foldOutAudio)
+                {
+                    SerializedProperty serializedPropertyAudioSource = serializedObject.FindProperty("audioSource");
+                    EditorGUILayout.PropertyField(serializedPropertyAudioSource);
+                    SerializedProperty serializedPropertyAudioClip = serializedObject.FindProperty("audioClip");
+                    EditorGUILayout.PropertyField(serializedPropertyAudioClip);
                 }
             }
         }

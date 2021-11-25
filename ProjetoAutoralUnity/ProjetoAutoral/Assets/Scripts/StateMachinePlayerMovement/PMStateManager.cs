@@ -31,12 +31,38 @@ public class PMStateManager : MonoBehaviour
     [System.NonSerialized] public GameObject flashlightNLP;
     [System.NonSerialized] public GameObject flashlightLP;
 
-    [System.NonSerialized] public AudioSource audioData;
-    [System.NonSerialized] public bool playingAudio;
-    [System.NonSerialized] public PlayableDirector director;
-    [System.NonSerialized] public bool endedAnimation;
     [Header("Interactions")]
     public bool canTimeTravel;
+
+
+    [Header("Audio Source")]
+    public AudioSource audioSourceWalk;
+    public AudioSource audioSourceOneShot;
+
+
+    [Header("FLashlight Audio Clip")]
+    public AudioClip audioClipFlashlightOn;
+    public AudioClip audioClipFlashlightOff;
+
+    [Header("Player Take Damage Audio Clip")]
+    public AudioClip audioClipPlayerTakeDamage;
+
+    [Header("Walking Audio Clip")]
+    public AudioClip audioClipStep1;
+    public AudioClip audioClipStep2;
+    public AudioClip audioClipStep3;
+    public AudioClip audioClipStep4;
+    public AudioClip audioClipStep5;
+    public AudioClip audioClipStep6;
+    public AudioClip audioClipStep7;
+    public AudioClip audioClipStep8;
+    public AudioClip audioClipStep9;
+    public AudioClip audioClipStep10;
+
+    [System.NonSerialized] public PlayableDirector director;
+    [System.NonSerialized] public bool endedAnimation;
+
+
     //Lights
     [System.NonSerialized] public GameObject lightPresent, lightFuture;
     private void Awake()
@@ -48,7 +74,6 @@ public class PMStateManager : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerInventoryManager = GetComponent<PlayerInventoryManager>();
         animator = GetComponent<Animator>();
-        audioData = GetComponent<AudioSource>();
         hpSlider = GameObject.Find("HealthSlidderControler").GetComponent<Slider>();
         hpSlider.maxValue = hp;
         hpSlider.value = hpSlider.maxValue;
@@ -176,7 +201,7 @@ public class PMStateManager : MonoBehaviour
         spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 255);
         OnInvincibilityTimer = false;
     }
-    bool OnInvincibilityTimer;
+    [System.NonSerialized] bool OnInvincibilityTimer;
     public void TakeDamage(int amountDamage)
     {
         if (!OnInvincibilityTimer)
@@ -189,6 +214,7 @@ public class PMStateManager : MonoBehaviour
                 hp = Mathf.RoundToInt(hpSlider.maxValue);
             }
             UpdateHealthBar();
+            audioSourceOneShot.PlayOneShot(audioClipPlayerTakeDamage);
             StartCoroutine(InvincibilityTimer(2));
         }
     }

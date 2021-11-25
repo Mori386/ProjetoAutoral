@@ -25,11 +25,15 @@ public class IOStateManager : MonoBehaviour
     public TextMeshProUGUI textBox;
     public GameObject ui;
 
+    public bool playAudio;
+    public AudioSource audioSource;
+    public AudioClip audioClip;
+
     public string onSuccessiveInteractionConsequence;
     private void Start()
     {
         currentState = defaultState;
-        textBox = GameObject.Find("Canvas").transform.Find("TextBox").transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        textBox = GameObject.Find("Canvas").transform.Find("TextBox").transform.Find("Text").GetComponent<TextMeshProUGUI>();
         ui = GameObject.Find("Canvas").transform.Find("UiInventory").gameObject;
         currentState.EnterState(this);
     }

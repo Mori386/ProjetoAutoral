@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class IODefaultState : IOBaseState
 {
@@ -42,6 +43,11 @@ public class IODefaultState : IOBaseState
         coroutineIsRunning = true;
         bool successive = false;
         while (!Input.GetKeyDown(MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.Interaction])) yield return null;
+        if (Manager.playAudio)
+        {
+            Manager.audioSource.clip = Manager.audioClip;
+            Manager.audioSource.Play();
+        }
         PMStateManager Player = collision.GetComponent<PMStateManager>();
         if (Manager.textBox.text != "")  Player.SmoothSwitchState(Player.controlOffState);
         if (Manager.canSuccessiveInteract)
@@ -129,6 +135,12 @@ public class IODefaultState : IOBaseState
         }
         if (Manager.textBox.text != "")
         {
+            Manager.textBox.transform.parent.Find("QG").gameObject.SetActive(false);
+            //Manager.textBox.transform.parent.Find("QG").gameObject.SetActive(true);
+            Manager.textBox.margin = new Vector4(0, 0, 0, 0);
+            //Manager.textBox.margin = new Vector4(129, 0, 0, 0);
+            //Transform transform = Manager.textBox.transform.parent.Find("QG").Find("Image");
+            //qgAnimation = Manager.StartCoroutine(QGAnimation(transform.GetComponent<TextBoxAnimations>(), transform.GetComponent<Image>(), Player.timePeriod));
             Manager.textBox.pageToDisplay = 1;
             Manager.ui.SetActive(false);
             TextBoxDefineEnabled(Manager, true);
@@ -151,6 +163,11 @@ public class IODefaultState : IOBaseState
         }
         if (Manager.textBox.text != "")
         {
+            if (qgAnimation != null)
+            {
+                Manager.StopCoroutine(qgAnimation);
+                qgAnimation = null;
+            }
             Manager.ui.SetActive(true);
             TextBoxDefineEnabled(Manager, false);
             Player.SmoothSwitchState(Player.defaultState);
@@ -176,6 +193,108 @@ public class IODefaultState : IOBaseState
 
     }
     Coroutine coroutineRestarter;
+    private Coroutine qgAnimation;
+    private IEnumerator QGAnimation(TextBoxAnimations textBoxAnimations,Image image,PMStateManager.timePeriodList timePeriod)
+    {
+        int i = 0;
+        switch(timePeriod)
+        {
+            case PMStateManager.timePeriodList.Present:
+                while (true)
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            image.sprite = textBoxAnimations.QGP_0;
+                            break;                             
+                        case 1:                                
+                            image.sprite = textBoxAnimations.QGP_1;
+                            break;                             
+                        case 2:                                
+                            image.sprite = textBoxAnimations.QGP_2;
+                            break;                             
+                        case 3:                                
+                            image.sprite = textBoxAnimations.QGP_3;
+                            break;                             
+                        case 4:                                
+                            image.sprite = textBoxAnimations.QGP_4;
+                            break;                            
+                        case 5:                                
+                            image.sprite = textBoxAnimations.QGP_5;
+                            break;                             
+                        case 6:                                
+                            image.sprite = textBoxAnimations.QGP_6;
+                            break;                             
+                        case 7:                                
+                            image.sprite = textBoxAnimations.QGP_7;
+                            break;                             
+                        case 8:                                
+                            image.sprite = textBoxAnimations.QGP_8;
+                            break;                             
+                        case 9:                                
+                            image.sprite = textBoxAnimations.QGP_9;
+                            break;                            
+                        case 10:                               
+                            image.sprite = textBoxAnimations.QGP_10;
+                            break;                             
+                        case 11:                               
+                            image.sprite = textBoxAnimations.QGP_11;
+                            break;
+                    }
+                    i++;
+                    if (i >= 11) i = 0;
+                    yield return new WaitForSecondsRealtime(0.1f);
+                }
+                break;
+            case PMStateManager.timePeriodList.Future:
+                while (true)
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            image.sprite = textBoxAnimations.QGF_0;
+                            break;
+                        case 1:
+                            image.sprite = textBoxAnimations.QGF_1;
+                            break;
+                        case 2:
+                            image.sprite = textBoxAnimations.QGF_2;
+                            break;
+                        case 3:
+                            image.sprite = textBoxAnimations.QGF_3;
+                            break;
+                        case 4:
+                            image.sprite = textBoxAnimations.QGF_4;
+                            break;
+                        case 5:
+                            image.sprite = textBoxAnimations.QGF_5;
+                            break;
+                        case 6:
+                            image.sprite = textBoxAnimations.QGF_6;
+                            break;
+                        case 7:
+                            image.sprite = textBoxAnimations.QGF_7;
+                            break;
+                        case 8:
+                            image.sprite = textBoxAnimations.QGF_8;
+                            break;
+                        case 9:
+                            image.sprite = textBoxAnimations.QGF_9;
+                            break;
+                        case 10:
+                            image.sprite = textBoxAnimations.QGF_10;
+                            break;
+                        case 11:
+                            image.sprite = textBoxAnimations.QGF_11;
+                            break;
+                    }
+                    i++;
+                    if (i >= 11) i = 0;
+                    yield return new WaitForSecondsRealtime(0.1f);
+                }
+                break;
+        }
+    }
     IEnumerator ifStayOnTrigger(IOStateManager Manager, Collider2D collision)
     {
         yield return new WaitForSecondsRealtime(1);

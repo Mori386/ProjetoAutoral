@@ -101,6 +101,11 @@ public class MOStateMovableTriggered : MovableObjectBaseState
             playerMov.endedAnimation = false;
         }
         Vector3 finalPositon = startPos + deltaPosition;
+        if (Manager.playAudio)
+        {
+            Manager.audioSource.clip = Manager.audioClip;
+            Manager.audioSource.Play();
+        }
         while (
             new Vector3(Mathf.Round(Manager.transform.position.x * 100) / 100, Mathf.Round(Manager.transform.position.y * 100) / 100) != new Vector3(Mathf.Round(finalPositon.x * 100) / 100, Mathf.Round(finalPositon.y * 100) / 100)
             )
@@ -108,6 +113,10 @@ public class MOStateMovableTriggered : MovableObjectBaseState
             if (MovePlayerTogether) playerMov.transform.position += deltaPosition / 20;
             Manager.transform.position += deltaPosition / 20;
             yield return new WaitForSeconds(0.01f);
+        }
+        if (Manager.playAudio)
+        {
+            Manager.audioSource.Stop();
         }
         playerMov.animator.SetBool("PULLOBJECTMIDEND", true);
         Manager.GetComponent<GridPosition>().gridTilemapPosition += deltaGridPosition;

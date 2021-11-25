@@ -13,6 +13,10 @@ public class MovableObjectStateManager : MonoBehaviour
     public MOStateMovableTriggered triggeredState = new MOStateMovableTriggered();
     public MOStateNotMovable notMovableState = new MOStateNotMovable();
 
+    public bool playAudio;
+    public AudioSource audioSource;
+    public AudioClip audioClip;
+
     private void OnDrawGizmos()
     {
         //currentState.GizmosState(this);

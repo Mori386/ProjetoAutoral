@@ -282,26 +282,38 @@ public class PMDefaultState : PMBaseState
         if (regulatedDirection.x != 0 || regulatedDirection.y != 0)
         {
             Manager.animator.SetBool("MOVING", true);
-            if (Manager.audioData != null)
+            if (!Manager.audioSourceWalk.isPlaying)
             {
-                if (!Manager.playingAudio)
+                switch (Random.Range(1, 10))
                 {
-                    Manager.playingAudio = true;
-                    Manager.audioData.Play(0);
+                    case 1:Manager.audioSourceWalk.clip = Manager.audioClipStep1;
+                        break;
+                    case 2:Manager.audioSourceWalk.clip = Manager.audioClipStep2;
+                        break;
+                    case 3:Manager.audioSourceWalk.clip = Manager.audioClipStep3;
+                        break;
+                    case 4:Manager.audioSourceWalk.clip = Manager.audioClipStep4;
+                        break;
+                    case 5:Manager.audioSourceWalk.clip = Manager.audioClipStep5;
+                        break;
+                    case 6:Manager.audioSourceWalk.clip = Manager.audioClipStep6;
+                        break;
+                    case 7:Manager.audioSourceWalk.clip = Manager.audioClipStep7;
+                        break;
+                    case 8:Manager.audioSourceWalk.clip = Manager.audioClipStep8;
+                        break;
+                    case 9:Manager.audioSourceWalk.clip = Manager.audioClipStep9;
+                        break;
+                    case 10:Manager.audioSourceWalk.clip = Manager.audioClipStep10;
+                        break;
+
                 }
+                Manager.audioSourceWalk.Play();
             }
         }
         else
         {
             Manager.animator.SetBool("MOVING", false);
-            if (Manager.audioData != null)
-            {
-                if (Manager.playingAudio)
-                {
-                    Manager.playingAudio = false;
-                    Manager.audioData.Stop();
-                }
-            }
         }
         Manager.rb.MovePosition(Manager.rb.position + regulatedDirection * Manager.moveSpeed * Time.fixedDeltaTime);
     }

@@ -1,0 +1,45 @@
+fileFormatVersion: 2
+guid: 9363d2a5df4abf74398635cb37254e0e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - QGF_0: {fileID: 6286687339532620854, guid: deebb0cfd99aa2f4ebbc0e19cca257a9, type: 3}
+  - QGF_1: {fileID: 5750923796665800855, guid: deebb0cfd99aa2f4ebbc0e19cca257a9, type: 3}
+  - QGF_2: {fileID: -710453145805474153, guid: deebb0cfd99aa2f4ebbc0e19cca257a9, type: 3}
+  - QGF_3: {fileID: 1484901322876301831, guid: deebb0cfd99aa2f4ebbc0e19cca257a9, type: 3}
+  - QGF_4: {fileID: 4575985794349346022, guid: deebb0cfd99aa2f4ebbc0e19cca257a9, type: 3}
+  - QGF_5: {fileID: -1137242574168215689, guid: deebb0cfd99aa2f4ebbc0e19cca257a9,
+      type: 3}
+  - QGF_6: {fileID: 4840286491817479343, guid: deebb0cfd99aa2f4ebbc0e19cca257a9, type: 3}
+  - QGF_7: {fileID: 4763937381111288837, guid: deebb0cfd99aa2f4ebbc0e19cca257a9, type: 3}
+  - QGF_8: {fileID: -5820863340101025539, guid: deebb0cfd99aa2f4ebbc0e19cca257a9,
+      type: 3}
+  - QGF_9: {fileID: 4384959240329837448, guid: deebb0cfd99aa2f4ebbc0e19cca257a9, type: 3}
+  - QGF_10: {fileID: 3988638021086897619, guid: deebb0cfd99aa2f4ebbc0e19cca257a9,
+      type: 3}
+  - QGF_11: {fileID: 4412203937370023653, guid: deebb0cfd99aa2f4ebbc0e19cca257a9,
+      type: 3}
+  - QGP_0: {fileID: 2692115994812245919, guid: 18a102b4719f8a44bbda73a28dc95982, type: 3}
+  - QGP_1: {fileID: 6132484619974346034, guid: 18a102b4719f8a44bbda73a28dc95982, type: 3}
+  - QGP_2: {fileID: 6350869126851568740, guid: 18a102b4719f8a44bbda73a28dc95982, type: 3}
+  - QGP_3: {fileID: -6567676929384101314, guid: 18a102b4719f8a44bbda73a28dc95982,
+      type: 3}
+  - QGP_4: {fileID: 2670840425590604807, guid: 18a102b4719f8a44bbda73a28dc95982, type: 3}
+  - QGP_5: {fileID: 6068902325376274625, guid: 18a102b4719f8a44bbda73a28dc95982, type: 3}
+  - QGP_6: {fileID: -3257469953612033295, guid: 18a102b4719f8a44bbda73a28dc95982,
+      type: 3}
+  - QGP_7: {fileID: -3285369740099100644, guid: 18a102b4719f8a44bbda73a28dc95982,
+      type: 3}
+  - QGP_8: {fileID: 4407664081308305863, guid: 18a102b4719f8a44bbda73a28dc95982, type: 3}
+  - QGP_9: {fileID: -8994167903262711036, guid: 18a102b4719f8a44bbda73a28dc95982,
+      type: 3}
+  - QGP_10: {fileID: 9031200741748356198, guid: 18a102b4719f8a44bbda73a28dc95982,
+      type: 3}
+  - QGP_11: {fileID: -1158987696295358310, guid: 18a102b4719f8a44bbda73a28dc95982,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

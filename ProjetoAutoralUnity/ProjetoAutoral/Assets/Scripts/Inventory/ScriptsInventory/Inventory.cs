@@ -80,11 +80,13 @@ public class Inventory
                 {
                     if (!item.active)
                     {
+                        PMStateManager.Instance.audioSourceOneShot.PlayOneShot(PMStateManager.Instance.audioClipFlashlightOn);
                         playerInventoryManager.transform.Find("Flashlights").gameObject.SetActive(true);
                         item.active = true;
                     }
                     else
                     {
+                        PMStateManager.Instance.audioSourceOneShot.PlayOneShot(PMStateManager.Instance.audioClipFlashlightOff);
                         playerInventoryManager.transform.Find("Flashlights").gameObject.SetActive(false);
                         item.active = false;
                     }
