@@ -25,6 +25,7 @@ public class AiBoss : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        gameObject.SetActive(false);
     }
     private void Start()
     {
