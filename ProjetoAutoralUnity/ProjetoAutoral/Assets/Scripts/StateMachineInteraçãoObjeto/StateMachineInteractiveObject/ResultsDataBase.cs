@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class ResultsDataBase : MonoBehaviour
 {
@@ -130,6 +131,7 @@ public class ResultsDataBase : MonoBehaviour
             case "ExitPuzzle3Future":
                 manager.gameObject.GetComponent<SpriteRenderer>().sprite = DoorSprite.Instance.doorFrontFutureOpen;
                 manager.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                manager.gameObject.GetComponent<PlayableDirector>().Play();
                 break;
             #endregion
             case "fogoSofa":
