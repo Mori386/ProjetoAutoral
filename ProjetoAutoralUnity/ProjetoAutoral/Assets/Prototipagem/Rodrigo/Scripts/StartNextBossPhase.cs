@@ -21,13 +21,12 @@ public class StartNextBossPhase : MonoBehaviour
                     AiBoss.Instance.gameObject.GetComponent<SpriteRenderer>().enabled = true;
                     AiBoss.Instance.gameObject.GetComponent<BoxCollider2D>().enabled = true;
                     AiBoss.Instance.gameObject.GetComponent<CapsuleCollider2D>().enabled = true;
-                    AiBoss.Instance.On1HpEnable();
+                    director.Play();
                     break;
                 case 2:
                 case 3:
                 case 4:
                     director.Play();
-                    Debug.Log("Trigger" + (AiBoss.Instance.vida));
                     break; 
             }
         }
