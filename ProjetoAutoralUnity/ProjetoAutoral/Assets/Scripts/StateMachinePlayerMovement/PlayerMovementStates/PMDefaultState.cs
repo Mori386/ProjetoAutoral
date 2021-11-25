@@ -127,6 +127,164 @@ public class PMDefaultState : PMBaseState
             }
             Manager.flashlightLP.transform.parent.rotation = Quaternion.Euler(0, 0, angle);
         }
+        if (Input.GetKeyDown(MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.Radio]))
+        {
+            if(MenuConfigs.Instance.Puzzle != 4) Manager.StartCoroutine(TextBoxQG(Manager));
+        }
+    }
+    private IEnumerator TextBoxQG(PMStateManager Manager)
+    {
+        Manager.SmoothSwitchState(Manager.controlOffState);
+        Manager.textBox.transform.parent.Find("QG").gameObject.SetActive(true);
+        Manager.textBox.margin = new Vector4(129, 0, 0, 0);
+        Transform transform = Manager.textBox.transform.parent.Find("QG").Find("Image");
+        qgAnimation = Manager.StartCoroutine(QGAnimation(transform.GetComponent<TextBoxAnimations>(), transform.GetComponent<Image>(), Manager.timePeriod));
+        Manager.textBox.pageToDisplay = 1;
+        Manager.ui.SetActive(false);
+        Manager.textBox.transform.parent.gameObject.SetActive(true);
+        Time.timeScale = 0;
+        if (Manager.timePeriod == PMStateManager.timePeriodList.Present)
+        {
+            switch (MenuConfigs.Instance.Puzzle)
+            {
+                case 1:
+                    Manager.textBox.text = controleQG.puzzle1QG(MenuConfigs.Instance.PuzzleStep);
+                    break;
+                case 2:
+                    Manager.textBox.text = controleQG.puzzle2QG(MenuConfigs.Instance.PuzzleStep);
+                    break;
+                case 3:
+                    Manager.textBox.text = controleQG.puzzle3QG(MenuConfigs.Instance.PuzzleStep);
+                    break;
+            }
+        }
+        else
+        {
+            Manager.textBox.text = controleQG.FailQG();
+        }
+        while (Manager.textBox.textInfo.pageCount == 0)
+        {
+            yield return null;
+        }
+        yield return new WaitForSecondsRealtime(0.1f);
+        while (Manager.textBox.textInfo.pageCount - Manager.textBox.pageToDisplay >= 0)
+        {
+            while (!Input.GetKeyDown(MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.Interaction])) yield return null;
+            Manager.textBox.pageToDisplay++;
+            yield return null;
+        }
+        if (qgAnimation != null)
+        {
+            Manager.StopCoroutine(qgAnimation);
+            qgAnimation = null;
+        }
+        Manager.ui.SetActive(true);
+        Manager.textBox.transform.parent.gameObject.SetActive(false);
+        Manager.SmoothSwitchState(Manager.defaultState);
+        Time.timeScale = 1;
+        Manager.textBox.text = "";
+    }
+    private Coroutine qgAnimation;
+    private IEnumerator QGAnimation(TextBoxAnimations textBoxAnimations, Image image, PMStateManager.timePeriodList timePeriod)
+    {
+        int i = 0;
+        switch (timePeriod)
+        {
+            case PMStateManager.timePeriodList.Present:
+                while (true)
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            image.sprite = textBoxAnimations.QGP_0;
+                            break;
+                        case 1:
+                            image.sprite = textBoxAnimations.QGP_1;
+                            break;
+                        case 2:
+                            image.sprite = textBoxAnimations.QGP_2;
+                            break;
+                        case 3:
+                            image.sprite = textBoxAnimations.QGP_3;
+                            break;
+                        case 4:
+                            image.sprite = textBoxAnimations.QGP_4;
+                            break;
+                        case 5:
+                            image.sprite = textBoxAnimations.QGP_5;
+                            break;
+                        case 6:
+                            image.sprite = textBoxAnimations.QGP_6;
+                            break;
+                        case 7:
+                            image.sprite = textBoxAnimations.QGP_7;
+                            break;
+                        case 8:
+                            image.sprite = textBoxAnimations.QGP_8;
+                            break;
+                        case 9:
+                            image.sprite = textBoxAnimations.QGP_9;
+                            break;
+                        case 10:
+                            image.sprite = textBoxAnimations.QGP_10;
+                            break;
+                        case 11:
+                            image.sprite = textBoxAnimations.QGP_11;
+                            break;
+                    }
+                    i++;
+                    if (i >= 11) i = 0;
+                    yield return new WaitForSecondsRealtime(0.1f);
+                }
+                break;
+            case PMStateManager.timePeriodList.Future:
+                while (true)
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            image.sprite = textBoxAnimations.QGF_0;
+                            break;
+                        case 1:
+                            image.sprite = textBoxAnimations.QGF_1;
+                            break;
+                        case 2:
+                            image.sprite = textBoxAnimations.QGF_2;
+                            break;
+                        case 3:
+                            image.sprite = textBoxAnimations.QGF_3;
+                            break;
+                        case 4:
+                            image.sprite = textBoxAnimations.QGF_4;
+                            break;
+                        case 5:
+                            image.sprite = textBoxAnimations.QGF_5;
+                            break;
+                        case 6:
+                            image.sprite = textBoxAnimations.QGF_6;
+                            break;
+                        case 7:
+                            image.sprite = textBoxAnimations.QGF_7;
+                            break;
+                        case 8:
+                            image.sprite = textBoxAnimations.QGF_8;
+                            break;
+                        case 9:
+                            image.sprite = textBoxAnimations.QGF_9;
+                            break;
+                        case 10:
+                            image.sprite = textBoxAnimations.QGF_10;
+                            break;
+                        case 11:
+                            image.sprite = textBoxAnimations.QGF_11;
+                            break;
+                    }
+                    i++;
+                    if (i >= 11) i = 0;
+                    yield return new WaitForSecondsRealtime(0.1f);
+                }
+                break;
+        }
     }
     float angle;
     private Coroutine focusOnCursorOn;
@@ -286,25 +444,35 @@ public class PMDefaultState : PMBaseState
             {
                 switch (Random.Range(1, 10))
                 {
-                    case 1:Manager.audioSourceWalk.clip = Manager.audioClipStep1;
+                    case 1:
+                        Manager.audioSourceWalk.clip = Manager.audioClipStep1;
                         break;
-                    case 2:Manager.audioSourceWalk.clip = Manager.audioClipStep2;
+                    case 2:
+                        Manager.audioSourceWalk.clip = Manager.audioClipStep2;
                         break;
-                    case 3:Manager.audioSourceWalk.clip = Manager.audioClipStep3;
+                    case 3:
+                        Manager.audioSourceWalk.clip = Manager.audioClipStep3;
                         break;
-                    case 4:Manager.audioSourceWalk.clip = Manager.audioClipStep4;
+                    case 4:
+                        Manager.audioSourceWalk.clip = Manager.audioClipStep4;
                         break;
-                    case 5:Manager.audioSourceWalk.clip = Manager.audioClipStep5;
+                    case 5:
+                        Manager.audioSourceWalk.clip = Manager.audioClipStep5;
                         break;
-                    case 6:Manager.audioSourceWalk.clip = Manager.audioClipStep6;
+                    case 6:
+                        Manager.audioSourceWalk.clip = Manager.audioClipStep6;
                         break;
-                    case 7:Manager.audioSourceWalk.clip = Manager.audioClipStep7;
+                    case 7:
+                        Manager.audioSourceWalk.clip = Manager.audioClipStep7;
                         break;
-                    case 8:Manager.audioSourceWalk.clip = Manager.audioClipStep8;
+                    case 8:
+                        Manager.audioSourceWalk.clip = Manager.audioClipStep8;
                         break;
-                    case 9:Manager.audioSourceWalk.clip = Manager.audioClipStep9;
+                    case 9:
+                        Manager.audioSourceWalk.clip = Manager.audioClipStep9;
                         break;
-                    case 10:Manager.audioSourceWalk.clip = Manager.audioClipStep10;
+                    case 10:
+                        Manager.audioSourceWalk.clip = Manager.audioClipStep10;
                         break;
 
                 }

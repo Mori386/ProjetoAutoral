@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.Playables;
@@ -62,9 +63,13 @@ public class PMStateManager : MonoBehaviour
     [System.NonSerialized] public PlayableDirector director;
     [System.NonSerialized] public bool endedAnimation;
 
+    [System.NonSerialized] public TextMeshProUGUI textBox;
 
     //Lights
     [System.NonSerialized] public GameObject lightPresent, lightFuture;
+
+    public GameObject ui;
+
     private void Awake()
     {
         Instance = this;
@@ -91,6 +96,8 @@ public class PMStateManager : MonoBehaviour
             lightFuture = Light.Find("luzFGlobal").gameObject;
             SwitchLight();
         }
+        ui = GameObject.Find("Canvas").transform.Find("UiInventory").gameObject;
+        textBox = GameObject.Find("Canvas").transform.Find("TextBox").transform.Find("Text").GetComponent<TextMeshProUGUI>();
         playerInventoryManager.inventory.AddItem(new Item { itemType = Item.ItemType.Flashlight, amount = 1, active = false });
         currentState = defaultState;
         currentState.EnterState(this);

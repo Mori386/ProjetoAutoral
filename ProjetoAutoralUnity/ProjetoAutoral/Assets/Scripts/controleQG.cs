@@ -6,6 +6,10 @@ public class controleQG : MonoBehaviour
 {
     // Start is called before the first frame update
     
+    public static string FailQG()
+    {
+        return "fail";
+    }
     public static string puzzle1QG(int intParte)
     {
         switch(intParte)

@@ -11,7 +11,7 @@ public class MenuConfigs : MonoBehaviour
     [System.NonSerialized] public KeyCode[] InputKeys = new KeyCode[14];
 
     public int Puzzle;
-    [System.NonSerialized] public int PuzzleStep;
+    [System.NonSerialized] public int PuzzleStep = 2;
     private void Awake()
     {
         InputKeys[0] = KeyCode.Escape;
@@ -31,7 +31,7 @@ public class MenuConfigs : MonoBehaviour
         if (Instance == null) Instance = this;
         else
         {
-            Instance.PuzzleStep = 0;
+            Instance.PuzzleStep = 2;
             Instance.Puzzle = Puzzle;
             Destroy(gameObject);
         }
