@@ -37,6 +37,10 @@ public class MenuScript : MonoBehaviour
         controlsMenu.SetActive(true);
         waitForInput = StartCoroutine(WaitForInput(MenuConfigs.Action.Menu, ExitControls));
     }
+    public void Exit()
+    {
+        Application.Quit();
+    }
     public void OnChangeInput(int actionKeyID)
     {
         controlsButtons.SetActive(false);

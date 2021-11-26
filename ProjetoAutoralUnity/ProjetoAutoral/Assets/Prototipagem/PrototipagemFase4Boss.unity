@@ -2447,7 +2447,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7783883, y: 1}
+    m_SensorSize: {x: 1.7775768, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -10616,7 +10616,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7783883, y: 1}
+    m_SensorSize: {x: 1.7775768, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -50232,6 +50232,7 @@ GameObject:
   - component: {fileID: 2117980264}
   - component: {fileID: 2117980263}
   - component: {fileID: 2117980262}
+  - component: {fileID: 2117980265}
   m_Layer: 0
   m_Name: EnemyLuz
   m_TagString: Untagged
@@ -50320,6 +50321,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2117980265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117980261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd8ab0646c5ef6c439197f3ed6c3d9ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyType: 1
+  player: {fileID: 751575558}
+  playercc: {fileID: 751575559}
+  tilemap: {fileID: 1591163135}
+  collideWithLayer:
+    serializedVersion: 2
+    m_Bits: 8704
+  moveSpeed: 1
+  dashSpeed: 0
+  pedraPf: {fileID: 0}
 --- !u!1 &2118394199
 GameObject:
   m_ObjectHideFlags: 0

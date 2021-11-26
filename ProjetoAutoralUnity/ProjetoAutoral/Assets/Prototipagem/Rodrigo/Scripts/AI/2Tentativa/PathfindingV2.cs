@@ -9,10 +9,11 @@ public class PathfindingV2 : MonoBehaviour
     bool showGizmosOnPlay;
     private enum enemyType
     {
-        Boss, Enemy01
+        Boss, EnemyLight
     }
     [SerializeField] private enemyType EnemyType;
     AiBoss aiBoss;
+    AIEnemyLight aiEnemyLight;
 
     //Componentes
     [System.NonSerialized] public CapsuleCollider2D cc;
@@ -84,6 +85,10 @@ public class PathfindingV2 : MonoBehaviour
         if (EnemyType == enemyType.Boss)
         {
             aiBoss = GetComponent<AiBoss>();
+        }
+        else if (EnemyType == enemyType.EnemyLight)
+        {
+            aiEnemyLight = GetComponent<AIEnemyLight>();
         }
         wallNodes = new List<NodeInfo>();
         route = new List<NodeInfo>();
