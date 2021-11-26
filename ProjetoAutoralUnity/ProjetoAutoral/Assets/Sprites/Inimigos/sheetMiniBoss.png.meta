@@ -162,10 +162,10 @@ TextureImporter:
       name: sheetMiniBoss_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 351
-        width: 96
-        height: 117
+        x: 23
+        y: 402
+        width: 49
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,10 +183,10 @@ TextureImporter:
       name: sheetMiniBoss_1
       rect:
         serializedVersion: 2
-        x: 96
-        y: 351
-        width: 96
-        height: 117
+        x: 120
+        y: 403
+        width: 48
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,10 +204,10 @@ TextureImporter:
       name: sheetMiniBoss_2
       rect:
         serializedVersion: 2
-        x: 192
-        y: 351
-        width: 96
-        height: 117
+        x: 217
+        y: 403
+        width: 44
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -225,10 +225,10 @@ TextureImporter:
       name: sheetMiniBoss_3
       rect:
         serializedVersion: 2
-        x: 288
-        y: 351
-        width: 96
-        height: 117
+        x: 311
+        y: 403
+        width: 48
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -246,10 +246,10 @@ TextureImporter:
       name: sheetMiniBoss_4
       rect:
         serializedVersion: 2
-        x: 384
-        y: 351
-        width: 96
-        height: 117
+        x: 407
+        y: 402
+        width: 53
+        height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -267,10 +267,10 @@ TextureImporter:
       name: sheetMiniBoss_5
       rect:
         serializedVersion: 2
-        x: 480
-        y: 351
-        width: 96
-        height: 117
+        x: 501
+        y: 403
+        width: 52
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -288,10 +288,10 @@ TextureImporter:
       name: sheetMiniBoss_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 234
-        width: 96
-        height: 117
+        x: 22
+        y: 287
+        width: 49
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -309,10 +309,10 @@ TextureImporter:
       name: sheetMiniBoss_7
       rect:
         serializedVersion: 2
-        x: 96
-        y: 234
-        width: 96
-        height: 117
+        x: 119
+        y: 285
+        width: 49
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -330,10 +330,10 @@ TextureImporter:
       name: sheetMiniBoss_8
       rect:
         serializedVersion: 2
-        x: 192
-        y: 234
-        width: 96
-        height: 117
+        x: 215
+        y: 285
+        width: 49
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -351,10 +351,10 @@ TextureImporter:
       name: sheetMiniBoss_9
       rect:
         serializedVersion: 2
-        x: 288
-        y: 234
-        width: 96
-        height: 117
+        x: 311
+        y: 285
+        width: 49
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -372,10 +372,10 @@ TextureImporter:
       name: sheetMiniBoss_10
       rect:
         serializedVersion: 2
-        x: 384
-        y: 234
-        width: 96
-        height: 117
+        x: 407
+        y: 282
+        width: 49
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -393,10 +393,10 @@ TextureImporter:
       name: sheetMiniBoss_11
       rect:
         serializedVersion: 2
-        x: 480
-        y: 234
-        width: 96
-        height: 117
+        x: 503
+        y: 287
+        width: 49
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -414,10 +414,10 @@ TextureImporter:
       name: sheetMiniBoss_12
       rect:
         serializedVersion: 2
-        x: 0
-        y: 117
-        width: 96
-        height: 117
+        x: 23
+        y: 163
+        width: 49
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -435,10 +435,10 @@ TextureImporter:
       name: sheetMiniBoss_13
       rect:
         serializedVersion: 2
-        x: 96
-        y: 117
-        width: 96
-        height: 117
+        x: 119
+        y: 166
+        width: 49
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -456,10 +456,10 @@ TextureImporter:
       name: sheetMiniBoss_14
       rect:
         serializedVersion: 2
-        x: 192
-        y: 117
-        width: 96
-        height: 117
+        x: 213
+        y: 167
+        width: 52
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -477,10 +477,10 @@ TextureImporter:
       name: sheetMiniBoss_15
       rect:
         serializedVersion: 2
-        x: 288
-        y: 117
-        width: 96
-        height: 117
+        x: 313
+        y: 171
+        width: 44
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -498,10 +498,10 @@ TextureImporter:
       name: sheetMiniBoss_16
       rect:
         serializedVersion: 2
-        x: 384
-        y: 117
-        width: 96
-        height: 117
+        x: 407
+        y: 168
+        width: 49
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -519,10 +519,10 @@ TextureImporter:
       name: sheetMiniBoss_17
       rect:
         serializedVersion: 2
-        x: 480
-        y: 117
-        width: 96
-        height: 117
+        x: 503
+        y: 168
+        width: 49
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -540,10 +540,10 @@ TextureImporter:
       name: sheetMiniBoss_18
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 96
-        height: 117
+        x: 23
+        y: 51
+        width: 49
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -561,10 +561,10 @@ TextureImporter:
       name: sheetMiniBoss_19
       rect:
         serializedVersion: 2
-        x: 96
-        y: 0
-        width: 96
-        height: 117
+        x: 119
+        y: 51
+        width: 49
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -582,10 +582,10 @@ TextureImporter:
       name: sheetMiniBoss_20
       rect:
         serializedVersion: 2
-        x: 192
-        y: 0
-        width: 96
-        height: 117
+        x: 224
+        y: 43
+        width: 31
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -603,10 +603,10 @@ TextureImporter:
       name: sheetMiniBoss_21
       rect:
         serializedVersion: 2
-        x: 288
-        y: 0
-        width: 96
-        height: 117
+        x: 316
+        y: 47
+        width: 39
+        height: 57
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -624,10 +624,10 @@ TextureImporter:
       name: sheetMiniBoss_22
       rect:
         serializedVersion: 2
-        x: 384
-        y: 0
-        width: 96
-        height: 117
+        x: 410
+        y: 46
+        width: 42
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -645,10 +645,10 @@ TextureImporter:
       name: sheetMiniBoss_23
       rect:
         serializedVersion: 2
-        x: 480
-        y: 0
-        width: 96
-        height: 117
+        x: 506
+        y: 46
+        width: 42
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

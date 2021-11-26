@@ -296,6 +296,17 @@ public class AiBoss : MonoBehaviour
             }
         }
     }
+    private IEnumerator delayStartPathfinding()
+    {
+        yield return new WaitForSeconds(0.1f);
+        pathfindingV2.found = false;
+        pathfindingV2.route = new List<NodeInfo>();
+        pathfindingV2.StopAllPathCheck();
+        pathfindingV2.nowSearchingForGrid = MathMethods.WorldToGrid(pathfindingV2.tilemapPointZero, pathfindingV2.tilemap.cellSize, pathfindingV2.cc.bounds.center);
+        pathfindingV2.pathCheckRunning[0] = pathfindingV2.StartCoroutine(pathfindingV2.PathCheck(new NodeInfo() { gridPosition = MathMethods.WorldToGrid(pathfindingV2.tilemapPointZero, pathfindingV2.tilemap.cellSize, pathfindingV2.cc.bounds.center), cameFromNode = null }, pathfindingV2.playercc.bounds.center, 0, false));
+        pathfindingV2.search = true;
+        followRoute = null;
+    }
     private void StopAndStun(float stunDuration)
     {
         StopCoroutine(enragedDash);

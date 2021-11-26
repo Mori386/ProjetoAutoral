@@ -52,7 +52,7 @@ public class PathfindingV2 : MonoBehaviour
 
     [System.NonSerialized] public bool found = false;
 
-    [System.NonSerialized] public bool search=true;
+    [System.NonSerialized] public bool search = true;
     private void OnDrawGizmos()
     {
         if (showGizmosOnPlay)
@@ -210,14 +210,14 @@ public class PathfindingV2 : MonoBehaviour
                             new Vector2(0, 0),
                             Mathf.Infinity,
                             collideWithLayer);
-                        if(raycastHit2D.Length==0)
+                        if (raycastHit2D.Length == 0)
                         {
                             nextNodeDistanceFromFinalPoint = finalPoint - MathMethods.GridToWorld(tilemapPointZero, thisNode.gridPosition + new Vector2(0, 1), tilemap.cellSize);
                             nodeQueue.Add(new NodeInfo() { cameFromNode = thisNode, gridPosition = thisNode.gridPosition + new Vector2(0, 1), nodesToGetThere = nodeRoutesToGetThere + 1, distanceFromFinalPosition = Mathf.Abs(nextNodeDistanceFromFinalPoint.x) + Mathf.Abs(nextNodeDistanceFromFinalPoint.y) });
                         }
                         else
                         {
-                            bool trigger=true;
+                            bool trigger = true;
                             foreach (RaycastHit2D raycastHit in raycastHit2D)
                             {
                                 if (!raycastHit.collider.isTrigger) trigger = false;

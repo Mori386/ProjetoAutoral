@@ -12,7 +12,7 @@ public class HitBoxMeleeBoss : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") & AiBoss.Instance.enragedDash == null)
         {
             if(AiBoss.Instance.followRoute != null) AiBoss.Instance.StopCoroutine(AiBoss.Instance.followRoute);
             meleeCheck = StartCoroutine(MeleeCheck());
@@ -21,7 +21,7 @@ public class HitBoxMeleeBoss : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") & AiBoss.Instance.enragedDash == null)
         {
             if (meleeCheck != null) StopCoroutine(meleeCheck);
             StartCoroutine(WaitForLastAttack());
