@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -461,7 +461,7 @@ MonoBehaviour:
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 0
   textBoxOnSuccessiveInteraction: '"Inside one of the cabinet drawers, I found a
-    box of toothpicks, that might help me open something."'
+    box of toothpicks that might help me open something."'
   textBoxOnFailedInteraction: 
   textBox: {fileID: 0}
   ui: {fileID: 0}
@@ -1632,11 +1632,10 @@ MonoBehaviour:
     isAged: 0
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 1
-  textBoxOnSuccessiveInteraction: '"Using the hairpin and the box of toothpicks,
-    I was able to open the trunk and found something that appears to be a memory
-    card....."'
-  textBoxOnFailedInteraction: '"If I don''t have the key to the trunk, I''m going
-    to have to find another way to open that lock."'
+  textBoxOnSuccessiveInteraction: '"Using the hairclip and a toothpick, I was able
+    to open the chest, and found something that appears to be a memory card."'
+  textBoxOnFailedInteraction: '"If I can''t find the key to the chest, I''ll have
+    to find another way to open that lock."'
   textBox: {fileID: 0}
   ui: {fileID: 0}
   playAudio: 1
@@ -3490,10 +3489,10 @@ MonoBehaviour:
     isAged: 0
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 1
-  textBoxOnSuccessiveInteraction: '"Exploring the computer files, I found a notepad
-    with a password for - A secret place in my room".'
-  textBoxOnFailedInteraction: '"The computer is on, but something like a memory card
-    is missing".'
+  textBoxOnSuccessiveInteraction: '"Searching through the memory card, I found a
+    notepad with a password for ''A secret place in my room''."'
+  textBoxOnFailedInteraction: '"The computer is on. There is a memory card slot,
+    which migh be of use".'
   textBox: {fileID: 0}
   ui: {fileID: 0}
   playAudio: 1
@@ -8594,7 +8593,7 @@ MonoBehaviour:
     by screws".'
   textBox: {fileID: 0}
   ui: {fileID: 0}
-  playAudio: 1
+  playAudio: 0
   audioSource: {fileID: 495047922}
   audioClip: {fileID: 8300000, guid: f6e27a18815f3c24a8c749bcc1cc6be6, type: 3}
   onSuccessiveInteractionConsequence: ExitPuzzle3Present
@@ -9374,9 +9373,6 @@ GameObject:
   m_Component:
   - component: {fileID: 556965819}
   - component: {fileID: 556965827}
-  - component: {fileID: 556965826}
-  - component: {fileID: 556965823}
-  - component: {fileID: 556965822}
   - component: {fileID: 556965821}
   - component: {fileID: 556965820}
   m_Layer: 0
@@ -9447,71 +9443,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.17766869, y: 0.53426474}
   m_EdgeRadius: 0
---- !u!61 &556965822
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 556965818}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.40179268, y: 0.070419565}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 2.44, y: 0.25}
-    oldSize: {x: 0.24, y: 0.59}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.09973365, y: 0.09257863}
-  m_EdgeRadius: 0
---- !u!61 &556965823
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 556965818}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.36529505, y: 0.15927616}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 2.44, y: 0.25}
-    oldSize: {x: 0.24, y: 0.59}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.18065819, y: 0.27601767}
-  m_EdgeRadius: 0
---- !u!114 &556965826
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 556965818}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c0f5688193ec2248a70643849cfa8e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timePeriod: 1
 --- !u!212 &556965827
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10390,7 +10321,7 @@ MonoBehaviour:
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 0
   textBoxOnSuccessiveInteraction: '"I can''t open the toilet tank, but I hear something
-    banging on the inside when I do."'
+    banging on the inside when I flush."'
   textBoxOnFailedInteraction: 
   textBox: {fileID: 0}
   ui: {fileID: 0}
@@ -10630,6 +10561,7 @@ MonoBehaviour:
   audioClipStep8: {fileID: 8300000, guid: 0fd01546340f3e949819c6b197b0cb0f, type: 3}
   audioClipStep9: {fileID: 8300000, guid: 276276fde4ed7994c84f3692a41873fa, type: 3}
   audioClipStep10: {fileID: 8300000, guid: 1fee79c620e920c44b4aa8fbc6b5bf1c, type: 3}
+  ui: {fileID: 0}
 --- !u!50 &751575555
 Rigidbody2D:
   serializedVersion: 4
@@ -11360,8 +11292,8 @@ MonoBehaviour:
   itemsNeeded: []
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 0
-  textBoxOnSuccessiveInteraction: '"The tank lid break over time and inside I found
-    a hairpin, this might help open something."'
+  textBoxOnSuccessiveInteraction: '"The opening the lid I found a hairpin inside.
+    This might help to open something."'
   textBoxOnFailedInteraction: 
   textBox: {fileID: 0}
   ui: {fileID: 0}
@@ -12385,8 +12317,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 573f6dc5f24f47c4f88bcb19f97370e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canSuccessiveInteract: 1
-  textOnDisabledSuccessiveInteract: 
+  canSuccessiveInteract: 0
+  textOnDisabledSuccessiveInteract: '"The cabinet doors won''t budge"'
   singleTimeUse: 0
   needItemToInteract: 0
   itemsNeeded: []
@@ -17585,7 +17517,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 997333129}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 59.82, y: 1.17, z: -10}
+  m_LocalPosition: {x: -2.24, y: -1.45, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -18094,7 +18026,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7758186, y: 1}
+    m_SensorSize: {x: 1.7788461, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -18111,7 +18043,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1048066975}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 59.82, y: 1.17, z: -10}
+  m_LocalPosition: {x: -2.24, y: -1.45, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 204351994}
@@ -19843,8 +19775,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 573f6dc5f24f47c4f88bcb19f97370e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canSuccessiveInteract: 1
-  textOnDisabledSuccessiveInteract: 
+  canSuccessiveInteract: 0
+  textOnDisabledSuccessiveInteract: '"The lock won''t budge. I might not be able
+    to open it."'
   singleTimeUse: 0
   needItemToInteract: 0
   itemsNeeded: []
@@ -21759,8 +21692,9 @@ MonoBehaviour:
   itemsNeeded: []
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 0
-  textBoxOnSuccessiveInteraction: '"The fan above me is hanging by some wires. It
-    better not be here when I go to the future."'
+  textBoxOnSuccessiveInteraction: '"The fan above me is hanging by some wires, it
+    looks like it could fall any second. I better not be under it when I go to the
+    future."'
   textBoxOnFailedInteraction: 
   textBox: {fileID: 0}
   ui: {fileID: 0}
@@ -23067,11 +23001,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1584204749}
   - component: {fileID: 1584204757}
-  - component: {fileID: 1584204756}
-  - component: {fileID: 1584204753}
-  - component: {fileID: 1584204752}
-  - component: {fileID: 1584204751}
-  - component: {fileID: 1584204750}
   m_Layer: 0
   m_Name: RaloF
   m_TagString: Untagged
@@ -23093,118 +23022,6 @@ Transform:
   m_Father: {fileID: 1056779001}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1584204750
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584204748}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!61 &1584204751
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584204748}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.0020971}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.17, y: 0.17}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.17047226, y: 0.16763124}
-  m_EdgeRadius: 0
---- !u!61 &1584204752
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584204748}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.0015879087}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.17, y: 0.17}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.20887697, y: 0.04700861}
-  m_EdgeRadius: 0
---- !u!61 &1584204753
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584204748}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.00067548454, y: -0.0014790297}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.17, y: 0.17}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.045483105, y: 0.22362198}
-  m_EdgeRadius: 0
---- !u!114 &1584204756
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584204748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c0f5688193ec2248a70643849cfa8e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timePeriod: 1
 --- !u!212 &1584204757
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -28404,8 +28221,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 573f6dc5f24f47c4f88bcb19f97370e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canSuccessiveInteract: 1
-  textOnDisabledSuccessiveInteract: 
+  canSuccessiveInteract: 0
+  textOnDisabledSuccessiveInteract: '"I can''t get acess to the secret compartment."'
   singleTimeUse: 0
   needItemToInteract: 0
   itemsNeeded: []

@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1456,7 +1456,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1062381720}
-  m_RootOrder: 22
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &108235025
 BoxCollider2D:
@@ -2074,11 +2074,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 228773773}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 68.729004, y: -5.439, z: 0}
+  m_LocalPosition: {x: 63.28901, y: -1.9190001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1062381720}
-  m_RootOrder: 6
+  m_Father: {fileID: 487738404}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &228773775
 Rigidbody2D:
@@ -2198,8 +2198,8 @@ MonoBehaviour:
   itemsNeeded: []
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 0
-  textBoxOnSuccessiveInteraction: '"Inside the desk, I found a stylus, I can use
-    it to cut something."'
+  textBoxOnSuccessiveInteraction: '"Inside the desk, I found a box cutter. I can
+    use it to cut something."'
   textBoxOnFailedInteraction: 
   textBox: {fileID: 0}
   ui: {fileID: 0}
@@ -2397,7 +2397,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1062381720}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &234265190
 BoxCollider2D:
@@ -2506,7 +2506,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1062381720}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &254453082
 BoxCollider2D:
@@ -4510,8 +4510,8 @@ MonoBehaviour:
   itemsNeeded: []
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 0
-  textBoxOnSuccessiveInteraction: '"The closet door seems to be jammed. I need to
-    open it somehow."'
+  textBoxOnSuccessiveInteraction: '"The closet door seems to be jammed. Maybe, with
+    some time, I can force it open."'
   textBoxOnFailedInteraction: 
   textBox: {fileID: 0}
   ui: {fileID: 0}
@@ -5717,8 +5717,8 @@ MonoBehaviour:
   itemsNeeded: []
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 0
-  textBoxOnSuccessiveInteraction: '"Much of the inside of the drawer is occupied
-    by moss and mold."'
+  textBoxOnSuccessiveInteraction: '"Much of the inside of the cabinets is filled
+    with moss and mold."'
   textBoxOnFailedInteraction: 
   textBox: {fileID: 0}
   ui: {fileID: 0}
@@ -6853,7 +6853,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1062381720}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &468215001
 BoxCollider2D:
@@ -6962,6 +6962,7 @@ Transform:
   - {fileID: 948720998}
   - {fileID: 831133786}
   - {fileID: 439490844}
+  - {fileID: 228773774}
   - {fileID: 1062381720}
   m_Father: {fileID: 698357453}
   m_RootOrder: 1
@@ -7103,7 +7104,8 @@ MonoBehaviour:
   needToInteract: 1
   destroyItemOnSuccessiveInteraction: 1
   textBoxOnSuccessiveInteraction: '"It''s unlocked."'
-  textBoxOnFailedInteraction: '"The exit door is locked, again."'
+  textBoxOnFailedInteraction: '"Seems to be the exit door from before. It''s locked,
+    once again."'
   textBox: {fileID: 0}
   ui: {fileID: 0}
   playAudio: 1
@@ -9102,7 +9104,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1062381720}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &735737169
 BoxCollider2D:
@@ -9424,7 +9426,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1062381720}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &805211271
 BoxCollider2D:
@@ -10203,7 +10205,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1062381720}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &911257160
 BoxCollider2D:
@@ -14379,7 +14381,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7790055, y: 1}
+    m_SensorSize: {x: 1.7788461, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -14595,8 +14597,8 @@ MonoBehaviour:
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 0
   textBoxOnSuccessiveInteraction: '"Inside the refrigerator, there was a block of
-    ice . I can see something inside it, but I need to thaw it somehow so I can see...
-    ...what it is."'
+    ice. I can see something inside it, but I need to melt it somehow so I can see
+    what...  ...it is."'
   textBoxOnFailedInteraction: 
   textBox: {fileID: 0}
   ui: {fileID: 0}
@@ -14843,7 +14845,6 @@ Transform:
   - {fileID: 1589875792}
   - {fileID: 831061684}
   - {fileID: 279137740}
-  - {fileID: 228773774}
   - {fileID: 254453080}
   - {fileID: 1470845070}
   - {fileID: 805211269}
@@ -14861,7 +14862,7 @@ Transform:
   - {fileID: 1282792724}
   - {fileID: 108235023}
   m_Father: {fileID: 487738404}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1087117050
 GameObject:
@@ -15302,15 +15303,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 573f6dc5f24f47c4f88bcb19f97370e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canSuccessiveInteract: 1
-  textOnDisabledSuccessiveInteract: 
+  canSuccessiveInteract: 0
+  textOnDisabledSuccessiveInteract: '"The wood is really wet, there''s no chance
+    it can be lit up."'
   singleTimeUse: 0
   needItemToInteract: 0
   itemsNeeded: []
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 0
-  textBoxOnSuccessiveInteraction: '"The wood has worn down so much that I can no
-    longer light it"'
+  textBoxOnSuccessiveInteraction: 
   textBoxOnFailedInteraction: 
   textBox: {fileID: 0}
   ui: {fileID: 0}
@@ -15880,10 +15881,10 @@ MonoBehaviour:
     isAged: 0
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 1
-  textBoxOnSuccessiveInteraction: '"I was able to thaw the block of ice. There was
-    a key inside it."'
+  textBoxOnSuccessiveInteraction: '"I was able to melt the block of ice. Inside it,
+    there''s a key."'
   textBoxOnFailedInteraction: '"Inside the fireplace, there are some pieces of dry
-    wood that can still be lit, I can use them to defrost something."'
+    wood that can still be lit, I can use them to melt something."'
   textBox: {fileID: 0}
   ui: {fileID: 0}
   playAudio: 1
@@ -16080,7 +16081,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1062381720}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1201452657
 BoxCollider2D:
@@ -17131,7 +17132,7 @@ Transform:
   m_LocalScale: {x: 1.1110908, y: 0.6249695, z: 1}
   m_Children: []
   m_Father: {fileID: 1062381720}
-  m_RootOrder: 21
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1282792726
 BoxCollider2D:
@@ -18085,7 +18086,7 @@ Transform:
   m_LocalScale: {x: 1.1110908, y: 0.6249695, z: 1}
   m_Children: []
   m_Father: {fileID: 1062381720}
-  m_RootOrder: 20
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1376676265
 BoxCollider2D:
@@ -18434,7 +18435,7 @@ MonoBehaviour:
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 1
   textBoxOnSuccessiveInteraction: '"The vines opened the closet door, so I was able
-    to use the stylus to cut them down and open a space where I found a hanger...
+    to use the cutter to cut them down and open a space where I found a hanger...
     ...that might come in handy ."'
   textBoxOnFailedInteraction: '"The door was busted by the vines, but now i need
     to clear some space to see what''s inside, what if I had something to cut them."
@@ -18827,7 +18828,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1062381720}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1447739861
 BoxCollider2D:
@@ -19525,7 +19526,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1062381720}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1470845072
 BoxCollider2D:
@@ -19752,8 +19753,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 573f6dc5f24f47c4f88bcb19f97370e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canSuccessiveInteract: 1
-  textOnDisabledSuccessiveInteract: 
+  canSuccessiveInteract: 0
+  textOnDisabledSuccessiveInteract: '"The freezer in the refrigerator is locked by
+    a loose padlock. Over time, perhaps it can be broken easily."'
   singleTimeUse: 0
   needItemToInteract: 0
   itemsNeeded: []
@@ -19894,7 +19896,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1062381720}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1489745201
 BoxCollider2D:
@@ -20241,7 +20243,8 @@ MonoBehaviour:
   itemsNeeded: []
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 0
-  textBoxOnSuccessiveInteraction: '"Inside one of the drawers, I found a box of matches."'
+  textBoxOnSuccessiveInteraction: '"Inside one of the cabinets, I found a box of
+    matches."'
   textBoxOnFailedInteraction: 
   textBox: {fileID: 0}
   ui: {fileID: 0}
@@ -21374,8 +21377,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 573f6dc5f24f47c4f88bcb19f97370e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canSuccessiveInteract: 1
-  textOnDisabledSuccessiveInteract: 
+  canSuccessiveInteract: 0
+  textOnDisabledSuccessiveInteract: '"The drain is completely mossy, I can''t see
+    anything else in there."'
   singleTimeUse: 0
   needItemToInteract: 0
   itemsNeeded: []
@@ -23811,8 +23815,8 @@ MonoBehaviour:
   needToInteract: 0
   destroyItemOnSuccessiveInteraction: 1
   textBoxOnSuccessiveInteraction: '"I was able to fish out a key using the hanger."'
-  textBoxOnFailedInteraction: '"There''s something reflecting light at the bottom
-    of the drain, but I can''t reach it, I''m going to need something to help me."'
+  textBoxOnFailedInteraction: '"There''s something reflecting light, but I need something
+    to help me reach the bottom of the drain."'
   textBox: {fileID: 0}
   ui: {fileID: 0}
   playAudio: 1
@@ -24557,7 +24561,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1062381720}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1760264972
 BoxCollider2D:
@@ -40486,7 +40490,6 @@ GameObject:
   - component: {fileID: 2018366560}
   - component: {fileID: 2018366568}
   - component: {fileID: 2018366562}
-  - component: {fileID: 2018366565}
   m_Layer: 0
   m_Name: SofaF
   m_TagString: Untagged
@@ -40534,34 +40537,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9901581, y: 0.46227562}
   m_EdgeRadius: 0
---- !u!114 &2018366565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2018366559}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 573f6dc5f24f47c4f88bcb19f97370e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canSuccessiveInteract: 1
-  textOnDisabledSuccessiveInteract: 
-  singleTimeUse: 1
-  needItemToInteract: 0
-  itemsNeeded: []
-  needToInteract: 0
-  destroyItemOnSuccessiveInteraction: 0
-  textBoxOnSuccessiveInteraction: "(Examining the holes in the sofa, I found a small
-    key)  \r\n"
-  textBoxOnFailedInteraction: 
-  textBox: {fileID: 0}
-  ui: {fileID: 0}
-  playAudio: 0
-  audioSource: {fileID: 0}
-  audioClip: {fileID: 0}
-  onSuccessiveInteractionConsequence: SofaFuturo
 --- !u!212 &2018366568
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -42870,8 +42845,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 573f6dc5f24f47c4f88bcb19f97370e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canSuccessiveInteract: 1
-  textOnDisabledSuccessiveInteract: 
+  canSuccessiveInteract: 0
+  textOnDisabledSuccessiveInteract: '"The door won''t seem to budge, even if I unlock
+    it."'
   singleTimeUse: 1
   needItemToInteract: 1
   itemsNeeded:
@@ -42956,8 +42932,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 573f6dc5f24f47c4f88bcb19f97370e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canSuccessiveInteract: 1
-  textOnDisabledSuccessiveInteract: 
+  canSuccessiveInteract: 0
+  textOnDisabledSuccessiveInteract: '"The door might not budge, even if unlocked."'
   singleTimeUse: 1
   needItemToInteract: 1
   itemsNeeded:
@@ -43084,7 +43060,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1062381720}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &2087098036
 BoxCollider2D:
@@ -43193,7 +43169,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1062381720}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &2109288958
 BoxCollider2D:

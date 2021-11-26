@@ -49,8 +49,6 @@ public class ResultsDataBase : MonoBehaviour
                 manager.gameObject.GetComponent<BoxCollider2D>().enabled = false;
                 break;
             case "ExitPuzzle1Future":
-                manager.gameObject.GetComponent<SpriteRenderer>().sprite = DoorSprite.Instance.doorFrontFutureOpen;
-                manager.gameObject.GetComponent<BoxCollider2D>().enabled = false;
                 break;
             #endregion
             //cases do Puzzle2
@@ -92,8 +90,6 @@ public class ResultsDataBase : MonoBehaviour
                 manager.gameObject.GetComponent<BoxCollider2D>().enabled = false;
                 break;
             case "ExitPuzzle2Future":
-                manager.gameObject.GetComponent<SpriteRenderer>().sprite = DoorSprite.Instance.doorFrontFutureOpen;
-                manager.gameObject.GetComponent<BoxCollider2D>().enabled = false;
                 break;
             #endregion
             //cases do Puzzle3
