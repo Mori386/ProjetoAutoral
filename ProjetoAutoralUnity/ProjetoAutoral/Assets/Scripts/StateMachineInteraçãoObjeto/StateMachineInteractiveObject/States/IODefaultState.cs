@@ -245,7 +245,6 @@ public class IODefaultState : IOBaseState
                     if (i >= 11) i = 0;
                     yield return new WaitForSecondsRealtime(0.1f);
                 }
-                break;
             case PMStateManager.timePeriodList.Future:
                 while (true)
                 {
@@ -292,7 +291,6 @@ public class IODefaultState : IOBaseState
                     if (i >= 11) i = 0;
                     yield return new WaitForSecondsRealtime(0.1f);
                 }
-                break;
         }
     }
     IEnumerator ifStayOnTrigger(IOStateManager Manager, Collider2D collision)

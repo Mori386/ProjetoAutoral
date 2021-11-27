@@ -236,7 +236,6 @@ public class PMDefaultState : PMBaseState
                     if (i >= 11) i = 0;
                     yield return new WaitForSecondsRealtime(0.1f);
                 }
-                break;
             case PMStateManager.timePeriodList.Future:
                 while (true)
                 {
@@ -283,7 +282,6 @@ public class PMDefaultState : PMBaseState
                     if (i >= 11) i = 0;
                     yield return new WaitForSecondsRealtime(0.1f);
                 }
-                break;
         }
     }
     float angle;

@@ -9,19 +9,15 @@ public class BackgroudControler : MonoBehaviour
     [SerializeField] Animator animator;
     private IEnumerator Fade()
     {
-        Debug.Log((image.color.a <= (230 / 255)));
-        while (image.color.a<=(230/255))
+        while (((byte)(image.color.a * 255)) <= 230)
         {
-            image.color = new Color(image.color.r, image.color.g, image.color.b, (image.color.a + (10 / 255)));
+            image.color = new Color32((byte)(image.color.r*255), (byte)(image.color.g * 255), (byte)(image.color.b * 255), (byte)((image.color.a* 255)+10));
             yield return new WaitForSeconds(0.1f);
         }
-        
-    
+
     }
     public void StartFade()
     {
         StartCoroutine(Fade());
     }
-
-    
 }
