@@ -21,33 +21,33 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: 21300000, guid: 12ea44abc61bf2046915c12c25f32dc3, type: 3}
-    - time: 0.33333334
+    - time: 0.2
       value: {fileID: 21300000, guid: 5721030a088d53e45a2bcda0c0a2d21d, type: 3}
-    - time: 0.6666667
+    - time: 0.4
       value: {fileID: 21300000, guid: 76d657e9e1336094f9f9dfb400897eef, type: 3}
-    - time: 1
+    - time: 0.6
       value: {fileID: 21300000, guid: e217ed70d82306342bf8732bfa500795, type: 3}
-    - time: 1.3333334
+    - time: 0.8
       value: {fileID: 21300000, guid: 419437a681209294eb602e1c8c001286, type: 3}
-    - time: 1.6666666
+    - time: 1
       value: {fileID: 21300000, guid: 56d99217e79401540b3ad6689fa14ddb, type: 3}
-    - time: 2
+    - time: 1.2
       value: {fileID: 21300000, guid: fddbddbd6957c9b47ad9628bd4385898, type: 3}
-    - time: 2.3333333
+    - time: 1.4
       value: {fileID: 21300000, guid: ca9e75c397f0cb7469cbd1e0494046dc, type: 3}
-    - time: 2.6666667
+    - time: 1.6
       value: {fileID: 21300000, guid: 693cff14fc31786498faba8b96e967d0, type: 3}
-    - time: 3
+    - time: 1.8
       value: {fileID: 21300000, guid: fe8a8ef51a1bd404c96d641596089fe7, type: 3}
-    - time: 3.3333333
+    - time: 2
       value: {fileID: 21300000, guid: d78fb9ce9e0631c48b1b8fdd1e2bf00d, type: 3}
-    - time: 3.6666667
+    - time: 2.2
       value: {fileID: 21300000, guid: b14d81cb8108efb44a4ece0be377f1da, type: 3}
     attribute: m_Sprite
     path: 
     classID: 114
     script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_SampleRate: 3
+  m_SampleRate: 5
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -79,7 +79,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 4
+    m_StopTime: 2.4
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -99,7 +99,7 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 3
+  - time: 1.8
     functionName: StartFade
     data: 
     objectReferenceParameter: {fileID: 0}

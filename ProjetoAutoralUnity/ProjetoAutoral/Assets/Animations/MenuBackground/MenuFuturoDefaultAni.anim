@@ -21,33 +21,33 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: 21300000, guid: 3d148503bb3a26a4387337eb826e3f56, type: 3}
-    - time: 0.33333334
+    - time: 0.2
       value: {fileID: 21300000, guid: 3c1a443b1f5e0954eb554b281d116977, type: 3}
-    - time: 0.6666667
+    - time: 0.4
       value: {fileID: 21300000, guid: ec1f760407cf386439cbd82ab6729dcc, type: 3}
-    - time: 1
+    - time: 0.6
       value: {fileID: 21300000, guid: 808a2c2761050f04cba166f0eb77d610, type: 3}
-    - time: 1.3333334
+    - time: 0.8
       value: {fileID: 21300000, guid: 20cc498acf2f0504f938533df5c1c737, type: 3}
-    - time: 1.6666666
+    - time: 1
       value: {fileID: 21300000, guid: ca481eb767220de479031874c70f8f5c, type: 3}
-    - time: 2
+    - time: 1.2
       value: {fileID: 21300000, guid: bee1f83fc6c88454dbb7a1357c671338, type: 3}
-    - time: 2.3333333
+    - time: 1.4
       value: {fileID: 21300000, guid: 2f3a0162150b04245a38381fc77e2a8d, type: 3}
-    - time: 2.6666667
+    - time: 1.6
       value: {fileID: 21300000, guid: 06eee18c252956d4b8a7456058fba362, type: 3}
-    - time: 3
+    - time: 1.8
       value: {fileID: 21300000, guid: 498c6d431c886c2489c581c02655d8ee, type: 3}
-    - time: 3.3333333
+    - time: 2
       value: {fileID: 21300000, guid: 14505eb4324d04c4db285e1757ff6d54, type: 3}
-    - time: 3.6666667
+    - time: 2.2
       value: {fileID: 21300000, guid: 0d85fa62c55ef15428b3b5ab1ec02399, type: 3}
     attribute: m_Sprite
     path: 
     classID: 114
     script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_SampleRate: 3
+  m_SampleRate: 5
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -79,7 +79,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 4
+    m_StopTime: 2.4
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -98,4 +98,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 1.8
+    functionName: StartFade
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
