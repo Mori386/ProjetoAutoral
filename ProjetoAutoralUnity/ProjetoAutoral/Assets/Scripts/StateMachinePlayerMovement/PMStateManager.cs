@@ -219,9 +219,7 @@ public class PMStateManager : MonoBehaviour
             hp -= amountDamage;
             if (hp <= 0)
             {
-                //morre 
-                //por hora
-                hp = Mathf.RoundToInt(hpSlider.maxValue);
+                GameObject.Find("directorDeath").GetComponent<PlayableDirector>().Play();
             }
             UpdateHealthBar();
             audioSourceOneShot.PlayOneShot(audioClipPlayerTakeDamage);

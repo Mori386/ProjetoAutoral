@@ -65,7 +65,7 @@ public class PauseScript : MonoBehaviour
     }
     public void OnChangeInput(int actionKeyID)
     {
-        menuButtonPressedConsequence = null;
+        menuButtonPressedConsequence = Nothing;
         controlsButtons.SetActive(false);
         controlsOnWaitForInputMsg.SetActive(true);
         StartCoroutine(WaitForNextControlsInput(actionKeyID));
@@ -119,5 +119,9 @@ public class PauseScript : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+    public void Nothing()
+    {
+
     }
 }
