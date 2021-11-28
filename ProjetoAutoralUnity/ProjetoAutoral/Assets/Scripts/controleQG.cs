@@ -44,7 +44,7 @@ public class controleQG : MonoBehaviour
             default:
             case 0:
             /*Teste*/ case 1: return "faladoQG";
-            /*Com grampo sem palito*/ //case 2: return "This is HQ, please inform your current situation...  this hairclip reminds us of one time... where one of these was used to open the lock of a furniture at the house. However, there was... also another item used in conjunction with it.";
+            /*Com grampo sem palito*/ case 2: return "This is HQ, please inform your current situation...  this hairclip reminds us of one time... where one of these was used to open the lock of a furniture at the house. However, there was... also another item used in conjunction with it.";
             /*Com palito sem grampo*/ case 3: return "This is HQ, please inform your current situation...  this box of toothpicks reminds us... of one time where one of these was used to open the lock of a furniture at the house. However... there was also another item used in conjunction with it.";
             /*Com palito e grampo*/ case 4: return "This is HQ, please inform your current situation...  try to use these items to pick something that is locked.";
             /*Se interagir com o ventilador*/ case 5: return "This is HQ, please inform your current situation...  other test subjects used the... ceiling fan to forcefully break open an object, you could try to use it as well.";
