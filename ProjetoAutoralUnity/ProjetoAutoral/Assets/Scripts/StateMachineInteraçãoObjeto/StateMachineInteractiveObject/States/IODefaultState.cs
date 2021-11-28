@@ -43,11 +43,6 @@ public class IODefaultState : IOBaseState
         coroutineIsRunning = true;
         bool successive = false;
         while (!Input.GetKeyDown(MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.Interaction])) yield return null;
-        if (Manager.playAudio)
-        {
-            Manager.audioSource.clip = Manager.audioClip;
-            Manager.audioSource.Play();
-        }
         PMStateManager Player = collision.GetComponent<PMStateManager>();
         if (Manager.textBox.text != "")  Player.SmoothSwitchState(Player.controlOffState);
         if (Manager.canSuccessiveInteract)
@@ -101,6 +96,11 @@ public class IODefaultState : IOBaseState
                                 }
                                 Player.playerInventoryManager.uiInventory.SetInventory(Player.playerInventoryManager.inventory);
                             }
+                            if (Manager.playAudio)
+                            {
+                                Manager.audioSource.clip = Manager.audioClip;
+                                Manager.audioSource.Play();
+                            }
                             successive = true;
                             Manager.textBox.text = Manager.textBoxOnSuccessiveInteraction;
                         }
@@ -139,6 +139,11 @@ public class IODefaultState : IOBaseState
             else
             {
                 successive = true;
+                if (Manager.playAudio)
+                {
+                    Manager.audioSource.clip = Manager.audioClip;
+                    Manager.audioSource.Play();
+                }
                 Manager.textBox.text = Manager.textBoxOnSuccessiveInteraction;
             }
         }

@@ -28,6 +28,10 @@ public class MenuScript : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+    public void Continue()
+    {
+
+    }
     public void Credits()
     {
     }

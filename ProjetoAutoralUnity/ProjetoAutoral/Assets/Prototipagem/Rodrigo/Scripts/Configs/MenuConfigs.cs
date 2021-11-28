@@ -12,6 +12,8 @@ public class MenuConfigs : MonoBehaviour
 
     public int Puzzle;
     [System.NonSerialized] public int PuzzleStep = 2;
+
+    public int highestPuzzle;
     private void Awake()
     {
         InputKeys[0] = KeyCode.Escape;
@@ -33,6 +35,7 @@ public class MenuConfigs : MonoBehaviour
         {
             Instance.PuzzleStep = 2;
             Instance.Puzzle = Puzzle;
+            if (Puzzle > highestPuzzle) highestPuzzle = Puzzle;
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);

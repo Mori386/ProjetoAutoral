@@ -332,8 +332,15 @@ public class PMDefaultState : PMBaseState
             {
                 if (ManagerTTC.director != null) ManagerTTC.director.Play();
                 ManagerTTC.TravelTime();
-                if (isEnemyOn & AIEnemyLight.Instance.gameObject.activeInHierarchy) AIEnemyLight.Instance.gameObject.SetActive(false);
-                else if (isEnemyOn & !AIEnemyLight.Instance.gameObject.activeInHierarchy) AIEnemyLight.Instance.gameObject.SetActive(true);
+                if (isEnemyOn)
+                {
+                    if (AIEnemyLight.Instance.gameObject.activeInHierarchy) AIEnemyLight.Instance.gameObject.SetActive(false);
+                }
+                else if (isEnemyOn)
+                {
+
+                    if(!AIEnemyLight.Instance.gameObject.activeInHierarchy)  AIEnemyLight.Instance.gameObject.SetActive(true);
+                }
                 ManagerTTC.StartCoroutine(TimeTravelCooldown());
             }
         }
