@@ -70,6 +70,8 @@ public class PMStateManager : MonoBehaviour
 
     public GameObject ui;
 
+    [System.NonSerialized] public GameObject menuUI;
+
     private void Awake()
     {
         Instance = this;
@@ -101,6 +103,7 @@ public class PMStateManager : MonoBehaviour
         playerInventoryManager.inventory.AddItem(new Item { itemType = Item.ItemType.Flashlight, amount = 1, active = false });
         currentState = defaultState;
         currentState.EnterState(this);
+        menuUI = GameObject.Find("Canvas").transform.Find("Menu").gameObject;
     }
     void Update()
     {
@@ -229,5 +232,12 @@ public class PMStateManager : MonoBehaviour
     {
         if (hp >= 0) hpSlider.value = hp;
         else hpSlider.value = 0;
+    }
+    public void DisableAllAudioSources()
+    {
+        foreach (AudioSource audioSource in GetComponents<AudioSource>())
+        {
+            audioSource.enabled = false;
+        }
     }
 }
