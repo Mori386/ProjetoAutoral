@@ -20,34 +20,34 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
+      value: {fileID: 6929147560291117546, guid: 557e4a60e32116a4fa548156687be67c,
+        type: 3}
+    - time: 0.16666667
+      value: {fileID: -4229200465847588804, guid: 557e4a60e32116a4fa548156687be67c,
+        type: 3}
+    - time: 0.33333334
       value: {fileID: -1214769086854384251, guid: 557e4a60e32116a4fa548156687be67c,
         type: 3}
-    - time: 0.0625
-      value: {fileID: -1214769086854384251, guid: 557e4a60e32116a4fa548156687be67c,
-        type: 3}
-    - time: 0.125
+    - time: 0.5
       value: {fileID: 7502648429490732362, guid: 557e4a60e32116a4fa548156687be67c,
         type: 3}
-    - time: 0.1875
-      value: {fileID: 2615895356354027221, guid: 557e4a60e32116a4fa548156687be67c,
-        type: 3}
-    - time: 0.25
+    - time: 0.6666667
       value: {fileID: -1434630742572185961, guid: 557e4a60e32116a4fa548156687be67c,
         type: 3}
-    - time: 0.3125
+    - time: 0.8333333
       value: {fileID: 112664817383569731, guid: 557e4a60e32116a4fa548156687be67c,
         type: 3}
-    - time: 0.375
-      value: {fileID: 112664817383569731, guid: 557e4a60e32116a4fa548156687be67c,
-        type: 3}
-    - time: 0.4375
+    - time: 1
       value: {fileID: -5332465111144627652, guid: 557e4a60e32116a4fa548156687be67c,
+        type: 3}
+    - time: 1.1666666
+      value: {fileID: -8632410241483669565, guid: 557e4a60e32116a4fa548156687be67c,
         type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 16
+  m_SampleRate: 6
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -62,20 +62,20 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -1214769086854384251, guid: 557e4a60e32116a4fa548156687be67c, type: 3}
+    - {fileID: 6929147560291117546, guid: 557e4a60e32116a4fa548156687be67c, type: 3}
+    - {fileID: -4229200465847588804, guid: 557e4a60e32116a4fa548156687be67c, type: 3}
     - {fileID: -1214769086854384251, guid: 557e4a60e32116a4fa548156687be67c, type: 3}
     - {fileID: 7502648429490732362, guid: 557e4a60e32116a4fa548156687be67c, type: 3}
-    - {fileID: 2615895356354027221, guid: 557e4a60e32116a4fa548156687be67c, type: 3}
     - {fileID: -1434630742572185961, guid: 557e4a60e32116a4fa548156687be67c, type: 3}
     - {fileID: 112664817383569731, guid: 557e4a60e32116a4fa548156687be67c, type: 3}
-    - {fileID: 112664817383569731, guid: 557e4a60e32116a4fa548156687be67c, type: 3}
     - {fileID: -5332465111144627652, guid: 557e4a60e32116a4fa548156687be67c, type: 3}
+    - {fileID: -8632410241483669565, guid: 557e4a60e32116a4fa548156687be67c, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.5
+    m_StopTime: 1.3333333
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -94,4 +94,25 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0
+    functionName: ChangeIsAttacking
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.5
+    functionName: DealDamagePlayerBasedOnTrigger
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.1666666
+    functionName: ChangeIsAttacking
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

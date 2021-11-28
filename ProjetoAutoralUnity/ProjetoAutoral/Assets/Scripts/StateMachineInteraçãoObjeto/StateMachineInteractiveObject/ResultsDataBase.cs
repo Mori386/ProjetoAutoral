@@ -138,6 +138,8 @@ public class ResultsDataBase : MonoBehaviour
                 aiBoss.followRoute = null;
                 aiBoss.enragedCharging = true;
                 aiBoss.animator.SetTrigger("Preparation");
+                aiBoss.audioSourcePreAttack.clip = aiBoss.preAttack;
+                aiBoss.audioSourcePreAttack.Play();
                 manager.transform.Find("ParticleEmissorSmoke").GetComponent<ParticleSystem>().Play();
                 manager.transform.Find("fogoMovel").GetComponent<Animator>().SetBool("onFire", true);
                 manager.transform.Find("fogoMovel2").GetComponent<Animator>().SetBool("onFire", true);

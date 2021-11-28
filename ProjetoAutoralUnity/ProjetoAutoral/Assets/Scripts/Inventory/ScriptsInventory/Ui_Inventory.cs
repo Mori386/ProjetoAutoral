@@ -78,8 +78,9 @@ public class Ui_Inventory : MonoBehaviour
             {
                 yield return null;
             }
-            inventory.UseItem(playerInventoryManager.activeItem - 1);
+            if(Time.timeScale != 0 )inventory.UseItem(playerInventoryManager.activeItem - 1);
             yield return null;
         }
+        yield return null;
     }
 }

@@ -109,9 +109,9 @@ public class PathfindingV2 : MonoBehaviour
         pathCheckRunning[0] = StartCoroutine(PathCheck(new NodeInfo() { gridPosition = MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, cc.bounds.center), cameFromNode = null }, playercc.bounds.center, 0, false));
     }
     [System.NonSerialized] public Vector2 nowSearchingForGrid;
-    private void Update()
+    private void FixedUpdate()
     {
-        if (MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, cc.bounds.center) != nowSearchingForGrid && search)
+        if (MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, playercc.bounds.center) != nowSearchingForGrid && search)
         {
             if (route.Count != 0)
             {

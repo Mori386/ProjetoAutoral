@@ -78,7 +78,7 @@ public class Inventory
             case Item.ItemType.Flashlight:
                 if (!item.isAged)
                 {
-                    if (!item.active)
+                    if (!playerInventoryManager.transform.Find("Flashlights").gameObject.activeInHierarchy)
                     {
                         PMStateManager.Instance.audioSourceOneShot.PlayOneShot(PMStateManager.Instance.audioClipFlashlightOn);
                         playerInventoryManager.transform.Find("Flashlights").gameObject.SetActive(true);

@@ -16,8 +16,33 @@ public class PMDefaultState : PMBaseState
     private int inventoryCount;
     public override void UpdateState(PMStateManager Manager)
     {
-        Manager.rawInputMove.x = Input.GetAxisRaw("Horizontal");//adiciona variaveis baseadas no input de teclas(de 0 a 1,baseado no tempo pressionado, quanto mais tempo, mais proximo de 1 e vice versa)
-        Manager.rawInputMove.y = Input.GetAxisRaw("Vertical");// mesma coisa que o de cima so que para os botoes de mover na vertical
+        if (Input.GetKey(MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.MoveUp]) & Input.GetKey(MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.MoveDown]))
+        {
+            Manager.rawInputMove.y = 0;
+        }
+        else if (Input.GetKey(MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.MoveUp]))
+        {
+            Manager.rawInputMove.y = 1;
+        }
+        else if (Input.GetKey(MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.MoveDown]))
+        {
+            Manager.rawInputMove.y = -1;
+        }
+        else Manager.rawInputMove.y = 0;
+
+        if (Input.GetKey(MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.MoveLeft]) & Input.GetKey(MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.MoveRight]))
+        {
+            Manager.rawInputMove.x = 0;
+        }
+        else if (Input.GetKey(MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.MoveRight]))
+        {
+            Manager.rawInputMove.x = 1;
+        }
+        else if (Input.GetKey(MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.MoveLeft]))
+        {
+            Manager.rawInputMove.x = -1;
+        }
+        else Manager.rawInputMove.x = 0;
         if (interactionCheck != null) interactionCheck();
         inventoryCount = Manager.playerInventoryManager.inventory.GetItemList().Count;
         if (inventoryCount == 0)
@@ -130,6 +155,12 @@ public class PMDefaultState : PMBaseState
         if (Input.GetKeyDown(MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.Radio]))
         {
             if(MenuConfigs.Instance.Puzzle != 4) Manager.StartCoroutine(TextBoxQG(Manager));
+        }
+        if (Input.GetKeyDown(MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.Menu]))
+        {
+            Manager.menuUI.SetActive(true);
+            Manager.SmoothSwitchState(Manager.controlOffState);
+            Time.timeScale = 0;
         }
     }
     private IEnumerator TextBoxQG(PMStateManager Manager)
@@ -284,14 +315,15 @@ public class PMDefaultState : PMBaseState
                 }
         }
     }
-    float angle;
-    private Coroutine focusOnCursorOn;
-    private Coroutine focusOnCursorOff;
+    [System.NonSerialized] public float angle;
+    public Coroutine focusOnCursorOn;
+    public Coroutine focusOnCursorOff;
     PMStateManager ManagerTTC;
     public delegate void InteractionCheck();
     public InteractionCheck interactionCheck;
 
     bool TimeTravelOnCooldown;
+    [System.NonSerialized] public bool isEnemyOn;
     public void TimeTravelCheck()
     {
         if (!TimeTravelOnCooldown)
@@ -300,6 +332,8 @@ public class PMDefaultState : PMBaseState
             {
                 if (ManagerTTC.director != null) ManagerTTC.director.Play();
                 ManagerTTC.TravelTime();
+                if (isEnemyOn & AIEnemyLight.Instance.gameObject.activeInHierarchy) AIEnemyLight.Instance.gameObject.SetActive(false);
+                else if (isEnemyOn & !AIEnemyLight.Instance.gameObject.activeInHierarchy) AIEnemyLight.Instance.gameObject.SetActive(true);
                 ManagerTTC.StartCoroutine(TimeTravelCooldown());
             }
         }
@@ -310,7 +344,7 @@ public class PMDefaultState : PMBaseState
         yield return new WaitForSeconds(((float)ManagerTTC.director.duration));
         TimeTravelOnCooldown = false;
     }
-    private IEnumerator FocusOnCursorOn(PMStateManager Manager)
+    public IEnumerator FocusOnCursorOn(PMStateManager Manager)
     {
         GameObject flashlight = Manager.flashlightNLP;
         Vector2 mousePos;
@@ -371,7 +405,7 @@ public class PMDefaultState : PMBaseState
             yield return new WaitForFixedUpdate();
         }
     }
-    private IEnumerator FocusOnCursorOff(PMStateManager Manager)
+    public IEnumerator FocusOnCursorOff(PMStateManager Manager)
     {
         Vector2 direction;
         GameObject flashlight = Manager.flashlightNLP;

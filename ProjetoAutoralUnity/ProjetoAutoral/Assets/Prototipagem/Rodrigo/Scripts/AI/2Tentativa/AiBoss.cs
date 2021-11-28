@@ -20,8 +20,20 @@ public class AiBoss : MonoBehaviour
     public Animator animator;
     public bool attacking;
 
-    /*[System.NonSerialized] */
+    
     public int vida = 4;
+
+    public AudioSource audioSource;
+    public AudioSource audioSourcePreAttack;
+    public AudioSource audioSourceDashExtended;
+
+    public AudioClip bossDeath;
+    public AudioClip bossHurt;
+    public AudioClip bossMelee;
+    public AudioClip dashExtended;
+    public AudioClip preAttack;
+    public AudioClip wall;
+    public AudioClip wallRock;
     private void Awake()
     {
         Instance = this;
@@ -55,6 +67,7 @@ public class AiBoss : MonoBehaviour
     }
     private IEnumerator On1Hp()
     {
+        transform.Find("HitBoxDamage").gameObject.SetActive(false);
         while (true)
         {
             if (enragedDash == null)
@@ -63,6 +76,8 @@ public class AiBoss : MonoBehaviour
                 {
                     enragedCharging = true;
                     animator.SetTrigger("Preparation");
+                    audioSourcePreAttack.clip = preAttack;
+                    audioSourcePreAttack.Play();
                 }
             }
             yield return new WaitForFixedUpdate();
@@ -72,6 +87,14 @@ public class AiBoss : MonoBehaviour
     {
         vida--;
         animator.SetTrigger("HitHurt");
+        if (vida != 0)
+        {
+            audioSource.PlayOneShot(bossHurt);
+        }
+        else
+        {
+            audioSource.PlayOneShot(bossDeath);
+        }
     }
     public void TpEnd()
     {
@@ -134,6 +157,7 @@ public class AiBoss : MonoBehaviour
     }
     public void StartEnragedDash()
     {
+        audioSourcePreAttack.Stop();
         enragedCharging = false;
         enragedDash = StartCoroutine(EnragedDash());
     }
@@ -164,6 +188,8 @@ public class AiBoss : MonoBehaviour
     public Coroutine enragedDash;
     public IEnumerator EnragedDash()
     {
+        audioSourceDashExtended.clip = dashExtended;
+        audioSourceDashExtended.Play();
         Vector3 deltaPos = (target.transform.position - positionToCenter) - transform.position;
         deltaPos = Vector3.Normalize(deltaPos);
         while (true)
@@ -206,6 +232,8 @@ public class AiBoss : MonoBehaviour
                 pathfindingV2.search = false;
                 Debug.Log("Rachadura");
                 animator.SetTrigger("HitWall");
+                if (audioSourceDashExtended.isPlaying) audioSourceDashExtended.Stop();
+                audioSource.PlayOneShot(wall);
                 Instantiate(pathfindingV2.pedraPf, gameObject.transform.position + new Vector3(0, 1, 0), Quaternion.identity);
                 StopCoroutine(enragedDash);
                 pathfindingV2.StopAllPathCheck();
@@ -218,6 +246,8 @@ public class AiBoss : MonoBehaviour
                 {
                     pathfindingV2.search = false;
                     animator.SetTrigger("HitWall");
+                    if(audioSourceDashExtended.isPlaying) audioSourceDashExtended.Stop();
+                    audioSource.PlayOneShot(wall);
                     StopCoroutine(enragedDash);
                     pathfindingV2.StopAllPathCheck();
                     pathfindingV2.found = false;
@@ -229,6 +259,8 @@ public class AiBoss : MonoBehaviour
                     pathfindingV2.search = false;
                     Debug.Log("Sofa");
                     animator.SetTrigger("HitWall");
+                    if (audioSourceDashExtended.isPlaying) audioSourceDashExtended.Stop();
+                    audioSource.PlayOneShot(wall);
                     StopCoroutine(enragedDash);
                     pathfindingV2.found = false;
                     pathfindingV2.route = new List<NodeInfo>();
@@ -247,6 +279,8 @@ public class AiBoss : MonoBehaviour
                 pathfindingV2.search = false;
                 Debug.Log("Gaveta");
                 animator.SetTrigger("HitWall");
+                if (audioSourceDashExtended.isPlaying) audioSourceDashExtended.Stop();
+                audioSource.PlayOneShot(wall);
                 StopCoroutine(enragedDash);
                 pathfindingV2.found = false;
                 pathfindingV2.route = new List<NodeInfo>();
@@ -266,6 +300,8 @@ public class AiBoss : MonoBehaviour
                 pathfindingV2.search = false;
                 Debug.Log("Wall");
                 animator.SetTrigger("HitWall");
+                if (audioSourceDashExtended.isPlaying) audioSourceDashExtended.Stop();
+                audioSource.PlayOneShot(wall);
                 StopCoroutine(enragedDash);
                 if (vida != 1)
                 {
@@ -291,6 +327,8 @@ public class AiBoss : MonoBehaviour
                         if (followRoute != null) StopCoroutine(followRoute);
                         enragedCharging = true;
                         animator.SetTrigger("Preparation");
+                        audioSourcePreAttack.clip = preAttack;
+                        audioSourcePreAttack.Play();
                     }
                 }
             }
@@ -326,6 +364,7 @@ public class AiBoss : MonoBehaviour
                 if (enragedCharging)
                 {
                     animator.SetTrigger("CancelPreparation");
+                    audioSourcePreAttack.Stop();
                     followRoute = null;
                     enragedCharging = false;
                 }

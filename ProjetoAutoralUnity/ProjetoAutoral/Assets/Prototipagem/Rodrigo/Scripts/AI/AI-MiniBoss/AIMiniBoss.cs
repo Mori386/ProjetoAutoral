@@ -6,7 +6,9 @@ public class AIMiniBoss : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
     Animator animator;
-
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] AudioClip miniBossPreAttack;
+    [SerializeField] AudioClip miniBossDash;
     private Vector3 deltaPos;
     void Awake()
     {
@@ -16,6 +18,9 @@ public class AIMiniBoss : MonoBehaviour
     {
         if (collision.name == "Flashlights")
         {
+            if(audioSource.isPlaying)audioSource.Stop();
+            audioSource.clip = miniBossPreAttack;
+            audioSource.Play();
             animator.SetTrigger("Preparation");
         }
     }
@@ -24,6 +29,7 @@ public class AIMiniBoss : MonoBehaviour
         if (collision.name == "Flashlights")
         {
             animator.SetTrigger("CancelPreparation");
+            if(!EnragedDashing) audioSource.Stop();
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -39,6 +45,9 @@ public class AIMiniBoss : MonoBehaviour
     bool EnragedDashing;
     public void startEnragedDash()
     {
+        if (audioSource.isPlaying) audioSource.Stop();
+        audioSource.clip = miniBossDash;
+        audioSource.Play();
         StartCoroutine(EnragedDash());
     }
     private IEnumerator EnragedDash()

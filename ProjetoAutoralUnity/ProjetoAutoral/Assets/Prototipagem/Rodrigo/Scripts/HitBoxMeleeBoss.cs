@@ -49,6 +49,7 @@ public class HitBoxMeleeBoss : MonoBehaviour
             if (!AiBoss.Instance.attacking)
             {
                 AiBoss.Instance.animator.SetTrigger("Melee");
+                AiBoss.Instance.audioSource.PlayOneShot(AiBoss.Instance.bossHurt);
             }
             yield return null;
         }

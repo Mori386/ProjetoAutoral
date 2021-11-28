@@ -84,7 +84,20 @@ public class IODefaultState : IOBaseState
                             {
                                 foreach (Item item in itemsNeeded)
                                 {
+                                    if (Player.playerInventoryManager.inventory.GetItemList()[Player.playerInventoryManager.activeItem-1] == item)
+                                    {
+                                        if (PMStateManager.Instance.playerInventoryManager.activeItem != 0) PMStateManager.Instance.playerInventoryManager.uiInventory.itemsUi[PMStateManager.Instance.playerInventoryManager.activeItem - 1].Find("Border").GetComponent<Outline>().enabled = false;
+                                    }
                                     Player.playerInventoryManager.inventory.GetItemList().Remove(item);
+                                }
+                                if (Player.playerInventoryManager.inventory.GetItemList().Count > 0)
+                                {
+                                    PMStateManager.Instance.playerInventoryManager.activeItem = 1;
+                                    PMStateManager.Instance.playerInventoryManager.uiInventory.itemsUi[PMStateManager.Instance.playerInventoryManager.activeItem - 1].Find("Border").GetComponent<Outline>().enabled = true;
+                                }
+                                else
+                                {
+                                    PMStateManager.Instance.playerInventoryManager.activeItem = 0;
                                 }
                                 Player.playerInventoryManager.uiInventory.SetInventory(Player.playerInventoryManager.inventory);
                             }
