@@ -9,6 +9,7 @@ TagManager:
   - Rachadura
   - rachadura
   - lightTrigger
+  - boss
   layers:
   - Default
   - TransparentFX

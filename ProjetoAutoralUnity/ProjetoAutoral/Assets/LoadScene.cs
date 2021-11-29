@@ -18,10 +18,11 @@ public class LoadScene : MonoBehaviour
         }
     }
     // Start is called before the first frame update
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         GetComponent<PlayableDirector>().Play();
     }
+   
     public void loadScene()
     {
         SceneManager.LoadScene(nextScene);

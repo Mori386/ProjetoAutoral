@@ -37982,7 +37982,7 @@ MonoBehaviour:
   canSuccessiveInteract: 1
   textOnDisabledSuccessiveInteract: 
   singleTimeUse: 0
-  needItemToInteract: 0
+  needItemToInteract: 1
   itemsNeeded:
   - itemType: 18
     amount: 1
@@ -38181,6 +38181,8 @@ PlayableDirector:
     value: {fileID: 1821213254}
   - key: {fileID: -7013718290909382650, guid: e33f3a5489f99294d823fe1c0a31f1f4, type: 2}
     value: {fileID: 2082400010}
+  - key: {fileID: 142858950699834216, guid: e33f3a5489f99294d823fe1c0a31f1f4, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &2082400009
@@ -38196,7 +38198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadSceneOnStart: 0
-  nextScene: 6
+  nextScene: 5
 --- !u!95 &2082400010
 Animator:
   serializedVersion: 3

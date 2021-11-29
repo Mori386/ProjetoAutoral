@@ -20,7 +20,7 @@ public class AiBoss : MonoBehaviour
     public Animator animator;
     public bool attacking;
 
-    
+
     public int vida = 4;
 
     public AudioSource audioSource;
@@ -246,7 +246,7 @@ public class AiBoss : MonoBehaviour
                 {
                     pathfindingV2.search = false;
                     animator.SetTrigger("HitWall");
-                    if(audioSourceDashExtended.isPlaying) audioSourceDashExtended.Stop();
+                    if (audioSourceDashExtended.isPlaying) audioSourceDashExtended.Stop();
                     audioSource.PlayOneShot(wall);
                     StopCoroutine(enragedDash);
                     pathfindingV2.StopAllPathCheck();
@@ -314,6 +314,14 @@ public class AiBoss : MonoBehaviour
                     followRoute = null;
                 }
             }
+            else if (collision.name == "rachadura4")
+            {
+                collision.enabled = false;
+                GetComponent<BoxCollider2D>().enabled = false;
+                GetComponent<CapsuleCollider2D>().enabled = false;
+                StartCoroutine(delayDeath());
+            }
+
         }
         else
         {
@@ -333,6 +341,23 @@ public class AiBoss : MonoBehaviour
                 }
             }
         }
+    }
+
+    private IEnumerator delayDeath()
+    {
+        yield return new WaitForSeconds(1f);
+        audioSourceDashExtended.Stop();
+        foreach (AudioSource audio in GetComponents<AudioSource>())
+        {
+            if (audio.clip.name == "ambientBoss")
+            {
+                audio.Stop();
+                break;
+            }
+        }
+        audioSource.PlayOneShot(bossDeath);
+        yield return new WaitForSeconds(bossDeath.length);
+        Destroy(gameObject);
     }
     private IEnumerator delayStartPathfinding()
     {
