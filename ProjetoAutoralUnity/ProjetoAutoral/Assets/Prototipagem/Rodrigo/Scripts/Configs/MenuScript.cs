@@ -15,6 +15,8 @@ public class MenuScript : MonoBehaviour
     GameObject controlsOnWaitForInputMsg;
     GameObject controlsButtons;
 
+    GameObject CreditsTab;
+
     private void Awake()
     {
         GameObject canvas = GameObject.Find("Canvas");
@@ -23,6 +25,17 @@ public class MenuScript : MonoBehaviour
         controlsMenu = canvas.transform.Find("ControlsTab").gameObject;
         controlsOnWaitForInputMsg = controlsMenu.transform.Find("NextKeyMsg").gameObject;
         controlsButtons = controlsMenu.transform.Find("ControlsButtons").gameObject;
+        CreditsTab = canvas.transform.Find("CreditosTab").gameObject;
+
+        optionsMenu.transform.Find("VolumeSlider").GetComponent<Slider>().value = AudioListener.volume;
+    }
+    private void Start()
+    {
+        if (MenuConfigs.Instance.highestPuzzle <= 0)
+        {
+            baseMenu.transform.Find("Continue").gameObject.GetComponent<CanvasGroup>().alpha = 0.33f;
+            baseMenu.transform.Find("Continue").gameObject.GetComponent<Button>().enabled = false;
+        }
     }
     public void Play()
     {
@@ -30,10 +43,21 @@ public class MenuScript : MonoBehaviour
     }
     public void Continue()
     {
-
+        if (MenuConfigs.Instance.highestPuzzle > 0)
+        {
+            SceneManager.LoadScene(MenuConfigs.Instance.highestPuzzle+1);
+        }
     }
     public void Credits()
     {
+        baseMenu.SetActive(false);
+        CreditsTab.SetActive(true);
+        waitForInput = StartCoroutine(WaitForInput(MenuConfigs.Action.Menu, ExitCredits));
+    }
+    public void ExitCredits()
+    {
+        CreditsTab.SetActive(false);
+        baseMenu.SetActive(true);
     }
     public void Controls()
     {

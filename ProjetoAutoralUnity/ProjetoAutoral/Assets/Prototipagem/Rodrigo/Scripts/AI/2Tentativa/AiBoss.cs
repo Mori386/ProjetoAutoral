@@ -321,7 +321,10 @@ public class AiBoss : MonoBehaviour
                 GetComponent<CapsuleCollider2D>().enabled = false;
                 StartCoroutine(delayDeath());
             }
-
+            else if (collision.CompareTag("Player"))
+            {
+                PMStateManager.Instance.TakeDamage(1);
+            }
         }
         else
         {

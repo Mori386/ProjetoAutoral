@@ -11,7 +11,7 @@ public class MenuConfigs : MonoBehaviour
     [System.NonSerialized] public KeyCode[] InputKeys = new KeyCode[14];
 
     public int Puzzle;
-    [System.NonSerialized] public int PuzzleStep = 2;
+    public int PuzzleStep = 2;
 
     public int highestPuzzle;
     private void Awake()
@@ -30,12 +30,16 @@ public class MenuConfigs : MonoBehaviour
         InputKeys[11] = KeyCode.Alpha1;
         InputKeys[12] = KeyCode.Alpha2;
         InputKeys[13] = KeyCode.Alpha3;
-        if (Instance == null) Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+            highestPuzzle = Puzzle;
+        }
         else
         {
             Instance.PuzzleStep = 2;
             Instance.Puzzle = Puzzle;
-            if (Puzzle > highestPuzzle) highestPuzzle = Puzzle;
+            if (Puzzle > highestPuzzle) Instance.highestPuzzle = Puzzle;
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
