@@ -121,6 +121,11 @@ public class IODefaultState : IOBaseState
                                         Player.playerInventoryManager.inventory.GetItemList().Remove(itemInInventory);
                                         Player.playerInventoryManager.uiInventory.SetInventory(Player.playerInventoryManager.inventory);
                                     }
+                                    if (Manager.playAudio)
+                                    {
+                                        Manager.audioSource.clip = Manager.audioClip;
+                                        Manager.audioSource.Play();
+                                    }
                                     Manager.textBox.text = Manager.textBoxOnSuccessiveInteraction;
                                     successive = true;
                                     foundItem = true;
