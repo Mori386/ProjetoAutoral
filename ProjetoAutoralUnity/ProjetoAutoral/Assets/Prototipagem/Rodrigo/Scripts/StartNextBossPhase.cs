@@ -12,33 +12,33 @@ public class StartNextBossPhase : MonoBehaviour
         director = GetComponent<PlayableDirector>();
         if (collision.CompareTag("Player"))
         {
-            switch (AiBoss.Instance.vida)
+            switch (AIBossV2.Instance.hp)
             {
                 case 1:
-                    AiBoss.Instance.pathfindingV2.route = new List<NodeInfo>();
+                    AIBossV2.Instance.pathfindingV2.route = new List<NodeInfo>();
 
-                    AiBoss.Instance.transform.position = AiBoss.Instance.tp3.position;
-                    AiBoss.Instance.gameObject.GetComponent<SpriteRenderer>().enabled = true;
-                    AiBoss.Instance.gameObject.GetComponent<BoxCollider2D>().enabled = true;
-                    AiBoss.Instance.gameObject.GetComponent<CapsuleCollider2D>().enabled = true;
+                    AIBossV2.Instance.transform.position = AIBossV2.Instance.tp3.position;
+                    AIBossV2.Instance.gameObject.GetComponent<SpriteRenderer>().enabled = true;
+                    AIBossV2.Instance.transform.Find("TriggerDetector").GetComponent<BoxCollider2D>().enabled = true;
+                    AIBossV2.Instance.transform.Find("HitBoxDamage").GetComponent<BoxCollider2D>().enabled = true;
+                    AIBossV2.Instance.gameObject.GetComponent<CapsuleCollider2D>().enabled = true;
                     director.Play();
                     break;
                 case 2:
                 case 3:
                 case 4:
                     director.Play();
-                    break; 
+                    break;
             }
         }
     }
     public void TurnOnBoss()
     {
-        if (AiBoss.Instance.vida != 4)
+        if (AIBossV2.Instance.hp != 4)
         {
-            AiBoss.Instance.pathfindingV2.nowSearchingForGrid = MathMethods.WorldToGrid(AiBoss.Instance.pathfindingV2.tilemapPointZero, AiBoss.Instance.pathfindingV2.tilemap.cellSize, AiBoss.Instance.pathfindingV2.cc.bounds.center);
-            AiBoss.Instance.pathfindingV2.pathCheckRunning[0] = AiBoss.Instance.pathfindingV2.StartCoroutine(AiBoss.Instance.pathfindingV2.PathCheck(new NodeInfo() { gridPosition = MathMethods.WorldToGrid(AiBoss.Instance.pathfindingV2.tilemapPointZero, AiBoss.Instance.pathfindingV2.tilemap.cellSize, AiBoss.Instance.pathfindingV2.cc.bounds.center), cameFromNode = null }, AiBoss.Instance.pathfindingV2.playercc.bounds.center, 0, false));
-            AiBoss.Instance.pathfindingV2.search = true;
-            AiBoss.Instance.followRoute = null;
+            AIBossV2.Instance.pathfindingV2.search = true;
+            AIBossV2.Instance.pathfindingV2.nowSearchingForGrid = new Vector2();
+            AIBossV2.Instance.followRoute = null;
         }
     }
 

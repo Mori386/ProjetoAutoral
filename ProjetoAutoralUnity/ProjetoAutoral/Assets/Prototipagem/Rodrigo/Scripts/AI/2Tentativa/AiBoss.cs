@@ -194,7 +194,7 @@ public class AiBoss : MonoBehaviour
         deltaPos = Vector3.Normalize(deltaPos);
         while (true)
         {
-            transform.position += deltaPos * pathfindingV2.dashSpeed * Time.fixedDeltaTime;
+            transform.position += deltaPos * 1 * Time.fixedDeltaTime;
             yield return new WaitForFixedUpdate();
         }
     }

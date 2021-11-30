@@ -43,7 +43,6 @@ public class PathfindingV2 : MonoBehaviour
 
     public float moveSpeed;
 
-    public float dashSpeed;
 
     NodeInfo futureNode;
 
@@ -105,7 +104,7 @@ public class PathfindingV2 : MonoBehaviour
         tilemapPointZero = tilemap.GetCellCenterWorld(tilemap.origin);
         playercc = player.GetComponent<CapsuleCollider2D>();
         DefineDirectionPriorty(playercc.bounds.center);
-        nowSearchingForGrid = MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, cc.bounds.center);
+        nowSearchingForGrid = MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, playercc.bounds.center);
         pathCheckRunning[0] = StartCoroutine(PathCheck(new NodeInfo() { gridPosition = MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, cc.bounds.center), cameFromNode = null }, playercc.bounds.center, 0, false));
     }
     [System.NonSerialized] public Vector2 nowSearchingForGrid;
@@ -154,7 +153,7 @@ public class PathfindingV2 : MonoBehaviour
                         route.Remove(route[positionInRoute]);
                     }
                     found = false;
-                    nowSearchingForGrid = MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, cc.bounds.center);
+                    nowSearchingForGrid = MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, playercc.bounds.center);
                     pathCheckRunning[0] = StartCoroutine(PathCheck(new NodeInfo() { gridPosition = nearestNode.gridPosition, cameFromNode = null }, playercc.bounds.center, nearestNode.nodesToGetThere, false));
                 }
             }
@@ -162,7 +161,7 @@ public class PathfindingV2 : MonoBehaviour
             {
                 found = false;
                 DefineDirectionPriorty(playercc.bounds.center);
-                nowSearchingForGrid = MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, cc.bounds.center);
+                nowSearchingForGrid = MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, playercc.bounds.center);
                 pathCheckRunning[0] = StartCoroutine(PathCheck(new NodeInfo() { gridPosition = MathMethods.WorldToGrid(tilemapPointZero, tilemap.cellSize, cc.bounds.center), cameFromNode = null }, playercc.bounds.center, 0, false));
             }
         }

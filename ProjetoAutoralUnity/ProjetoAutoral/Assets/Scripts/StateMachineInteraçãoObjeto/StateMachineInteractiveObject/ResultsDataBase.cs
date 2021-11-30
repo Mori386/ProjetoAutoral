@@ -131,15 +131,11 @@ public class ResultsDataBase : MonoBehaviour
                 break;
             #endregion
             case "fogoSofa":
-                AiBoss aiBoss = AiBoss.Instance;
+                AIBossV2 aiBoss = AIBossV2.Instance;
                 player.transform.Find("Flashlights").GetComponent<PolygonCollider2D>().enabled = false;
                 aiBoss.target = manager.gameObject;
                 if(aiBoss.followRoute!=null)aiBoss.StopCoroutine(aiBoss.followRoute);
-                aiBoss.followRoute = null;
-                aiBoss.enragedCharging = true;
                 aiBoss.animator.SetTrigger("Preparation");
-                aiBoss.audioSourcePreAttack.clip = aiBoss.preAttack;
-                aiBoss.audioSourcePreAttack.Play();
                 manager.transform.Find("ParticleEmissorSmoke").GetComponent<ParticleSystem>().Play();
                 manager.transform.Find("fogoMovel").GetComponent<Animator>().SetBool("onFire", true);
                 manager.transform.Find("fogoMovel2").GetComponent<Animator>().SetBool("onFire", true);
