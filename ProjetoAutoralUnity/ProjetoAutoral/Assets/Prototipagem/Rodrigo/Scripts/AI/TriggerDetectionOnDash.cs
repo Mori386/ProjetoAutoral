@@ -10,6 +10,8 @@ public class TriggerDetectionOnDash : MonoBehaviour
         {
             AIBossV2.Instance.StopCoroutine(AIBossV2.Instance.enragedDash);
             AIBossV2.Instance.animator.SetTrigger("HitWall");
+            AIBossV2.Instance.audioSourceOneShot.PlayOneShot(AIBossV2.Instance.wall, AIBossV2.Instance.wallVolume);
+            if(AIBossV2.Instance.audioSourceDashExtended.isPlaying) AIBossV2.Instance.audioSourceDashExtended.Stop();
             AIBossV2.Instance.BossState = AIBossV2.BossStateList.Stun;
             if (AIBossV2.Instance.hp != 1)
             {
@@ -35,6 +37,8 @@ public class TriggerDetectionOnDash : MonoBehaviour
         {
             AIBossV2.Instance.StopCoroutine(AIBossV2.Instance.enragedDash);
             AIBossV2.Instance.animator.SetTrigger("HitWall");
+            AIBossV2.Instance.audioSourceOneShot.PlayOneShot(AIBossV2.Instance.wall, AIBossV2.Instance.wallVolume);
+            if (AIBossV2.Instance.audioSourceDashExtended.isPlaying) AIBossV2.Instance.audioSourceDashExtended.Stop();
             AIBossV2.Instance.BossState = AIBossV2.BossStateList.Stun;
             Instantiate(AIBossV2.Instance.pathfindingV2.pedraPf, gameObject.transform.position + new Vector3(0, 1, 0), Quaternion.identity);
             Destroy(this);
@@ -49,12 +53,16 @@ public class TriggerDetectionOnDash : MonoBehaviour
                     {
                         AIBossV2.Instance.StopCoroutine(AIBossV2.Instance.enragedDash);
                         AIBossV2.Instance.animator.SetTrigger("HitWall");
+                        AIBossV2.Instance.audioSourceOneShot.PlayOneShot(AIBossV2.Instance.wall, AIBossV2.Instance.wallVolume);
+                        if (AIBossV2.Instance.audioSourceDashExtended.isPlaying) AIBossV2.Instance.audioSourceDashExtended.Stop();
                         AIBossV2.Instance.TakeDamage();
                     }
                     else
                     {
                         AIBossV2.Instance.StopCoroutine(AIBossV2.Instance.enragedDash);
                         AIBossV2.Instance.animator.SetTrigger("HitWall");
+                        AIBossV2.Instance.audioSourceOneShot.PlayOneShot(AIBossV2.Instance.wall, AIBossV2.Instance.wallVolume);
+                        if (AIBossV2.Instance.audioSourceDashExtended.isPlaying) AIBossV2.Instance.audioSourceDashExtended.Stop();
                         AIBossV2.Instance.BossState = AIBossV2.BossStateList.Stun;
                         AIBossV2.Instance.pathfindingV2.search = true;
                         AIBossV2.Instance.pathfindingV2.nowSearchingForGrid = new Vector2();
@@ -73,6 +81,8 @@ public class TriggerDetectionOnDash : MonoBehaviour
                 case "GavetaRachadura":
                     AIBossV2.Instance.StopCoroutine(AIBossV2.Instance.enragedDash);
                     AIBossV2.Instance.animator.SetTrigger("HitWall");
+                    AIBossV2.Instance.audioSourceOneShot.PlayOneShot(AIBossV2.Instance.wall, AIBossV2.Instance.wallVolume);
+                    if (AIBossV2.Instance.audioSourceDashExtended.isPlaying) AIBossV2.Instance.audioSourceDashExtended.Stop();
                     collision.transform.Find("ParticleEmissor").GetComponent<ParticleSystem>().Play();
                     OD.ChangeSprite();
                     collision.enabled = false;
@@ -91,6 +101,8 @@ public class TriggerDetectionOnDash : MonoBehaviour
                     Destroy(this);
                     break;
                 case "rachadura4":
+                    collision.enabled = false;
+                    StartCoroutine(delayDeath());
                     Destroy(this);
                     break;
                 default:
@@ -102,5 +114,21 @@ public class TriggerDetectionOnDash : MonoBehaviour
                     break;
             }
         }
+    }
+    private IEnumerator delayDeath()
+    {
+        yield return new WaitForSeconds(1f);
+        AIBossV2.Instance.audioSourceDashExtended.Stop();
+        foreach (AudioSource audio in AIBossV2.Instance.GetComponents<AudioSource>())
+        {
+            if (audio.clip.name == "ambientBoss")
+            {
+                audio.Stop();
+                break;
+            }
+        }
+        AIBossV2.Instance.audioSourceOneShot.PlayOneShot(AIBossV2.Instance.bossDeath, AIBossV2.Instance.bossDeathVolume);
+        yield return new WaitForSeconds(AIBossV2.Instance.bossDeath.length);
+        Destroy(gameObject);
     }
 }

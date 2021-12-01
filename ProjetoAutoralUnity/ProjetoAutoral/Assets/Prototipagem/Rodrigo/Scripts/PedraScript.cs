@@ -9,7 +9,7 @@ public class PedraScript : MonoBehaviour
         if (collision.name == "Boss")
         {
             AIBossV2 aiBoss = collision.GetComponent<AIBossV2>();
-            //aiBoss.audioSource.PlayOneShot(aiBoss.wallRock);
+            AIBossV2.Instance.audioSourceOneShot.PlayOneShot(AIBossV2.Instance.wallRock, AIBossV2.Instance.wallRockVolume);
             aiBoss.TakeDamage();
             Destroy(gameObject);
         }

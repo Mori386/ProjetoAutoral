@@ -33,9 +33,23 @@ public class AIBossV2 : MonoBehaviour
 
     [Header("Audio Sources")]
     public AudioSource audioSourceOneShot;
+    public AudioSource audioSourcePreAttack;
+    public AudioSource audioSourceDashExtended;
 
     [Header("Audio Clips")]
     public AudioClip bossMelee;
+    public AudioClip bossDeath;
+    public AudioClip bossHurt;
+    public AudioClip dashExtended;
+    public AudioClip preAttack;
+    public AudioClip wall;
+    public AudioClip wallRock;
+
+    [System.NonSerialized]public float bossMeleeVolume=1;
+    [System.NonSerialized]public float bossDeathVolume=1;
+    [System.NonSerialized]public float bossHurtVolume=1;
+    [System.NonSerialized]public float wallVolume=1;
+    [System.NonSerialized]public float wallRockVolume=1;
     private void Awake()
     {
         Instance = this;
@@ -103,12 +117,17 @@ public class AIBossV2 : MonoBehaviour
     {
         hp--;
         animator.SetTrigger("HitHurt");
-        //audioSource.PlayOneShot(bossHurt);
+        audioSourceOneShot.PlayOneShot(bossHurt,bossHurtVolume);
     }
     // Animator Commands 
     public void ChangeBossState(BossStateList bossStateList)
     {
         BossState = bossStateList;
+        if (bossStateList == BossStateList.Charging)
+        {
+            audioSourcePreAttack.clip = preAttack;
+            audioSourcePreAttack.Play();
+        }
     }
 
     //Teleport
@@ -173,7 +192,7 @@ public class AIBossV2 : MonoBehaviour
         if (playerOnTrigger)
         {
             animator.SetTrigger("Melee");
-            audioSourceOneShot.PlayOneShot(bossMelee);
+            audioSourceOneShot.PlayOneShot(bossMelee,bossMeleeVolume);
         }
         else
         {
@@ -190,6 +209,9 @@ public class AIBossV2 : MonoBehaviour
         pathfindingV2.search = false;
         pathfindingV2.route = new List<NodeInfo>();
         transform.Find("TriggerDetector").gameObject.AddComponent<TriggerDetectionOnDash>();
+        audioSourceDashExtended.clip = dashExtended;
+        audioSourceDashExtended.Play();
+        if(audioSourcePreAttack.isPlaying)audioSourcePreAttack.Stop();
         enragedDash = StartCoroutine(EnragedDash());
     }
     public void DefineDashDeltaPos()

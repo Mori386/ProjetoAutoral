@@ -26,6 +26,8 @@ public class HitBoxBossV2 : MonoBehaviour
                 AIBossV2.Instance.StopCoroutine(AIBossV2.Instance.followRoute);
                 AIBossV2.Instance.BossState = AIBossV2.BossStateList.Charging;
                 AIBossV2.Instance.animator.ResetTrigger("CancelPreparation");
+                AIBossV2.Instance.audioSourcePreAttack.clip = AIBossV2.Instance.preAttack;
+                AIBossV2.Instance.audioSourcePreAttack.Play();
                 AIBossV2.Instance.animator.SetTrigger("Preparation");
             }
             yield return null;
@@ -33,6 +35,7 @@ public class HitBoxBossV2 : MonoBehaviour
         if (AIBossV2.Instance.BossState == AIBossV2.BossStateList.Charging)
         {
             AIBossV2.Instance.animator.SetTrigger("CancelPreparation");
+            AIBossV2.Instance.audioSourcePreAttack.Stop();
             AIBossV2.Instance.followRoute = AIBossV2.Instance.StartCoroutine(AIBossV2.Instance.FollowRoute());
         }
     }
