@@ -55,14 +55,14 @@ public class AIBossV2 : MonoBehaviour
     {
         target = pathfindingV2.player.gameObject;
         animator.ResetTrigger("HitWall");
-        BossState = BossStateList.Routing;
+        BossState = BossStateList.WaitingForNextActivation;
         StartCoroutine(On1Hp());
     }
     private IEnumerator On1Hp()
     {
         while (true)
         {
-            if(BossState==BossStateList.WaitingForNextActivation) animator.SetTrigger("Preparation");
+            if (BossState==BossStateList.WaitingForNextActivation) animator.SetTrigger("Preparation");
             yield return new WaitForFixedUpdate();
         }
     }

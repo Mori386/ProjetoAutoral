@@ -10,6 +10,8 @@ public class LoadScene : MonoBehaviour
     private bool loadSceneOnStart;
     [SerializeField]
     private int nextScene;
+    [SerializeField]
+    private bool inhibitCollisionLoad;
     private void Start()
     {
         if (loadSceneOnStart)
@@ -20,7 +22,10 @@ public class LoadScene : MonoBehaviour
     // Start is called before the first frame update
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        GetComponent<PlayableDirector>().Play();
+        if(inhibitCollisionLoad == false)
+        {
+            GetComponent<PlayableDirector>().Play();
+        }
     }
    
     public void loadScene()

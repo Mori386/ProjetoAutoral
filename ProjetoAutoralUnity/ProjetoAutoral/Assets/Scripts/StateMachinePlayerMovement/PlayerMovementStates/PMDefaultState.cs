@@ -335,11 +335,15 @@ public class PMDefaultState : PMBaseState
                 if (isEnemyOn)
                 {
                     if (AIEnemyLight.Instance.gameObject.activeInHierarchy) AIEnemyLight.Instance.gameObject.SetActive(false);
+                    isEnemyOn = false;
+                    Debug.Log("inimigo desativado");
                 }
-                else if (isEnemyOn)
+                else
                 {
 
                     if(!AIEnemyLight.Instance.gameObject.activeInHierarchy)  AIEnemyLight.Instance.gameObject.SetActive(true);
+                    isEnemyOn = true;
+                    Debug.Log("inimigo ativado");
                 }
                 ManagerTTC.StartCoroutine(TimeTravelCooldown());
             }
