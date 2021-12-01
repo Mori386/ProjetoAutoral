@@ -45,11 +45,11 @@ public class AIBossV2 : MonoBehaviour
     public AudioClip wall;
     public AudioClip wallRock;
 
-    [System.NonSerialized]public float bossMeleeVolume=1;
-    [System.NonSerialized]public float bossDeathVolume=1;
-    [System.NonSerialized]public float bossHurtVolume=1;
+    [System.NonSerialized]public float bossMeleeVolume=0.5f;
+    [System.NonSerialized]public float bossDeathVolume=0.5f;
+    [System.NonSerialized]public float bossHurtVolume=0.5f;
     [System.NonSerialized]public float wallVolume=1;
-    [System.NonSerialized]public float wallRockVolume=1;
+    [System.NonSerialized]public float wallRockVolume=0.5f;
     private void Awake()
     {
         Instance = this;
