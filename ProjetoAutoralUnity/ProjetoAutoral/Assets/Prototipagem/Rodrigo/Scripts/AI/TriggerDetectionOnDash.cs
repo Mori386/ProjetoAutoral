@@ -102,8 +102,7 @@ public class TriggerDetectionOnDash : MonoBehaviour
                     break;
                 case "rachadura4":
                     collision.enabled = false;
-                    StartCoroutine(delayDeath());
-                    Destroy(this);
+                    AIBossV2.Instance.StartCoroutine(delayDeath());
                     break;
                 default:
                     if (OD != null)
@@ -129,6 +128,6 @@ public class TriggerDetectionOnDash : MonoBehaviour
         }
         AIBossV2.Instance.audioSourceOneShot.PlayOneShot(AIBossV2.Instance.bossDeath, AIBossV2.Instance.bossDeathVolume);
         yield return new WaitForSeconds(AIBossV2.Instance.bossDeath.length);
-        Destroy(gameObject);
+        Destroy(AIBossV2.Instance.gameObject);
     }
 }

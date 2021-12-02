@@ -174,6 +174,7 @@ public class AIBossV2 : MonoBehaviour
                 gameObject.transform.Find("TriggerDetector").GetComponent<BoxCollider2D>().enabled = false;
                 gameObject.transform.Find("HitBoxDamage").GetComponent<BoxCollider2D>().enabled = false;
                 gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
+                pathfindingV2.moveSpeed = 0;
 
                 break;
         }
