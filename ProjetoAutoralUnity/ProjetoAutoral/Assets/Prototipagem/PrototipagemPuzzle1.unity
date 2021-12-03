@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -32981,7 +32981,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7779905, y: 1}
+    m_SensorSize: {x: 1.7786739, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -41339,8 +41339,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 573f6dc5f24f47c4f88bcb19f97370e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canSuccessiveInteract: 1
-  textOnDisabledSuccessiveInteract: 
+  canSuccessiveInteract: 0
+  textOnDisabledSuccessiveInteract: '"I can''t see the faint glow that was at the
+    bottom anymore."'
   singleTimeUse: 0
   needItemToInteract: 1
   itemsNeeded:
