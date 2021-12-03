@@ -332,18 +332,21 @@ public class PMDefaultState : PMBaseState
             {
                 if (ManagerTTC.director != null) ManagerTTC.director.Play();
                 ManagerTTC.TravelTime();
-                if (isEnemyOn)
+                if (MenuConfigs.Instance.Puzzle == 2)
                 {
-                    if (AIEnemyLight.Instance.gameObject.activeInHierarchy) AIEnemyLight.Instance.gameObject.SetActive(false);
-                    isEnemyOn = false;
-                    Debug.Log("inimigo desativado");
-                }
-                else
-                {
+                    if (isEnemyOn)
+                    {
+                        if (AIEnemyLight.Instance.gameObject.activeInHierarchy) AIEnemyLight.Instance.gameObject.SetActive(false);
+                        isEnemyOn = false;
+                        Debug.Log("inimigo desativado");
+                    }
+                    else
+                    {
 
-                    if(!AIEnemyLight.Instance.gameObject.activeInHierarchy)  AIEnemyLight.Instance.gameObject.SetActive(true);
-                    isEnemyOn = true;
-                    Debug.Log("inimigo ativado");
+                        if (!AIEnemyLight.Instance.gameObject.activeInHierarchy) AIEnemyLight.Instance.gameObject.SetActive(true);
+                        isEnemyOn = true;
+                        Debug.Log("inimigo ativado");
+                    }
                 }
                 ManagerTTC.StartCoroutine(TimeTravelCooldown());
             }
