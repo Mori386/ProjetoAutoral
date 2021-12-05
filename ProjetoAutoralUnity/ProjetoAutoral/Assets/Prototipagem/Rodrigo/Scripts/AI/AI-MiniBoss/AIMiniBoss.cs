@@ -23,6 +23,13 @@ public class AIMiniBoss : MonoBehaviour
             audioSource.Play();
             animator.SetTrigger("Preparation");
         }
+        else if (EnragedDashing)
+        {
+            if (collision.CompareTag("Player"))
+            {
+                PMStateManager.Instance.TakeDamage(1);
+            }
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -32,19 +39,10 @@ public class AIMiniBoss : MonoBehaviour
             if(!EnragedDashing) audioSource.Stop();
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (EnragedDashing)
-        {
-            if (collision.collider.CompareTag("Player"))
-            {
-                PMStateManager.Instance.TakeDamage(1);
-            }
-        }
-    }
     bool EnragedDashing;
     public void startEnragedDash()
     {
+        GetComponent<CapsuleCollider2D>().isTrigger = true;
         if (audioSource.isPlaying) audioSource.Stop();
         audioSource.clip = miniBossDash;
         audioSource.Play();

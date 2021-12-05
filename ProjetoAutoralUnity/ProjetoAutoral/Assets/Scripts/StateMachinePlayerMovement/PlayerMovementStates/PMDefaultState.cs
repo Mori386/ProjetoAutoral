@@ -154,7 +154,7 @@ public class PMDefaultState : PMBaseState
         }
         if (Input.GetKeyDown(MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.Radio]))
         {
-            if(MenuConfigs.Instance.Puzzle != 4) Manager.StartCoroutine(TextBoxQG(Manager));
+            if (MenuConfigs.Instance.Puzzle != 4) Manager.StartCoroutine(TextBoxQG(Manager));
         }
         if (Input.GetKeyDown(MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.Menu]))
         {
@@ -336,16 +336,15 @@ public class PMDefaultState : PMBaseState
                 {
                     if (isEnemyOn)
                     {
-                        if (AIEnemyLight.Instance.gameObject.activeInHierarchy) AIEnemyLight.Instance.gameObject.SetActive(false);
-                        isEnemyOn = false;
-                        Debug.Log("inimigo desativado");
-                    }
-                    else
-                    {
-
-                        if (!AIEnemyLight.Instance.gameObject.activeInHierarchy) AIEnemyLight.Instance.gameObject.SetActive(true);
-                        isEnemyOn = true;
-                        Debug.Log("inimigo ativado");
+                        if (AIEnemyLight.Instance.gameObject.activeInHierarchy)
+                        {
+                            AIEnemyLight.Instance.gameObject.SetActive(false);
+                        }
+                        else
+                        {
+                            AIEnemyLight.Instance.gameObject.SetActive(true);
+                            AIEnemyLight.Instance.followRoute = AIEnemyLight.Instance.StartCoroutine(AIEnemyLight.Instance.FollowRoute());
+                        }
                     }
                 }
                 ManagerTTC.StartCoroutine(TimeTravelCooldown());

@@ -18,6 +18,9 @@ public class AIEnemyLight : MonoBehaviour
         animator = GetComponent<Animator>();
         pathfindingV2 = GetComponent<PathfindingV2>();
         positionToCenter = positionToCenter = GetComponent<CapsuleCollider2D>().bounds.center - transform.position;
+    }
+    private void Start()
+    {
         gameObject.SetActive(false);
     }
     private void FixedUpdate()
