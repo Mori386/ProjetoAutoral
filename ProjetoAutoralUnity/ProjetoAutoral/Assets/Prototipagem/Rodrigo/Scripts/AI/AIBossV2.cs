@@ -165,9 +165,11 @@ public class AIBossV2 : MonoBehaviour
         {
             case 3:
                 transform.position = tp1.transform.position;
+                gameObject.transform.Find("HitBoxDamage").gameObject.SetActive(false);
                 break;
             case 2:
                 transform.position = tp2.transform.position;
+                gameObject.transform.Find("HitBoxDamage").gameObject.SetActive(false);
                 break;
             case 1:
                 gameObject.GetComponent<SpriteRenderer>().enabled = false;

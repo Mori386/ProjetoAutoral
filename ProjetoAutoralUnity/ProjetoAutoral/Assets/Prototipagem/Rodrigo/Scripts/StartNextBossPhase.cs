@@ -36,6 +36,7 @@ public class StartNextBossPhase : MonoBehaviour
     {
         if (AIBossV2.Instance.hp != 4)
         {
+            AIBossV2.Instance.transform.Find("HitBoxDamage").gameObject.SetActive(true);
             AIBossV2.Instance.pathfindingV2.search = true;
             AIBossV2.Instance.pathfindingV2.nowSearchingForGrid = new Vector2();
             AIBossV2.Instance.followRoute = null;
