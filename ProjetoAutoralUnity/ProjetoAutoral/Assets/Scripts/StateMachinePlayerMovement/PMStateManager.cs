@@ -104,6 +104,7 @@ public class PMStateManager : MonoBehaviour
         currentState = defaultState;
         currentState.EnterState(this);
         menuUI = GameObject.Find("Canvas").transform.Find("Menu").gameObject;
+        flashlightLP.transform.parent.localPosition = new Vector3(0.102f, -0.051f, 0);
     }
     void Update()
     {

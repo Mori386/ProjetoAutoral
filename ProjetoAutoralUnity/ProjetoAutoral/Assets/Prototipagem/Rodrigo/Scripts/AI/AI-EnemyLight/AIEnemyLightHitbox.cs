@@ -27,17 +27,34 @@ public class AIEnemyLightHitbox : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.name == "Flashlights")
+        if (aiEnemyLight.gameObject.activeInHierarchy)
         {
-            aiEnemyLight.followRoute = null;
-            aiEnemyLight.animator.enabled = true;
+            if (collision.name == "Flashlights")
+            {
+                aiEnemyLight.followRoute = null;
+                aiEnemyLight.animator.enabled = true;
+            }
+            else if (collision.CompareTag("Player"))
+            {
+                aiEnemyLight.isPlayerTriggered = false;
+                StopCoroutine(attackPlayer);
+                attackPlayer = null;
+                StartCoroutine(WaitForLastAttack());
+            }
         }
-        else if (collision.CompareTag("Player"))
+        else
         {
-            aiEnemyLight.isPlayerTriggered = false;
-            StopCoroutine(attackPlayer);
-            attackPlayer = null;
-            StartCoroutine(WaitForLastAttack());
+            if (collision.name == "Flashlights")
+            {
+                aiEnemyLight.followRoute = null;
+                aiEnemyLight.animator.enabled = true;
+            }
+            else if (collision.CompareTag("Player"))
+            {
+                aiEnemyLight.isPlayerTriggered = false;
+                StopCoroutine(attackPlayer);
+                attackPlayer = null;
+            }
         }
     }
     private IEnumerator WaitForLastAttack()
