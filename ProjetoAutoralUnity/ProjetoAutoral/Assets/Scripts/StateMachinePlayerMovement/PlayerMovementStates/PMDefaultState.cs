@@ -330,26 +330,54 @@ public class PMDefaultState : PMBaseState
         {
             if (Input.GetKeyDown(MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.TimeTravel]))
             {
-                if (ManagerTTC.director != null) ManagerTTC.director.Play();
-                ManagerTTC.TravelTime();
-                if (MenuConfigs.Instance.Puzzle == 2)
+                if (MenuConfigs.Instance.Puzzle == 2 & isEnemyOn)
                 {
-                    if (isEnemyOn)
+                    if (ControlEnemyLight.InstanceControlFuture.playerTriggered)
                     {
-                        if (AIEnemyLight.Instance.gameObject.activeInHierarchy)
-                        {
-                            AIEnemyLight.Instance.gameObject.SetActive(false);
-                        }
-                        else
-                        {
-                            AIEnemyLight.Instance.gameObject.SetActive(true);
-                            AIEnemyLight.Instance.followRoute = AIEnemyLight.Instance.StartCoroutine(AIEnemyLight.Instance.FollowRoute());
-                        }
+                        if (ManagerTTC.director != null) ManagerTTC.director.Play();
+                        ManagerTTC.TravelTime();
+                        ManagerTTC.StartCoroutine(TimeTravelCooldown());
+                    }
+                    else
+                    {
+                        ManagerTTC.StartCoroutine(TextBoxQGTimeTravel(ManagerTTC));
                     }
                 }
-                ManagerTTC.StartCoroutine(TimeTravelCooldown());
+                else
+                {
+                    if (ManagerTTC.director != null) ManagerTTC.director.Play();
+                    ManagerTTC.TravelTime();
+                    ManagerTTC.StartCoroutine(TimeTravelCooldown());
+                }
             }
         }
+    }
+    private IEnumerator TextBoxQGTimeTravel(PMStateManager Manager)
+    {
+        Manager.SmoothSwitchState(Manager.controlOffState);
+        Manager.textBox.transform.parent.Find("QG").gameObject.SetActive(false);
+        Manager.textBox.margin = new Vector4(0, 0, 0, 0);
+        Manager.textBox.pageToDisplay = 1;
+        Manager.ui.SetActive(false);
+        Manager.textBox.transform.parent.gameObject.SetActive(true);
+        Time.timeScale = 0;
+        Manager.textBox.text = "This place is obstructed in the present, i should try it in another place";
+        while (Manager.textBox.textInfo.pageCount == 0)
+        {
+            yield return null;
+        }
+        yield return new WaitForSecondsRealtime(0.1f);
+        while (Manager.textBox.textInfo.pageCount - Manager.textBox.pageToDisplay >= 0)
+        {
+            while (!Input.GetKeyDown(MenuConfigs.Instance.InputKeys[(int)MenuConfigs.Action.Interaction])) yield return null;
+            Manager.textBox.pageToDisplay++;
+            yield return null;
+        }
+        Manager.ui.SetActive(true);
+        Manager.textBox.transform.parent.gameObject.SetActive(false);
+        Manager.SmoothSwitchState(Manager.defaultState);
+        Time.timeScale = 1;
+        Manager.textBox.text = "";
     }
     private IEnumerator TimeTravelCooldown()
     {

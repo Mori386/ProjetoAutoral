@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -11312,7 +11312,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000091552734, y: -0.000030517578}
+  m_AnchoredPosition: {x: -0.00012207031, y: -0.000030517578}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &607011847
@@ -20090,7 +20090,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7766666, y: 1}
+    m_SensorSize: {x: 1.777969, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -32909,7 +32909,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.05031967, y: 0.041807175}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -32920,7 +32920,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.41080475, y: 0.55854416}
   m_EdgeRadius: 0
 --- !u!4 &1633433213
 Transform:
@@ -53654,6 +53654,7 @@ GameObject:
   - component: {fileID: 2068573209}
   - component: {fileID: 2068573211}
   - component: {fileID: 2068573210}
+  - component: {fileID: 2068573212}
   m_Layer: 5
   m_Name: Watch
   m_TagString: Untagged
@@ -53718,6 +53719,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2068573208}
   m_CullTransparentMesh: 0
+--- !u!114 &2068573212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068573208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfc81738e83147d4bb3e95a00fa67fe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultClock: {fileID: 21300000, guid: 2bf53a340c5b23c489d0458011916e7a, type: 3}
+  DisabledClock: {fileID: 21300000, guid: 239821a095aab584e80831c4b699cf5d, type: 3}
 --- !u!1 &2071385540
 GameObject:
   m_ObjectHideFlags: 0
